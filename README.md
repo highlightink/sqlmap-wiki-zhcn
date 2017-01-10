@@ -1,5 +1,5 @@
-# sqlmap-wiki-zhcn  
-## sqlmap wiki 中文版。
+# sqlmap-wiki-zhcn（sqlmap wiki 中文版）
+sqlmap wiki 中文版
 
 这本书包含了 sqlmap 项目的完整 wiki。
 
