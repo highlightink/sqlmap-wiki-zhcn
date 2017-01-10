@@ -4,4 +4,4 @@
 * [主页](Home.md)
 * [导航](_Sidebar.md)
 * [Usage](User's manual\Usage\Usage.md)
-    * [Output verbosity]()
+    * [Output verbosity](User's manual\Usage\Output verbosity.md)
