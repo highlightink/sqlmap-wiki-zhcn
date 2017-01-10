@@ -11,4 +11,4 @@
 * [History](User's manual\History.md)
 * [Usage](User's manual\Usage\Usage.md)
     * [Output verbosity](User's manual\Usage\Output verbosity.md)
-* [Usage](User's manual\Usage\Usage.md)
+* [License](User's manual\License.md)
