@@ -9,10 +9,5 @@
 * [Download and update](User's manual\Download-and-update.md)
 * [Dependencies](User's manual\Dependencies.md)
 * [History](User's manual\History.md)
-* [Techniques](User's manual\Techniques.md)
-* [Techniques](User's manual\Techniques.md)
-* [Techniques](User's manual\Techniques.md)
-* [Techniques](User's manual\Techniques.md)
-
 * [Usage](User's manual\Usage\Usage.md)
     * [Output verbosity](User's manual\Usage\Output verbosity.md)
