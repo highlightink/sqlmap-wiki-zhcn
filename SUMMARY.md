@@ -14,3 +14,7 @@
 * [License](User's manual\License.md)
 * [杂项导航](Miscellaneous\Miscellaneous.md)
 * [FAQ](Miscellaneous\FAQ.md)
+* [FAQ](Miscellaneous\FAQ.md)
+* [FAQ](Miscellaneous\FAQ.md)
+* [FAQ](Miscellaneous\FAQ.md)
+
