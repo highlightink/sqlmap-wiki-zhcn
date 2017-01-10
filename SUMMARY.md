@@ -2,7 +2,7 @@
 
 * [本书介绍](README.md)
 * [主页](Home.md)
-* [导航](_Sidebar.md)
+* [用户手册导航](_Sidebar.md)
 * [Introduction](User's manual\Introduction.md)
 * [Techniques](User's manual\Techniques.md)
 * [Features](User's manual\Features.md)
@@ -12,3 +12,4 @@
 * [Usage](User's manual\Usage\Usage.md)
     * [Output verbosity](User's manual\Usage\Output verbosity.md)
 * [License](User's manual\License.md)
+* [杂项导航]
