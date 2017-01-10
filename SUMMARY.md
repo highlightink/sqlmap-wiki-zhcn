@@ -1,7 +1,6 @@
 # 目录
 
 * [本书介绍](README.md)
-* [主页](Home.md)
 * [用户手册](User's manual\User's manual.md)
 * [Introduction](User's manual\Introduction.md)
 * [Techniques](User's manual\Techniques.md)
