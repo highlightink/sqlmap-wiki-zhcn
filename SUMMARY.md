@@ -6,7 +6,7 @@
 * [Introduction](User's manual\Introduction.md)
 * [Techniques](User's manual\Techniques.md)
 * [Features](User's manual\Features.md)
-* [Techniques](User's manual\Techniques.md)
+* [Download and update](User's manual\Download-and-update.md)
 * [Techniques](User's manual\Techniques.md)
 * [Techniques](User's manual\Techniques.md)
 * [Techniques](User's manual\Techniques.md)
