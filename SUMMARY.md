@@ -12,4 +12,4 @@
 * [Usage](User's manual\Usage\Usage.md)
     * [Output verbosity](User's manual\Usage\Output verbosity.md)
 * [License](User's manual\License.md)
-* [杂项导航]
+* [杂项导航](Miscellaneous\Miscellaneous.md)
