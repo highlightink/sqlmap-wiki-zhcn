@@ -8,7 +8,7 @@
 * [Features](User's manual\Features.md)
 * [Download and update](User's manual\Download-and-update.md)
 * [Dependencies](User's manual\Dependencies.md)
-* [Techniques](User's manual\Techniques.md)
+* [History](User's manual\History.md)
 * [Techniques](User's manual\Techniques.md)
 * [Techniques](User's manual\Techniques.md)
 * [Techniques](User's manual\Techniques.md)
