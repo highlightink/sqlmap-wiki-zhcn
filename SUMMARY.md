@@ -16,5 +16,5 @@
 * [FAQ](Miscellaneous\FAQ.md)
 * [Presentations](Miscellaneous\Presentations.md)
 * [Screenshots](Miscellaneous\Screenshots.md)
-* [FAQ](Miscellaneous\FAQ.md)
+* [Third party libraries](Miscellaneous\Third-party-libraries.md)
 
