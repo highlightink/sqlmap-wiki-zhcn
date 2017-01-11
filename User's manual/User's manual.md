@@ -8,7 +8,8 @@
 * [用法]() - 所有**选项**和**开关**的详尽解释，包含相应实例。
 * [许可证]() - 版权信息
 
-#### 下面是英文原版, review 并修改中文中的错误和不通顺后删除
+---
+
 #### User's manual
 * [[Introduction]] - Introductory to sqlmap
 * [[Techniques]] - SQLi techniques supported by sqlmap
