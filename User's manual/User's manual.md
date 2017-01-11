@@ -1,5 +1,5 @@
 #### 用户手册
-* [介绍](./User's manual/Introduction.html) - 介绍 sqlmap
+* [介绍](./Introduction.html) - 介绍 sqlmap
 * [技术]() - sqlmap 支持的 SQL 注入技术
 * [特性]() - 支持的特性简要列表
 * [下载和更新]() - 更新你的 sqlmap 副本
