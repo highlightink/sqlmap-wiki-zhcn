@@ -1,5 +1,15 @@
-# Techniques
+# 技术
+sqlmap 能够用于检测和利用五种不同**类型** SQL 注入。
 
+* **基于布尔值盲注**: sqlmap 可以通过替换或者添加相关的 SQL 语句到 HTTP 请求的查询参数里面，相关的 SQL 语句可能是合法的 `SELECT` 子查询，也可能是任意其它用户用于获取输出数据的 SQL 语句。 针对每一个注入检测的 HTTP 响应，sqlmap 会对比原先请求响应的头部／主体，相关的工具会对注入结果进行逐个字符对比。或者，用户可以预先提供字符串或正则表达式，用于对正确页面结果进行对应的匹配。sqlmap 内部实现了二分算法，并且充分利用了 HTTP 七种不同请求方法，能够快速地匹配对应响应内容。如果请求响应结果不是简单的明文字符集，sqlmap 则会采取其它算法对输出结果进行检测。
+
+* **基于时间盲注**: sqlmap 可以通过替换或者添加相关的 SQL 语句到 HTTP 请求的查询参数里面，相关的 SQL 语句可能是合法的、用于使后端数据库延迟几秒响应的相关查询。 针对每一个注入检测的 HTTP 响应，sqlmap 会纪录并对比原先请求响应的时间，相关的工具也会对注入输出结果进行逐个字节对比。正如基于布尔值盲注技术一样，二分算法也会被应用。
+* **基于错误信息**: sqlmap 可以通过替换或者添加用于引发特定数据库错误的 SQL 语句到查询参数里面，并通过解析对应的注入结果，看特定的数据库错误信息是否存在响应的头部／主体中。      相关的 SQL 语句可能是合法的sqlmap replaces or appends to the affected parameter a database-specific error message provoking statement and parses the HTTP response headers and body in search of DBMS error messages containing the injected pre-defined chain of characters and the subquery statement output within. This technique works only when the web application has been configured to disclose back-end database management system error messages.
+* **UNION query-based**: sqlmap appends to the affected parameter a syntactically valid SQL statement starting with an `UNION ALL SELECT`. This techique works when the web application page passes directly the output of the `SELECT` statement within a `for` loop, or similar, so that each line of the query output is printed on the page content. sqlmap is also able to exploit **partial (single entry) UNION query SQL injection** vulnerabilities which occur when the output of the statement is not cycled in a `for` construct, whereas only the first entry of the query output is displayed.
+* **Stacked queries**, also known as **piggy backing**: sqlmap tests if the web application supports stacked queries and then, in case it does support, it appends to the affected
+parameter in the HTTP request, a semi-colon (`;`) followed by the SQL statement to be executed. This technique is useful to run SQL statements other than `SELECT`, like for instance, **data definition** or **data manipulation** statements, possibly leading to file system read and write access and operating system command execution depending on the underlying back-end database management system and the session user privileges.
+
+# English
 sqlmap is able to detect and exploit five different SQL injection **types**:
 
 * **Boolean-based blind**: sqlmap replaces or appends to the affected parameter in the HTTP request, a syntatically valid SQL statement string containing a `SELECT` sub-statement, or any other SQL statement whose the user want to retrieve the output. For each HTTP response, by making a comparison between the HTTP response headers/body with the original request, the tool inference the output of the injected statement character by character. Alternatively, the user can provide a string or regular expression to match on True pages. The bisection algorithm implemented in sqlmap to perform this technique is able to fetch each character of the output with a maximum of seven HTTP requests. Where the output is not within the clear-text plain charset, sqlmap will adapt the algorithm with bigger ranges to detect the output.
