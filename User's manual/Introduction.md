@@ -51,7 +51,7 @@ sqlmap 能自动化地识别和利用这种漏洞。将这个地址输入到 sql
 
 ## 直接连接数据库系统
 
-Up until sqlmap version **0.8**, the tool has been **yet another SQL injection tool**, used by web application penetration testers/newbies/curious teens/computer addicted/punks and so on. Things move on and as they evolve, we do as well. Now it supports this new switch, `-d`, that allows you to connect from your machine to the database server's TCP port where the database management system daemon is listening on and perform any operation you would do while using it to attack a database via a SQL injection vulnerability.
+直到 sqlmap **0.8** 版本，它已经成为 web 应用渗透测试工程师/新手/好奇少年/网瘾少年/朋克们经常使用的**又一款 SQL 注入工具**。随着这些人的进步，我们也在进步中。现在 sqlmap 支持一个新的开关选项 `-d`，它允许你通过被数据库系统守护进程监听的 TCP 端口直接连接数据库服务器，以进行任何你想要使用 SQL 注入漏洞攻击一个数据库的操作。
 
 ---
 In this simple scenario it would also be possible to append, not just one or more valid SQL conditions, but also \(depending on the DBMS\) stacked SQL queries. For instance:  `[...]&id=1;ANOTHER SQL QUERY#`.
