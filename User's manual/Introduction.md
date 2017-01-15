@@ -42,7 +42,8 @@ $query = "SELECT [column name(s)] FROM [table name] WHERE id=" . $_REQUEST['id']
 
 sqlmap 能自动化地识别和利用这种漏洞。将这个地址输入到 sqlmap，`http://192.168.136.131/sqlmap/mysql/get_int.php?id=1`，它能自动地：
 
-* Identify the vulnerable parameter\(s\) \(`id` in this example\)
+* 识别有问题的参数（比如这个例子中的 `id`）
+* Identify the vulnerable parameter\(s\) \(in this example\)
 * Identify which SQL injection techniques can be used to exploit the vulnerable parameter\(s\)
 * Fingerprint the back-end database management system
 * Depending on the user's options, it will extensively fingerprint, enumerate data or takeover the database server as a whole
