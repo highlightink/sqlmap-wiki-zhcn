@@ -25,7 +25,7 @@ http://192.168.136.131/sqlmap/mysql/get_int.php?id=1+AND+1=2
 
 页面显示跟原来的不一样（AND+1=2 条件取值为 **False**）。这可能说明 `index.php` 的 `id` `GET` 参数存在 SQL 注入漏洞。此外，这种情形也表明用户输入的数据在 SQL 语句传送到数据库之前没有被过滤。
 
-这种设计缺陷在动态网页应用中十分常见，此类型漏洞与后端数据管理系统或后端编程语言并没有关系，漏洞的引入通常存在于代码的编写逻辑里面。从2013年开始，[开放 Web 应用安全组织](http://www.owasp.org)已将此类漏洞列入[最常见](https://www.owasp.org/images/f/f8/OWASP_Top_10_-_2013.pdf)（译者注：原链接失效，重新添加了有效链接）严重Web应用漏洞的[前十](http://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)名单。
+这种设计缺陷在动态网页应用中十分常见，此类型漏洞与后端数据管理系统或后端编程语言并没有关系，漏洞的引入通常存在于代码的编写逻辑里面。从 2013年 开始，[开放 Web 应用安全组织](http://www.owasp.org)已将此类漏洞列入[最常见](https://www.owasp.org/images/f/f8/OWASP_Top_10_-_2013.pdf)（译者注：原链接失效，重新添加了有效链接）严重Web应用漏洞的[前十](http://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)名单。
 
 从上面的例子我们发现了存在可以利用的参数，现在我们可以通过在每一次的 HTTP 请求中修改 `id` 进行相关的漏洞检测。
 
