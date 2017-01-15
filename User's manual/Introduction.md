@@ -47,13 +47,12 @@ sqlmap 能自动化地识别和利用这种漏洞。将这个地址输入到 sql
 * 采集后端数据库系统的信息
 * 根据用户使用的选项，它还能采集更多的信息，枚举数据或是完全地接管数据库系统
 
-网上还有很多深入讲解如何检测，利用和防止 SQL 注入漏洞的资源[资源](http://delicious.com/inquis/sqlinjection)。推荐你在深入学习 sqlmap 之前阅读这些材料。
+网上还有很多深入讲解如何检测，利用和防止 SQL 注入漏洞的[资源](http://delicious.com/inquis/sqlinjection)。推荐你在学习使用 sqlmap 之前阅读这些材料。
 
 ## 直接连接数据库系统
 
-Up until sqlmap version **0.8**, the tool has been **yet another SQL injection tool**, used by web application penetration testers/newbies/curious teens/computer addicted/punks and so on. Things move on  
-and as they evolve, we do as well. Now it supports this new switch, `-d`, that allows you to connect from your machine to the database server's TCP port where the database management system daemon is listening  
-on and perform any operation you would do while using it to attack a database via a SQL injection vulnerability.
+sqlmap **0.8** 版本之前，
+Up until sqlmap version **0.8**, the tool has been **yet another SQL injection tool**, used by web application penetration testers/newbies/curious teens/computer addicted/punks and so on. Things move on and as they evolve, we do as well. Now it supports this new switch, `-d`, that allows you to connect from your machine to the database server's TCP port where the database management system daemon is listening on and perform any operation you would do while using it to attack a database via a SQL injection vulnerability.
 
 ---
 In this simple scenario it would also be possible to append, not just one or more valid SQL conditions, but also \(depending on the DBMS\) stacked SQL queries. For instance:  `[...]&id=1;ANOTHER SQL QUERY#`.
