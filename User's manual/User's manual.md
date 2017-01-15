@@ -1,4 +1,5 @@
 #### 用户手册
+
 * [介绍](./Introduction.html) - 介绍 sqlmap
 * [技术]() - sqlmap 支持的 SQL 注入技术
 * [特性]() - 支持的特性简要列表
@@ -11,11 +12,15 @@
 ---
 
 #### User's manual
-* [[Introduction]] - Introductory to sqlmap
-* [[Techniques]] - SQLi techniques supported by sqlmap
-* [[Features]] - Brief list of supported features
-* [[Download and update]] - Keep your copy up-to-date
-* [[Dependencies]] - Information about used third-party libraries and tools
-* [[History]] - History from 2006 to 2016
-* [[Usage]] - Exhaustive breakdown of all **options** and **switches** together with **examples**
-* [[License]] - Copyright information
+
+* \[\[Introduction\]\] - Introductory to sqlmap
+* \[\[Techniques\]\] - SQLi techniques supported by sqlmap
+* \[\[Features\]\] - Brief list of supported features
+* \[\[Download and update\]\] - Keep your copy up-to-date
+* \[\[Dependencies\]\] - Information about used third-party libraries and tools
+* \[\[History\]\] - History from 2006 to 2016
+* \[\[Usage\]\] - Exhaustive breakdown of all **options** and **switches** together with **examples**
+* \[\[License\]\] - Copyright information
+
+
+
