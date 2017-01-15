@@ -51,7 +51,6 @@ sqlmap 能自动化地识别和利用这种漏洞。将这个地址输入到 sql
 
 ## 直接连接数据库系统
 
-sqlmap **0.8** 版本之前，
 Up until sqlmap version **0.8**, the tool has been **yet another SQL injection tool**, used by web application penetration testers/newbies/curious teens/computer addicted/punks and so on. Things move on and as they evolve, we do as well. Now it supports this new switch, `-d`, that allows you to connect from your machine to the database server's TCP port where the database management system daemon is listening on and perform any operation you would do while using it to attack a database via a SQL injection vulnerability.
 
 ---
