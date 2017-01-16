@@ -1,9 +1,9 @@
-# 用户目录
+# Summary
 
 * [本书介绍](README.md)
 * [用户手册](User's manual\User's manual.md)
 * [介绍](User's manual\Introduction.md)
-* [Techniques](User's manual\Techniques.md)
+* [技术](User's manual\Techniques.md)
 * [特性](User's manual\Features.md)
 * [Download and update](User's manual\Download-and-update.md)
 * [Dependencies](User's manual\Dependencies.md)
