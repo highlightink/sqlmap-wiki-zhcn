@@ -4,7 +4,7 @@ sqlmap 实现的功能特性包括：
 
 ## 通用特性
 * 完整支持 **MySQL**，**Oracle**，**PostgresSQL**，**Microsoft SQL Server**，**Microsoft Access**，**IBM DB2**，**SQLite**，**Firebird**，**Sybase**，**SAP MaxDB** 和 **HSQLDB** 数据库管理系统。
-* 完整支持五种 SQL 注入技术：**布尔型盲注**，**时间型盲注**。**报错型注入**，**联合查询注入** 和 **多语句查询注入**。
+* 完整支持五种 SQL 注入技术：**布尔型盲注**，**时间型盲注**。**报错型注入**，**联合查询注入** 和 **堆叠查询注入**。
 * 支持通过提供 DBMS 凭证，IP 地址，端口和数据库名而非 SQL 注入**直接连接数据库**。
 * 支持用户提供的单个目标 URL，通过 [Burp proxy](http://portswigger.net/suite/) 或 [WebScarab proxy](http://www.owasp.org/index.php/Category:OWASP_WebScarab_Project) 的请求日志文件批量获取目标地址，从文本文件获得完整的 HTTP 请求报文或使用 Google dork ——使用 [Google](http://www.google.com) 查询并解析结果页面获取批量目标。也可以自定义基于范围的正则表达式。
 * 可以测试并利用 **GET** 和 **POST** 参数，HTTP 头中的 **Cookie**，**User-Agent** 和 **Referer** 这些地方出现的 SQL 注入漏洞。也可以指定用英文逗号隔开的一个参数列表进行测试。
