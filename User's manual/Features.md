@@ -1,6 +1,6 @@
 # 特性
 
-sqlmap 实现的功能包括：
+sqlmap 实现的功能特性包括：
 
 ## Generic features
 
