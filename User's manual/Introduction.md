@@ -37,38 +37,18 @@ $query = "SELECT [column name(s)] FROM [table name] WHERE id=" . $_REQUEST['id']
 
 如你所见，通过在 `id` 参数后面添加合法并且布尔值为 **True** 的 SQL 语句（例如 `id=1 AND 1=1`），能够使 Web 应用返回和之前合法请求（没有添加其它的 SQL 语句）一模一样的页面。由此可见，后端数据库执行了先前我们注入的 SQL 语句。上面的例子展示了一个基于布尔值的简单 SQL 盲注。然而，通过使用 sqlmap 工具，我们可以检测出任意类型的 SQL 注入漏洞，并且将其纳入对应的工作流。
 
-在这个简单的场景中不只是可以添加一个或多个 SQL 判断条件，还可以（取决于数据库系统类型）添加更多的 SQL 查询语句。例如：`[...]&id=1; 其他 SQL 查询语句#`。
+在这个简单的场景中不只是可以添加一个或多个 SQL 判断条件语句，还可以（取决于数据库系统类型）添加更多的 SQL 堆叠语句。例如：`[...]&id=1; 其他 SQL 查询语句#`。
 
-sqlmap 能自动化地识别和利用这种漏洞。将这个地址输入到 sqlmap，`http://192.168.136.131/sqlmap/mysql/get_int.php?id=1`，它能自动地：
+sqlmap 能自动识别和利用这类型漏洞。将源链接添加到 sqlmap，`http://192.168.136.131/sqlmap/mysql/get_int.php?id=1`，它能够自动完成下面操作：
 
 * 识别有漏洞的参数（比如这个例子中的 `id`）
-* 判断可用哪种 SQL 注入技术去利用有漏洞的参数。
-* 采集后端数据库系统的信息
-* 根据用户使用的选项，它还能采集更多的信息，枚举数据或是完全地接管数据库系统
+* 针对有漏洞的参数，自动选取某类型 SQL 注入技术。
+* 采集后端数据库系统的相关信息
+* 根据用户使用的选项，它还能尽可能采集多的信息，枚举相关数据或是实现整库数据的拉取。
 
-网上还有很多深入讲解如何检测，利用和防止 SQL 注入漏洞的[资源](http://delicious.com/inquis/sqlinjection)。推荐你在学习使用 sqlmap 之前阅读这些材料。
+网上还有很多深入讲解如何检测、利用和防止 SQL 注入漏洞的[资源](http://delicious.com/inquis/sqlinjection)。推荐你在学习使用 sqlmap 之前阅读这些材料。
 
 ## 直接连接数据库系统
 
-直到 sqlmap **0.8** 版本，它已经成为 web 应用渗透测试工程师/新手/好奇少年/网瘾少年/朋克们经常使用的**又一款 SQL 注入工具**。随着这些人的进步，我们也在进步中。现在 sqlmap 支持一个新的开关选项 `-d`，它允许你通过被数据库系统守护进程监听的 TCP 端口直接连接数据库服务器，以进行任何你想要使用 SQL 注入漏洞攻击一个数据库的操作。
-
----
-In this simple scenario it would also be possible to append, not just one or more valid SQL conditions, but also \(depending on the DBMS\) stacked SQL queries. For instance:  `[...]&id=1;ANOTHER SQL QUERY#`.
-
-sqlmap can automate the process of identifying and exploiting this type of vulnerability. Passing the original address, `http://192.168.136.131/sqlmap/mysql/get_int.php?id=1` to sqlmap, the tool will automatically:
-
-* Identify the vulnerable parameter\(s\) \(`id` in this example\)
-* Identify which SQL injection techniques can be used to exploit the vulnerable parameter\(s\)
-* Fingerprint the back-end database management system
-* Depending on the user's options, it will extensively fingerprint, enumerate data or takeover the database server as a whole
-
-...and depending on supplied options, it will enumerate data or takeover the database server entirely.
-
-There exist many [resources](http://delicious.com/inquis/sqlinjection) on the web explaining in depth how to detect, exploit and prevent SQL injection vulnerabilities in web applications. It is recommendeded that you read them before going much further with sqlmap.
-
-## Direct connection to the database management system
-
-Up until sqlmap version **0.8**, the tool has been **yet another SQL injection tool**, used by web application penetration testers/newbies/curious teens/computer addicted/punks and so on. Things move on  
-and as they evolve, we do as well. Now it supports this new switch, `-d`, that allows you to connect from your machine to the database server's TCP port where the database management system daemon is listening  
-on and perform any operation you would do while using it to attack a database via a SQL injection vulnerability.
+在 sqlmap **0.8** 版本推出前，sqlmap 被认为是 web 应用渗透测试工程师/新手/技术爱好者等人使用的**又一款 SQL 注入工具**。 然而，随着使用者的成长，渗透技术的发展，sqlmap 同样也跟着演化。现在 sqlmap 支持一个新的开关选项 `-d`，它允许你通过数据库系统守护进程监听的 TCP 端口直接连接目标数据库服务器，便于你使用 SQL 注入技术对目标数据库进行漏洞攻击。
 
