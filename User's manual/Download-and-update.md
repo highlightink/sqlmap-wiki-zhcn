@@ -1,8 +1,8 @@
 # 下载更新
 
-下载最新版本的 tar 源码包点击 [这里](https://github.com/sqlmapproject/sqlmap/tarball/master) 或者最新版本的 zip 源码包点击  [这里](https://github.com/sqlmapproject/sqlmap/zipball/master).
+下载最新版本的 tar 源码包点击[这里](https://github.com/sqlmapproject/sqlmap/tarball/master)或者最新版本的 zip 源码包点击[这里](https://github.com/sqlmapproject/sqlmap/zipball/master)。
 
-更好的方式是，直接使用 Git 克隆 sqlmap 仓库。 [Git](https://github.com/sqlmapproject/sqlmap) :
+更好的方式是，直接使用 Git 克隆 sqlmap 仓库。[Git](https://github.com/sqlmapproject/sqlmap)：
 
     git clone https://github.com/sqlmapproject/sqlmap.git sqlmap-dev
 
@@ -10,22 +10,6 @@
 
     python sqlmap.py --update
 
-或者:
-
-    git pull
-    
-# Download and update
-
-You can download the latest tarball by clicking [here](https://github.com/sqlmapproject/sqlmap/tarball/master) or latest zipball by clicking  [here](https://github.com/sqlmapproject/sqlmap/zipball/master).
-
-Preferably, you can download sqlmap by cloning the [Git](https://github.com/sqlmapproject/sqlmap) repository:
-
-    git clone https://github.com/sqlmapproject/sqlmap.git sqlmap-dev
-
-You can update it at any time to the latest development version by running:
-
-    python sqlmap.py --update
-
-or:
+或者：
 
     git pull
