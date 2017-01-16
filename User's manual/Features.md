@@ -8,7 +8,7 @@ sqlmap 实现的功能特性包括：
 * 支持通过提供 DBMS 凭证，IP 地址，端口和数据库名而非 SQL 注入**直接连接数据库**。
 * 支持用户提供的单个目标 URL，通过 [Burp proxy](http://portswigger.net/suite/) 或 [WebScarab proxy](http://www.owasp.org/index.php/Category:OWASP_WebScarab_Project) 的请求日志文件批量获取目标地址，从文本文件获得完整的 HTTP 请求报文或使用 Google dork ——使用 [Google](http://www.google.com) 查询并解析结果页面获取批量目标。也可以自定义基于范围的正则表达式。
 * 可以测试并利用 **GET** 和 **POST** 参数，HTTP 头中的 **Cookie**，**User-Agent** 和 **Referer** 这些地方出现的 SQL 注入漏洞。也可以指定用英文逗号隔开的一个参数列表进行测试。
-* 设置**最大 HTTP(S) 并发请求数（多线程）**以提高盲注的速度。反之亦然，还可以设置每个 HTTP(S) 请求的间隔时间（秒）。其他用来提高测试速度的相关优化选项也已实现。
+* 设置**最大 HTTP(S) 并发请求数（多线程）**以提高盲注的速度。反之亦然，还可以设置每个 HTTP(S) 请求的间隔时间（秒）。还其他用来提高测试速度的相关优化选项。
 * **HTTP `Cookie` header** string support, useful when the web application requires authentication based upon cookies and you have such data or in case you just want to test for and exploit SQL injection on such header values. You can also specify to always URL-encode the Cookie.
 * Automatically handles **HTTP `Set-Cookie` header** from the application, re-establishing of the session if it expires. Test and exploit on these values is supported too. Vice versa, you can also force to ignore any `Set-Cookie` header.
 * HTTP protocol **Basic, Digest, NTLM and Certificate authentications** support.
