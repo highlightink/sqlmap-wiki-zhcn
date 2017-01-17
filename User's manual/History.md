@@ -2,38 +2,39 @@
 
 ## 2016
 
-* **Feb 27**, [Bernardo and Miroslav](http://www.sqlmap.org/#developers) 发布了 sqlmap **1.0** 稳定版本.
+* **二月 27**, [Bernardo and Miroslav](http://www.sqlmap.org/#developers) 发布了 sqlmap **1.0** 稳定版本.
 
 ## 2015
 
-* **Oct 14**, Miroslav 在Navaja Negra & ConectaCon 2015 in Albacete, Spain 提出了为什么 **为什么 sqlmap（而不是如何） 有效?** ([slides](http://www.slideshare.net/stamparm/sqlmap-why-not-how-it-works-53947145)) at Navaja Negra & ConectaCon 2015 in Albacete, Spain.
+* **十月 14**, Miroslav 在 Albacete, Spain 举行的 Navaja Negra & ConectaCon 大会上提出了 **为什么 sqlmap（而不是如何）有效?** \([slides](http://www.slideshare.net/stamparm/sqlmap-why-not-how-it-works-53947145)\).
 
 ## 2014
 
-* First 1000 [Issues](https://github.com/sqlmapproject/sqlmap/issues?q=is%3Aissue+is%3Aclosed) are closed.
+* 前 1000 个 [Issues](https://github.com/sqlmapproject/sqlmap/issues?q=is%3Aissue+is%3Aclosed) 被解决。
 
 ## 2013
 
-* **Sep 19**, Miroslav presents **Heuristic methods used in sqlmap** ([slides](http://www.slideshare.net/stamparm/f-sec-2013miroslavstamparheuristicmethodsusedinsqlmap)) at FSEC 2013 in Varazdin, Croatia.
-* **May 23**, Miroslav [presents](http://phdays.com/program/workshops/) **sqlmap - Under the Hood** ([slides](http://www.slideshare.net/stamparm/ph-days-2013miroslavstamparsqlmapunderthehood)) at PHDays 2013 in Moscow, Russia.
+* **九月 19**, Miroslav 在 2013 年 Varazdin, Croatia FSEC 上演讲了 **sqlmap 中的启发式方法 ** \([slides](http://www.slideshare.net/stamparm/f-sec-2013miroslavstamparheuristicmethodsusedinsqlmap)\).
+* **五月 23**, Miroslav 在 Moscow, Russia PHDays 上为我们带来了
+  [presents](http://phdays.com/program/workshops/) **sqlmap - 内部实现** \([slides](http://www.slideshare.net/stamparm/ph-days-2013miroslavstamparsqlmapunderthehood)\) .
 
 ## 2012
 
-* **June 26**, sqlmap development is [relocated](http://article.gmane.org/gmane.comp.security.sqlmap/2247) on [GitHub](https://github.com/sqlmapproject/sqlmap). A new [homepage](http://sqlmap.org) is deployed. The issue tracker goes [public](https://github.com/sqlmapproject/sqlmap/issues). The Subversion repository is dismissed as is the project hosting on SourceForge.
-* **May 31**, Miroslav [presents](http://phdays.com/program/conference/) his research **DNS exfiltration using sqlmap** ([slides](http://www.slideshare.net/stamparm/dns-exfiltration-using-sqlmap-13163281)) with accompanying [whitepaper](http://www.slideshare.net/stamparm/ph-days-2012miroslavstampardataretrievaloverdnsinsqlinjectionattackspaper) **Data Retrieval over DNS in SQL Injection Attacks** at PHDays 2012 in Moscow, Russia.
+* **六月 26**, sqlmap 代码库 [迁移](http://article.gmane.org/gmane.comp.security.sqlmap/2247) 到 [GitHub](https://github.com/sqlmapproject/sqlmap). 并且更新了新的[主页](http://sqlmap.org). 代码问题追中 [public](https://github.com/sqlmapproject/sqlmap/issues). The Subversion repository is dismissed as is the project hosting on SourceForge.
+* **May 31**, Miroslav [presents](http://phdays.com/program/conference/) his research **DNS exfiltration using sqlmap** \([slides](http://www.slideshare.net/stamparm/dns-exfiltration-using-sqlmap-13163281)\) with accompanying [whitepaper](http://www.slideshare.net/stamparm/ph-days-2012miroslavstampardataretrievaloverdnsinsqlinjectionattackspaper) **Data Retrieval over DNS in SQL Injection Attacks** at PHDays 2012 in Moscow, Russia.
 
 ## 2011
 
 * **December**, Throughout the year dozen of new features have been developed and hundreds of bugs have been fixed.
-* **September 23**, Miroslav [presents](http://fsec.foi.hr/index.php/Miroslav_Stampar_-_It_all_starts_with_the_%27_-_SQL_injection_from_attackers_point_of_view) **It all starts with the ' (SQL injection from attacker's point of view)** ([slides](http://www.slideshare.net/stamparm/f-sec-2011miroslavstamparitallstartswiththesinglequote-9311238)) talking about methods attackers use in SQL injection attacks at FSec - FOI Security Symposium in Varazdin, Croatia.
-* **June 23**, Miroslav [presents](https://ep2012.europython.eu/conference/talks/sqlmap-security-developing-in-python) **sqlmap - security development in Python** ([slides](http://www.slideshare.net/stamparm/euro-python-2011miroslavstamparsqlmapsecuritydevelopmentinpython)) talking about sqlmap internals at EuroPython 2011 in Firenze, Italy.
+* **September 23**, Miroslav [presents](http://fsec.foi.hr/index.php/Miroslav_Stampar_-_It_all_starts_with_the_%27_-_SQL_injection_from_attackers_point_of_view) **It all starts with the ' \(SQL injection from attacker's point of view\)** \([slides](http://www.slideshare.net/stamparm/f-sec-2011miroslavstamparitallstartswiththesinglequote-9311238)\) talking about methods attackers use in SQL injection attacks at FSec - FOI Security Symposium in Varazdin, Croatia.
+* **June 23**, Miroslav [presents](https://ep2012.europython.eu/conference/talks/sqlmap-security-developing-in-python) **sqlmap - security development in Python** \([slides](http://www.slideshare.net/stamparm/euro-python-2011miroslavstamparsqlmapsecuritydevelopmentinpython)\) talking about sqlmap internals at EuroPython 2011 in Firenze, Italy.
 * **April 10**, [Bernardo and Miroslav](http://www.sqlmap.org/#developers) release sqlmap **0.9** featuring a totally rewritten and powerful SQL injection detection engine, the possibility to connect directly to a database server, support for time-based blind SQL injection and error-based SQL injection, support for four new database management systems and much more.
 
 ## 2010
 
 * **December**, [Bernardo and Miroslav](http://www.sqlmap.org/#developers) have enhanced sqlmap a lot during the whole year and prepare to release sqlmap **0.9** within the first quarter of 2011.
-* **June 3**, Bernardo [presents](http://www.slideshare.net/inquis/ath-con-2010bernardodamelegotdbownnet) a talk titled **Got database access? Own the network!** at AthCon 2010 in Athens (Greece).
-* **March 14**, [Bernardo and Miroslav](http://www.sqlmap.org/#developers) release stable version of sqlmap **0.8** featuring many features. Amongst these, support to enumerate and dump all databases' tables containing user provided column(s), stabilization and enhancements to the takeover functionalities, updated integration with Metasploit 3.3.3 and a lot of minor features and bug fixes.
+* **June 3**, Bernardo [presents](http://www.slideshare.net/inquis/ath-con-2010bernardodamelegotdbownnet) a talk titled **Got database access? Own the network!** at AthCon 2010 in Athens \(Greece\).
+* **March 14**, [Bernardo and Miroslav](http://www.sqlmap.org/#developers) release stable version of sqlmap **0.8** featuring many features. Amongst these, support to enumerate and dump all databases' tables containing user provided column\(s\), stabilization and enhancements to the takeover functionalities, updated integration with Metasploit 3.3.3 and a lot of minor features and bug fixes.
 * **March**, sqlmap demo videos have been [published](http://www.youtube.com/inquisb).
 * **January**, Bernardo is [invited](http://www.athcon.org/speakers/) to present at [AthCon](http://www.athcon.org/archives/2010-2/) conference in Greece on June 2010.
 
@@ -43,8 +44,8 @@
 * **December 12**, Bernardo writes to the mailing list a post titled [sqlmap state of art - 3 years later](http://bernardodamele.blogspot.com/2009/12/sqlmap-state-of-art-3-years-later.html) highlighting the goals achieved during these first three years of the project and launches a call for developers.
 * **December 4**, sqlmap-devel mailing list has been merged into sqlmap-users [mailing list](http://www.sqlmap.org/#ml).
 * **November 20**, Bernardo and Guido present again their research on stealth database server takeover at CONfidence 2009 in Warsaw, Poland.
-* **September 26**, sqlmap version **0.8 release candidate 1** goes public on the [subversion repository](https://svn.sqlmap.org/sqlmap/trunk/sqlmap/), with all the attack vectors unveiled at SOURCE Barcelona 2009 Conference. These include an enhanced version of the Microsoft SQL Server buffer overflow exploit to automatically bypass DEP memory protection, support to establish the out-of-band connection with the database server by executing in-memory the Metasploit shellcode via UDF **sys_bineval()** (anti-forensics technique), support to access the Windows registry hives and support to inject custom user-defined functions.
-* **September 21**, Bernardo and [Guido Landi](http://www.pornosecurity.org) [present](http://www.sourceconference.com/index.php/pastevents/source-barcelona-2009/schedule) their research ([slides](http://www.slideshare.net/inquis/expanding-the-control-over-the-operating-system-from-the-database)) at SOURCE Conference 2009 in Barcelona, Spain.
+* **September 26**, sqlmap version **0.8 release candidate 1** goes public on the [subversion repository](https://svn.sqlmap.org/sqlmap/trunk/sqlmap/), with all the attack vectors unveiled at SOURCE Barcelona 2009 Conference. These include an enhanced version of the Microsoft SQL Server buffer overflow exploit to automatically bypass DEP memory protection, support to establish the out-of-band connection with the database server by executing in-memory the Metasploit shellcode via UDF **sys\_bineval\(\)** \(anti-forensics technique\), support to access the Windows registry hives and support to inject custom user-defined functions.
+* **September 21**, Bernardo and [Guido Landi](http://www.pornosecurity.org) [present](http://www.sourceconference.com/index.php/pastevents/source-barcelona-2009/schedule) their research \([slides](http://www.slideshare.net/inquis/expanding-the-control-over-the-operating-system-from-the-database)\) at SOURCE Conference 2009 in Barcelona, Spain.
 * **August**, Bernardo is accepted as a speaker at two others IT security conferences, [SOURCE Barcelona 2009](http://www.sourceconference.com/index.php/pastevents/source-barcelona-2009) and [CONfidence 2009 Warsaw](http://200902.confidence.org.pl/). This new research is titled **Expanding the control over the operating system from the database**.
 * **July 25**, stable version of sqlmap **0.7** is out!
 * **June 27**, Bernardo [presents](http://www.slideshare.net/inquis/sql-injection-not-only-and-11-updated) an updated version of his **SQL injection: Not only AND 1=1** slides at [2nd Digital Security Forum](http://www.digitalsecurityforum.eu/) in Lisbon, Portugal.
@@ -52,7 +53,7 @@
 * **May**, Bernardo presents again his research on operating system takeover via SQL injection at [OWASP AppSec Europe 2009](http://www.owasp.org/index.php/OWASP_AppSec_Europe_2009_-_Poland) in Warsaw, Poland and at [EUSecWest 2009](http://eusecwest.com/) in London, UK.
 * **May 8**, sqlmap version **0.6.4** has been officially accepted in Debian repository. Details on [this blog post](http://bernardodamele.blogspot.com/2009/05/sqlmap-in-debian-package-repository.html).
 * **April 22**, sqlmap version **0.7 release candidate 1** goes public, with all the attack vectors unveiled at Black Hat Europe 2009 Conference. These include execution of arbitrary commands on the underlying operating system, full integration with Metasploit to establish an out-of-band TCP connection, first publicly available exploit for Microsoft Security Bulletin [MS09-004](http://www.microsoft.com/technet/security/Bulletin/MS09-004.mspx) against Microsoft SQL Server 2000 and 2005 and others attacks to takeover the database server as a whole, not only the data from the database.
-* **April 16**, Bernardo [presents](http://www.blackhat.com/html/bh-europe-09/bh-eu-09-archives.html#Damele") his research ([slides](http://www.slideshare.net/inquis/advanced-sql-injection-to-operating-system-full-control-slides), [whitepaper](http://www.slideshare.net/inquis/advanced-sql-injection-to-operating-system-full-control-whitepaper-4633857)) at Black Hat Europe 2009 in Amsterdam, The Netherlands. The feedback from the audience is good and there has been some [media coverage](http://bernardodamele.blogspot.com/2009/03/black-hat-europe-2009.html) too.
+* **April 16**, Bernardo [presents](http://www.blackhat.com/html/bh-europe-09/bh-eu-09-archives.html#Damele") his research \([slides](http://www.slideshare.net/inquis/advanced-sql-injection-to-operating-system-full-control-slides), [whitepaper](http://www.slideshare.net/inquis/advanced-sql-injection-to-operating-system-full-control-whitepaper-4633857)\) at Black Hat Europe 2009 in Amsterdam, The Netherlands. The feedback from the audience is good and there has been some [media coverage](http://bernardodamele.blogspot.com/2009/03/black-hat-europe-2009.html) too.
 * **March 5**, Bernardo [presents](http://www.slideshare.net/inquis/sql-injection-not-only-and-11) for the first time some of the sqlmap recent features and upcoming enhancements at an international event, [Front Range OWASP Conference 2009](http://www.owasp.org/index.php/Front_Range_OWASP_Conference_2009) in Denver, USA. The presentation is titled **SQL injection: Not only AND 1=1**.
 * **February 24**, Bernardo is accepted as a [speaker](http://www.blackhat.com/html/bh-europe-09/bh-eu-09-speakers.html#Damele) at [Black Hat Europe 2009](http://www.blackhat.com/html/bh-europe-09/bh-eu-09-main.html) with a presentation titled **Advanced SQL injection exploitation to operating system full control**.
 * **February 3**, sqlmap **0.6.4** is the last point release for 0.6: taking advantage of the stacked queries test implemented in 0.6.3, sqlmap can now be used to execute any arbitrary SQL statement, not only **SELECT** anymore. Also, many features have been stabilized, tweaked and improved in terms of speed in this release.
@@ -90,7 +91,7 @@
 
 ## 2015
 
-* **Oct 14**, Miroslav presents **sqlmap - why (not how) it works?** ([slides](http://www.slideshare.net/stamparm/sqlmap-why-not-how-it-works-53947145)) at Navaja Negra & ConectaCon 2015 in Albacete, Spain.
+* **Oct 14**, Miroslav presents **sqlmap - why \(not how\) it works?** \([slides](http://www.slideshare.net/stamparm/sqlmap-why-not-how-it-works-53947145)\) at Navaja Negra & ConectaCon 2015 in Albacete, Spain.
 
 ## 2014
 
@@ -98,26 +99,26 @@
 
 ## 2013
 
-* **Sep 19**, Miroslav presents **Heuristic methods used in sqlmap** ([slides](http://www.slideshare.net/stamparm/f-sec-2013miroslavstamparheuristicmethodsusedinsqlmap)) at FSEC 2013 in Varazdin, Croatia.
-* **May 23**, Miroslav [presents](http://phdays.com/program/workshops/) **sqlmap - Under the Hood** ([slides](http://www.slideshare.net/stamparm/ph-days-2013miroslavstamparsqlmapunderthehood)) at PHDays 2013 in Moscow, Russia.
+* **Sep 19**, Miroslav presents **Heuristic methods used in sqlmap** \([slides](http://www.slideshare.net/stamparm/f-sec-2013miroslavstamparheuristicmethodsusedinsqlmap)\) at FSEC 2013 in Varazdin, Croatia.
+* **May 23**, Miroslav [presents](http://phdays.com/program/workshops/) **sqlmap - Under the Hood** \([slides](http://www.slideshare.net/stamparm/ph-days-2013miroslavstamparsqlmapunderthehood)\) at PHDays 2013 in Moscow, Russia.
 
 ## 2012
 
 * **June 26**, sqlmap development is [relocated](http://article.gmane.org/gmane.comp.security.sqlmap/2247) on [GitHub](https://github.com/sqlmapproject/sqlmap). A new [homepage](http://sqlmap.org) is deployed. The issue tracker goes [public](https://github.com/sqlmapproject/sqlmap/issues). The Subversion repository is dismissed as is the project hosting on SourceForge.
-* **May 31**, Miroslav [presents](http://phdays.com/program/conference/) his research **DNS exfiltration using sqlmap** ([slides](http://www.slideshare.net/stamparm/dns-exfiltration-using-sqlmap-13163281)) with accompanying [whitepaper](http://www.slideshare.net/stamparm/ph-days-2012miroslavstampardataretrievaloverdnsinsqlinjectionattackspaper) **Data Retrieval over DNS in SQL Injection Attacks** at PHDays 2012 in Moscow, Russia.
+* **May 31**, Miroslav [presents](http://phdays.com/program/conference/) his research **DNS exfiltration using sqlmap** \([slides](http://www.slideshare.net/stamparm/dns-exfiltration-using-sqlmap-13163281)\) with accompanying [whitepaper](http://www.slideshare.net/stamparm/ph-days-2012miroslavstampardataretrievaloverdnsinsqlinjectionattackspaper) **Data Retrieval over DNS in SQL Injection Attacks** at PHDays 2012 in Moscow, Russia.
 
 ## 2011
 
 * **December**, Throughout the year dozen of new features have been developed and hundreds of bugs have been fixed.
-* **September 23**, Miroslav [presents](http://fsec.foi.hr/index.php/Miroslav_Stampar_-_It_all_starts_with_the_%27_-_SQL_injection_from_attackers_point_of_view) **It all starts with the ' (SQL injection from attacker's point of view)** ([slides](http://www.slideshare.net/stamparm/f-sec-2011miroslavstamparitallstartswiththesinglequote-9311238)) talking about methods attackers use in SQL injection attacks at FSec - FOI Security Symposium in Varazdin, Croatia.
-* **June 23**, Miroslav [presents](https://ep2012.europython.eu/conference/talks/sqlmap-security-developing-in-python) **sqlmap - security development in Python** ([slides](http://www.slideshare.net/stamparm/euro-python-2011miroslavstamparsqlmapsecuritydevelopmentinpython)) talking about sqlmap internals at EuroPython 2011 in Firenze, Italy.
+* **September 23**, Miroslav [presents](http://fsec.foi.hr/index.php/Miroslav_Stampar_-_It_all_starts_with_the_%27_-_SQL_injection_from_attackers_point_of_view) **It all starts with the ' \(SQL injection from attacker's point of view\)** \([slides](http://www.slideshare.net/stamparm/f-sec-2011miroslavstamparitallstartswiththesinglequote-9311238)\) talking about methods attackers use in SQL injection attacks at FSec - FOI Security Symposium in Varazdin, Croatia.
+* **June 23**, Miroslav [presents](https://ep2012.europython.eu/conference/talks/sqlmap-security-developing-in-python) **sqlmap - security development in Python** \([slides](http://www.slideshare.net/stamparm/euro-python-2011miroslavstamparsqlmapsecuritydevelopmentinpython)\) talking about sqlmap internals at EuroPython 2011 in Firenze, Italy.
 * **April 10**, [Bernardo and Miroslav](http://www.sqlmap.org/#developers) release sqlmap **0.9** featuring a totally rewritten and powerful SQL injection detection engine, the possibility to connect directly to a database server, support for time-based blind SQL injection and error-based SQL injection, support for four new database management systems and much more.
 
 ## 2010
 
 * **December**, [Bernardo and Miroslav](http://www.sqlmap.org/#developers) have enhanced sqlmap a lot during the whole year and prepare to release sqlmap **0.9** within the first quarter of 2011.
-* **June 3**, Bernardo [presents](http://www.slideshare.net/inquis/ath-con-2010bernardodamelegotdbownnet) a talk titled **Got database access? Own the network!** at AthCon 2010 in Athens (Greece).
-* **March 14**, [Bernardo and Miroslav](http://www.sqlmap.org/#developers) release stable version of sqlmap **0.8** featuring many features. Amongst these, support to enumerate and dump all databases' tables containing user provided column(s), stabilization and enhancements to the takeover functionalities, updated integration with Metasploit 3.3.3 and a lot of minor features and bug fixes.
+* **June 3**, Bernardo [presents](http://www.slideshare.net/inquis/ath-con-2010bernardodamelegotdbownnet) a talk titled **Got database access? Own the network!** at AthCon 2010 in Athens \(Greece\).
+* **March 14**, [Bernardo and Miroslav](http://www.sqlmap.org/#developers) release stable version of sqlmap **0.8** featuring many features. Amongst these, support to enumerate and dump all databases' tables containing user provided column\(s\), stabilization and enhancements to the takeover functionalities, updated integration with Metasploit 3.3.3 and a lot of minor features and bug fixes.
 * **March**, sqlmap demo videos have been [published](http://www.youtube.com/inquisb).
 * **January**, Bernardo is [invited](http://www.athcon.org/speakers/) to present at [AthCon](http://www.athcon.org/archives/2010-2/) conference in Greece on June 2010.
 
@@ -127,8 +128,8 @@
 * **December 12**, Bernardo writes to the mailing list a post titled [sqlmap state of art - 3 years later](http://bernardodamele.blogspot.com/2009/12/sqlmap-state-of-art-3-years-later.html) highlighting the goals achieved during these first three years of the project and launches a call for developers.
 * **December 4**, sqlmap-devel mailing list has been merged into sqlmap-users [mailing list](http://www.sqlmap.org/#ml).
 * **November 20**, Bernardo and Guido present again their research on stealth database server takeover at CONfidence 2009 in Warsaw, Poland.
-* **September 26**, sqlmap version **0.8 release candidate 1** goes public on the [subversion repository](https://svn.sqlmap.org/sqlmap/trunk/sqlmap/), with all the attack vectors unveiled at SOURCE Barcelona 2009 Conference. These include an enhanced version of the Microsoft SQL Server buffer overflow exploit to automatically bypass DEP memory protection, support to establish the out-of-band connection with the database server by executing in-memory the Metasploit shellcode via UDF **sys_bineval()** (anti-forensics technique), support to access the Windows registry hives and support to inject custom user-defined functions.
-* **September 21**, Bernardo and [Guido Landi](http://www.pornosecurity.org) [present](http://www.sourceconference.com/index.php/pastevents/source-barcelona-2009/schedule) their research ([slides](http://www.slideshare.net/inquis/expanding-the-control-over-the-operating-system-from-the-database)) at SOURCE Conference 2009 in Barcelona, Spain.
+* **September 26**, sqlmap version **0.8 release candidate 1** goes public on the [subversion repository](https://svn.sqlmap.org/sqlmap/trunk/sqlmap/), with all the attack vectors unveiled at SOURCE Barcelona 2009 Conference. These include an enhanced version of the Microsoft SQL Server buffer overflow exploit to automatically bypass DEP memory protection, support to establish the out-of-band connection with the database server by executing in-memory the Metasploit shellcode via UDF **sys\_bineval\(\)** \(anti-forensics technique\), support to access the Windows registry hives and support to inject custom user-defined functions.
+* **September 21**, Bernardo and [Guido Landi](http://www.pornosecurity.org) [present](http://www.sourceconference.com/index.php/pastevents/source-barcelona-2009/schedule) their research \([slides](http://www.slideshare.net/inquis/expanding-the-control-over-the-operating-system-from-the-database)\) at SOURCE Conference 2009 in Barcelona, Spain.
 * **August**, Bernardo is accepted as a speaker at two others IT security conferences, [SOURCE Barcelona 2009](http://www.sourceconference.com/index.php/pastevents/source-barcelona-2009) and [CONfidence 2009 Warsaw](http://200902.confidence.org.pl/). This new research is titled **Expanding the control over the operating system from the database**.
 * **July 25**, stable version of sqlmap **0.7** is out!
 * **June 27**, Bernardo [presents](http://www.slideshare.net/inquis/sql-injection-not-only-and-11-updated) an updated version of his **SQL injection: Not only AND 1=1** slides at [2nd Digital Security Forum](http://www.digitalsecurityforum.eu/) in Lisbon, Portugal.
@@ -136,7 +137,7 @@
 * **May**, Bernardo presents again his research on operating system takeover via SQL injection at [OWASP AppSec Europe 2009](http://www.owasp.org/index.php/OWASP_AppSec_Europe_2009_-_Poland) in Warsaw, Poland and at [EUSecWest 2009](http://eusecwest.com/) in London, UK.
 * **May 8**, sqlmap version **0.6.4** has been officially accepted in Debian repository. Details on [this blog post](http://bernardodamele.blogspot.com/2009/05/sqlmap-in-debian-package-repository.html).
 * **April 22**, sqlmap version **0.7 release candidate 1** goes public, with all the attack vectors unveiled at Black Hat Europe 2009 Conference. These include execution of arbitrary commands on the underlying operating system, full integration with Metasploit to establish an out-of-band TCP connection, first publicly available exploit for Microsoft Security Bulletin [MS09-004](http://www.microsoft.com/technet/security/Bulletin/MS09-004.mspx) against Microsoft SQL Server 2000 and 2005 and others attacks to takeover the database server as a whole, not only the data from the database.
-* **April 16**, Bernardo [presents](http://www.blackhat.com/html/bh-europe-09/bh-eu-09-archives.html#Damele") his research ([slides](http://www.slideshare.net/inquis/advanced-sql-injection-to-operating-system-full-control-slides), [whitepaper](http://www.slideshare.net/inquis/advanced-sql-injection-to-operating-system-full-control-whitepaper-4633857)) at Black Hat Europe 2009 in Amsterdam, The Netherlands. The feedback from the audience is good and there has been some [media coverage](http://bernardodamele.blogspot.com/2009/03/black-hat-europe-2009.html) too.
+* **April 16**, Bernardo [presents](http://www.blackhat.com/html/bh-europe-09/bh-eu-09-archives.html#Damele") his research \([slides](http://www.slideshare.net/inquis/advanced-sql-injection-to-operating-system-full-control-slides), [whitepaper](http://www.slideshare.net/inquis/advanced-sql-injection-to-operating-system-full-control-whitepaper-4633857)\) at Black Hat Europe 2009 in Amsterdam, The Netherlands. The feedback from the audience is good and there has been some [media coverage](http://bernardodamele.blogspot.com/2009/03/black-hat-europe-2009.html) too.
 * **March 5**, Bernardo [presents](http://www.slideshare.net/inquis/sql-injection-not-only-and-11) for the first time some of the sqlmap recent features and upcoming enhancements at an international event, [Front Range OWASP Conference 2009](http://www.owasp.org/index.php/Front_Range_OWASP_Conference_2009) in Denver, USA. The presentation is titled **SQL injection: Not only AND 1=1**.
 * **February 24**, Bernardo is accepted as a [speaker](http://www.blackhat.com/html/bh-europe-09/bh-eu-09-speakers.html#Damele) at [Black Hat Europe 2009](http://www.blackhat.com/html/bh-europe-09/bh-eu-09-main.html) with a presentation titled **Advanced SQL injection exploitation to operating system full control**.
 * **February 3**, sqlmap **0.6.4** is the last point release for 0.6: taking advantage of the stacked queries test implemented in 0.6.3, sqlmap can now be used to execute any arbitrary SQL statement, not only **SELECT** anymore. Also, many features have been stabilized, tweaked and improved in terms of speed in this release.
@@ -165,3 +166,6 @@
 * **September**, Daniele leaves the project, [Bernardo Damele A. G.](http://bernardodamele.blogspot.com) takes it over.
 * **August**, Daniele adds initial support for PostgreSQL and releases version **0.1**.
 * **July 25**, [Daniele Bellucci](http://dbellucci.blogspot.com) registers the sqlmap project on SourceForge and develops it on the [SourceForge subversion repository](http://sqlmap.svn.sourceforge.net/viewvc/sqlmap/). The skeleton is implemented and limited support for MySQL added.
+
+
+
