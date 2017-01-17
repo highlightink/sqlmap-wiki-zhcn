@@ -1,5 +1,9 @@
 # 历史
 
+## 2017
+
+* **一月 2**, [Bernardo and Miroslav](http://www.sqlmap.org/#developers) 发布了 sqlmap **1.1** 稳定版本。
+
 ## 2016
 
 * **二月 27**, [Bernardo and Miroslav](http://www.sqlmap.org/#developers) 发布了 sqlmap **1.0** 稳定版本.
@@ -83,7 +87,13 @@
 * **August**, Daniele adds initial support for PostgreSQL and releases version **0.1**.
 * **July 25**, [Daniele Bellucci](http://dbellucci.blogspot.com) registers the sqlmap project on SourceForge and develops it on the [SourceForge subversion repository](http://sqlmap.svn.sourceforge.net/viewvc/sqlmap/). The skeleton is implemented and limited support for MySQL added.
 
+---
+
 # History
+
+## 2017
+
+* **Jan 2**, [Bernardo and Miroslav](http://www.sqlmap.org/#developers) release stable version of sqlmap **1.1**.
 
 ## 2016
 
