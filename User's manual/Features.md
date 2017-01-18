@@ -23,11 +23,11 @@ sqlmap 实现的功能特性包括：
 * 支持**复制后端数据库表结构和数据项**到本地的 SQLite 3 数据库中。
 * 支持从 SVN 仓库中将 sqlmap 升级到最新的开发版本。
 * 支持解析 HTTP(S) 响应并显示出 DBMS 错误信息。
-* 集成其他 IT 开源安全项目，[Metasploit](http://metasploit.com) 和 [w3af](http://w3af.sourceforge.net)。
+* 集成其他 IT 安全开源项目，[Metasploit](http://metasploit.com) 和 [w3af](http://w3af.sourceforge.net)。
 
 ## 采集指纹和枚举功能
 
-* 根据[错误信息](http://bernardodamele.blogspot.com/2007/06/database-management-system-fingerprint.html)，[banner 解析](http://bernardodamele.blogspot.com/2007/06/database-management-system-fingerprint.html)，[函数输出对比](http://bernardodamele.blogspot.com/2007/07/more-on-database-management-system.html) 和 [特定特征](http://bernardodamele.blogspot.com/2007/07/more-on-database-management-system.html) 例如 MySQL 注释注入收集**广泛的数据库版本和底层操作系统指纹信息**。如果你已经知道数据库系统的版本，则可以手动指定它。
+* 根据[错误信息](http://bernardodamele.blogspot.com/2007/06/database-management-system-fingerprint.html)，[banner 解析](http://bernardodamele.blogspot.com/2007/06/database-management-system-fingerprint.html)，[函数输出对比](http://bernardodamele.blogspot.com/2007/07/more-on-database-management-system.html)和[特定特征](http://bernardodamele.blogspot.com/2007/07/more-on-database-management-system.html)收集**广泛的数据库版本和底层操作系统指纹信息**，例如 MySQL 注释注入。如果你已经知道数据库系统的版本，则可以手动指定它。
 * 支持采集基本的 Web 服务器和 Web 应用技术的指纹信息。
 * 支持获取 DBMS **banner**，**会话用户**和**当前数据库**等信息。sqlmap 还能检查当前会话用户是否为数据库管理员帐号。
 * 支持枚举**用户，密码散列，特权级，角色，数据库，表和列**。
@@ -48,16 +48,16 @@ sqlmap 实现的功能特性包括：
 * On MySQL and PostgreSQL via user-defined function injection and execution.
 * On Microsoft SQL Server via `xp_cmdshell()` stored procedure. Also, the stored procedure is re-enabled if disabled or created from scratch if removed by the DBA.
 * 支持在操作系统中**建立攻击者机器和数据库服务器之间的有状态的带外数据 TCP 连接**。根据用户选择这个通道可以是交互式命令行提示符，Meterpreter 会话或图形用户界面（VNC）会话。sqlmap 依赖 Metasploit 生成 shellcode 并通过四种技术在数据库服务器执行。这些技术分别是：
-1. 通过 sqlmap 使用用户自定义的 `sys_bineval()` 函数**在内存中执行 Metasploit shellcode**。支持 MySQL 和 PostgreSQL。
-2. 对于 MySQL 和 PostgreSQL，通过 sqlmap 使用用户自定义的 `sys_exec()` 函数上传并执行一个 Metasploit 的**独立运行的 payload**，对于 Microsoft SQL Server 则使用 `xp_cmdshell()`。
-3. 通过 **SMB 反射攻击**（[MS08-068](http://www.microsoft.com/technet/security/Bulletin/MS08-068.mspx)）执行 Metasploit shellcode，这需要目标数据库服务器向已被 Metasploit `smb_relay` 监听的攻击者机器发出一个 UNC 路径请求。当 sqlmap 运行在 Linux/Unix 高权限（`uid=0`）并且目标 DMBS 在 Windows 中以管理员身份运行时支持该功能。
-4. 通过利用 **Microsoft SQL Server 2000 和 2005 中存在的 `sp_replwritetovarbin` 存储过程堆缓冲区溢出**（[MS09-004](http://www.microsoft.com/technet/security/bulletin/ms09-004.mspx)）在内存中执行 Metasploit shellcode。sqlmap 有自己的利用程序通过自动绕过 DEP 内存保护去触发这个漏洞，但是它依赖 Metasploit 生成 shellcode 以执行攻击。
+* 通过 sqlmap 使用用户自定义的 `sys_bineval()` 函数**在内存中执行 Metasploit shellcode**。支持 MySQL 和 PostgreSQL。
+* 对于 MySQL 和 PostgreSQL，通过 sqlmap 使用用户自定义的 `sys_exec()` 函数上传并执行一个 Metasploit 的**独立运行的 payload**，对于 Microsoft SQL Server 则使用 `xp_cmdshell()`。
+* 通过 **SMB 反射攻击**（[MS08-068](http://www.microsoft.com/technet/security/Bulletin/MS08-068.mspx)）执行 Metasploit shellcode，这需要目标数据库服务器向已被 Metasploit `smb_relay` 监听的攻击者机器发出一个 UNC 路径请求。当 sqlmap 运行在 Linux/Unix 高权限（`uid=0`）并且目标 DMBS 在 Windows 中以管理员身份运行时支持该功能。
+* 通过利用 **Microsoft SQL Server 2000 和 2005 中存在的 `sp_replwritetovarbin` 存储过程堆缓冲区溢出**（[MS09-004](http://www.microsoft.com/technet/security/bulletin/ms09-004.mspx)）在内存中执行 Metasploit shellcode。sqlmap 有自己的利用程序通过自动绕过 DEP 内存保护去触发这个漏洞，但是它依赖 Metasploit 生成 shellcode 以执行攻击。
 * 支持通过 Metasploit 的 `getsystem` 命令进行**数据库进程用户提权**，这个命令使用了 [kitrap0d](http://archives.neohapsis.com/archives/fulldisclosure/2010-01/0346.html) 技术（[MS10-015](http://www.microsoft.com/technet/security/bulletin/ms10-015.mspx)）。
-* 支持访问（读取/添加/删除）Windows 注册表项目。
+* 支持访问（读取/添加/删除）Windows 注册表配置单元。
 
 ## 演示
 
-你可以在 [Bernardo](http://www.youtube.com/user/inquisb/videos) 和 [Miroslav](http://www.youtube.com/user/stamparm/videos) 的 YouTube 页面中观看演示。你也可以在[这里](http://unconciousmind.blogspot.com/search/label/sqlmap)找到大量专门用于合法 Web 测试的带有漏洞的 Web 应用。
+你可以在 [Bernardo](http://www.youtube.com/user/inquisb/videos) 和 [Miroslav](http://www.youtube.com/user/stamparm/videos) 的 YouTube 主页中观看演示。你还可以在[这里](http://unconciousmind.blogspot.com/search/label/sqlmap)找到大量专门用于合法 Web 测试的带有漏洞的 Web 应用。
 
 ---
 
