@@ -12,37 +12,33 @@ sqlmap 实现的功能特性包括：
 * 支持 **HTTP 头中的 `Cookie`**，当目标 Web 应用的身份验证基于 cookies，而你有这项数据，或者你就是想要对 cookies 这个头部参数测试和利用 SQL 注入时，这个功能是非常有用的。你还可以指定总是对 Cookie 进行 URL 编码。
 * 自动处理来自 Web 应用的 **HTTP `Set-Cookie`** 消息，并重建超时的会话。这个参数也可以被测试并利用。反之亦然，你可以强制忽略任何 `Set-Cookie` 消息头。
 * 支持 HTTP **Basic，Digest，NTLM 和 Certificate authentications** 协议。
-* **HTTP(S) proxy** support to pass by the requests to the target application that works also with HTTPS requests and with authenticated proxy servers.
-* Options to fake the **HTTP `Referer` header** value and the **HTTP `User-Agent` header** value specified by user or randomly selected from a textual file.
-* Support to increase the **verbosity level of output messages**: there exist **seven levels** of verbosity.
-* Support to **parse HTML forms** from the target URL and forge HTTP(S) requests against those pages to test the form parameters against vulnerabilities.
-* **Granularity and flexibility** in terms of both user's switches and features.
-* **Estimated time of arrival** support for each query, updated in real time, to provide the user with an overview on how long it will take to retrieve the queries' output.
-* Automatically saves the session (queries and their output, even if partially retrieved) on a textual file in real time while fetching the data and **resumes the injection** by parsing the session file.
-* Support to read options from a configuration INI file rather than specify each time all of the switches on the command line. Support also to generate a configuration file based on the command line switches provided.
-* Support to **replicate the back-end database tables structure and entries** on a local SQLite 3 database.
-* Option to update sqlmap to the latest development version from the subversion repository.
-* Support to parse HTTP(S) responses and display any DBMS error message to the user.
-* Integration with other IT security open source projects, [Metasploit](http://metasploit.com) and [w3af](http://w3af.sourceforge.net).
+* **HTTP(S) proxy** support to pass by the requests to the target application that works also with HTTPS requests and with authenticated proxy servers.（实在翻不来！！！！！！！！！！）
+* 支持伪造 **HTTP `Referer`** 和 **HTTP `User-Agent`**，可通过用户或者从一个文本文件中随机指定。
+* 支持设置**输出信息的详细级别**：共有**七个级别**的详细程度。
+* 支持从目标 URL 中**解析 HTML 表单**并伪造 HTTP(S) 请求以测试这些表单参数是否存在漏洞。
+* 通过用户设置选项调整**粒度和灵活性**。
+* 对每一次查询实时**评估完成时间**，使用户能知道输出结果需要的大概时长。
+* 在抓取数据时能实时自动保存将会话（包括完整的和完整的查询与其对应结果）保存在一个文本文件中，并通过解析会话文件**继续进行注入检测**。
+* 支持从 INI 配置文件中读取相关选项而不是每次都要在命令行中设置。支持从命令行中生成配置文件。
+* 支持**复制后端数据库表结构和数据项**到本地的 SQLite 3 数据库中。
+* 支持从 SVN 仓库中将 sqlmap 升级到最新的开发版本。
+* 支持解析 HTTP(S) 响应并显示出 DBMS 错误信息。
+* 集成其他 IT 开源安全项目，[Metasploit](http://metasploit.com) 和 [w3af](http://w3af.sourceforge.net)。
 
-## Fingerprint and enumeration features
+## 采集指纹和枚举功能
 
-* **Extensive back-end database software version and underlying operating system fingerprint** based upon
-[error messages](http://bernardodamele.blogspot.com/2007/06/database-management-system-fingerprint.html),
-[banner parsing](http://bernardodamele.blogspot.com/2007/06/database-management-system-fingerprint.html),
-[functions output comparison](http://bernardodamele.blogspot.com/2007/07/more-on-database-management-system.html) and [specific features](http://bernardodamele.blogspot.com/2007/07/more-on-database-management-system.html) such as MySQL comment injection. It is also possible to force the back-end database management system name if you already know it.
-* Basic web server software and web application technology fingerprint.
-* Support to retrieve the DBMS **banner**, **session user** and **current database** information. The tool can also check if the session user is a **database administrator** (DBA).
-* Support to enumerate **users, password hashes, privileges, roles, databases, tables and columns**.
-* Automatic recognition of password hashes format and support to **crack them with a dictionary-based attack**.
-* Support to **brute-force tables and columns name**. This is useful when the session user has no read access over the system table containing schema information or when the database management system does
-not store this information anywhere (e.g. MySQL < 5.0).
-* Support to **dump database tables** entirely, a range of entries or specific columns as per user's choice. The user can also choose to dump only a range of characters from each column's entry.
+* 根据[错误信息](http://bernardodamele.blogspot.com/2007/06/database-management-system-fingerprint.html)，[banner 解析](http://bernardodamele.blogspot.com/2007/06/database-management-system-fingerprint.html)，[函数输出对比](http://bernardodamele.blogspot.com/2007/07/more-on-database-management-system.html) 和 [特定特征](http://bernardodamele.blogspot.com/2007/07/more-on-database-management-system.html) 例如 MySQL 注释注入收集**广泛的数据库版本和底层操作系统指纹信息**。如果你已经知道数据库系统的版本，则可以手动指定它。
+* 支持采集基本的 Web 服务器和 Web 应用技术的指纹信息。
+* 支持获取 DBMS **banner**，**会话用户**和**当前数据库**等信息。sqlmap 还能检查当前会话用户是否为数据库管理员帐号。
+* 支持枚举**用户，密码散列，特权级，角色，数据库，表和列**。
+* 支持自动识别密码散列格式并**用字典攻击破解**。
+* 支持**暴力猜解表名和列名**。当会话用户没有读取系统表的权限或数据库没有存储表信息（例如 MySQL < 5.0）时这项功能会非常有用。
+* 支持完整地 **dump 数据表**，获取某个范围内的数据项或根据用户指定的列。The user can also choose to dump only a range of characters from each column's entry.
 * Support to automatically **dump all databases**' schemas and entries. It is possibly to exclude from the dump the system databases.
-* Support to **search for specific database names, specific tables across all databases or specific columns across all databases' tables**. This is useful, for instance, to identify tables containing custom application credentials where relevant columns' names contain string like **name** and **pass**.
-* Support to **run custom SQL statement(s)** as in an interactive SQL client connecting to the back-end database. sqlmap automatically dissects the provided statement, determines which technique fits best to inject it and how to pack the SQL payload accordingly.
+* 支持**搜索指定的数据库名，在数据库中搜索表，或在所有表中搜索列名**。这是一项很有用的功能，例如，通过搜索列名中包含像 **name** 和 **pass** 的表来确定哪些表包含用户敏感信息。
+* 支持像交互式 SQL 客户端一样连接数据库并**执行 SQL 语句**。sqlmap 会自动分析用户所提供的 SQL 语句，以此决定用最合适的技术去注入并打包相应的 SQL payload。
 
-## Takeover features
+## 接管功能
 
 Some of these techniques are detailed in the white paper
 [Advanced SQL injection to operating system full control](http://www.slideshare.net/inquis/advanced-sql-injection-to-operating-system-full-control-whitepaper-4633857) and in the slide deck [Expanding the control over the operating system from the database](http://www.slideshare.net/inquis/expanding-the-control-over-the-operating-system-from-the-database).
