@@ -40,29 +40,24 @@ sqlmap 实现的功能特性包括：
 
 ## 接管功能
 
-Some of these techniques are detailed in the white paper
-[Advanced SQL injection to operating system full control](http://www.slideshare.net/inquis/advanced-sql-injection-to-operating-system-full-control-whitepaper-4633857) and in the slide deck [Expanding the control over the operating system from the database](http://www.slideshare.net/inquis/expanding-the-control-over-the-operating-system-from-the-database).
+以下的相关技术详细信息可在白皮书 [高级 SQL 注入到完全控制操作系统](http://www.slideshare.net/inquis/advanced-sql-injection-to-operating-system-full-control-whitepaper-4633857) 和 幻灯片 [将控制权从数据库扩展到操作系统](http://www.slideshare.net/inquis/expanding-the-control-over-the-operating-system-from-the-database) 中找到。
 
-* Support to **inject custom user-defined functions**: the user can compile a shared library then use sqlmap to create within the back-end DBMS user-defined functions out of the compiled shared library file. These
-UDFs can then be executed, and optionally removed, via sqlmap. This is supported when the database software is MySQL or PostgreSQL.
-* Support to **download and upload any file** from the database server underlying file system when the database software is MySQL, PostgreSQL or Microsoft SQL Server.
-* Support to **execute arbitrary commands and retrieve their standard output** on the database server underlying operating system when the database software is MySQL, PostgreSQL or Microsoft SQL Server.
+* 支持**注入用户自定义函数**：用户可以编译共享库并通过 sqlmap 在数据库中创建共享库中没有的用户自定义函数。可以通过 sqlmap 执行或者移除这些 UDFs。这些功能支持 MySQL 和 PostgreSQL 数据库。
+* 支持从 MySQL，PostgreSQL 和 Microsoft SQL Server 服务器的文件系统中**下载和上传文件**。
+* 支持在 MySQL，PostgreSQL 和 Microsoft SQL Server 服务器的操作系统中**执行任意命令并获取相应输出**。
 * On MySQL and PostgreSQL via user-defined function injection and execution.
-* On Microsoft SQL Server via `xp_cmdshell()` stored procedure.
-Also, the stored procedure is re-enabled if disabled or created from scratch if removed by the DBA.
-* Support to **establish an out-of-band stateful TCP connection between the attacker machine and the database server** underlying operating system. This channel can be an interactive command prompt, a Meterpreter session or a graphical user interface (VNC) session as per user's choice.
-sqlmap relies on Metasploit to create the shellcode and implements four different techniques to execute it on the database server. These techniques are:
-* Database **in-memory execution of the Metasploit's shellcode** via sqlmap own user-defined function `sys_bineval()`. Supported on MySQL and PostgreSQL.
-* Upload and execution of a Metasploit's **stand-alone payload stager** via sqlmap own user-defined function `sys_exec()` on MySQL and PostgreSQL or via `xp_cmdshell()` on Microsoft SQL Server.
-* Execution of Metasploit's shellcode by performing a **SMB reflection attack** ([MS08-068](http://www.microsoft.com/technet/security/Bulletin/MS08-068.mspx) with a UNC path request from the database server to the attacker's machine where the Metasploit `smb_relay` server exploit listens. Supported when running sqlmap with high privileges (`uid=0`) on Linux/Unix and the target DBMS runs as Administrator on Windows.
-* Database in-memory execution of the Metasploit's shellcode by exploiting **Microsoft SQL Server 2000 and 2005 `sp_replwritetovarbin` stored procedure heap-based buffer overflow** ([MS09-004](http://www.microsoft.com/technet/security/bulletin/ms09-004.mspx)). sqlmap has its own exploit to trigger the vulnerability with automatic DEP memory protection bypass, but it relies on Metasploit to generate the shellcode to get executed upon successful exploitation.
-* Support for **database process' user privilege escalation** via Metasploit's `getsystem` command which include, among others, the
-[kitrap0d](http://archives.neohapsis.com/archives/fulldisclosure/2010-01/0346.html) technique ([MS10-015](http://www.microsoft.com/technet/security/bulletin/ms10-015.mspx)).
-* Support to access (read/add/delete) Windows registry hives.
+* On Microsoft SQL Server via `xp_cmdshell()` stored procedure. Also, the stored procedure is re-enabled if disabled or created from scratch if removed by the DBA.
+* 支持在操作系统中**建立攻击者机器和数据库服务器之间的有状态的带外数据 TCP 连接**。根据用户选择这个通道可以是交互式命令行提示符，Meterpreter 会话或图形用户界面（VNC）会话。sqlmap 依赖 Metasploit 生成 shellcode 并通过四种技术在数据库服务器执行。这些技术分别是：
+1. 通过 sqlmap 使用用户自定义的 `sys_bineval()` 函数**在内存中执行 Metasploit shellcode**。支持 MySQL 和 PostgreSQL。
+2. 对于 MySQL 和 PostgreSQL，通过 sqlmap 使用用户自定义的 `sys_exec()` 函数上传并执行一个 Metasploit 的**独立运行的 payload**，对于 Microsoft SQL Server 则使用 `xp_cmdshell()`。
+3. 通过 **SMB 反射攻击**（[MS08-068](http://www.microsoft.com/technet/security/Bulletin/MS08-068.mspx)）执行 Metasploit shellcode，这需要目标数据库服务器向已被 Metasploit `smb_relay` 监听的攻击者机器发出一个 UNC 路径请求。当 sqlmap 运行在 Linux/Unix 高权限（`uid=0`）并且目标 DMBS 在 Windows 中以管理员身份运行时支持该功能。
+4. 通过利用 **Microsoft SQL Server 2000 和 2005 中存在的 `sp_replwritetovarbin` 存储过程堆缓冲区溢出**（[MS09-004](http://www.microsoft.com/technet/security/bulletin/ms09-004.mspx)）在内存中执行 Metasploit shellcode。sqlmap 有自己的利用程序通过自动绕过 DEP 内存保护去触发这个漏洞，但是它依赖 Metasploit 生成 shellcode 以执行攻击。
+* 支持通过 Metasploit 的 `getsystem` 命令进行**数据库进程用户提权**，这个命令使用了 [kitrap0d](http://archives.neohapsis.com/archives/fulldisclosure/2010-01/0346.html) 技术（[MS10-015](http://www.microsoft.com/technet/security/bulletin/ms10-015.mspx)）。
+* 支持访问（读取/添加/删除）Windows 注册表项目。
 
-## Demo
+## 演示
 
-You can watch demo videos on [Bernardo](http://www.youtube.com/user/inquisb/videos) and [Miroslav](http://www.youtube.com/user/stamparm/videos) YouTube pages. Also, you can find lots of examples against publicly available vulnerable web applications made for legal web assessment [here](http://unconciousmind.blogspot.com/search/label/sqlmap).
+你可以在 [Bernardo](http://www.youtube.com/user/inquisb/videos) 和 [Miroslav](http://www.youtube.com/user/stamparm/videos) 的 YouTube 页面中观看演示。你也可以在[这里](http://unconciousmind.blogspot.com/search/label/sqlmap)找到大量专门用于合法 Web 测试的带有漏洞的 Web 应用。
 
 ---
 
