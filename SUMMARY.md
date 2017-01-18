@@ -25,7 +25,7 @@
     * [Windows registry access](User's manual//Usage//Windows registry access.md)
     * [General](User's manual//Usage//General.md)
     * [Miscellaneous](User's manual//Usage//Miscellaneous.md)
-    * [API (REST-JSON)](User's manual//Usage//API /(REST-JSON/).md)
+    * [API (REST-JSON)](User's manual//Usage//API \(REST-JSON\).md)
 * [License](User's manual//License.md)
 * [其他项目](Miscellaneous//Miscellaneous.md)
 * [FAQ](Miscellaneous//FAQ.md)
