@@ -40,7 +40,7 @@
     --auth-type=AUTH..  HTTP 认证方式（Basic，Digest，NTLM 或 PKI）
     --auth-cred=AUTH..  HTTP 认证凭证（用户名:密码）
     --auth-file=AUTH..  HTTP 认证 PEM 证书/私钥文件
-    --ignore-401        忽略 HTTP 401 错误（未授权）
+    --ignore-401        忽略 HTTP 401（未授权）错误
     --proxy=PROXY       使用代理连接目标 URL
     --proxy-cred=PRO..  使用代理进行认证（用户名:密码）
     --proxy-file=PRO..  从文件中加载代理列表
@@ -97,7 +97,7 @@
     --suffix=SUFFIX     注入 payload 的后缀字符串
     --tamper=TAMPER     用给定脚本修改注入数据
     
-  Detection:
+  检测：
     These options can be used to customize the detection phase
 
     --level=LEVEL       Level of tests to perform (1-5, default 1)
