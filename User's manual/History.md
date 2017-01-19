@@ -25,7 +25,7 @@
 ## 2012
 
 * **六月 26**, sqlmap 代码库 [迁移](http://article.gmane.org/gmane.comp.security.sqlmap/2247) 到 [GitHub](https://github.com/sqlmapproject/sqlmap)，并且更新了新的[主页](http://sqlmap.org). 代码问题追踪 [公开](https://github.com/sqlmapproject/sqlmap/issues) 到 github 上. 同时移除了原先在 SourceForge 上的 Subversion 代码仓库。
-* **五月 31**, 2012 年 在 Moscow, Russia 举行的 PHDays 大会上，Miroslav [带来了](http://phdays.com/program/conference/) 他关于 **基于 sqlmap 的DNS渗透** 研究报告 \([演讲PPT](http://www.slideshare.net/stamparm/dns-exfiltration-using-sqlmap-13163281)\) 同时还有 **基于 SQL 注入攻击的数据获取** [白皮书](http://www.slideshare.net/stamparm/ph-days-2012miroslavstampardataretrievaloverdnsinsqlinjectionattackspaper) .
+* **五月 31**, 2012 年 在 Moscow, Russia 举行的 PHDays 大会上，Miroslav [带来了](http://phdays.com/program/conference/) **基于 sqlmap 的DNS渗透** 研究报告 \([演讲PPT](http://www.slideshare.net/stamparm/dns-exfiltration-using-sqlmap-13163281)\) 同时还有 **基于 SQL 注入攻击的数据获取** [白皮书](http://www.slideshare.net/stamparm/ph-days-2012miroslavstampardataretrievaloverdnsinsqlinjectionattackspaper) .
 ## 2011
 
 * **十二份**, 在这一年中， sqlmap 新增了很多新的功能特性，同时修复了数百个 bugs。
