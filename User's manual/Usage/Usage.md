@@ -1,3 +1,260 @@
+# 用法
+
+```
+用法：python sqlmap.py [选项]
+
+选项：
+  -h, --help            显示基本帮助信息并退出
+  -hh                   显示高级帮助信息并退出
+  --version             显示程序版本信息并退出
+  -v VERBOSE            输出信息详细程度级别：0-6（默认为 1）
+
+  目标：
+  	至少提供一个以下选项以指定目标
+
+    -d DIRECT           直接连接数据库
+    -u URL, --url=URL   目标 URL（例："http://www.site.com/vuln.php?id=1"）
+    -l LOGFILE          从 Burp 或 WebScarab 代理的日志文件中解析目标地址
+    -x SITEMAPURL       从远程网站地图（.xml）文件中解析目标
+    -m BULKFILE         从文本文件中获取批量目标
+    -r REQUESTFILE      从文件中读取 HTTP 请求
+    -g GOOGLEDORK       使用 Google dork 结果作为目标
+    -c CONFIGFILE       从 INI 配置文件中加载选项
+
+  请求：
+  	以下选项可以指定连接目标地址的方式
+
+    --method=METHOD     强制使用提供的 HTTP 方法（例：PUT）
+    --data=DATA         使用 POST 发送数据串
+    --param-del=PARA..  设置参数值分隔符
+    --cookie=COOKIE     指定HTTP Cookie 
+    --cookie-del=COO..  设置 cookie 分隔符
+    --load-cookies=L..  指定以 Netscape/wget 格式存放 cookies 的文件
+    --drop-set-cookie   忽略 HTTP 响应中的 Set-Cookie 
+    --user-agent=AGENT  指定 HTTP User-Agent
+    --random-agent      使用随机的 HTTP User-Agent
+    --host=HOST         指定 HTTP Host
+    --referer=REFERER   指定 HTTP Referer
+    -H HEADER, --hea..  设置额外的 HTTP 头参数（例："X-Forwarded-For: 127.0.0.1"）
+    --headers=HEADERS   设置额外的 HTTP 头参数（例："Accept-Language: fr\nETag: 123"）
+    --auth-type=AUTH..  HTTP 认证方式（Basic，Digest，NTLM 或 PKI）
+    --auth-cred=AUTH..  HTTP 认证凭证（用户名:密码）
+    --auth-file=AUTH..  HTTP 认证 PEM 证书/私钥文件
+    --ignore-401        忽略 HTTP 401 错误（未授权）
+    --proxy=PROXY       使用代理连接目标 URL
+    --proxy-cred=PRO..  使用代理进行认证（用户名:密码）
+    --proxy-file=PRO..  从文件中加载代理列表
+    --ignore-proxy      忽略系统默认代理设置
+    --tor               使用 Tor 匿名网络
+    --tor-port=TORPORT  设置 Tor 代理端口代替默认端口
+    --tor-type=TORTYPE  设置 Tor 代理方式（HTTP（默认），SOCKS4 或 SOCKS5）
+    --check-tor         检查是否正确使用了 Tor
+    --delay=DELAY       设置每个 HTTP 请求的延迟秒数
+    --timeout=TIMEOUT   设置连接响应的有效秒数（默认为 30）
+    --retries=RETRIES   连接超时时重试次数（默认为 3）
+    --randomize=RPARAM  随机更改给定的参数值
+    --safe-url=SAFEURL  测试过程中可频繁访问且合法的 URL 地址
+    					（译者注：有些网站在你连续多次访问错误地址时会关闭会话连接，[请求](.//Request.md)小节有详细说明）
+    --safe-post=SAFE..  使用 POST 方法发送合法的数据
+    --safe-req=SAFER..  从文件中加载合法的 HTTP 请求
+    --safe-freq=SAFE..  每访问两次给定的合法 URL 才发送一次测试请求
+    --skip-urlencode    不对 payload 数据进行 URL 编码
+    --csrf-token=CSR..  设置网站用来反 CSRF 攻击的 token
+    --csrf-url=CSRFURL  指定可被提取反 CSRF 攻击 token 的 URL
+    --force-ssl         强制使用 SSL/HTTPS
+    --hpp               使用 HTTP 参数污染攻击
+    --eval=EVALCODE     在发起请求前执行给定的 Python 代码（例：
+                        "import hashlib;id2=hashlib.md5(id).hexdigest()"）
+
+  优化：
+    以下选项用于优化 sqlmap 性能
+
+    -o                  开启所有优化开关
+    --predict-output    预测常用请求的输出
+    --keep-alive        使用持久的 HTTP(S) 连接
+    --null-connection   仅获取页面大小而非实际的 HTTP 响应
+    --threads=THREADS   设置 HTTP(S) 请求并发数最大值（默认为 1）
+
+  注入：
+
+    以下选项用于指定要测试的参数，
+    提供自定义注入 payloads 和篡改参数的脚本
+
+    -p TESTPARAMETER    需要测试的参数
+    --skip=SKIP         要跳过的参数
+    --skip-static       跳过非动态参数
+    --param-exclude=..  用正则表达式排除参数（例："ses"）
+    --dbms=DBMS         指定 DBMS 类型（例：MySQL）
+    --dbms-cred=DBMS..  DBMS 认证凭据（用户名:密码）
+    --os=OS             指定 DBMS 服务器的操作系统类型
+    --invalid-bignum    将无效值设置为大数
+    --invalid-logical   对无效值使用逻辑运算
+    --invalid-string    对无效值使用随机字符串
+    --no-cast           关闭 payload 构造机制
+    --no-escape         关闭字符串转义机制
+    --prefix=PREFIX     注入 payload 的前缀字符串
+    --suffix=SUFFIX     注入 payload 的后缀字符串
+    --tamper=TAMPER     用给定脚本修改注入数据
+    
+  Detection:
+    These options can be used to customize the detection phase
+
+    --level=LEVEL       Level of tests to perform (1-5, default 1)
+    --risk=RISK         Risk of tests to perform (1-3, default 1)
+    --string=STRING     String to match when query is evaluated to True
+    --not-string=NOT..  String to match when query is evaluated to False
+    --regexp=REGEXP     Regexp to match when query is evaluated to True
+    --code=CODE         HTTP code to match when query is evaluated to True
+    --text-only         Compare pages based only on the textual content
+    --titles            Compare pages based only on their titles
+
+  Techniques:
+    These options can be used to tweak testing of specific SQL injection
+    techniques
+
+    --technique=TECH    SQL injection techniques to use (default "BEUSTQ")
+    --time-sec=TIMESEC  Seconds to delay the DBMS response (default 5)
+    --union-cols=UCOLS  Range of columns to test for UNION query SQL injection
+    --union-char=UCHAR  Character to use for bruteforcing number of columns
+    --union-from=UFROM  Table to use in FROM part of UNION query SQL injection
+    --dns-domain=DNS..  Domain name used for DNS exfiltration attack
+    --second-order=S..  Resulting page URL searched for second-order response
+
+  Fingerprint:
+    -f, --fingerprint   Perform an extensive DBMS version fingerprint
+
+  Enumeration:
+    These options can be used to enumerate the back-end database
+    management system information, structure and data contained in the
+    tables. Moreover you can run your own SQL statements
+
+    -a, --all           Retrieve everything
+    -b, --banner        Retrieve DBMS banner
+    --current-user      Retrieve DBMS current user
+    --current-db        Retrieve DBMS current database
+    --hostname          Retrieve DBMS server hostname
+    --is-dba            Detect if the DBMS current user is DBA
+    --users             Enumerate DBMS users
+    --passwords         Enumerate DBMS users password hashes
+    --privileges        Enumerate DBMS users privileges
+    --roles             Enumerate DBMS users roles
+    --dbs               Enumerate DBMS databases
+    --tables            Enumerate DBMS database tables
+    --columns           Enumerate DBMS database table columns
+    --schema            Enumerate DBMS schema
+    --count             Retrieve number of entries for table(s)
+    --dump              Dump DBMS database table entries
+    --dump-all          Dump all DBMS databases tables entries
+    --search            Search column(s), table(s) and/or database name(s)
+    --comments          Retrieve DBMS comments
+    -D DB               DBMS database to enumerate
+    -T TBL              DBMS database table(s) to enumerate
+    -C COL              DBMS database table column(s) to enumerate
+    -X EXCLUDECOL       DBMS database table column(s) to not enumerate
+    -U USER             DBMS user to enumerate
+    --exclude-sysdbs    Exclude DBMS system databases when enumerating tables
+    --pivot-column=P..  Pivot column name
+    --where=DUMPWHERE   Use WHERE condition while table dumping
+    --start=LIMITSTART  First query output entry to retrieve
+    --stop=LIMITSTOP    Last query output entry to retrieve
+    --first=FIRSTCHAR   First query output word character to retrieve
+    --last=LASTCHAR     Last query output word character to retrieve
+    --sql-query=QUERY   SQL statement to be executed
+    --sql-shell         Prompt for an interactive SQL shell
+    --sql-file=SQLFILE  Execute SQL statements from given file(s)
+
+  Brute force:
+    These options can be used to run brute force checks
+
+    --common-tables     Check existence of common tables
+    --common-columns    Check existence of common columns
+
+  User-defined function injection:
+    These options can be used to create custom user-defined functions
+
+    --udf-inject        Inject custom user-defined functions
+    --shared-lib=SHLIB  Local path of the shared library
+
+  File system access:
+    These options can be used to access the back-end database management
+    system underlying file system
+
+    --file-read=RFILE   Read a file from the back-end DBMS file system
+    --file-write=WFILE  Write a local file on the back-end DBMS file system
+    --file-dest=DFILE   Back-end DBMS absolute filepath to write to
+
+  Operating system access:
+    These options can be used to access the back-end database management
+    system underlying operating system
+
+    --os-cmd=OSCMD      Execute an operating system command
+    --os-shell          Prompt for an interactive operating system shell
+    --os-pwn            Prompt for an OOB shell, Meterpreter or VNC
+    --os-smbrelay       One click prompt for an OOB shell, Meterpreter or VNC
+    --os-bof            Stored procedure buffer overflow exploitation
+    --priv-esc          Database process user privilege escalation
+    --msf-path=MSFPATH  Local path where Metasploit Framework is installed
+    --tmp-path=TMPPATH  Remote absolute path of temporary files directory
+
+  Windows registry access:
+    These options can be used to access the back-end database management
+    system Windows registry
+
+    --reg-read          Read a Windows registry key value
+    --reg-add           Write a Windows registry key value data
+    --reg-del           Delete a Windows registry key value
+    --reg-key=REGKEY    Windows registry key
+    --reg-value=REGVAL  Windows registry key value
+    --reg-data=REGDATA  Windows registry key value data
+    --reg-type=REGTYPE  Windows registry key value type
+
+  General:
+    These options can be used to set some general working parameters
+
+    -s SESSIONFILE      Load session from a stored (.sqlite) file
+    -t TRAFFICFILE      Log all HTTP traffic into a textual file
+    --batch             Never ask for user input, use the default behaviour
+    --binary-fields=..  Result fields having binary values (e.g. "digest")
+    --charset=CHARSET   Force character encoding used for data retrieval
+    --crawl=CRAWLDEPTH  Crawl the website starting from the target URL
+    --crawl-exclude=..  Regexp to exclude pages from crawling (e.g. "logout")
+    --csv-del=CSVDEL    Delimiting character used in CSV output (default ",")
+    --dump-format=DU..  Format of dumped data (CSV (default), HTML or SQLITE)
+    --eta               Display for each output the estimated time of arrival
+    --flush-session     Flush session files for current target
+    --forms             Parse and test forms on target URL
+    --fresh-queries     Ignore query results stored in session file
+    --hex               Use DBMS hex function(s) for data retrieval
+    --output-dir=OUT..  Custom output directory path
+    --parse-errors      Parse and display DBMS error messages from responses
+    --save=SAVECONFIG   Save options to a configuration INI file
+    --scope=SCOPE       Regexp to filter targets from provided proxy log
+    --test-filter=TE..  Select tests by payloads and/or titles (e.g. ROW)
+    --test-skip=TEST..  Skip tests by payloads and/or titles (e.g. BENCHMARK)
+    --update            Update sqlmap
+
+  Miscellaneous:
+    -z MNEMONICS        Use short mnemonics (e.g. "flu,bat,ban,tec=EU")
+    --alert=ALERT       Run host OS command(s) when SQL injection is found
+    --answers=ANSWERS   Set question answers (e.g. "quit=N,follow=N")
+    --beep              Beep on question and/or when SQL injection is found
+    --cleanup           Clean up the DBMS from sqlmap specific UDF and tables
+    --dependencies      Check for missing (non-core) sqlmap dependencies
+    --disable-coloring  Disable console output coloring
+    --gpage=GOOGLEPAGE  Use Google dork results from specified page number
+    --identify-waf      Make a thorough testing for a WAF/IPS/IDS protection
+    --skip-waf          Skip heuristic detection of WAF/IPS/IDS protection
+    --mobile            Imitate smartphone through HTTP User-Agent header
+    --offline           Work in offline mode (only use session data)
+    --page-rank         Display page rank (PR) for Google dork results
+    --purge-output      Safely remove all content from output directory
+    --smart             Conduct thorough tests only if positive heuristic(s)
+    --sqlmap-shell      Prompt for an interactive sqlmap shell
+    --wizard            Simple wizard interface for beginner users
+```
+---
+# 原文
+
 # Usage
 
 ```
