@@ -8,7 +8,7 @@
 * [下载更新](User's manual//Download-and-update.md)
 * [相关依赖](User's manual//Dependencies.md)
 * [历史](User's manual//History.md)
-* [Usage](User's manual//Usage//Usage.md)
+* [用法](User's manual//Usage//Usage.md)
     * [Output verbosity](User's manual//Usage//Output verbosity.md)
     * [Target](User's manual//Usage//Target.md)
     * [Request](User's manual//Usage//Request.md)

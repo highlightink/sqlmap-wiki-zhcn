@@ -53,8 +53,9 @@
     --timeout=TIMEOUT   设置连接响应的有效秒数（默认为 30）
     --retries=RETRIES   连接超时时重试次数（默认为 3）
     --randomize=RPARAM  随机更改给定的参数值
-    --safe-url=SAFEURL  测试过程中可频繁访问且合法的 URL 地址
-    					（译者注：有些网站在你连续多次访问错误地址时会关闭会话连接，[请求](.//Request.md)小节有详细说明）
+    --safe-url=SAFEURL  测试过程中可频繁访问且合法的 URL 地址（译者注：
+                        有些网站在你连续多次访问错误地址时会关闭会话连接，
+                        后面的“请求”小节有详细说明）
     --safe-post=SAFE..  使用 POST 方法发送合法的数据
     --safe-req=SAFER..  从文件中加载合法的 HTTP 请求
     --safe-freq=SAFE..  每访问两次给定的合法 URL 才发送一次测试请求
