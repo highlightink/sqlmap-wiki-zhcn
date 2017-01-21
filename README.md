@@ -1,6 +1,7 @@
 # sqlmap-wiki-zhcn（sqlmap wiki 中文版）
 
-这本书包含了 sqlmap 项目的完整 wiki（版本：2017.01.17）。
+这本书包含了 sqlmap 项目的完整 wiki。
+如无意外，将持续跟进官方英文 wiki，当前版本：2017.01.17。
 
 ### sqlmap 官方网站
 
@@ -18,7 +19,7 @@
 
 ### 参与翻译
 
-本书托管在 Github，你可以访问这个地址参与翻译：  
+本书托管在 Github，你可以访问这个地址参与翻译，或者帮助我们修正翻译错误：  
 [https://github.com/OctoBug/sqlmap-wiki-zhcn](https://github.com/OctoBug/sqlmap-wiki-zhcn)
 
 ### 格式约定
@@ -26,5 +27,3 @@
 1. 标点符号：使用中文标点符号，代码则沿用英文原文。
 2. 中文和英文、数字之间用空格隔开。例如：这是 1 份 sqlmap 中文文档。
 3. 专有名词一般不翻译，如 google。
-
-

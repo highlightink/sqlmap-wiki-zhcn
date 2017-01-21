@@ -98,33 +98,40 @@
     --tamper=TAMPER     用给定脚本修改注入数据
     
   检测：
-    These options can be used to customize the detection phase
+    以下选项用于自定义检测方式
 
-    --level=LEVEL       Level of tests to perform (1-5, default 1)
-    --risk=RISK         Risk of tests to perform (1-3, default 1)
-    --string=STRING     String to match when query is evaluated to True
-    --not-string=NOT..  String to match when query is evaluated to False
-    --regexp=REGEXP     Regexp to match when query is evaluated to True
-    --code=CODE         HTTP code to match when query is evaluated to True
-    --text-only         Compare pages based only on the textual content
-    --titles            Compare pages based only on their titles
+    --level=LEVEL       设置测试等级（1-5，默认为 1）
+    --risk=RISK         设置测试风险等级（1-3，默认为 1）
+    --string=STRING     用于确定查询结果为真时的字符串
+    --not-string=NOT..  用于确定查询结果为假时的字符串
+    --regexp=REGEXP     用于确定查询结果为真时的正则表达式
+    --code=CODE         用于确定查询结果为真时的 HTTP 状态码
+    --text-only         只根据页面文本内容对比页面
+    --titles            只根据页面标题对比页面
 
-  Techniques:
-    These options can be used to tweak testing of specific SQL injection
-    techniques
+  技术：
+    以下选项用于调整特定 SQL 注入技术的测试方法
 
-    --technique=TECH    SQL injection techniques to use (default "BEUSTQ")
-    --time-sec=TIMESEC  Seconds to delay the DBMS response (default 5)
-    --union-cols=UCOLS  Range of columns to test for UNION query SQL injection
-    --union-char=UCHAR  Character to use for bruteforcing number of columns
-    --union-from=UFROM  Table to use in FROM part of UNION query SQL injection
-    --dns-domain=DNS..  Domain name used for DNS exfiltration attack
-    --second-order=S..  Resulting page URL searched for second-order response
+    --technique=TECH    使用的 SQL 注入技术（默认为“BEUSTQ”，译者注：
+                        B: Boolean-based blind SQL injection（布尔型盲注）
+                        E: Error-based SQL injection（报错型注入）
+                        U: UNION query SQL injection（联合查询注入）
+                        S: Stacked queries SQL injection（堆查询注入）
+                        T: Time-based blind SQL injection（时间型盲注）
+                        Q: inline Query injection（内联查询注入）
+    --time-sec=TIMESEC  延迟 DBMS 的响应秒数（默认为 5）
+    --union-cols=UCOLS  设置联合查询注入测试的列数目范围
+    --union-char=UCHAR  用于暴力猜解列数的字符
+    --union-from=UFROM  设置联合查询注入 FROM 处用到的表
+    --dns-domain=DNS..  设置用于 DNS 渗出攻击的域名（译者注：
+                        推荐阅读《在SQL注入中使用DNS获取数据》（http://cb.drops.wiki/drops/tips-5283.html，在后面的“技术”小节中也有相应解释）
+    --second-order=S..  设置二阶响应的结果显示页面的 URL（译者注：
+                        该选项用于二阶 SQL 注入）
 
-  Fingerprint:
-    -f, --fingerprint   Perform an extensive DBMS version fingerprint
+  采集指纹：
+    -f, --fingerprint   执行广泛的 DBMS 版本指纹采集
 
-  Enumeration:
+  枚举：
     These options can be used to enumerate the back-end database
     management system information, structure and data contained in the
     tables. Moreover you can run your own SQL statements
@@ -164,19 +171,19 @@
     --sql-shell         Prompt for an interactive SQL shell
     --sql-file=SQLFILE  Execute SQL statements from given file(s)
 
-  Brute force:
+  暴力破解：
     These options can be used to run brute force checks
 
     --common-tables     Check existence of common tables
     --common-columns    Check existence of common columns
 
-  User-defined function injection:
+  用户自定义函数注入：
     These options can be used to create custom user-defined functions
 
     --udf-inject        Inject custom user-defined functions
     --shared-lib=SHLIB  Local path of the shared library
 
-  File system access:
+  访问文件系统：
     These options can be used to access the back-end database management
     system underlying file system
 
@@ -184,7 +191,7 @@
     --file-write=WFILE  Write a local file on the back-end DBMS file system
     --file-dest=DFILE   Back-end DBMS absolute filepath to write to
 
-  Operating system access:
+  访问操作系统：
     These options can be used to access the back-end database management
     system underlying operating system
 
@@ -197,7 +204,7 @@
     --msf-path=MSFPATH  Local path where Metasploit Framework is installed
     --tmp-path=TMPPATH  Remote absolute path of temporary files directory
 
-  Windows registry access:
+  访问 Windows 注册表：
     These options can be used to access the back-end database management
     system Windows registry
 
@@ -209,7 +216,7 @@
     --reg-data=REGDATA  Windows registry key value data
     --reg-type=REGTYPE  Windows registry key value type
 
-  General:
+  通用选项：
     These options can be used to set some general working parameters
 
     -s SESSIONFILE      Load session from a stored (.sqlite) file
@@ -234,7 +241,7 @@
     --test-skip=TEST..  Skip tests by payloads and/or titles (e.g. BENCHMARK)
     --update            Update sqlmap
 
-  Miscellaneous:
+  其他选项：
     -z MNEMONICS        Use short mnemonics (e.g. "flu,bat,ban,tec=EU")
     --alert=ALERT       Run host OS command(s) when SQL injection is found
     --answers=ANSWERS   Set question answers (e.g. "quit=N,follow=N")
