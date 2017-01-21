@@ -124,7 +124,9 @@
     --union-char=UCHAR  用于暴力猜解列数的字符
     --union-from=UFROM  设置联合查询注入 FROM 处用到的表
     --dns-domain=DNS..  设置用于 DNS 渗出攻击的域名（译者注：
-                        推荐阅读《在SQL注入中使用DNS获取数据》（http://cb.drops.wiki/drops/tips-5283.html，在后面的“技术”小节中也有相应解释）
+                        推荐阅读《在SQL注入中使用DNS获取数据》
+                        http://cb.drops.wiki/drops/tips-5283.html，
+                        在后面的“技术”小节中也有相应解释）
     --second-order=S..  设置二阶响应的结果显示页面的 URL（译者注：
                         该选项用于二阶 SQL 注入）
 
