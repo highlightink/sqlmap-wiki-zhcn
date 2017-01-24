@@ -141,7 +141,7 @@
     --current-user      获取 DBMS 当前用户
     --current-db        获取 DBMS 当前数据库
     --hostname          获取 DBMS server hostname
-    --is-dba            探测 DBMS 当前用户是否为 DBA（数据库管理员，Database Administrator）
+    --is-dba            探测 DBMS 当前用户是否为 DBA（数据库管理员）
     --users             枚举出 DBMS 所有用户
     --passwords         枚举出 DBMS 所有用户的密码哈希
     --privileges        枚举出 DBMS 所有用户特权级
