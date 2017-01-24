@@ -19,7 +19,7 @@
 
 ### 参与翻译
 
-本书托管在 Github，你可以访问这个地址参与翻译，或者帮助我们修正翻译错误：  
+本书托管在 Github，你可以访问这个地址参与翻译，帮助我们修正翻译错误：  
 [https://github.com/OctoBug/sqlmap-wiki-zhcn](https://github.com/OctoBug/sqlmap-wiki-zhcn)
 
 ### 格式约定
