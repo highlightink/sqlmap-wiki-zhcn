@@ -1,7 +1,7 @@
 # sqlmap-wiki-zhcn（sqlmap wiki 中文版）
 
 这本书包含了 sqlmap 项目的完整 wiki。
-如无意外，将持续跟进官方英文 wiki，当前版本：2017.01.24。
+如无意外，将持续跟进官方英文 wiki，当前 Git 仓库版本：2017.01.02。
 
 ### sqlmap 官方网站
 
