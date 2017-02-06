@@ -1,12 +1,12 @@
-## Request
+## 请求
 
-These options can be used to specify how to connect to the target URL.
+以下选项用于指定连接目标 URL 的方式。
 
-### HTTP method
+### HTTP 方法
 
-Option: `--method`
+选项：`--method`
 
-sqlmap automatically detects the proper HTTP method to be used in HTTP requests. Nevertheless, in some cases, it is required to force the usage of specific HTTP method (e.g. `PUT`) that is not used by automatism. This is possible with usage of this option (e.g. `--method=PUT`).
+sqlmap 能自动检测 HTTP 请求中使用的 HTTP 方法。然而在某些情况下，需要强制使用 sqlmap 自动化不使用的特定 HTTP 方法（例：`PUT`）。该选项是可能被用到的（例：`--method=PUT`）。
 
 ### HTTP data
 
