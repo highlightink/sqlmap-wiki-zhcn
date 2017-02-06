@@ -9,7 +9,7 @@
 * [相关依赖](User's manual//Dependencies.md)
 * [历史](User's manual//History.md)
 * [用法](User's manual//Usage//Usage.md)
-    * [输出的详细等级](User's manual//Usage//Output verbosity.md)
+    * [输出详细等级](User's manual//Usage//Output verbosity.md)
     * [Target](User's manual//Usage//Target.md)
     * [Request](User's manual//Usage//Request.md)
     * [Optimization](User's manual//Usage//Optimization.md)
