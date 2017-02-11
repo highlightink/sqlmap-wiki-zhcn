@@ -8,13 +8,13 @@
 
 sqlmap 能自动检测 HTTP 请求中使用的 HTTP 方法。然而在某些情况下，需要强制使用 sqlmap 自动化不使用的特定 HTTP 方法（例：`PUT`）。该选项是可能被用到的（例：`--method=PUT`）。
 
-### HTTP data
+### HTTP 数据
 
-Option: `--data`
+选项：`--data`
 
-By default the HTTP method used to perform HTTP requests is GET, but you can implicitly change it to POST by providing the data to be sent in the POST requests. Such data, being those parameters, are tested for SQL injection as well as any provided GET parameters.
+HTTP 请求默认使用的方法是 GET，你可以通过在请求中提供要发送的数据隐式地将 GET 改成 POST。这些参数也会像 GET 参数一样被测试是否存在 SQL 注入。
 
-For example:
+例如：
 
 ```
 $ python sqlmap.py -u "http://www.target.com/vuln.php" --data="id=1" -f --banne\
