@@ -21,88 +21,93 @@ $ python sqlmap.py -u "http://www.target.com/vuln.php" --data="id=1" -f --banne\
 r --dbs --users
 ```
 
-### Parameter splitting character
+### 参数分隔符
 
-Option: `--param-del`
+选项：`--param-del`
 
-There are cases when default parameter delimiter (e.g. `&` in GET and POST data) needs to be overwritten for sqlmap to be able to properly split and process each parameter separately.
+有些情况下，需要覆盖默认参数分隔符（例：`&` 在 GET 和 POST 数据中），以使 sqlmap 能够正确地分别处理每个参数。
 
-For example:
+例如：
 
 ```
 $ python sqlmap.py -u "http://www.target.com/vuln.php" --data="query=foobar;id=\
 1" --param-del=";" -f --banner --dbs --users
 ```
 
-### HTTP `Cookie` header
+### HTTP `Cookie` 请求头
 
-Options and switch: `--cookie`, `--cookie-del`, `--load-cookies` and `--drop-set-cookie`
+选项和开关：`--cookie`，`--cookie-del`，`--load-cookies` 和 `--drop-set-cookie`
 
-These options and switches can be used in two situations:
+这些选项和开关可用于以下两种情况：
 
-* The web application requires authentication based upon cookies and you have such data.
-* You want to detect and exploit SQL injection on such header values.
+* Web 应用程序需要基于 cookies 的身份验证，而你拥有该数据。
+* 你想对 HTTP 头部检测和利用 SQL 注入。
 
-Either reason brings you to need to send cookies with sqlmap requests, the steps to go through are the following:
+不管是哪种情况，你需要使用 sqlmap 发送带有 cookies 的请求，步骤如下：
 
-* Login to the application with your favourite browser.
-* Get the HTTP Cookie from the browser's preferences or from the HTTP proxy screen and copy to the clipboard.
-* Go back to your shell and run sqlmap by pasting your clipboard as value of the option `--cookie`.
+* 使用你最喜欢的浏览器登录该应用。
+* 从浏览器的选项或 HTTP 代理中复制 Cookie。
+* 回到 shell 并使用复制的 cookies 作为选项 `--cookie` 的值运行 sqlmap。
 
-Note that the HTTP `Cookie` header values are usually separated by a `;` character, **not** by an `&`. sqlmap can recognize these as separate sets of `parameter=value` too, as well as GET and POST parameters. In case that the separation character is other than `;` it can be specified by using option `--cookie-del`.
+注意，HTTP `Cookie` 值通常由字符 `;` 分隔，而**不是** `&`。sqlmap 也可以将它们识别为 `parameter=value` 即参数值对，GET 和 POST 参数也一样。如果分隔字符不是 `;`，则可以使用选项 `--cookie-del` 来指定。
 
-If at any time during the communication, the web application responds with `Set-Cookie` headers, sqlmap will automatically use its value in all further HTTP requests as the `Cookie` header. sqlmap will also automatically test those values for SQL injection. This can be avoided by providing the switch `--drop-set-cookie` - sqlmap will ignore any coming `Set-Cookie` header.
+如果在通信期间的任何时刻，Web 应用程序的响应包含 `Set-Cookie` 响应头，sqlmap 将在所有其他 HTTP 请求中自动使用它的值作为 `Cookie` 的值。sqlmap 也将自动测试这些值是否存在 SQL 注入。这可以通过提供开关 `--drop-set-cookie` 来避免—— sqlmap 将忽略任何 `Set-Cookie` 响应头。
 
-Vice versa, if you provide a HTTP `Cookie` header with option `--cookie` and the target URL sends an HTTP
-`Set-Cookie` header at any time, sqlmap will ask you which set of cookies to use for the following HTTP requests.
+反之亦然，如果你提供一个带有选项 `--cookie` 的 HTTP `Cookie` 请求头，同时目标 URL 在任何时候都会发送一个 HTTP `Set-Cookie` 响应头，sqlmap 会询问你使用哪一组 cookies 来用于接下来的 HTTP 请求。
 
-There is also an option `--load-cookies` which can be used to provide a special file containing Netscape/wget formatted cookies.
+还有一个选项 `--load-cookies`，可以使用一个包含 Netscape/wget 格式 cookies 的特殊文件。
 
-Note that also the HTTP `Cookie` header is tested against SQL injection if the `--level` is set to **2** or above. Read below for details.
+注意，如果 `--level` 设置为 **2** 或更高，HTTP `Cookie` 请求头也会针对 SQL 注入被进行测试。详情请看下文。
 
-### HTTP `User-Agent` header
+### HTTP `User-Agent` 请求头
 
-Option and switch: `--user-agent` and `--random-agent`
+选项和开关：`--user-agent` 和 `--random-agent`
 
-By default sqlmap performs HTTP requests with the following `User-Agent` header value:
+默认情况下，sqlmap 使用以下 `User-Agent` 请求头值执行 HTTP 请求：
 
-    sqlmap/1.0-dev-xxxxxxx (http://sqlmap.org)
+```
+sqlmap/1.0-dev-xxxxxxx (http://sqlmap.org)
+```
 
-However, it is possible to fake it with the option `--user-agent` by providing custom User-Agent as the option's argument.
+不过，可以通过提供自定义 User-Agent 作为选项的参数，即选项 `--user-agent` 来伪造它。
 
-Moreover, by providing the switch `--random-agent`, sqlmap will randomly select a `User-Agent` from the `./txt/user-agents.txt` textual file and use it for all HTTP requests within the session.
+此外，通过提供开关 `--random-agent`，sqlmap 将从 `./txt/user-agents.txt` 文本文件中随机选择一个 `User-Agent`，并将其用于会话中的所有 HTTP 请求。
 
-Some sites perform a server-side check of HTTP `User-Agent` header value and fail the HTTP response if a valid `User-Agent` is not provided, its value is not expected or is blacklisted by a web application firewall or similar intrusion prevention system. In this case sqlmap will show you a message as follows:
+一些站点会对 HTTP `User-Agent` 请求头值进行服务器端检查，如果没有提供有效的 `User-Agent`，它的值不被预期或被 Web 应用程序防火墙或类似防御系统列入黑名单，则会拒绝 HTTP 响应。在这种情况下，sqlmap 将显示如下消息：
 
-    [hh:mm:20] [ERROR] the target URL responded with an unknown HTTP status code, try to 
-    force the HTTP User-Agent header with option --user-agent or --random-agent
+```
+[hh:mm:20] [ERROR] the target URL responded with an unknown HTTP status code, try to 
+force the HTTP User-Agent header with option --user-agent or --random-agent
+译：
+[hh:mm:20] [错误] 目标网址回复了未知的 HTTP 状态码，请尝试使用选项 --user-agent 或 
+--random-agent 强制指定 HTTP User-Agent 请求头
+```
 
-Note that also the HTTP `User-Agent` header is tested against SQL injection if the `--level` is set to **3** or above.
-Read below for details.
+注意，如果 `--level` 设置为 **3** 或以上，HTTP `User-Agent` 请求头也会针对 SQL 注入被进行测试。详情请看下文。
 
-### HTTP `Host` header
+### HTTP `Host` 请求头
 
-Option: `--host`
+选项：`--host`
 
-You can manually set HTTP `Host` header value. By default HTTP `Host` header is parsed from a provided target URL.
+你可以手动设置 HTTP `Host` 请求头值。默认情况下，HTTP `Host` 请求头从提供的目标 URL 中解析。
 
-Note that also the HTTP `Host` header is tested against SQL injection if the `--level` is set to **5**. Read below for details.
+注意，如果 `--level` 设置为 **5**，HTTP `Host` 请求头也会针对 SQL 注入被进行测试。详情请看下文。
 
-### HTTP `Referer` header
+### HTTP `Referer` 请求头
 
-Option: `--referer`
+选项：`--referer`
 
-It is possible to fake the HTTP `Referer` header value. By default **no** HTTP `Referer` header is sent in HTTP requests if not explicitly set.
+可以伪造 HTTP `Referer` 请求头值。如果**没有**显式设置，默认情况下不会在 HTTP 请求中发送 HTTP `Referer` 请求头。
 
-Note that also the HTTP `Referer` header is tested against SQL injection if the `--level` is set to **3** or above. Read below for details.
+注意，如果 `--level` 设置为 **3** 或更高，HTTP `Referer` 请求头也会针对 SQL 注入被进行测试。详情请看下文。
 
-### Extra HTTP headers
+### 额外的 HTTP 请求头
 
-Option: `--headers`
+选项：`--headers`
 
-It is possible to provide extra HTTP headers by setting the option `--headers`. Each header must be separated by a newline and it is much easier to provide them from the configuration INI file. You can take a look at the sample `sqlmap.conf` file for such case.
+可以通过设置选项 `--headers` 来提供额外的 HTTP 请求头。每个请求头必须用换行符分隔，更好的方式是从 INI 配置文件读取。你可以看看范本 `sqlmap.conf` 文件中的例子。
 
-Example against a MySQL target:
+针对 MySQL 目标的示例：
 
 ```
 $ python sqlmap.py -u "http://192.168.21.128/sqlmap/mysql/get_int.php?id=1" -z \
@@ -142,9 +147,9 @@ Connection: close
 [...]
 ```
 
-### HTTP protocol authentication
+### HTTP 协议认证
 
-Options: `--auth-type` and `--auth-cred`
+选项：`--auth-type` 和 `--auth-cred`
 
 These options can be used to specify which HTTP protocol authentication back-end web server implements and the valid credentials to be used to perform all HTTP requests to the target application.
 
