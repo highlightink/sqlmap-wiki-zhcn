@@ -31,5 +31,5 @@
 * [FAQ](Miscellaneous//FAQ.md)
 * [展示](Miscellaneous//Presentations.md)
 * [截图](Miscellaneous//Screenshots.md)
-* [第三方库](Miscellaneous//Third-party-libraries.//Third-party-libraries.md)
+* [第三方库](Miscellaneous//Third-party-libraries.md)
 
