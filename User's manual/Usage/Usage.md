@@ -10,23 +10,23 @@
   -v VERBOSE            输出信息详细程度级别：0-6（默认为 1）
 
   目标：
-  	至少提供一个以下选项以指定目标
+      至少提供一个以下选项以指定目标
 
-    -d DIRECT           直接连接数据库
+    -d DIRECT           直连数据库的凭证
     -u URL, --url=URL   目标 URL（例："http://www.site.com/vuln.php?id=1"）
     -l LOGFILE          从 Burp 或 WebScarab 代理的日志文件中解析目标地址
     -x SITEMAPURL       从远程网站地图（.xml）文件中解析目标
-    -m BULKFILE         从文本文件中获取批量目标
+    -m BULKFILE         从文本文件中扫描获取批量目标
     -r REQUESTFILE      从文件中读取 HTTP 请求
     -g GOOGLEDORK       使用 Google dork 结果作为目标
     -c CONFIGFILE       从 INI 配置文件中加载选项
 
   请求：
-  	以下选项可以指定连接目标地址的方式
+      以下选项可以用于指定连接目标地址的方式
 
-    --method=METHOD     强制使用提供的 HTTP 方法（例：PUT）
+    --method=METHOD     强制使用特定的 HTTP 方法请求（例：PUT）
     --data=DATA         使用 POST 发送数据串
-    --param-del=PARA..  设置参数值分隔符
+    --param-del=PARA..  设置参数间的分隔符
     --cookie=COOKIE     指定HTTP Cookie 
     --cookie-del=COO..  设置 cookie 分隔符
     --load-cookies=L..  指定以 Netscape/wget 格式存放 cookies 的文件
@@ -50,8 +50,8 @@
     --tor-type=TORTYPE  设置 Tor 代理方式（HTTP（默认），SOCKS4 或 SOCKS5）
     --check-tor         检查是否正确使用了 Tor
     --delay=DELAY       设置每个 HTTP 请求的延迟秒数
-    --timeout=TIMEOUT   设置连接响应的有效秒数（默认为 30）
-    --retries=RETRIES   连接超时时重试次数（默认为 3）
+    --timeout=TIMEOUT   设置连接响应的等待超时秒数（默认为 30）
+    --retries=RETRIES   连接超时后的重试次数（默认为 3）
     --randomize=RPARAM  随机更改给定的参数值
     --safe-url=SAFEURL  测试过程中可频繁访问且合法的 URL 地址（译者注：
                         有些网站在你连续多次访问错误地址时会关闭会话连接，
@@ -60,20 +60,19 @@
     --safe-req=SAFER..  从文件中加载合法的 HTTP 请求
     --safe-freq=SAFE..  每访问两次给定的合法 URL 才发送一次测试请求
     --skip-urlencode    不对 payload 数据进行 URL 编码
-    --csrf-token=CSR..  设置网站用来反 CSRF 攻击的 token
-    --csrf-url=CSRFURL  指定可被提取反 CSRF 攻击 token 的 URL
+    --csrf-token=CSR..  设置网站用来防 CSRF 攻击的 token
+    --csrf-url=CSRFURL  指定可进行提取防 CSRF 攻击 token 的 URL
     --force-ssl         强制使用 SSL/HTTPS
     --hpp               使用 HTTP 参数污染攻击
     --eval=EVALCODE     在发起请求前执行给定的 Python 代码（例：
                         "import hashlib;id2=hashlib.md5(id).hexdigest()"）
-
   优化：
     以下选项用于优化 sqlmap 性能
 
     -o                  开启所有优化开关
     --predict-output    预测常用请求的输出
     --keep-alive        使用持久的 HTTP(S) 连接
-    --null-connection   仅获取页面大小而非实际的 HTTP 响应
+    --null-connection   仅获取页面大小而非完整 HTTP 响应实体
     --threads=THREADS   设置 HTTP(S) 请求并发数最大值（默认为 1）
 
   注入：
@@ -81,44 +80,44 @@
     提供自定义注入 payloads 和篡改参数的脚本
 
     -p TESTPARAMETER    需要测试的参数
-    --skip=SKIP         要跳过的参数
-    --skip-static       跳过非动态参数
-    --param-exclude=..  用正则表达式排除参数（例："ses"）
+    --skip=SKIP         跳过指定参数的测试
+    --skip-static       跳过非动态参数的测试
+    --param-exclude=..  用正则表达式筛选参数（例："ses"）
     --dbms=DBMS         指定 DBMS 类型（例：MySQL）
     --dbms-cred=DBMS..  DBMS 认证凭据（用户名:密码）
     --os=OS             指定 DBMS 服务器的操作系统类型
-    --invalid-bignum    将无效值设置为大数
+    --invalid-bignum    将无效值替换为大数
     --invalid-logical   对无效值使用逻辑运算
-    --invalid-string    对无效值使用随机字符串
+    --invalid-string    将无效值替换为随机字符串
     --no-cast           关闭 payload 构造机制
     --no-escape         关闭字符串转义机制
     --prefix=PREFIX     注入 payload 的前缀字符串
     --suffix=SUFFIX     注入 payload 的后缀字符串
     --tamper=TAMPER     用给定脚本修改注入数据
-    
+
   检测：
     以下选项用于自定义检测方式
 
     --level=LEVEL       设置测试等级（1-5，默认为 1）
     --risk=RISK         设置测试风险等级（1-3，默认为 1）
-    --string=STRING     用于确定查询结果为真时的字符串
-    --not-string=NOT..  用于确定查询结果为假时的字符串
-    --regexp=REGEXP     用于确定查询结果为真时的正则表达式
-    --code=CODE         用于确定查询结果为真时的 HTTP 状态码
+    --string=STRING     用于匹配查询结果为真时的字符串
+    --not-string=NOT..  用于匹配查询结果为假时的字符串
+    --regexp=REGEXP     用于匹配查询结果为真时的正则表达式
+    --code=CODE         用于匹配查询结果为真时的 HTTP 状态码
     --text-only         只根据页面文本内容对比页面
     --titles            只根据页面标题对比页面
 
   技术：
     以下选项用于调整特定 SQL 注入技术的测试方法
 
-    --technique=TECH    使用的 SQL 注入技术（默认为“BEUSTQ”，译者注：
+    --technique=TECH    指定使用的 SQL 注入技术（默认为“BEUSTQ”，译者注：
                         B: Boolean-based blind SQL injection（布尔型盲注）
                         E: Error-based SQL injection（报错型注入）
                         U: UNION query SQL injection（联合查询注入）
                         S: Stacked queries SQL injection（堆查询注入）
                         T: Time-based blind SQL injection（时间型盲注）
                         Q: inline Query injection（内联查询注入）
-    --time-sec=TIMESEC  延迟 DBMS 的响应秒数（默认为 5）
+    --time-sec=TIMESEC  设置 DBMS 的延迟响应秒数（默认为 5）
     --union-cols=UCOLS  设置联合查询注入测试的列数目范围
     --union-char=UCHAR  用于暴力猜解列数的字符
     --union-from=UFROM  设置联合查询注入 FROM 处用到的表
@@ -131,10 +130,10 @@
 
   采集指纹：
     -f, --fingerprint   执行广泛的 DBMS 版本指纹采集
-
+    
   枚举：
-  	以下选项用于获取后端数据库管理系统的信息，结构和表里数据。
-  	此外，还可以运行你输入的 SQL 语句
+      以下选项用于获取后端数据库管理系统的信息，结构和表里数据。
+      此外，还可以运行你输入的 SQL 语句
 
     -a, --all           获取所有信息、数据
     -b, --banner        获取 DBMS banner
@@ -170,7 +169,45 @@
     --sql-query=QUERY   要执行的 SQL 语句
     --sql-shell         调出交互式 SQL shell
     --sql-file=SQLFILE  执行文件中的 SQL 语句
+Enumeration:
+These options can be used to enumerate the back-end database
+management system information, structure and data contained in the
+tables. Moreover you can run your own SQL statements
 
+-a, --all Retrieve everything
+-b, --banner Retrieve DBMS banner
+--current-user Retrieve DBMS current user
+--current-db Retrieve DBMS current database
+--hostname Retrieve DBMS server hostname
+--is-dba Detect if the DBMS current user is DBA
+--users Enumerate DBMS users
+--passwords Enumerate DBMS users password hashes
+--privileges Enumerate DBMS users privileges
+--roles Enumerate DBMS users roles
+--dbs Enumerate DBMS databases
+--tables Enumerate DBMS database tables
+--columns Enumerate DBMS database table columns
+--schema Enumerate DBMS schema
+--count Retrieve number of entries for table(s)
+--dump Dump DBMS database table entries
+--dump-all Dump all DBMS databases tables entries
+--search Search column(s), table(s) and/or database name(s)
+--comments Retrieve DBMS comments
+-D DB DBMS database to enumerate
+-T TBL DBMS database table(s) to enumerate
+-C COL DBMS database table column(s) to enumerate
+-X EXCLUDECOL DBMS database table column(s) to not enumerate
+-U USER DBMS user to enumerate
+--exclude-sysdbs Exclude DBMS system databases when enumerating tables
+--pivot-column=P.. Pivot column name
+--where=DUMPWHERE Use WHERE condition while table dumping
+--start=LIMITSTART First query output entry to retrieve
+--stop=LIMITSTOP Last query output entry to retrieve
+--first=FIRSTCHAR First query output word character to retrieve
+--last=LASTCHAR Last query output word character to retrieve
+--sql-query=QUERY SQL statement to be executed
+--sql-shell Prompt for an interactive SQL shell
+--sql-file=SQLFILE Execute SQL statements from given file(s)
   暴力破解：
     以下选项用于暴力破解
 
@@ -185,7 +222,7 @@
 
   访问文件系统：
     以下选项用于访问后端数据库管理系统的底层文件系统
-    
+
     --file-read=RFILE   读后端 DBMS 文件系统中的文件
     --file-write=WFILE  写后端 DBMS 文件系统中的文件
     --file-dest=DFILE   使用绝对路径写入到后端 DBMS
@@ -257,172 +294,19 @@
     --sqlmap-shell      调出交互式 sqlmap shell
     --wizard            适合初级用户的向导界面
 ```
+
 ---
+
 # 原文
 
-# Usage
-
 ```
-Usage: python sqlmap.py [options]
 
-Options:
-  -h, --help            Show basic help message and exit
-  -hh                   Show advanced help message and exit
-  --version             Show program's version number and exit
-  -v VERBOSE            Verbosity level: 0-6 (default 1)
 
-  Target:
-    At least one of these options has to be provided to define the
-    target(s)
+  
 
-    -d DIRECT           Connection string for direct database connection
-    -u URL, --url=URL   Target URL (e.g. "http://www.site.com/vuln.php?id=1")
-    -l LOGFILE          Parse target(s) from Burp or WebScarab proxy log file
-    -x SITEMAPURL       Parse target(s) from remote sitemap(.xml) file
-    -m BULKFILE         Scan multiple targets given in a textual file
-    -r REQUESTFILE      Load HTTP request from a file
-    -g GOOGLEDORK       Process Google dork results as target URLs
-    -c CONFIGFILE       Load options from a configuration INI file
+ 
 
-  Request:
-    These options can be used to specify how to connect to the target URL
 
-    --method=METHOD     Force usage of given HTTP method (e.g. PUT)
-    --data=DATA         Data string to be sent through POST
-    --param-del=PARA..  Character used for splitting parameter values
-    --cookie=COOKIE     HTTP Cookie header value
-    --cookie-del=COO..  Character used for splitting cookie values
-    --load-cookies=L..  File containing cookies in Netscape/wget format
-    --drop-set-cookie   Ignore Set-Cookie header from response
-    --user-agent=AGENT  HTTP User-Agent header value
-    --random-agent      Use randomly selected HTTP User-Agent header value
-    --host=HOST         HTTP Host header value
-    --referer=REFERER   HTTP Referer header value
-    -H HEADER, --hea..  Extra header (e.g. "X-Forwarded-For: 127.0.0.1")
-    --headers=HEADERS   Extra headers (e.g. "Accept-Language: fr\nETag: 123")
-    --auth-type=AUTH..  HTTP authentication type (Basic, Digest, NTLM or PKI)
-    --auth-cred=AUTH..  HTTP authentication credentials (name:password)
-    --auth-file=AUTH..  HTTP authentication PEM cert/private key file
-    --ignore-401        Ignore HTTP Error 401 (Unauthorized)
-    --proxy=PROXY       Use a proxy to connect to the target URL
-    --proxy-cred=PRO..  Proxy authentication credentials (name:password)
-    --proxy-file=PRO..  Load proxy list from a file
-    --ignore-proxy      Ignore system default proxy settings
-    --tor               Use Tor anonymity network
-    --tor-port=TORPORT  Set Tor proxy port other than default
-    --tor-type=TORTYPE  Set Tor proxy type (HTTP (default), SOCKS4 or SOCKS5)
-    --check-tor         Check to see if Tor is used properly
-    --delay=DELAY       Delay in seconds between each HTTP request
-    --timeout=TIMEOUT   Seconds to wait before timeout connection (default 30)
-    --retries=RETRIES   Retries when the connection timeouts (default 3)
-    --randomize=RPARAM  Randomly change value for given parameter(s)
-    --safe-url=SAFEURL  URL address to visit frequently during testing
-    --safe-post=SAFE..  POST data to send to a safe URL
-    --safe-req=SAFER..  Load safe HTTP request from a file
-    --safe-freq=SAFE..  Test requests between two visits to a given safe URL
-    --skip-urlencode    Skip URL encoding of payload data
-    --csrf-token=CSR..  Parameter used to hold anti-CSRF token
-    --csrf-url=CSRFURL  URL address to visit to extract anti-CSRF token
-    --force-ssl         Force usage of SSL/HTTPS
-    --hpp               Use HTTP parameter pollution method
-    --eval=EVALCODE     Evaluate provided Python code before the request (e.g.
-                        "import hashlib;id2=hashlib.md5(id).hexdigest()")
-
-  Optimization:
-    These options can be used to optimize the performance of sqlmap
-
-    -o                  Turn on all optimization switches
-    --predict-output    Predict common queries output
-    --keep-alive        Use persistent HTTP(s) connections
-    --null-connection   Retrieve page length without actual HTTP response body
-    --threads=THREADS   Max number of concurrent HTTP(s) requests (default 1)
-
-  Injection:
-    These options can be used to specify which parameters to test for,
-    provide custom injection payloads and optional tampering scripts
-
-    -p TESTPARAMETER    Testable parameter(s)
-    --skip=SKIP         Skip testing for given parameter(s)
-    --skip-static       Skip testing parameters that not appear to be dynamic
-    --param-exclude=..  Regexp to exclude parameters from testing (e.g. "ses")
-    --dbms=DBMS         Force back-end DBMS to this value
-    --dbms-cred=DBMS..  DBMS authentication credentials (user:password)
-    --os=OS             Force back-end DBMS operating system to this value
-    --invalid-bignum    Use big numbers for invalidating values
-    --invalid-logical   Use logical operations for invalidating values
-    --invalid-string    Use random strings for invalidating values
-    --no-cast           Turn off payload casting mechanism
-    --no-escape         Turn off string escaping mechanism
-    --prefix=PREFIX     Injection payload prefix string
-    --suffix=SUFFIX     Injection payload suffix string
-    --tamper=TAMPER     Use given script(s) for tampering injection data
-
-  Detection:
-    These options can be used to customize the detection phase
-
-    --level=LEVEL       Level of tests to perform (1-5, default 1)
-    --risk=RISK         Risk of tests to perform (1-3, default 1)
-    --string=STRING     String to match when query is evaluated to True
-    --not-string=NOT..  String to match when query is evaluated to False
-    --regexp=REGEXP     Regexp to match when query is evaluated to True
-    --code=CODE         HTTP code to match when query is evaluated to True
-    --text-only         Compare pages based only on the textual content
-    --titles            Compare pages based only on their titles
-
-  Techniques:
-    These options can be used to tweak testing of specific SQL injection
-    techniques
-
-    --technique=TECH    SQL injection techniques to use (default "BEUSTQ")
-    --time-sec=TIMESEC  Seconds to delay the DBMS response (default 5)
-    --union-cols=UCOLS  Range of columns to test for UNION query SQL injection
-    --union-char=UCHAR  Character to use for bruteforcing number of columns
-    --union-from=UFROM  Table to use in FROM part of UNION query SQL injection
-    --dns-domain=DNS..  Domain name used for DNS exfiltration attack
-    --second-order=S..  Resulting page URL searched for second-order response
-
-  Fingerprint:
-    -f, --fingerprint   Perform an extensive DBMS version fingerprint
-
-  Enumeration:
-    These options can be used to enumerate the back-end database
-    management system information, structure and data contained in the
-    tables. Moreover you can run your own SQL statements
-
-    -a, --all           Retrieve everything
-    -b, --banner        Retrieve DBMS banner
-    --current-user      Retrieve DBMS current user
-    --current-db        Retrieve DBMS current database
-    --hostname          Retrieve DBMS server hostname
-    --is-dba            Detect if the DBMS current user is DBA
-    --users             Enumerate DBMS users
-    --passwords         Enumerate DBMS users password hashes
-    --privileges        Enumerate DBMS users privileges
-    --roles             Enumerate DBMS users roles
-    --dbs               Enumerate DBMS databases
-    --tables            Enumerate DBMS database tables
-    --columns           Enumerate DBMS database table columns
-    --schema            Enumerate DBMS schema
-    --count             Retrieve number of entries for table(s)
-    --dump              Dump DBMS database table entries
-    --dump-all          Dump all DBMS databases tables entries
-    --search            Search column(s), table(s) and/or database name(s)
-    --comments          Retrieve DBMS comments
-    -D DB               DBMS database to enumerate
-    -T TBL              DBMS database table(s) to enumerate
-    -C COL              DBMS database table column(s) to enumerate
-    -X EXCLUDECOL       DBMS database table column(s) to not enumerate
-    -U USER             DBMS user to enumerate
-    --exclude-sysdbs    Exclude DBMS system databases when enumerating tables
-    --pivot-column=P..  Pivot column name
-    --where=DUMPWHERE   Use WHERE condition while table dumping
-    --start=LIMITSTART  First query output entry to retrieve
-    --stop=LIMITSTOP    Last query output entry to retrieve
-    --first=FIRSTCHAR   First query output word character to retrieve
-    --last=LASTCHAR     Last query output word character to retrieve
-    --sql-query=QUERY   SQL statement to be executed
-    --sql-shell         Prompt for an interactive SQL shell
-    --sql-file=SQLFILE  Execute SQL statements from given file(s)
 
   Brute force:
     These options can be used to run brute force checks
@@ -513,3 +397,6 @@ Options:
     --sqlmap-shell      Prompt for an interactive sqlmap shell
     --wizard            Simple wizard interface for beginner users
 ```
+
+
+
