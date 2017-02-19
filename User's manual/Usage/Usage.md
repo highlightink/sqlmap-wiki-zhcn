@@ -130,16 +130,16 @@
 
   采集指纹：
     -f, --fingerprint   执行广泛的 DBMS 版本指纹采集
-    
+
   枚举：
-      以下选项用于获取后端数据库管理系统的信息，结构和表里数据。
+      以下选项用于获取后端数据库管理系统的信息，结构和数据表中的数据。
       此外，还可以运行你输入的 SQL 语句
 
     -a, --all           获取所有信息、数据
     -b, --banner        获取 DBMS banner
     --current-user      获取 DBMS 当前用户
     --current-db        获取 DBMS 当前数据库
-    --hostname          获取 DBMS server hostname
+    --hostname          获取 DBMS 服务器的主机名 
     --is-dba            探测 DBMS 当前用户是否为 DBA（数据库管理员）
     --users             枚举出 DBMS 所有用户
     --passwords         枚举出 DBMS 所有用户的密码哈希
@@ -149,83 +149,45 @@
     --tables            枚举出 DBMS 数据库中的所有表
     --columns           枚举出 DBMS 表中的所有列
     --schema            枚举出 DBMS 所有模式
-    --count             获取表数目
-    --dump              转储 DBMS 数据库表项
-    --dump-all          转储所有 DBMS 数据库表项
+    --count             获取数据表数目
+    --dump              导出 DBMS 数据库表项
+    --dump-all          导出所有 DBMS 数据库表项
     --search            搜索列，表和/或数据库名
     --comments          获取 DBMS 注释
-    -D DB               要枚举的 DBMS 数据库
-    -T TBL              要枚举的 DBMS 表
-    -C COL              要枚举的 DBMS 列
-    -X EXCLUDECOL       枚举出所有 DBMS 列时要排除的列
-    -U USER             要枚举的 DBMS 用户
-    --exclude-sysdbs    枚举出所有表时排除系统数据库
+    -D DB               指定要枚举的 DBMS 数据库
+    -T TBL              指定要枚举的 DBMS 数据表
+    -C COL              指定要枚举的 DBMS 数据列
+    -X EXCLUDECOL       指定要排除的 DBMS 数据列
+    -U USER             指定枚举的 DBMS 用户
+    --exclude-sysdbs    枚举所有数据表时，指定排除特定系统数据库
     --pivot-column=P..  指定主列
     --where=DUMPWHERE   在转储表时使用 WHERE 条件语句
-    --start=LIMITSTART  First query output entry to retrieve
-    --stop=LIMITSTOP    Last query output entry to retrieve
-    --first=FIRSTCHAR   First query output word character to retrieve
-    --last=LASTCHAR     Last query output word character to retrieve
+    --start=LIMITSTART  指定获取返回查询结果的开始行数
+    --stop=LIMITSTOP    指定获取返回查询结果的结束行数
+    --first=FIRSTCHAR   指定获取返回查询结果的开始字符位
+    --last=LASTCHAR     指定获取返回查询结果的结束字符位
     --sql-query=QUERY   要执行的 SQL 语句
     --sql-shell         调出交互式 SQL shell
     --sql-file=SQLFILE  执行文件中的 SQL 语句
-Enumeration:
-These options can be used to enumerate the back-end database
-management system information, structure and data contained in the
-tables. Moreover you can run your own SQL statements
-
--a, --all Retrieve everything
--b, --banner Retrieve DBMS banner
---current-user Retrieve DBMS current user
---current-db Retrieve DBMS current database
---hostname Retrieve DBMS server hostname
---is-dba Detect if the DBMS current user is DBA
---users Enumerate DBMS users
---passwords Enumerate DBMS users password hashes
---privileges Enumerate DBMS users privileges
---roles Enumerate DBMS users roles
---dbs Enumerate DBMS databases
---tables Enumerate DBMS database tables
---columns Enumerate DBMS database table columns
---schema Enumerate DBMS schema
---count Retrieve number of entries for table(s)
---dump Dump DBMS database table entries
---dump-all Dump all DBMS databases tables entries
---search Search column(s), table(s) and/or database name(s)
---comments Retrieve DBMS comments
--D DB DBMS database to enumerate
--T TBL DBMS database table(s) to enumerate
--C COL DBMS database table column(s) to enumerate
--X EXCLUDECOL DBMS database table column(s) to not enumerate
--U USER DBMS user to enumerate
---exclude-sysdbs Exclude DBMS system databases when enumerating tables
---pivot-column=P.. Pivot column name
---where=DUMPWHERE Use WHERE condition while table dumping
---start=LIMITSTART First query output entry to retrieve
---stop=LIMITSTOP Last query output entry to retrieve
---first=FIRSTCHAR First query output word character to retrieve
---last=LASTCHAR Last query output word character to retrieve
---sql-query=QUERY SQL statement to be executed
---sql-shell Prompt for an interactive SQL shell
---sql-file=SQLFILE Execute SQL statements from given file(s)
+    
   暴力破解：
-    以下选项用于暴力破解
+    以下选项用于暴力破解测试
 
-    --common-tables     检测常用的表名
-    --common-columns    检测常用的列名
+    --common-tables     检测常见的表名是否存在
+    --common-columns    检测常用的列名是否存在
 
   用户自定义函数注入：
     以下选项用于创建用户自定义函数
 
     --udf-inject        注入用户自定义函数
-    --shared-lib=SHLIB  共享库的本地路径Local path of the shared library
+    --shared-lib=SHLIB  共享库的本地路径
 
   访问文件系统：
     以下选项用于访问后端数据库管理系统的底层文件系统
 
-    --file-read=RFILE   读后端 DBMS 文件系统中的文件
-    --file-write=WFILE  写后端 DBMS 文件系统中的文件
-    --file-dest=DFILE   使用绝对路径写入到后端 DBMS
+    --file-read=RFILE   读取后端 DBMS 文件系统中的文件
+    --file-write=WFILE  写入后端 DBMS 文件系统中的文件
+    --file-dest=DFILE   使用文件绝对路径写入到后端 DBMS
 
   访问操作系统：
     以下选项用于访问后端数据库管理系统的底层操作系统
@@ -249,38 +211,38 @@ tables. Moreover you can run your own SQL statements
     --reg-value=REGVAL  指定 Windows 注册表键值
     --reg-data=REGDATA  指定 Windows 注册表键值数据
     --reg-type=REGTYPE  指定 Windows 注册表键值类型
-
+    
   通用选项：
-    以下选项用于设置通用的工作参数
+    以下选项用于设置通用的参数
 
-    -s SESSIONFILE      从文件（.sqlite）中加载会话信息
-    -t TRAFFICFILE      记录所有 HTTP 流量并保存到文本文件
+    -s SESSIONFILE      从文件（.sqlite）中读入会话信息
+    -t TRAFFICFILE      保存所有 HTTP 流量记录到指定文本文件
     --batch             从不询问用户输入，使用默认配置
     --binary-fields=..  具有二进制值的结果字段（例："digest"）
-    --charset=CHARSET   获取数据时强制使用的字符编码
+    --charset=CHARSET   强制对获取数据进行字符编码
     --crawl=CRAWLDEPTH  从目标 URL 开始爬取网站
-    --crawl-exclude=..  用正则表达式排除爬取的页面（例："logout"）
-    --csv-del=CSVDEL    输出到 CVS 文件时使用的分隔符（默认为“,”）
-    --dump-format=DU..  转储数据的格式（CSV（默认），HTML 或 SQLITE）
-    --eta               为每个输出显示预计的到达时间
-    --flush-session     为当前目标刷新会话文件
+    --crawl-exclude=..  用正则表达式筛选爬取的页面（例："logout"）
+    --csv-del=CSVDEL    指定输出到 CVS 文件时使用的分隔符（默认为“,”）
+    --dump-format=DU..  导出数据的格式（CSV（默认），HTML 或 SQLITE）
+    --eta               显示每个结果输出的预计到达时间
+    --flush-session     刷新当前目标的会话文件
     --forms             解析并测试目标 URL 的表单
     --fresh-queries     忽略存储在会话文件中的查询结果
-    --hex               获取数据时使用 DBMS 的 hex 函数
+    --hex               获取数据时调用 DBMS 的 hex 函数
     --output-dir=OUT..  自定义输出目录路径
     --parse-errors      从响应中解析并显示 DBMS 错误信息
     --save=SAVECONFIG   将选项设置保存到一个 INI 配置文件
     --scope=SCOPE       用正则表达式从提供的代理日志中过滤目标
     --test-filter=TE..  根据 payloads 和/或标题（例：ROW）选择测试
-    --test-skip=TEST..  根据 payloads 和/或标题（例：BENCHMARK）跳过测试
+    --test-skip=TEST..  根据 payloads 和/或标题（例：BENCHMARK）跳过部分测试
     --update            更新 sqlmap
 
   其他选项：
     -z MNEMONICS        使用短助记符（例：“flu,bat,ban,tec=EU”）
     --alert=ALERT       在找到 SQL 注入时运行 OS 命令
     --answers=ANSWERS   设置问题答案（例：“quit=N,follow=N”）
-    --beep              为问题和/或在找到 SQL 注入时发出提示音
-    --cleanup           Clean up the DBMS from sqlmap specific UDF and tables
+    --beep              出现问题提醒或在发现 SQL 注入时发出提示音
+    --cleanup           指定移除 DBMS 中的特定的 UDF 或者数据表
     --dependencies      检查 sqlmap 缺少什么（非核心）依赖
     --disable-coloring  关闭彩色控制台输出
     --gpage=GOOGLEPAGE  指定页码使用 Google dork 结果
@@ -297,106 +259,7 @@ tables. Moreover you can run your own SQL statements
 
 ---
 
-# 原文
 
-```
-
-
-  
-
- 
-
-
-
-  Brute force:
-    These options can be used to run brute force checks
-
-    --common-tables     Check existence of common tables
-    --common-columns    Check existence of common columns
-
-  User-defined function injection:
-    These options can be used to create custom user-defined functions
-
-    --udf-inject        Inject custom user-defined functions
-    --shared-lib=SHLIB  Local path of the shared library
-
-  File system access:
-    These options can be used to access the back-end database management
-    system underlying file system
-
-    --file-read=RFILE   Read a file from the back-end DBMS file system
-    --file-write=WFILE  Write a local file on the back-end DBMS file system
-    --file-dest=DFILE   Back-end DBMS absolute filepath to write to
-
-  Operating system access:
-    These options can be used to access the back-end database management
-    system underlying operating system
-
-    --os-cmd=OSCMD      Execute an operating system command
-    --os-shell          Prompt for an interactive operating system shell
-    --os-pwn            Prompt for an OOB shell, Meterpreter or VNC
-    --os-smbrelay       One click prompt for an OOB shell, Meterpreter or VNC
-    --os-bof            Stored procedure buffer overflow exploitation
-    --priv-esc          Database process user privilege escalation
-    --msf-path=MSFPATH  Local path where Metasploit Framework is installed
-    --tmp-path=TMPPATH  Remote absolute path of temporary files directory
-
-  Windows registry access:
-    These options can be used to access the back-end database management
-    system Windows registry
-
-    --reg-read          Read a Windows registry key value
-    --reg-add           Write a Windows registry key value data
-    --reg-del           Delete a Windows registry key value
-    --reg-key=REGKEY    Windows registry key
-    --reg-value=REGVAL  Windows registry key value
-    --reg-data=REGDATA  Windows registry key value data
-    --reg-type=REGTYPE  Windows registry key value type
-
-  General:
-    These options can be used to set some general working parameters
-
-    -s SESSIONFILE      Load session from a stored (.sqlite) file
-    -t TRAFFICFILE      Log all HTTP traffic into a textual file
-    --batch             Never ask for user input, use the default behaviour
-    --binary-fields=..  Result fields having binary values (e.g. "digest")
-    --charset=CHARSET   Force character encoding used for data retrieval
-    --crawl=CRAWLDEPTH  Crawl the website starting from the target URL
-    --crawl-exclude=..  Regexp to exclude pages from crawling (e.g. "logout")
-    --csv-del=CSVDEL    Delimiting character used in CSV output (default ",")
-    --dump-format=DU..  Format of dumped data (CSV (default), HTML or SQLITE)
-    --eta               Display for each output the estimated time of arrival
-    --flush-session     Flush session files for current target
-    --forms             Parse and test forms on target URL
-    --fresh-queries     Ignore query results stored in session file
-    --hex               Use DBMS hex function(s) for data retrieval
-    --output-dir=OUT..  Custom output directory path
-    --parse-errors      Parse and display DBMS error messages from responses
-    --save=SAVECONFIG   Save options to a configuration INI file
-    --scope=SCOPE       Regexp to filter targets from provided proxy log
-    --test-filter=TE..  Select tests by payloads and/or titles (e.g. ROW)
-    --test-skip=TEST..  Skip tests by payloads and/or titles (e.g. BENCHMARK)
-    --update            Update sqlmap
-
-  Miscellaneous:
-    -z MNEMONICS        Use short mnemonics (e.g. "flu,bat,ban,tec=EU")
-    --alert=ALERT       Run host OS command(s) when SQL injection is found
-    --answers=ANSWERS   Set question answers (e.g. "quit=N,follow=N")
-    --beep              Beep on question and/or when SQL injection is found
-    --cleanup           Clean up the DBMS from sqlmap specific UDF and tables
-    --dependencies      Check for missing (non-core) sqlmap dependencies
-    --disable-coloring  Disable console output coloring
-    --gpage=GOOGLEPAGE  Use Google dork results from specified page number
-    --identify-waf      Make a thorough testing for a WAF/IPS/IDS protection
-    --skip-waf          Skip heuristic detection of WAF/IPS/IDS protection
-    --mobile            Imitate smartphone through HTTP User-Agent header
-    --offline           Work in offline mode (only use session data)
-    --page-rank         Display page rank (PR) for Google dork results
-    --purge-output      Safely remove all content from output directory
-    --smart             Conduct thorough tests only if positive heuristic(s)
-    --sqlmap-shell      Prompt for an interactive sqlmap shell
-    --wizard            Simple wizard interface for beginner users
-```
 
 
 
