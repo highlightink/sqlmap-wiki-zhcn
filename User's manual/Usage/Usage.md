@@ -61,7 +61,7 @@
     --safe-freq=SAFE..  每访问两次给定的合法 URL 才发送一次测试请求
     --skip-urlencode    不对 payload 数据进行 URL 编码
     --csrf-token=CSR..  设置网站用来反 CSRF 攻击的 token
-    --csrf-url=CSRFURL  指定可被提取反 CSRF 攻击 token 的 URL
+    --csrf-url=CSRFURL  指定可提取反 CSRF 攻击 token 的 URL
     --force-ssl         强制使用 SSL/HTTPS
     --hpp               使用 HTTP 参数污染攻击
     --eval=EVALCODE     在发起请求前执行给定的 Python 代码（例：
