@@ -250,19 +250,7 @@
     --identify-waf      针对 WAF/IPS/IDS 保护进行彻底的测试
     --skip-waf          跳过启发式检测 WAF/IPS/IDS 保护
     --mobile            使用 HTTP User-Agent 模仿智能手机
-    --offline           在离线模式下工作（仅使用会话数据）
-    --page-rank         显示 Google dork 结果的网页排名
-    --purge-output      安全地删除输出目录的所有内容
-    --smart             只有在正启发时才进行彻底的测试
-    --sqlmap-shell      调出交互式 sqlmap shell
-    --wizard            适合初级用户的向导界面
-```
----
-# 原文
-
-# Usage
-
-```
+    --offline           在离线模
 Usage: python sqlmap.py [options]
 
 Options:
@@ -473,43 +461,5 @@ Options:
     These options can be used to set some general working parameters
 
     -s SESSIONFILE      Load session from a stored (.sqlite) file
-    -t TRAFFICFILE      Log all HTTP traffic into a textual file
-    --batch             Never ask for user input, use the default behaviour
-    --binary-fields=..  Result fields having binary values (e.g. "digest")
-    --charset=CHARSET   Force character encoding used for data retrieval
-    --crawl=CRAWLDEPTH  Crawl the website starting from the target URL
-    --crawl-exclude=..  Regexp to exclude pages from crawling (e.g. "logout")
-    --csv-del=CSVDEL    Delimiting character used in CSV output (default ",")
-    --dump-format=DU..  Format of dumped data (CSV (default), HTML or SQLITE)
-    --eta               Display for each output the estimated time of arrival
-    --flush-session     Flush session files for current target
-    --forms             Parse and test forms on target URL
-    --fresh-queries     Ignore query results stored in session file
-    --hex               Use DBMS hex function(s) for data retrieval
-    --output-dir=OUT..  Custom output directory path
-    --parse-errors      Parse and display DBMS error messages from responses
-    --save=SAVECONFIG   Save options to a configuration INI file
-    --scope=SCOPE       Regexp to filter targets from provided proxy log
-    --test-filter=TE..  Select tests by payloads and/or titles (e.g. ROW)
-    --test-skip=TEST..  Skip tests by payloads and/or titles (e.g. BENCHMARK)
-    --update            Update sqlmap
-
-  Miscellaneous:
-    -z MNEMONICS        Use short mnemonics (e.g. "flu,bat,ban,tec=EU")
-    --alert=ALERT       Run host OS command(s) when SQL injection is found
-    --answers=ANSWERS   Set question answers (e.g. "quit=N,follow=N")
-    --beep              Beep on question and/or when SQL injection is found
-    --cleanup           Clean up the DBMS from sqlmap specific UDF and tables
-    --dependencies      Check for missing (non-core) sqlmap dependencies
-    --disable-coloring  Disable console output coloring
-    --gpage=GOOGLEPAGE  Use Google dork results from specified page number
-    --identify-waf      Make a thorough testing for a WAF/IPS/IDS protection
-    --skip-waf          Skip heuristic detection of WAF/IPS/IDS protection
-    --mobile            Imitate smartphone through HTTP User-Agent header
-    --offline           Work in offline mode (only use session data)
-    --page-rank         Display page rank (PR) for Google dork results
-    --purge-output      Safely remove all content from output directory
-    --smart             Conduct thorough tests only if positive heuristic(s)
-    --sqlmap-shell      Prompt for an interactive sqlmap shell
-    --wizard            Simple wizard interface for beginner users
+    -t TRAFFICFILE      Log all HTTP traffic into a textualsdfgdfg
 ```
