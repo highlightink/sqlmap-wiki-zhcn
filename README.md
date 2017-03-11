@@ -20,8 +20,7 @@
 
 ### 参与翻译
 
-本书发布在 GitBook：
-[https://www.gitbook.com/book/octobug/sqlmap-wiki-zhcn/details](https://www.gitbook.com/book/octobug/sqlmap-wiki-zhcn/details)
+本书发布在 GitBook：[https://www.gitbook.com/book/octobug/sqlmap-wiki-zhcn/details](https://www.gitbook.com/book/octobug/sqlmap-wiki-zhcn/details)
 
 并托管在 GitHub：[https://github.com/OctoBug/sqlmap-wiki-zhcn](https://github.com/OctoBug/sqlmap-wiki-zhcn)，你可以访问这个地址参与翻译，帮助我们修正翻译错误。 
 
