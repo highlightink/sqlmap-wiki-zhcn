@@ -256,10 +256,3 @@
     --sqlmap-shell      调出交互式 sqlmap shell
     --wizard            适合初级用户的向导界面
 ```
-
----
-
-
-
-
-
