@@ -226,12 +226,6 @@ Switch: `--offline`
 
 By using switch `--offline` sqlmap will use only previous session data in data enumeration. This basically means that there will be zero connection attempts during such run.
 
-### Display page rank (PR) for Google dork results
-
-Switch: `--page-rank`
-
-Performs further requests to Google when `-g` is provided and display page rank (PR) for Google dork results.
-
 ### Safely remove all content from output directory
 
 Switch `--purge-output`

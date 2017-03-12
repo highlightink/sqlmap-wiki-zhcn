@@ -53,13 +53,13 @@ Example client run:
 ```
 $ python sqlmapapi.py -c -H "192.168.110.1"
 [12:47:53] [DEBUG] Example client access from command line:
-	$ taskid=$(curl http://192.168.110.1:8775/task/new 2>1 | grep -o -I '[a-f0-9
+    $ taskid=$(curl http://192.168.110.1:8775/task/new 2>1 | grep -o -I '[a-f0-9
 ]\{16\}') && echo $taskid
-	$ curl -H "Content-Type: application/json" -X POST -d '{"url": "http://testp
+    $ curl -H "Content-Type: application/json" -X POST -d '{"url": "http://testp
 hp.vulnweb.com/artists.php?artist=1"}' http://192.168.110.1:8775/scan/$taskid/st
 art
-	$ curl http://192.168.110.1:8775/scan/$taskid/data
-	$ curl http://192.168.110.1:8775/scan/$taskid/log
+    $ curl http://192.168.110.1:8775/scan/$taskid/data
+    $ curl http://192.168.110.1:8775/scan/$taskid/log
 [12:47:53] [INFO] Starting REST-JSON API client to 'http://192.168.110.1:8775'..
 .
 [12:47:53] [DEBUG] Calling http://192.168.110.1:8775

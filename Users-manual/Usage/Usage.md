@@ -251,7 +251,6 @@
     --skip-waf          跳过启发式检测 WAF/IPS/IDS 保护
     --mobile            使用 HTTP User-Agent 模仿智能手机
     --offline           在离线模式下工作（仅使用会话数据）
-    --page-rank         显示 Google dork 结果的网页排名
     --purge-output      安全地删除输出目录的所有内容
     --smart             只有在正启发时才进行彻底的测试
     --sqlmap-shell      调出交互式 sqlmap shell

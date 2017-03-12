@@ -6,7 +6,7 @@ These options can be used to enumerate the back-end database management system i
 
 Switch: `--all`
 
-This switch can be used in situations where user wants to retrieve everything remotelly accessible by using a single switch. This is not recommended as it will generate large number of requests retrieving both useful and unuseful data.
+This switch can be used in situations where user wants to retrieve everything remotely accessible by using a single switch. This is not recommended as it will generate large number of requests retrieving both useful and unuseful data.
 
 ### Banner
 
