@@ -1,50 +1,44 @@
-## Target
+## 目标
 
-At least one of these options has be provided to set the target(s).
+至少提供下面的一个选项，用于指定目标。
 
-### Direct connection to the database
+### 直连数据库
+选项: `-d`
 
-Option: `-d`
-
-Run sqlmap against a single database instance. This option accepts a connection string in one of following forms: 
+针对单一数据库实例运行 sqlmap 工具。这个选项可设置为下面格式的连接字符串：
 
 * `DBMS://USER:PASSWORD@DBMS_IP:DBMS_PORT/DATABASE_NAME` (MySQL, Oracle, Microsoft SQL Server, PostgreSQL, etc.)
 * `DBMS://DATABASE_FILEPATH` (SQLite, Microsoft Access, Firebird, etc.)
 
-For example:
-
+例如:
 ```
 $ python sqlmap.py -d "mysql://admin:admin@192.168.21.17:3306/testdb" -f --bann\
 er --dbs --users
 ```
 
-### Target URL
+### 目标 URL
+选项: -u or --url
 
-Option: `-u` or `--url`
-
-Run sqlmap against a single target URL. This option requires a target URL in following form: 
+针对单一目标 URL 运行 sqlmap。这个选项可设置为下面格式的 URL：
 
 `http(s)://targeturl[:port]/[...]`
 
-For example:
+例如:
 
 ```
 $ python sqlmap.py -u "http://www.target.com/vuln.php?id=1" -f --banner --dbs -\
 -users
 ```
 
-### Parse targets from Burp or WebScarab proxy logs
+### 从 Burp 或者 WebScarab 代理日志解析目标
+选项: `-l`
 
-Option: `-l`
+除了可以提供单个目标 URL，还可以测试并注入 [Burp proxy](http://portswigger.net/suite/)  或者 [WebScarab proxy](http://www.owasp.org/index.php/Category:OWASP_WebScarab_Project) 代理的HTTP代理请求。 使用这个参数时，需要提供代理 HTTP 请求的日志文件。
+ 
+### 从远程站点地图(.xml)解析目标
+选项: `-x`
 
-Rather than providing a single target URL, it is possible to test and inject against HTTP requests proxied through [Burp proxy](http://portswigger.net/suite/) or 
-[WebScarab proxy](http://www.owasp.org/index.php/Category:OWASP_WebScarab_Project). This option requires an argument which is the proxy's HTTP requests log file.
-
-### Parse targets from remote sitemap(.xml) file
-
-Option: `-x`
-
-A sitemap is a file where web admins can list the web page locations of their site to tell search engines about the site content's organization. You can provide a sitemap's location to sqlmap by using option `-x` (e.g. `-x http://www.target.com/sitemap.xml`) so it could find usable target URLs for scanning purposes.
+通过站点地图，站点管理者可以列出网站的所有页面位置，用于告知搜索引擎站点的内容结构。你可以使用选项 `-x` 提供站点地图位置给 sqlmap (例如：. `-x` http://www.target.com/sitemap.xml)， 用于可入侵目标站点的扫描。
 
 ### Scan multiple targets enlisted in a given textual file
 
