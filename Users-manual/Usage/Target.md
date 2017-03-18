@@ -40,26 +40,25 @@ $ python sqlmap.py -u "http://www.target.com/vuln.php?id=1" -f --banner --dbs -\
 
 通过站点地图，站点管理者可以列出网站的所有页面位置，用于告知搜索引擎站点的内容结构。你可以使用选项 `-x` 提供站点地图位置给 sqlmap (例如：. `-x` http://www.target.com/sitemap.xml)， 用于可入侵目标站点的扫描。
 
-### Scan multiple targets enlisted in a given textual file
+### 从给定的文本文件读取多个目标进行扫描
 
-Option: `-m`
+选项: `-m`
 
-Providing list of target URLs enlisted in a given bulk file, sqlmap will scan 
-each of those one by one.
+通过文本文件提供一个目标列表的 URLs，sqlmap 会逐个进行扫描检测。
 
-Sample content of a bulk file provided as an argument to this option:
+样本文件所提供的 URLs 列表示例：
 
     www.target1.com/vuln1.php?q=foobar
     www.target2.com/vuln2.asp?id=1
     www.target3.com/vuln3/id/1*
 
-### Load HTTP request from a file
+### 从文件中载入 HTTP 请求
 
-Option: `-r`
+选项: `-r`
 
-One of the possibilities of sqlmap is loading of raw HTTP request from a textual file. That way you can skip usage of a number of other options (e.g. setting of cookies, POSTed data, etc).
+sqlmap 可以从一个文本中读取原始的 HTTP 请求。 通过这种方式，你能够避免使用部分选项。（例如：设置 cookies，POST 数据等参数）
 
-Sample content of a HTTP request file provided as an argument to this option:
+HTTP 请求文件数据样本如下：
 
     POST /vuln.php HTTP/1.1
     Host: www.target.com
@@ -67,26 +66,26 @@ Sample content of a HTTP request file provided as an argument to this option:
     
     id=1
 
-Note that if the request is over HTTPS, you can use this in conjunction with switch `--force-ssl` to force SSL connection to 443/tcp. Alternatively, you can append `:443` to the end of the `Host` header value.
+如果相关的请求是 HTTPS，你可以结合 `--force-ssl` 开关强制使用SSL进行 443/tcp 连接。或者，你可以在 `Host` 头部信息后面直接加上 `:443` 用于指定。  
 
-### Process Google dork results as target addresses
+### 使用 Google dark 结果作为目标地址
 
-Option: `-g`
+选项: `-g`
 
-It is also possible to test and inject on GET parameters based on results of your Google dork.
+sqlmap 同时支持根据 Google dork 返回结果测试并注入 GET 参数。
 
-This option makes sqlmap negotiate with the search engine its session cookie to be able to perform a search, then sqlmap will retrieve Google first 100 results for the Google dork expression with GET parameters asking you if you want to test and inject on each possible affected URL.
+这个选项使得 sqlmap 能够和搜索引擎当前会话 cookies 进行内容协商，进行相关的搜索操作。然后 sqlmap 会获取 Google dork 表达式筛选出的前100个返回结果及附带的 GET参数，并且询问你是否对每个可能进行注入的结果 URL 进行测试注入。
 
-For example:
+ 例如:
 
 ```
 $ python sqlmap.py -g "inurl:\".php?id=1\""
 ```
 
-### Load options from a configuration INI file
+### 从配置 INI 文件中读取选项
 
-Option: `-c`
+选项: `-c`
 
-It is possible to pass user's options from a configuration INI file, an example is `sqlmap.conf`.
+sqlmap 支持从配置 INI 文件中读取用户的选项配置，例如：`sqlmap.conf`
 
-Note that if you provide other options from command line, those are evaluated when running sqlmap and overwrite those provided in the configuration file.
+需要注意的是，如果你在命令行调用时，同时提供了相关的选项设置，则配置文件中的选项会被覆盖失效。
