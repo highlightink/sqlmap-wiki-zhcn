@@ -151,139 +151,137 @@ Connection: close
 
 选项：`--auth-type` 和 `--auth-cred`
 
-These options can be used to specify which HTTP protocol authentication back-end web server implements and the valid credentials to be used to perform all HTTP requests to the target application.
+这些选项用于指定后端 Web 服务器实现的 HTTP 协议认证和有效凭据来将所有的 HTTP 请求发送到目标应用程序。
 
-The three supported HTTP protocol authentication mechanisms are:
+支持的三种 HTTP 协议认证机制是：
 
 * `Basic`
 * `Digest`
 * `NTLM`
 
-While the credentials' syntax is `username:password`.
+而认证凭据的语法是`用户名:密码`。
 
-Example of valid syntax:
+一个符合语法的例子：
 
 ```
 $ python sqlmap.py -u "http://192.168.136.131/sqlmap/mysql/basic/get_int.php?id\
 =1" --auth-type Basic --auth-cred "testuser:testpass"
 ```
 
-### HTTP protocol private key authentication
+### HTTP 协议私钥认证
 
-Option: `--auth-file`
+选项：`--auth-file`
 
-This option should be used in cases when the web server requires proper client-side certificate and a private key for authentication. Supplied value should be a PEM formatted `key_file` that contains your certificate and a private key.
+当 Web 服务器需要正确的客户端证书和私钥进行身份验证时，应使用此选项。提供的值应为包含证书和私钥的 PEM 格式的 `key_file`。
 
+### 忽略 HTTP 401（未授权）错误
 
-### Ignore HTTP error 401 (Unauthorized)
+开关 `--ignore-401`
 
-Switch `--ignore-401`
+如果你想测试偶尔返回 HTTP 401（未授权）错误的站点，而你想忽略它并继续测试而不提供正确的凭据，你可以使用开关`--ignore-401`。
 
-In case that you want to test the site that occasionally returns HTTP error 401 (Unauthorized), while you want to ignore it and continue tests without providing proper credentials, you can use switch `--ignore-401`
+### HTTP(S) 代理
 
-### HTTP(S) proxy
+选项和开关：`--proxy`，`--proxy-cred`，`--proxy-file` 和 `--ignore-proxy`
 
-Options and switch: `--proxy`, `--proxy-cred`, `--proxy-file` and `--ignore-proxy`
+可以使用选项 `--proxy` 并提供 HTTP(S) 代理地址使 HTTP(S) 请求经过该代理到达目标 URL。设置 HTTP(S) 代理的语法是 `http://url:port`。
 
-It is possible to provide an HTTP(S) proxy address to pass by the HTTP(S) requests to the target URL with option `--proxy`. The syntax of HTTP(S) proxy value is `http://url:port`.
+如果 HTTP(S) 代理需要身份验证，则可以对选项 `--proxy-cred` 使用`用户名:密码`格式的凭据。
 
-If the HTTP(S) proxy requires authentication, you can provide the credentials in the format `username:password` to the
-option `--proxy-cred`.
+如果要使用（一次性的）代理列表，在连接问题的任何标志（例：阻止侵入性 IP 地址）出现时跳过并使用下一个代理，可以使用选项 `--proxy-file` 并指定包含批量代理的文件。
 
-In case that you want to use (disposable) proxy list, skipping to the next proxy on any sign of a connection problem (e.g. blocking of invasive IP address), option `--proxy-file` can be used by providing filename of a file containing bulk list of proxies.
+当你想要使用 sqlmap 对本地局域网目标进行测试时应该使用开关 `--ignore-proxy` 来忽略系统级的 HTTP(S) 代理服务。
 
-Switch `--ignore-proxy` should be used when you want to run sqlmap against a target part of a local area network by ignoring the system-wide set HTTP(S) proxy server setting.
+### Tor 匿名网络
 
-### Tor anonymity network
+开关和选项：`--tor`，`--tor-port`，`--tor-type`和`--check-tor`
 
-Switches and options: `--tor`, `--tor-port`, `--tor-type` and `--check-tor`
+假如基于任何原因需要保持匿名，可以根据 [Tor 安装指南](https://www.torproject.org/docs/installguide.html.en)配置一个 [Tor 客户端](http://www.torproject.org/)和 [Privoxy](http://www.privoxy.org)（或类似的），而不是使用单个预定义的 HTTP(S) 代理服务器。接着就可以使用开关 `--tor` 来让 sqlmap 尝试自动设置 Tor 代理连接。
 
-If, for any reason, you need to stay anonymous, instead of passing by a single predefined HTTP(S) proxy server, you can configure a [Tor client](http://www.torproject.org/) together with [Privoxy](http://www.privoxy.org) (or similar) on your machine as explained in [Tor installation guides](https://www.torproject.org/docs/installguide.html.en). Then you can use a switch `--tor` and sqlmap will try to automatically set Tor proxy connection settings.
+如果你想手动设置 Tor 代理的类型和端口，可以使用选项 `--tor-type` 和 `--tor-port`（例：`--tor-type=SOCKS5 --tor-port 9050`）。
 
-In case that you want to manually set the type and port of used Tor proxy, you can do it with options `--tor-type` and `--tor-port` (e.g. `--tor-type=SOCKS5 --tor-port 9050`).
+强烈建议偶尔使用 `--check-tor` 来确保一切设置正确。有些情况下 Tor 包（例：Vidalia（译者注：Vidalia 是 Tor 的图形界面管理工具，官方已经移除对它的支持））配置错误（或重置了以前的配置）会使你有了已经匿名的错觉。使用这个开关，sqlmap 将在对任何目标发起请求之前发送一个请求到[你正在使用 Tor？](https://check.torproject.org/)这个官方页面检查一切是否正常。如果检查失败，sqlmap 将警告您并直接退出。
 
-You are strongly advised to use `--check-tor` occasionally to be sure that everything was set up properly. There are cases when Tor bundles (e.g. Vidalia) come misconfigured (or reset previously set configuration) giving you a false sense of anonymity. Using this switch sqlmap will check that everything works as expected by sending a single request to an official [Are you using Tor?](https://check.torproject.org/) page before any target requests. In case that check fails, sqlmap will warn you and abruptly exit.
+### 每个 HTTP 请求之间的延迟
 
-### Delay between each HTTP request
+选项：`--delay`
 
-Option: `--delay`
+可以指定每个 HTTP(S) 请求之间等待的秒数。有效值是一个浮点数，例如 `0.5` 表示半秒。默认情况下，没有设置延迟。
 
-It is possible to specify a number of seconds to hold between each HTTP(S) request. The valid value is a float, for instance `0.5` means half a second. By default, no delay is set.
+### 超时连接的等待秒数
 
-### Seconds to wait before timeout connection
+选项：`--timeout`
 
-Option: `--timeout`
+可以指定 HTTP(S) 请求超时的等待秒数。有效值是一个浮点数，例如 10.5 表示十秒半。默认设置是 **30 秒**。
 
-It is possible to specify a number of seconds to wait before considering the HTTP(S) request timed out. The valid value is a float, for instance 10.5 means ten seconds and a half. By default **30 seconds** are set.
+### HTTP 连接超时的最大重试次数
 
-### Maximum number of retries when the HTTP connection timeouts
+选项：`--retries`
 
-Option: `--retries`
+可以指定 HTTP(S) 连接超时的最大重试次数。默认情况下，它最多重试**三次**。
 
-It is possible to specify the maximum number of retries when the HTTP(S) connection timeouts. By default it retries up to **three times**.
+### 随机更改给定参数的值
 
-### Randomly change value for given parameter(s)
+选项：`--randomize`
 
-Option: `--randomize`
+可以指定在每个请求期间需要随机更改其值的参数名称。长度和类型由提供的原始值决定。
 
-It is possible to specify parameter names whose values you want to be randomly changed during each request. Length and type are being kept according to provided original values.
+### 使用正则表达式从提供的代理日志中过滤目标
 
-### Filtering targets from provided proxy log using regular expression
+选项：`--scope`
 
-Option: `--scope`
+你可以指定有效的 Python 正则表达式用于过滤所需的目标，而不是使用由选项 `-l` 提供的日志中解析出的所有主机目标。
 
-Rather than using all hosts parsed from provided logs with option `-l`, you can specify valid Python regular expression to be used for filtering desired ones.
-
-Example of valid syntax:
+有效语法示例：
 
 ```
 $ python sqlmap.py -l burp.log --scope="(www)?\.target\.(com|net|org)"
 ```
 
-### Avoid your session to be destroyed after too many unsuccessful requests
+### 避免在太多失败请求时被销毁会话
 
-Options: `--safe-url`, `--safe-post`, `--safe-req` and `--safe-freq`
+选项：`--safe-url`，`--safe-post`，`--safe-req` 和 `--safe-freq`
 
-Sometimes web applications or inspection technology in between destroys the session if a certain number of unsuccessful requests is performed. This might occur during the detection phase of sqlmap or when it exploits any of the blind SQL injection types. Reason why is that the SQL payload does not necessarily returns output and might therefore raise a signal to either the application session management or the inspection technology.
+有时，在执行了一定数量的失败请求后会被 Web 应用或检测技术销毁会话。这可能发生在 sqlmap 的检测阶段，或者在它利用任何 SQL 盲注时。原因是 SQL payloads 不一定会返回输出，因此可能会向应用会话管理或检测技术暴露出特征。
 
-To bypass this limitation set by the target, you can provide any (or combination of) option:
+要绕过目标设置的这种限制，你可以提供任何（或组合）选项：
 
-* `--safe-url`: URL address to visit frequently during testing.
-* `--safe-post`: HTTP POST data to send to a given safe URL address.
-* `--safe-req`: Load and use safe HTTP request from a file.
-* `--safe-freq`: Test requests between two visits to a given safe location.
+* `--safe-url`：测试期间可以安全频繁访问的 URL 地址。
+* `--safe-post`：使用 HTTP POST 发送数据到一个安全的 URL 地址。
+* `--safe-req`：从文件中加载并使用安全的 HTTP 请求。
+* `--safe-freq`：交替执行指定的安全地址访问和目标测试请求。
 
-This way, sqlmap will visit every a predefined number of requests a certain _safe_ URL without performing any kind of injection against it.
+这样，sqlmap 将访问每个定义好数量请求的某个_安全_ URL，而不对其执行任何类型的注入。
 
-### Turn off URL encoding of parameter values
+### 关闭对参数值的 URL 编码
 
-Switch: `--skip-urlencode`
+开关:`--skip-urlencode`
 
-Depending on parameter placement (e.g. GET) its value could be URL encoded by default. In some cases, back-end web servers do not follow RFC standards and require values to be send in their raw non-encoded form. Use `--skip-urlencode` in those kind of cases.
+根据参数的位置（例：GET），其值可能会被默认进行 URL 编码。在某些情况下，后端 Web 服务器不遵循 RFC 标准，并要求以原始非编码形式发送值。在这种情况下可以使用 `--skip-urlencode`。
 
-### Bypass anti-CSRF protection
+### 绕过 反-CSRF 防护
 
 Options: `--csrf-token` and `--csrf-url`
 
-Lots of sites incorporate anti-CSRF protection in form of tokens, hidden field values that are randomly set during each page response. sqlmap will automatically try to recognize and bypass that kind of protection, but there are options `--csrf-token` and `--csrf-url` that can be used to further fine tune it. Option `--csrf-token` can be used to set the name of the hidden value that contains the randomized token. This is useful in cases when web sites use non-standard names for such fields. Option `--csrf-url` can be used for retrieval of the token value from arbitrary URL address. This is useful if the vulnerable target URL doesn't contain the necessary token value in the first place, but it is required to extract it from some other location.
+许多站点有使用 token 的反-CSRF 防护，在每个页面的响应随机设置隐藏字段值。sqlmap 将自动尝试识别并绕过这种防护，还有 `--csrf-token` 和 `--csrf-url` 等选项用来做进一步调整。选项 `--csrf-token` 用于设置包含随机 token 的隐藏字段的名称。这在网站对这些字段使用非标准名称的情况下是非常有用的。选项 `--csrf-url` 用于从任意有效的 URL 地址获取 token 值。这在目标网址在一开始不包含必需的 token 值，而需要从其他地方提取时是非常有用的。
 
-### Force usage of SSL/HTTPS
+### 强制使用 SSL/HTTPS
 
-Switch: `--force-ssl`
+开关：`--force-ssl`
 
-In case that user wants to force usage of SSL/HTTPS requests toward the target, he can use this switch. This can be useful in cases when urls are being collected by using option `--crawl` or when Burp log is being provided with option `-l`.
+如果想要对目标强制使用 SSL/HTTPS 请求，可以使用此开关。在使用选项 `--crawl` 收集 URLs 或者使用选项 `-l` 提供 Burp 日志时，该开关是很有用的。
 
-### Evaluate custom python code during each request
+### 在每个请求期间运行自定义的 Python 代码
 
-Option: `--eval`
+选项：`--eval`
 
-In case that user wants to change (or add new) parameter values, most probably because of some known dependency, he can provide to sqlmap a custom python code with option `--eval` that will be evaluated just before each request.
+在可能因为一些已知的依赖而想要更改（或添加新的）参数值的情况下，可以使用选项 `--eval` 为 sqlmap 提供自定义的 python 代码，代码将在每个请求之前运行。
 
-For example:
+例如：
 
 ```
 $ python sqlmap.py -u "http://www.target.com/vuln.php?id=1&hash=c4ca4238a0b9238\
 20dcc509a6f75849b" --eval="import hashlib;hash=hashlib.md5(id).hexdigest()"
 ```
 
-Each request of such run will re-evaluate value of GET parameter `hash` to contain a fresh MD5 hash digest for current value of parameter `id`.
+每个像这样的请求将会使用当前的 GET 请求中的 `id` 参数值去计算出对应的 MD5 哈希值，从而替换掉原来 `hash` 参数值。
