@@ -226,11 +226,11 @@ $ python sqlmap.py -u "http://192.168.136.131/sqlmap/mysql/basic/get_int.php?id\
 
 可以指定在每个请求期间需要随机更改其值的参数名称。长度和类型由提供的原始值决定。
 
-### 使用正则表达式从提供的代理日志中过滤目标
+### 使用正则表达式从提供的代理日志中提取目标
 
 选项：`--scope`
 
-你可以指定有效的 Python 正则表达式用于过滤所需的目标，而不是使用由选项 `-l` 提供的日志中解析出的所有主机目标。
+你可以指定有效的 Python 正则表达式用于提取出所需的目标，而不是使用由选项 `-l` 从日志中解析出的所有主机目标。
 
 有效语法示例：
 
@@ -238,7 +238,7 @@ $ python sqlmap.py -u "http://192.168.136.131/sqlmap/mysql/basic/get_int.php?id\
 $ python sqlmap.py -l burp.log --scope="(www)?\.target\.(com|net|org)"
 ```
 
-### 避免在太多失败请求时被销毁会话
+### 避免因太多失败请求而被销毁会话
 
 选项：`--safe-url`，`--safe-post`，`--safe-req` 和 `--safe-freq`
 
@@ -259,7 +259,7 @@ $ python sqlmap.py -l burp.log --scope="(www)?\.target\.(com|net|org)"
 
 根据参数的位置（例：GET），其值可能会被默认进行 URL 编码。在某些情况下，后端 Web 服务器不遵循 RFC 标准，并要求以原始非编码形式发送值。在这种情况下可以使用 `--skip-urlencode`。
 
-### 绕过 反-CSRF 防护
+### 绕过反-CSRF 防护
 
 Options: `--csrf-token` and `--csrf-url`
 
@@ -284,4 +284,4 @@ $ python sqlmap.py -u "http://www.target.com/vuln.php?id=1&hash=c4ca4238a0b9238\
 20dcc509a6f75849b" --eval="import hashlib;hash=hashlib.md5(id).hexdigest()"
 ```
 
-每个像这样的请求将会使用当前的 GET 请求中的 `id` 参数值去计算出对应的 MD5 哈希值，从而替换掉原来 `hash` 参数值。
+每个像这样的请求会使用当前 GET 请求中的 `id` 参数值计算出对应的 MD5 哈希值，从而替换掉原来 `hash` 参数值。
