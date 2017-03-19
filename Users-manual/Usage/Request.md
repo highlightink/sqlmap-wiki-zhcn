@@ -159,7 +159,7 @@ Connection: close
 * `Digest`
 * `NTLM`
 
-而认证凭据的语法是`用户名:密码`。
+而认证凭据的语法是 `username:password`。
 
 一个符合语法的例子：
 
@@ -186,7 +186,7 @@ $ python sqlmap.py -u "http://192.168.136.131/sqlmap/mysql/basic/get_int.php?id\
 
 可以使用选项 `--proxy` 并提供 HTTP(S) 代理地址使 HTTP(S) 请求经过该代理到达目标 URL。设置 HTTP(S) 代理的语法是 `http://url:port`。
 
-如果 HTTP(S) 代理需要身份验证，则可以对选项 `--proxy-cred` 使用`用户名:密码`格式的凭据。
+如果 HTTP(S) 代理需要身份验证，则可以对选项 `--proxy-cred` 使用 `username:password` 格式的凭据。
 
 如果要使用（一次性的）代理列表，在连接问题的任何标志（例：阻止侵入性 IP 地址）出现时跳过并使用下一个代理，可以使用选项 `--proxy-file` 并指定包含批量代理的文件。
 

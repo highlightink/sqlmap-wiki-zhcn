@@ -38,11 +38,11 @@
     -H HEADER, --hea..  设置额外的 HTTP 头参数（例："X-Forwarded-For: 127.0.0.1"）
     --headers=HEADERS   设置额外的 HTTP 头参数（例："Accept-Language: fr\nETag: 123"）
     --auth-type=AUTH..  HTTP 认证方式（Basic，Digest，NTLM 或 PKI）
-    --auth-cred=AUTH..  HTTP 认证凭证（用户名:密码）
+    --auth-cred=AUTH..  HTTP 认证凭证（username:password）
     --auth-file=AUTH..  HTTP 认证 PEM 证书/私钥文件
     --ignore-401        忽略 HTTP 401（未授权）错误
     --proxy=PROXY       使用代理连接目标 URL
-    --proxy-cred=PRO..  使用代理进行认证（用户名:密码）
+    --proxy-cred=PRO..  使用代理进行认证（username:password）
     --proxy-file=PRO..  从文件中加载代理列表
     --ignore-proxy      忽略系统默认代理设置
     --tor               使用 Tor 匿名网络
@@ -85,7 +85,7 @@
     --skip-static       指定跳过非动态参数
     --param-exclude=..  用正则表达式排除参数（例："ses"）
     --dbms=DBMS         指定 DBMS 类型（例：MySQL）
-    --dbms-cred=DBMS..  DBMS 认证凭据（用户名:密码）
+    --dbms-cred=DBMS..  DBMS 认证凭据（username:password）
     --os=OS             指定 DBMS 服务器的操作系统类型
     --invalid-bignum    将无效值设置为大数
     --invalid-logical   对无效值使用逻辑运算
