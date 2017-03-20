@@ -1,50 +1,50 @@
-## Injection
+## 注入
 
-These options can be used to specify which parameters to test for, provide custom injection payloads and optional tampering scripts.
+以下选项用于指定要测试的参数，提供自定义注入 payloads 和可选篡改脚本。
 
-### Testable parameter(s)
+### 可测试参数
 
-Options: `-p`, `--skip` and `--param-exclude`
+选项：`-p`，`--skip` 和 `--param-exclude`
 
-By default sqlmap tests all GET parameters and POST parameters. When the value of `--level` is >= **2** it tests also HTTP `Cookie` header values. When this value is >= **3** it tests also HTTP `User-Agent` and HTTP `Referer` header value for SQL injections. It is however possible to manually specify a comma-separated list of parameter(s) that you want sqlmap to test. This will bypass the dependence on value of `--level` too. 
+默认情况下 sqlmap 会测试所有 GET 参数和 POST 参数。当 `--level` 的值 >= **2**，它还会测试 HTTP `Cookie` 头值。当这个值 >= **3** 时，它还会测试 HTTP `User-Agent` 和 HTTP `Referer` 头值。而且还可以手动指定一个需要 sqlmap 进行测试的逗号分隔的参数列表。这将忽略对 `--level` 的设置。
 
-For instance, to test for GET parameter `id` and for HTTP `User-Agent` only, provide `-p "id,user-agent"`.
+例如，只需要测试 GET 参数 `id` 和 HTTP `User-Agent`，则提供 `-p "id,user-agent"`。
 
-In case that user wants to exclude certain parameters from testing, he can use option `--skip`. That is especially useful in cases when you want to use higher value for `--level` and test all available parameters excluding some of HTTP headers normally being tested.
+如果用户想要排除测试某些参数，他可以使用选项 `--skip`。这在你想对 `--level` 使用更高的级别并测试所有可用参数，而不包括通常被测试的一些 HTTP 头时是非常有用的。
 
-For instance, to skip testing for HTTP header `User-Agent` and HTTP header `Referer` at `--level=5`, provide `--skip="user-agent,referer"`.
+例如，要在 `--level=5` 跳过测试 HTTP `User-Agent` 和 HTTP `Referer`，可以提供 `--skip="user-agent,referer"`。
 
-There is also a possibility to exclude certain parameters from testing based on a regular expression run on their names. In those kind of cases user can use option `--param-exclude`.
+还可以基于正则表达式针对参数名称来排除某些参数的测试。在这种情况下，用户可以使用选项 `--param-exclude`。
 
-For instance, to skip testing for parameters which contain string `token` or `session` in their names, provide `--param-exclude="token|session"`.
+例如，要跳过对名称中包含 `token` 或 `session` 的参数的测试，可以提供 `--param-exclude="token|session"`。
 
-#### URI injection point
+#### URI 注入点
 
-There are special cases when injection point is within the URI itself. sqlmap does not perform any automatic test against URI paths, unless manually pointed to. You have to specify these injection points in the command line by appending an asterisk (`*`) (Note: Havij style `%INJECT HERE%` is also supported) after each URI point that you want sqlmap to test for and exploit a SQL injection. 
+有一些特殊情况是注入点处于 URI 本身内。除非手动指定，sqlmap 不会对 URI 路径执行任何自动测试。你需要在命令行中标明这些注入点，通过在每个需要 sqlmap 测试和利用 SQL 注入的 URI 点后面附加一个星号（`*`）（注意：也支持 Havij 风格 `%INJECT HERE%`）。
 
-This is particularly useful when, for instance, Apache web server's [mod_rewrite](http://httpd.apache.org/docs/current/mod/mod_rewrite.html) module is in use or other similar technologies.
+例如，当使用了 Apache Web 服务器的 [mod_rewrite](http://httpd.apache.org/docs/current/mod/mod_rewrite.html)模块或其他类似的技术时，这是特别有用的。
 
-An example of valid command line would be:
+一个有效的命令行例子如下：
 
 ```
 $ python sqlmap.py -u "http://targeturl/param1/value1*/param2/value2/"
 ```
 
-#### Arbitrary injection point
+#### 任意注入点
 
-Similar to URI injection point, asterisk (`*`) (Note: Havij style `%INJECT HERE%` is also supported) can also be used to point to the arbitrary injection point inside GET, POST or HTTP headers. Injection point can be specified by marking it inside the GET parameter value(s) provided with option `-u`, POST parameter value(s) provided with option `--data`, HTTP header value(s) provided with options `-H`, `--headers`, `--user-agent`, `--referer` and/or `--cookie`, or at generic place inside HTTP request loaded from file with option `-r`.
+与 URI 注入点类似，星号（`*`）（注意：也支持 Havij 风格 `%INJECT HERE%`）也可以用于指向 GET，POST 或 HTTP 头中的任意注入点。可以在选项 `-u` 提供的 GET 参数值，选项 `--data` 提供的 POST 参数值，选项 `-H` 提供的 HTTP 头值如 `--headers`，`--user-agent`，`--referer` 和/或 `--cookie`，或从文件加载的 HTTP 请求中的通用位置这些地方的内部指定注入点。
 
-An example of valid command line would be:
+一个有效的命令行例子如下：
 
 ```
 $ python sqlmap.py -u "http://targeturl" --cookie="param1=value1*;param2=value2"
 ```
 
-### Force the DBMS
+### 指定 DBMS 类型
 
-Option: `--dbms`
+选项：`--dbms`
 
-By default sqlmap automatically detects the web application's back-end database management system. sqlmap fully supports the following database management systems: 
+默认情况下 sqlmap 会自动检测 Web 应用程序的后端数据库管理系统。sqlmap 完全支持以下数据库管理系统：
 
 * MySQL
 * Oracle
@@ -59,11 +59,13 @@ By default sqlmap automatically detects the web application's back-end database 
 * HSQLDB
 * Informix
 
-If for any reason sqlmap fails to detect the back-end DBMS once a SQL injection has been identified or if you want to avoid an active fingeprint, you can provide the name of the back-end DBMS yourself (e.g. `postgresql`). For MySQL and Microsoft SQL Server provide them respectively in the form `MySQL  <version>` and `Microsoft SQL Server  <version> `, where ` <version>` is a valid version for the DBMS; for instance `5.0` for MySQL and `2005` for Microsoft SQL Server.
+如果由于某些原因 sqlmap 已经识别出 SQL 注入却无法检测到后端 DBMS 类型，或者你想避免执行指纹信息收集，你可以自己提供后端 DBMS 的名称（例如：`postgresql`）。对于 MySQL 和 Microsoft SQL Server 分别以 `MySQL <version>` 和 `Microsoft SQL Server <version>` 的形式提供，其中 `<version>`是指 DBMS 的有效版本；例如 MySQL 为 5.0，Microsoft SQL Server 为 2005。
 
-In case you provide `--fingerprint` together with `--dbms`, sqlmap will only perform the extensive fingerprint for the specified database management system only, read below for further details. 
+如果你同时使用 `--dbms` 和 `--fingerprint`，sqlmap 将只对指定的数据库管理系统执行大量指纹收集，更详细的信息请阅读下文。
 
-Note that this option is **not** mandatory and it is strongly recommended to use it **only if you are absolutely sure** about the back-end database management system. If you do not know it, let sqlmap automatically fingerprint it for you.
+注意，此选项是**不**是强制性的，强烈建议**仅当你绝对确定**后端数据库管理系统时使用它。如果你不知道，就让 sqlmap 自动为你收集指纹信息。
+
+---
 
 ### Force the database management system operating system name
 

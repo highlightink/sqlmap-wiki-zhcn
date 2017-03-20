@@ -6,7 +6,7 @@
 
 选项：`--method`
 
-sqlmap 能自动检测 HTTP 请求中使用的 HTTP 方法。然而在某些情况下，需要强制使用 sqlmap 自动化不使用的特定 HTTP 方法（例：`PUT`）。该选项是可能被用到的（例：`--method=PUT`）。
+sqlmap 能自动检测 HTTP 请求中使用的 HTTP 方法。然而在某些情况下，需要强制使用 sqlmap 自动化不使用的特定 HTTP 方法（例如：`PUT`）。该选项是可能被用到的（例如：`--method=PUT`）。
 
 ### HTTP 数据
 
@@ -25,7 +25,7 @@ r --dbs --users
 
 选项：`--param-del`
 
-有些情况下，需要覆盖默认参数分隔符（例：`&` 在 GET 和 POST 数据中），以使 sqlmap 能够正确地分别处理每个参数。
+有些情况下，需要覆盖默认参数分隔符（例如：`&` 在 GET 和 POST 数据中），以使 sqlmap 能够正确地分别处理每个参数。
 
 例如：
 
@@ -188,7 +188,7 @@ $ python sqlmap.py -u "http://192.168.136.131/sqlmap/mysql/basic/get_int.php?id\
 
 如果 HTTP(S) 代理需要身份验证，则可以对选项 `--proxy-cred` 使用 `username:password` 格式的凭据。
 
-如果要使用（一次性的）代理列表，在连接问题的任何标志（例：阻止侵入性 IP 地址）出现时跳过并使用下一个代理，可以使用选项 `--proxy-file` 并指定包含批量代理的文件。
+如果要使用（一次性的）代理列表，在连接问题的任何标志（例如：阻止侵入性 IP 地址）出现时跳过并使用下一个代理，可以使用选项 `--proxy-file` 并指定包含批量代理的文件。
 
 当你想要使用 sqlmap 对本地局域网目标进行测试时应该使用开关 `--ignore-proxy` 来忽略系统级的 HTTP(S) 代理服务。
 
@@ -198,9 +198,9 @@ $ python sqlmap.py -u "http://192.168.136.131/sqlmap/mysql/basic/get_int.php?id\
 
 假如基于任何原因需要保持匿名，可以根据 [Tor 安装指南](https://www.torproject.org/docs/installguide.html.en)配置一个 [Tor 客户端](http://www.torproject.org/)和 [Privoxy](http://www.privoxy.org)（或类似的），而不是使用单个预定义的 HTTP(S) 代理服务器。接着就可以使用开关 `--tor` 来让 sqlmap 尝试自动设置 Tor 代理连接。
 
-如果你想手动设置 Tor 代理的类型和端口，可以使用选项 `--tor-type` 和 `--tor-port`（例：`--tor-type=SOCKS5 --tor-port 9050`）。
+如果你想手动设置 Tor 代理的类型和端口，可以使用选项 `--tor-type` 和 `--tor-port`（例如：`--tor-type=SOCKS5 --tor-port 9050`）。
 
-强烈建议偶尔使用 `--check-tor` 来确保一切设置正确。有些情况下 Tor 包（例：Vidalia（译者注：Vidalia 是 Tor 的图形界面管理工具，官方已经移除对它的支持））配置错误（或重置了以前的配置）会使你有了已经匿名的错觉。使用这个开关，sqlmap 将在对任何目标发起请求之前发送一个请求到[你正在使用 Tor？](https://check.torproject.org/)这个官方页面检查一切是否正常。如果检查失败，sqlmap 将警告您并直接退出。
+强烈建议偶尔使用 `--check-tor` 来确保一切设置正确。有些情况下 Tor 包（例如：Vidalia（译者注：Vidalia 是 Tor 的图形界面管理工具，官方已经移除对它的支持））配置错误（或重置了以前的配置）会使你有了已经匿名的错觉。使用这个开关，sqlmap 将在对任何目标发起请求之前发送一个请求到[你正在使用 Tor？](https://check.torproject.org/)这个官方页面检查一切是否正常。如果检查失败，sqlmap 将警告您并直接退出。
 
 ### 每个 HTTP 请求之间的延迟
 
@@ -257,7 +257,7 @@ $ python sqlmap.py -l burp.log --scope="(www)?\.target\.(com|net|org)"
 
 开关:`--skip-urlencode`
 
-根据参数的位置（例：GET），其值可能会被默认进行 URL 编码。在某些情况下，后端 Web 服务器不遵循 RFC 标准，并要求以原始非编码形式发送值。在这种情况下可以使用 `--skip-urlencode`。
+根据参数的位置（例如：GET），其值可能会被默认进行 URL 编码。在某些情况下，后端 Web 服务器不遵循 RFC 标准，并要求以原始非编码形式发送值。在这种情况下可以使用 `--skip-urlencode`。
 
 ### 绕过反-CSRF 防护
 
@@ -284,4 +284,4 @@ $ python sqlmap.py -u "http://www.target.com/vuln.php?id=1&hash=c4ca4238a0b9238\
 20dcc509a6f75849b" --eval="import hashlib;hash=hashlib.md5(id).hexdigest()"
 ```
 
-每个像这样的请求会使用当前 GET 请求中的 `id` 参数值计算出对应的 MD5 哈希值，从而替换掉原来 `hash` 参数值。
+每个像这样的请求会使用当前 GET 请求中的 `id` 参数值计算出对应的 MD5 哈希值，从而替换掉原来的 `hash` 参数值。

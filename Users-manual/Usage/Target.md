@@ -43,7 +43,7 @@ $ python sqlmap.py -u "http://www.target.com/vuln.php?id=1" -f --banner --dbs -\
 
 选项：`-x`
 
-通过站点地图，站点管理者可以列出网站的所有页面位置，用于告知搜索引擎站点的内容结构。你可以使用选项 `-x` 提供站点地图地址给 sqlmap（例：`-x http://www.target.com/sitemap.xml`）以搜寻可用的目标 URLs。
+通过站点地图，站点管理者可以列出网站的所有页面位置，用于告知搜索引擎站点的内容结构。你可以使用选项 `-x` 提供站点地图地址给 sqlmap（例如：`-x http://www.target.com/sitemap.xml`）以搜寻可用的目标 URLs。
 
 ### 从给定的文本文件读取多个目标进行扫描
 
@@ -73,7 +73,7 @@ HTTP 请求文件数据样本如下：
 
 如果相关的请求是 HTTPS，你可以结合 `--force-ssl` 开关强制使用 SSL 进行 443/tcp 连接。或者，你可以在 `Host` 头部信息后面直接加上 `:443`。  
 
-### 使用 Google dark 结果作为目标地址
+### 使用 Google dork 结果作为目标地址
 
 选项：`-g`
 

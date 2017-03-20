@@ -13,7 +13,7 @@
   	至少提供一个以下选项以指定目标
 
     -d DIRECT           直接连接数据库
-    -u URL, --url=URL   目标 URL（例："http://www.site.com/vuln.php?id=1"）
+    -u URL, --url=URL   目标 URL（例如："http://www.site.com/vuln.php?id=1"）
     -l LOGFILE          从 Burp 或 WebScarab 代理的日志文件中解析目标地址
     -x SITEMAPURL       从远程网站地图（.xml）文件中解析目标
     -m BULKFILE         从文本文件中获取批量目标
@@ -24,7 +24,7 @@
   请求：
   	以下选项可以指定连接目标地址的方式
 
-    --method=METHOD     强制使用提供的 HTTP 方法（例：PUT）
+    --method=METHOD     强制使用提供的 HTTP 方法（例如：PUT）
     --data=DATA         使用 POST 发送数据串
     --param-del=PARA..  设置参数值分隔符
     --cookie=COOKIE     指定 HTTP Cookie 
@@ -35,8 +35,8 @@
     --random-agent      使用随机的 HTTP User-Agent
     --host=HOST         指定 HTTP Host
     --referer=REFERER   指定 HTTP Referer
-    -H HEADER, --hea..  设置额外的 HTTP 头参数（例："X-Forwarded-For: 127.0.0.1"）
-    --headers=HEADERS   设置额外的 HTTP 头参数（例："Accept-Language: fr\nETag: 123"）
+    -H HEADER, --hea..  设置额外的 HTTP 头参数（例如："X-Forwarded-For: 127.0.0.1"）
+    --headers=HEADERS   设置额外的 HTTP 头参数（例如："Accept-Language: fr\nETag: 123"）
     --auth-type=AUTH..  HTTP 认证方式（Basic，Digest，NTLM 或 PKI）
     --auth-cred=AUTH..  HTTP 认证凭证（username:password）
     --auth-file=AUTH..  HTTP 认证 PEM 证书/私钥文件
@@ -64,7 +64,7 @@
     --csrf-url=CSRFURL  指定可提取反 CSRF 攻击 token 的 URL
     --force-ssl         强制使用 SSL/HTTPS
     --hpp               使用 HTTP 参数污染攻击
-    --eval=EVALCODE     在发起请求前执行给定的 Python 代码（例：
+    --eval=EVALCODE     在发起请求前执行给定的 Python 代码（例如：
                         "import hashlib;id2=hashlib.md5(id).hexdigest()"）
 
   优化：
@@ -83,8 +83,8 @@
     -p TESTPARAMETER    指定需要测试的参数
     --skip=SKIP         指定要跳过的参数
     --skip-static       指定跳过非动态参数
-    --param-exclude=..  用正则表达式排除参数（例："ses"）
-    --dbms=DBMS         指定 DBMS 类型（例：MySQL）
+    --param-exclude=..  用正则表达式排除参数（例如："ses"）
+    --dbms=DBMS         指定 DBMS 类型（例如：MySQL）
     --dbms-cred=DBMS..  DBMS 认证凭据（username:password）
     --os=OS             指定 DBMS 服务器的操作系统类型
     --invalid-bignum    将无效值设置为大数
@@ -219,10 +219,10 @@
     -s SESSIONFILE      从文件（.sqlite）中读入会话信息
     -t TRAFFICFILE      保存所有 HTTP 流量记录到指定文本文件
     --batch             从不询问用户输入，使用默认配置
-    --binary-fields=..  具有二进制值的结果字段（例："digest"）
+    --binary-fields=..  具有二进制值的结果字段（例如："digest"）
     --charset=CHARSET   强制对获取数据进行字符编码
     --crawl=CRAWLDEPTH  从目标 URL 开始爬取网站
-    --crawl-exclude=..  用正则表达式筛选爬取的页面（例："logout"）
+    --crawl-exclude=..  用正则表达式筛选爬取的页面（例如："logout"）
     --csv-del=CSVDEL    指定输出到 CVS 文件时使用的分隔符（默认为“,”）
     --dump-format=DU..  导出数据的格式（CSV（默认），HTML 或 SQLITE）
     --eta               显示每个结果输出的预计到达时间
@@ -234,14 +234,14 @@
     --parse-errors      从响应中解析并显示 DBMS 错误信息
     --save=SAVECONFIG   将选项设置保存到一个 INI 配置文件
     --scope=SCOPE       用正则表达式从提供的代理日志中过滤目标
-    --test-filter=TE..  根据 payloads 和/或标题（例：ROW）选择测试
-    --test-skip=TEST..  根据 payloads 和/或标题（例：BENCHMARK）跳过部分测试
+    --test-filter=TE..  根据 payloads 和/或标题（例如：ROW）选择测试
+    --test-skip=TEST..  根据 payloads 和/或标题（例如：BENCHMARK）跳过部分测试
     --update            更新 sqlmap
 
   其他选项：
-    -z MNEMONICS        使用短助记符（例：“flu,bat,ban,tec=EU”）
+    -z MNEMONICS        使用短助记符（例如：“flu,bat,ban,tec=EU”）
     --alert=ALERT       在找到 SQL 注入时运行 OS 命令
-    --answers=ANSWERS   设置问题答案（例：“quit=N,follow=N”）
+    --answers=ANSWERS   设置问题答案（例如：“quit=N,follow=N”）
     --beep              出现问题提醒或在发现 SQL 注入时发出提示音
     --cleanup           指定移除 DBMS 中的特定的 UDF 或者数据表
     --dependencies      检查 sqlmap 缺少什么（非核心）依赖
