@@ -65,64 +65,62 @@ $ python sqlmap.py -u "http://targeturl" --cookie="param1=value1*;param2=value2"
 
 注意，此选项是**不**是强制性的，强烈建议**仅当你绝对确定**后端数据库管理系统时使用它。如果你不知道，就让 sqlmap 自动为你收集指纹信息。
 
----
+### 指定 DBMS 操作系统名称
 
-### Force the database management system operating system name
+选项：`--os`
 
-Option: `--os`
-
-By default sqlmap automatically detects the web application's back-end database management system underlying operating system when this information is a dependence of any other provided switch or option. At the moment the fully supported operating systems are:
+默认情况下，当此信息是任何开关或选项的依赖时，sqlmap 会自动检测 Web 应用程序后端 DBMS 的底层操作系统信息。 目前完全支持的操作系统有：
 
 * Linux
 * Windows
 
-It is possible to force the operating system name if you already know it so that sqlmap will avoid doing it itself.
+你可以强制指定已知的操作系统类型，sqlmap 将避免对该信息进行检测。
 
-Note that this option is **not** mandatory and it is strongly recommended to use it **only if you are absolutely sure** about the back-end database management system underlying operating system. If you do not know it, let sqlmap automatically identify it for you. 
+注意，此选项**不**是强制性的，强烈建议**仅当您绝对确定**后端 DBMS 底层操作系统时使用它。如果你不知道，就让 sqlmap 自动为你识别。
 
-### Force usage of big numbers for invalidating values
+### 强制使用大数字来使参数值无效
 
-Switch: `--invalid-bignum`
+开关：`--invalid-bignum`
 
-In cases when sqlmap needs to invalidate original parameter value (e.g. `id=13`) it uses classical negation (e.g. `id=-13`). With this switch it is possible to force the usage of large integer values to fulfill the same goal (e.g. `id=99999999`).
+在 sqlmap 需要使原始参数值无效（例如：`id=13`）的情况下，它会使用负数（例如：`id=-13`）。使用此开关可以强制使用大整数值来达到一样的效果（例如：`id=99999999`）。
 
-### Force usage of logical operations for invalidating values
+### 强制使用逻辑运算使值无效
 
-Switch: `--invalid-logical`
+开关：`--invalid-logical`
 
-In cases when sqlmap needs to invalidate original parameter value (e.g. `id=13`) it uses classical negation (e.g. `id=-13`). With this switch it is possible to force the usage of boolean operations to fulfill the same goal (e.g. `id=13 AND 18=19`).
+在 sqlmap 需要使原始参数值无效（例如：`id=13`）的情况下，它会使用负数（例如：`id=-13`）。使用此开关可以强制使用布尔运算来达到一样的效果（例如：`id=13 AND 18=19`）。
 
-### Force usage of random strings for invalidating values
+### 强制使用随机字符串使值无效
 
-Switch: `--invalid-string`
+开关：`--invalid-string`
 
-In cases when sqlmap needs to invalidate original parameter value (e.g. `id=13`) it uses classical negation (e.g. `id=-13`). With this switch it is possible to force the usage of random strings to fulfill the same goal (e.g. `id=akewmc`).
+在 sqlmap 需要使原始参数值无效（例如：`id=13`）的情况下，它会使用负数（例如：`id=-13`）。使用此开关可以强制使用随机字符串来达到一样的效果（例如：`id=akewmc`）。
 
-### Turn off payload casting mechanism
+### 关闭 payload 构造机制
 
-Switch: `--no-cast`
+开关：`--no-cast`
 
-When retrieving results, sqlmap uses a mechanism where all entries are being casted to string type and replaced with a whitespace character in case of `NULL` values. That is being made to prevent any erroneous states (e.g. concatenation of `NULL` values with string values) and to easy the data retrieval process itself. Nevertheless, there are reported cases (e.g. older versions of MySQL DBMS) where this mechanism needed to be turned-off (using this switch) because of problems with data retrieval itself (e.g. `None` values are returned back).
+检索结果时，sqlmap 使用一种机制，所有条目都被转换为字符串类型，并使用空格字符替换 `NULL` 值。这样做是为了避免任何错误的状态（例如：使用字符串连接 `NULL` 值）并简化数据检索过程本身。然而，根据报告有些情形（例如：MySQL DBMS 的旧版本）由于数据检索本身存在问题（例如：返回了 `None` 值），需要关闭此机制（使用此开关）。
 
-### Turn off string escaping mechanism
+### 关闭字符串转义机制
 
-Switch: `--no-escape`
+开关：`--no-escape`
 
-In cases when sqlmap needs to use (single-quote delimited) string values inside payloads (e.g. `SELECT 'foobar'`), those values are automatically being escaped (e.g. `SELECT CHAR(102)+CHAR(111)+CHAR(111)+CHAR(98)+CHAR(97)+CHAR(114)`). That is being done because of two things: obfuscation of payload content and preventing potential problems with query escaping mechanisms (e.g. `magic_quotes` and/or `mysql_real_escape_string`) at the back-end server. User can use this switch to turn it off (e.g. to reduce payload size).
+在 sqlmap 需要使用（单引号分隔的）payloads 里的字符串（例如：`SELECT 'foobar'`）的情况下，这些值将被自动转义（例如：`SELECT CHAR(102)+CHAR(111)+CHAR(111)+CHAR(98)+CHAR(97)+CHAR(114)`）。这么做有两个原因：对 payload 内容进行模糊处理，还有防止后端服务器上潜在的查询转义机制（例如：`magic_quotes` 和/或 `mysql_real_escape_string`）。用户可以使用此开关将其关闭（例如：减少 payload 的大小）。
 
-### Custom injection payload
+### 自定义注入 payload
 
-Options: `--prefix` and `--suffix`
+选项：`--prefix` 和 `--suffix`
 
-In some circumstances the vulnerable parameter is exploitable only if the user provides a specific suffix to be appended to the injection payload. Another scenario where these options come handy presents itself when the user already knows that query syntax and want to detect and exploit the SQL injection by directly providing a injection payload prefix and suffix. 
+在某些情况下，仅当用户提供要附加到注入 payload 的特定后缀时，才能利用易受攻击的参数。当用户已经知道查询语法并希望通过直接提供注入 payload 前缀和后缀来检测并利用 SQL 注入时，这些选项对这种场景会很方便。
 
-Example of vulnerable source code:
+漏洞源代码示例：
 
     $query = "SELECT * FROM users WHERE id=('" . $_GET['id'] . "') LIMIT 0, 1";
 
-To detect and exploit this SQL injection, you can either let sqlmap detect the **boundaries** (as in combination of SQL payload prefix and suffix) for you during the detection phase, or provide them on your own.
+要检测并利用此 SQL 注入，您可以让 sqlmap 在检测阶段检测**边界**（与 SQL payload 前缀和后缀组合），或者自己提供它们。
 
-For example: 
+例如：
 
 ```
 $ python sqlmap.py -u "http://192.168.136.131/sqlmap/mysql/get_str_brackets.php\
@@ -130,13 +128,13 @@ $ python sqlmap.py -u "http://192.168.136.131/sqlmap/mysql/get_str_brackets.php\
 [...]
 ```
 
-This will result in all sqlmap requests to end up in a query as follows:
+这将使所有 sqlmap 请求最终构成以下查询：
 
     $query = "SELECT * FROM users WHERE id=('1') <PAYLOAD> AND ('abc'='abc') LIMIT 0, 1";
 
-Which makes the query syntactically correct.
+以使查询语法正确。
 
-In this simple example, sqlmap could detect the SQL injection and exploit it without need to provide custom boundaries, but sometimes in real world application it is necessary to provide it when the injection point is within nested `JOIN` queries for instance. 
+在这个简单的例子中，sqlmap 可以检测 SQL 注入并利用它，而不需要提供自定义的边界，但有时在真实情况中的应用程序，当注入点存在于嵌套的 `JOIN` 查询中时，需要提供它。
 
 ### Tamper injection data
 

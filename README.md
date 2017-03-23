@@ -4,6 +4,16 @@
 
 当前 Wiki Git 仓库版本：2017.02.28。
 
+## 什么是 sqlmap？
+
+sqlmap 是一款自动化检测与利用 SQL 注入漏洞的免费开源工具。
+
+## 如何学习使用 sqlmap？
+
+除了阅读本书，你还可以结合 [sqli-labs](https://github.com/Audi-1/sqli-labs)（一个 SQL 注入实验系统）来进行 sqlmap 的实践。
+
+---
+
 ### sqlmap 官方网站
 
 [http://sqlmap.org/](http://sqlmap.org/)
