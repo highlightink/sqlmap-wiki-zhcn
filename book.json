@@ -1,2 +1,7 @@
 {
+    "name": "sqlmap-wiki-zhcn",
+    "introduction": "最新的 sqlmap wiki 中文版。",
+    "path" : {
+        "toc" : "SUMMARY.md"
+    }
 }

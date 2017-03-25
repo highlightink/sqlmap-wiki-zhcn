@@ -1,6 +1,9 @@
 # Summary
 
 * [本书介绍](README.md)
+
+---
+
 * [用户手册](Users-manual/Users-manual.md)
 * [介绍](Users-manual/Introduction.md)
 * [技术](Users-manual/Techniques.md)
@@ -27,6 +30,9 @@
     - [其他选项](Users-manual/Usage/Miscellaneous.md)
     - [API (REST-JSON)](Users-manual/Usage/API.md)
 * [许可证](Users-manual/License.md)
+
+---
+
 * [其他项目](Miscellaneous/Miscellaneous.md)
 * [FAQ](Miscellaneous/FAQ.md)
 * [展示](Miscellaneous/Presentations.md)
