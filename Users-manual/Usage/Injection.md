@@ -142,13 +142,13 @@ $ python sqlmap.py -u "http://192.168.136.131/sqlmap/mysql/get_str_brackets.php\
 
 sqlmap 本身不会混淆发送的 payload，除了处于单引号之间被 诸如 `CHAR()` 替换的字符串。
 
-在你和后端 DBMS 之间存在弱输入验证机制的情况下，此选项会非常有用。这种验证机制通常是由应用程序源代码调用自行开发的输入验证例程，如昂贵的企业级 IPS 设备或 Web 应用程序防火墙（WAF）。一言蔽之，它们通常以不同的方式实现并花费大量资金。
+在你和后端 DBMS 之间存在弱输入验证机制的情况下，此选项会非常有用。这种验证机制通常是由应用程序源代码调用自行开发的输入验证例程，如昂贵的企业级 IPS 设备或 Web 应用程序防火墙（WAF）。一言蔽之，它们通常以不同的方式实现并且需要花费大量资金。
 
-要利用此选项，需要为 sqlmap 提供逗号分隔的修改脚本列表，这将处理 payload 并将其转换。你可以定义自己的修改脚本，使用 sqlmap `tamper/` 文件夹中的脚本，或者使用逗号分隔连接它们作为 `--tamper` 选项的值（例如：`--tamper="between,randomcase"`）。
+要利用此选项，需要为 sqlmap 提供逗号分隔的修改脚本列表，这将处理 payload 并返回转换结果。你可以定义自己的修改脚本，使用 sqlmap `tamper/` 文件夹中的脚本，或者使用逗号分隔连接它们作为 `--tamper` 选项的值（例如：`--tamper="between,randomcase"`）。
 
 有效的修改脚本格式如下：
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.python}
+```
 # Needed imports
 from lib.core.enums import PRIORITY
 
@@ -167,7 +167,7 @@ def tamper(payload):
 
     # return the tampered payload
     return retVal
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+```
 
 你可以在 `tamper/` 目录中查看有效和可用的修改脚本。
 
