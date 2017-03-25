@@ -18,10 +18,7 @@
 
 开关: `--predict-output`
 
-这个开关设置用于推导性算法，可对获取的数据特性进行线性数据分析预测。
-This switch is used in inference algorithm for sequential statistical prediction of characters of value being retrieved. Statistical table with the most promising character values is being built based on items given in `txt/common-outputs.txt` combined with the knowledge of current enumeration used. In case that the value can be found among the common output values, as the process progresses, subsequent character tables are being narrowed more and more. If used in combination with retrieval of common DBMS entities, as with system table names and privileges, speed up is significant. Of course, you can edit the common outputs file according to your needs if, for instance, you notice common patterns in database table names or similar.
-
-This switch is used in inference algorithm for sequential statistical prediction of characters of value being retrieved. Statistical table with the most promising character values is being built based on items given in `txt/common-outputs.txt` combined with the knowledge of current enumeration used. In case that the value can be found among the common output values, as the process progresses, subsequent character tables are being narrowed more and more. If used in combination with retrieval of common DBMS entities, as with system table names and privileges, speed up is significant. Of course, you can edit the common outputs file according to your needs if, for instance, you notice common patterns in database table names or similar.
+这个开关设置用于推导算法，可对获取的数据特性进行线性数据分析预测。根据 `txt/common-outputs.txt` 里面的条目及集合论相关知识预测并给出可能性最高的字符数理统计表。如果目标字符值可以在最常见的输出结果中找到，那么接下来的字符数理统计表范围会逐渐缩小。配合上从数据库管理系统中获取的实例、表名和对应的权限，那么加速效果会显著提高。当然，你可以根据自身需求对常见的输出文件进行编辑，例如，你发现了数据库表名的常见模式或者其他模式。
 
 值得注意的是， 这个开关不能够和 `--threads` 一起使用。
 
