@@ -12,7 +12,7 @@ sqlmap 能自动检测 HTTP 请求中使用的 HTTP 方法。然而在某些情�
 
 选项：`--data`
 
-HTTP 请求默认使用的方法是 GET，你可以通过在请求中提供对应发送的数据隐式地将 GET 改成 POST。对应参数也会像 GET 参数一样， 用于测试是否存在 SQL 注入的可能。
+HTTP 请求默认使用的方法是 GET，你可以通过在请求中提供对应发送的数据隐式地将 GET 改成 POST。对应参数也会像 GET 参数一样，用于测试是否存在 SQL 注入的可能。
 
 例如：
 
@@ -25,7 +25,7 @@ r --dbs --users
 
 选项：`--param-del`
 
-有些情况下，需要覆盖默认参数分隔符（例如：`&` 在 GET 和 POST 数据中），以便 sqlmap 能够正确切割并处理每个参数。
+有些情况下，需要覆盖默认参数分隔符（例如：在 GET 和 POST 数据中的 `&`），以便 sqlmap 能够正确切割并处理每个参数。
 
 例如：
 
@@ -51,7 +51,7 @@ $ python sqlmap.py -u "http://www.target.com/vuln.php" --data="query=foobar;id=\
 
 注意，HTTP `Cookie` 值通常由字符 `;` 分隔，而**不是使用** `&`。sqlmap 也可以将它们识别为 `parameter=value` 即参数值对，对应的 GET 和 POST 参数也一样。如果分隔字符不是 `;`，则可以使用选项 `--cookie-del` 来指定。
 
-在通信期间的任何时刻，如果 Web 应用程序的响应包含 `Set-Cookie` 响应头，sqlmap 将在所有其他 HTTP 请求中自动使用它的值作为 `Cookie` 的值。sqlmap 也将自动测试这些值是否存在 SQL 注入漏洞。这个特性可以通过提供开关 `--drop-set-cookie` 来关闭 — sqlmap 则会忽略任何 `Set-Cookie` 响应头。
+在通信期间的任何时刻，如果 Web 应用程序的响应包含 `Set-Cookie` 响应头，sqlmap 将在所有其他 HTTP 请求中自动使用它的值作为 `Cookie` 的值。sqlmap 也将自动测试这些值是否存在 SQL 注入漏洞。这个特性可以通过提供开关 `--drop-set-cookie` 来关闭——sqlmap 则会忽略任何 `Set-Cookie` 响应头。
 
 反之亦然，如果你提供一个带有选项 `--cookie` 的 HTTP `Cookie` 请求头，并且目标 URL 在任何时候都发送一个 HTTP `Set-Cookie` 响应头，sqlmap 会询问你使用哪一组 cookies 来用于接下来的 HTTP 请求。
 
@@ -91,7 +91,7 @@ force the HTTP User-Agent header with option --user-agent or --random-agent
 
 你可以手动设置 HTTP `Host` 请求头值。默认情况下，HTTP `Host` 请求头从提供的目标 URL 中解析。
 
-注意，如果 `--level` 设置为 **5 或以上，sqlmap 会对 HTTP `User-Agent` 请求头进行 SQL 注入测试。详情请看下文。
+注意，如果 `--level` 设置为 **5** 或以上，sqlmap 会对 HTTP `User-Agent` 请求头进行 SQL 注入测试。详情请看下文。
 
 ### HTTP `Referer` 请求头
 
@@ -194,13 +194,13 @@ $ python sqlmap.py -u "http://192.168.136.131/sqlmap/mysql/basic/get_int.php?id\
 
 ### Tor 匿名网络
 
-开关和选项：`--tor`，`--tor-port`，`--tor-type`和`--check-tor`
+开关和选项：`--tor`，`--tor-port`，`--tor-type` 和 `--check-tor`
 
 假如因为相关原因需要保持匿名，可以根据 [Tor 安装指南](https://www.torproject.org/docs/installguide.html.en)配置一个 [Tor 客户端](http://www.torproject.org/)和 [Privoxy](http://www.privoxy.org)（或类似的）进行代理，而不是使用单个预定义的 HTTP(S) 代理服务器。接着就可以使用开关 `--tor` 来让 sqlmap 尝试自动设置 Tor 代理连接。
 
 如果你想手动设置 Tor 代理的类型和端口，可以使用选项 `--tor-type` 和 `--tor-port`（例如：`--tor-type=SOCKS5 --tor-port 9050`）。
 
-强烈建议偶尔使用 `--check-tor` 来确保一切设置正确。有些情况下 Tor 包（例如：Vidalia（译者注：Vidalia 是 Tor 的图形界面管理工具，官方已经移除对它的支持））配置错误（或重置了以前的配置）会使你以为已经成功匿名。使用这个开关，sqlmap 将在对任何目标发起请求之前发送一个请求到[你正在使用 Tor？](https://check.torproject.org/)这个官方页面检查一切配置是否正常。如果检查失败，sqlmap 将警告您并直接退出。
+强烈建议偶尔使用 `--check-tor` 来确保一切设置正确。有些情况下 Tor 包（例如：Vidalia（译者注：Vidalia 是 Tor 的图形界面管理工具，官方已经移除对它的支持））配置错误（或重置了以前的配置）会使你以为已经成功匿名。使用这个开关，sqlmap 将在对任何目标发起请求之前发送一个请求到[你正在使用 Tor？](https://check.torproject.org/)这个官方页面检查一切配置是否正常。如果检查失败，sqlmap 将警告你并直接退出。
 
 ### 每个 HTTP 请求之间的延迟
 
@@ -255,13 +255,13 @@ $ python sqlmap.py -l burp.log --scope="(www)?\.target\.(com|net|org)"
 
 ### 关闭对参数值的 URL 编码
 
-开关:`--skip-urlencode`
+开关：`--skip-urlencode`
 
 根据参数的位置（例如：GET），其值可能会被默认进行 URL 编码。在某些情况下，后端 Web 服务器不遵循 RFC 标准，并要求以原始非编码形式发送参数值。在这种情况下可以使用 `--skip-urlencode`。
 
 ### 绕过反-CSRF 防护
 
-Options: `--csrf-token` and `--csrf-url`
+选项：`--csrf-token` 和 `--csrf-url`
 
 许多站点有使用 token 的反-CSRF 防护，在每个页面的响应随机设置隐藏字段值。sqlmap 将自动尝试识别并绕过这种防护，同时支持 `--csrf-token` 和 `--csrf-url` 等选项用来做进一步调整。选项 `--csrf-token` 用于设置包含随机 token 的隐藏字段的名称。这在网站对这些字段使用非标准名称的情况下是非常有用的。选项 `--csrf-url` 用于从任意有效的 URL 地址获取 token 值。这在目标网址在初始地不包含必需的 token 值，而需要从其他地方提取时是非常有用的。
 

@@ -106,7 +106,7 @@ $ python sqlmap.py -u "http://targeturl" --cookie="param1=value1*;param2=value2"
 
 开关：`--no-escape`
 
-在 sqlmap 需要使用（单引号分隔的）payloads 里的字符串（例如：`SELECT 'foobar'`）的情况下，这些值将被自动转义（例如：`SELECT CHAR(102)+CHAR(111)+CHAR(111)+CHAR(98)+CHAR(97)+CHAR(114)`）。这么做有两个原因：对 payload 内容进行模糊处理，还有防止后端服务器上潜在的查询转义机制（例如：`magic_quotes` 和/或 `mysql_real_escape_string`）。用户可以使用此开关将其关闭（例如：减少 payload 的大小）。
+在 sqlmap 需要使用（单引号分隔的）payloads 里的字符串（例如：`SELECT 'foobar'`）的情况下，这些值将被自动转义（例如：`SELECT CHAR(102)+CHAR(111)+CHAR(111)+CHAR(98)+CHAR(97)+CHAR(114)`（译者注：该例语法属于 Microsoft SQL Server））。这么做有两个原因：对 payload 内容进行模糊处理，还有防止后端服务器上潜在的查询转义机制（例如：`magic_quotes` 和/或 `mysql_real_escape_string`）。用户可以使用此开关将其关闭（例如：减少 payload 的大小）。
 
 ### 自定义注入 payload
 
@@ -136,17 +136,17 @@ $ python sqlmap.py -u "http://192.168.136.131/sqlmap/mysql/get_str_brackets.php\
 
 在这个简单的例子中，sqlmap 可以检测 SQL 注入并利用它，而不需要提供自定义的边界，但有时在真实情况中的应用程序，当注入点存在于嵌套的 `JOIN` 查询中时，需要提供它。
 
-### Tamper injection data
+### 修改注入数据
 
-Option: `--tamper`
+选项：`--tamper`
 
-sqlmap itself does no obfuscation of the payload sent, except for strings between single quotes replaced by their `CHAR()`-alike representation. 
+sqlmap 本身不会混淆发送的 payload，除了处于单引号之间被 诸如 `CHAR()` 替换的字符串。
 
-This option can be very useful and powerful in situations where there is a weak input validation mechanism between you and the back-end database management system. This mechanism usually is a self-developed input validation routine called by the application source code, an expensive enterprise-grade IPS appliance or a web application firewall (WAF). All buzzwords to define the same concept, implemented in a different way and costing lots of money, usually. 
+在你和后端 DBMS 之间存在弱输入验证机制的情况下，此选项会非常有用。这种验证机制通常是由应用程序源代码调用自行开发的输入验证例程，如昂贵的企业级 IPS 设备或 Web 应用程序防火墙（WAF）。一言蔽之，它们通常以不同的方式实现并花费大量资金。
 
-To take advantage of this option, provide sqlmap with a comma-separated list of tamper scripts and this will process the payload and return it transformed. You can define your own tamper scripts, use sqlmap ones from the `tamper/` folder or edit them as long as you concatenate them comma-separated as value of the option `--tamper` (e.g. `--tamper="between,randomcase"`). 
+要利用此选项，需要为 sqlmap 提供逗号分隔的修改脚本列表，这将处理 payload 并将其转换。你可以定义自己的修改脚本，使用 sqlmap `tamper/` 文件夹中的脚本，或者使用逗号分隔连接它们作为 `--tamper` 选项的值（例如：`--tamper="between,randomcase"`）。
 
-The format of a valid tamper script is as follows:
+有效的修改脚本格式如下：
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.python}
 # Needed imports
@@ -169,9 +169,9 @@ def tamper(payload):
     return retVal
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 
-You can check valid and usable tamper scripts in the `tamper/` directory.
+你可以在 `tamper/` 目录中查看有效和可用的修改脚本。
 
-Example against a MySQL target assuming that `>` character, spaces and capital `SELECT` string are banned:
+假定字符 `>`，空格和大写的 `SELECT` 字符串被禁止：
 
 ```
 $ python sqlmap.py -u "http://192.168.136.131/sqlmap/mysql/get_int.php?id=1" --\
