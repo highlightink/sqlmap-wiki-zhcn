@@ -1,40 +1,41 @@
-## Detection
+## 检测
 
-These options can be used to customize the detection phase.
+下面的相关选项可用于定制化监测环节。
 
 ### Level
 
-Option: `--level`
+选项: `--level`
 
-This option requires an argument which specifies the level of tests to perform. There are **five** levels. The default value is **1** where limited number of tests (requests) are performed. Vice versa, level **5** will test verbosely for a much larger number of payloads and boundaries (as in pair of SQL payload prefix and suffix). The payloads used by sqlmap are specified in the textual file `xml/payloads.xml`. Following the instructions on top of the file, if sqlmap misses an injection, you should be able to add your own payload(s) to test for too!
+使用这个选项需要给出一个参数用于指定即将进行检测的级别。总共有 5 个级别。 默认的级别是 1，该级别只会进行简单的检测（请求）。与之不同的是，级别 5 会更详细地对更大范围 payloads 和 boundaries (作为 SQL payload 的前缀和后缀)进行检测。sqlmap 使用的 payloads 直接从文本文件 `xml/payloads.xml` 中载入。根据该文件顶部的相关指导说明进行设置，如果 sqlmap 漏过了特定的注入，你可以选择自己修改指定的 payload 用于检测。
 
-Not only this option affects which payload sqlmap tries, but also which injection points are taken in exam: GET and POST parameters are **always** tested, HTTP Cookie header values are tested from level **2** and HTTP User-Agent/Referer headers' value is tested from level **3**.
+这个选项设置不止会影响 sqlmap 使用的 payload，还会影响到相关的测试注入点：GTT 和 POST 的相关参数默认会被测试、级别大于等于 2 则 HTTP Cookie 头部会被测试、级别大于等于 3 则 HTTP UserAgent/Referer 头部值会被测试。
 
-All in all, the harder it is to detect a SQL injection, the higher the `--level` must be set.
+总而言之， 如果 SQL 注入监测的难度越高，则需要设定越高的 `--level` 值。
 
-It is strongly recommended to higher this value before reporting to the mailing list that sqlmap is not able to detect a certain injection point. 
+强烈建议在向 sqlmap 邮件列表反馈 sqlmap 无法检测到特定类型的注入之前, 尝试设定一个更高的 `--level` 值用于监测。
 
-### Risk
+### 风险
 
 Option: `--risk`
 
-This option requires an argument which specifies the risk of tests to perform. There are **three** risk values. The default value is **1** which is innocuous for the majority of SQL injection points. Risk value 2 adds to the default level the tests for heavy query time-based SQL injections and value 3 adds also `OR`-based SQL injection tests.
+这个选项需要给出一个参数用于指定即将进行检测的风险程度。总共有 3 个风险级别。默认的级别是 1，对大多数 SQL 注入点而言是没有任何风险的。风险级别 2 则会在默认的检测上添加大量时间型 SQL 语句检测，级别 3 则会在原基础上添加`OR`-类型SQL 查询。
 
-In some instances, like a SQL injection in an `UPDATE` statement, injecting an `OR`-based payload can lead to an update of all the entries of the table, which is certainly not what the attacker wants. For this reason and others this option has been introduced: the user has control over which payloads get tested, the user can arbitrarily choose to use also potentially dangerous ones. As per the previous option, the payloads used by sqlmap are specified in the textual file `xml/payloads.xml` and you are free to edit and add your owns.
+在某些场景下，例如对 `UPDATE` 语句进行 SQL 注入，注入一个 `OR`-类型的 payload 会导致目标数据表的所有记录进行更新，显然这个不是攻击者想要的结果。针对这个场景及其他相关场景，sqlmap 引入了 `--risk` 这个选项。通过这个选项： 用户可以指定检测特定的 payload，同时用户可任意选择使用可能比较危险的操作。正如上面的选项提及到，sqlmap 使用的 payloads 是直接在文本文件 `xml/payloads.xml` 载入的，该文件支持用户自定义编辑添加。
 
-### Page comparison
+### 页面对比
 
-Options: `--string`, `--not-string`, `--regexp` and `--code`
+选线: `--string`, `--not-string`, `--regexp` and `--code`
 
-By default the distinction of a `True` query from a `False` one (rough concept behind boolean-based blind SQL injection vulnerabilities) is done by comparing the injected requests page content with the original not injected page content.
-Not always this concept works because sometimes the page content changes at each refresh even not injecting anything, for instance when the page has a counter, a dynamic advertisement banner or any other part of the HTML which is rendered dynamically and might change in time not only consequently to user's input. To bypass this limit, sqlmap tries hard to identify these snippets of the response bodies and deal accordingly. Sometimes it may fail, that is why the user can provide a string (`--string` option) which **should** be present on original page (though it is not a requirement) **and** on all True injected query pages, but that it is **not** on the False ones. Instead of static string, the user can provide a regular expression (`--regexp` option). Alternatively, user can provide a string (`--not-string` option) which is **not** present on original page **and** not on all True injected query pages, but appears **always** on False ones.
+默认区分一个 `True` 查询和 `False`查询（布尔型盲注背后的相关理念）是通过对比注入前后返回的结果页面是否一致进行判断的。
 
-Such data is easy for an user to retrieve, simply try to inject into the affected parameter an invalid value and compare manually the original (not injected) page content with the injected wrong page content. This way the distinction will be based upon string presence or regular expression match. 
+然后这个参照方法并不一定有效，因为可能就算没有进行注入，页面内容也会进行相应更新。例如：页面上有计数器、动态的广告横幅、或者任何基于时间而非用户输入内容进行动态渲染的内容。为了避免类似的情况，sqlmap 会尽可能尝试识别出对应的代码段所返回的请求内容并做好相关的处理。有时候，可能无法正确处理该情况，这也是为什么 sqlmap 允许用户提供一个字符串（`--string` 选项），这个字符串需要出现在原页面（这个并不是强制规定）和所有查询结果为 `True` 的页面查询中，并且不出现在查询结果为 `False` 的页面。除了提供静态的字符串外，用户可以提供正则表达式(`--regexp` 选项)用于匹配。此外，用户可以提供一个字符串(`--not-string`选项)，该字符串不能出现在原页面或者所有查询结果为`True`的页面，而总是出现在查询结果为 `False` 的页面。
 
-In cases when user knows that the distinction of a `True` query from a `False` one can be done using HTTP code (e.g. `200` for `True` and `401` for `False`), he can provide that information to sqlmap (e.g. `--code=200`).
+ 通过对相关的参数注入非法值并手动对比原页面和注入结果页面的不同，就可以轻易地得到目标字符串。通过这种方式的定义，页面不同的判定则会是基于用户指定的字符串或者正则表达式的匹配。
 
-Switches: `--text-only` and `--titles`
+如果用户知道可以通过 HTTP 响应码区分 `True` 查询 和 `False` 查询（例如： `200` 对应 `True`, `401` 对应 `False`），那么用户可以向 sqlmap 提供对应的信息。(例如： `--code=200`)
 
-In cases when user knows that the distinction of a `True` query from a `False` one can be done using HTML title (e.g. `Welcome` for `True` and `Forbidden` for `False`), he can turn turn on title-based comparison using switch `--titles`.
+开关: `--text-only` and `--titles`
 
-In cases with lot of active content (e.g. scripts, embeds, etc.) in the HTTP responses' body, you can filter pages (switch `--text-only`) just for their textual content. This way, in a good number of cases, you can automatically tune the detection engine.
+如果用户知道可以通过 HTML 标题区分 `True` 查询 和 `False` 查询（例如： `欢迎` 对应 `True`, `禁止` 对应 `False`），那么用户可以开启基于标题对比的开关，使用 `--titles`.
+
+如果 HTTP 响应报文中存在无效信息（例如： 脚本、嵌套元素等），可以通过过滤页面的内容（开关`--text-only`），只获取文本内容。通过这种方式，大多数情况下，这样会自动调优检测引擎的调用。
