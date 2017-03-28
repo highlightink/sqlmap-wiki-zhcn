@@ -10,7 +10,7 @@
 
 例如，只需要测试 GET 参数 `id` 和 HTTP `User-Agent`，则提供 `-p "id,user-agent"`。
 
-如果用户想要排除测试某些参数，他可以使用选项 `--skip`。当你想使用高级别 `--level`值，并指定部分可用参数（排出通常被测试的 HTTP 头）时，这个选线非常有用。
+如果用户想要排除测试某些参数，他可以使用选项 `--skip`。当你想使用高级别 `--level` 值，并指定部分可用参数（排除通常被测试的 HTTP 头）时，这个选项非常有用。
 
 例如，要在 `--level=5` 跳过测试 HTTP `User-Agent` 和 HTTP `Referer`，可以提供 `--skip="user-agent,referer"`。
 
@@ -22,7 +22,7 @@
 
 有一些特殊情况是注入点处于 URI 本身内。除非手动指定，sqlmap 不会对 URI 路径执行任何自动测试。你需要在命令行中标明这些注入点，通过在每个需要 sqlmap 测试和利用 SQL 注入的 URI 点后面附加一个星号（`*`）（注意：也支持 Havij 风格 `%INJECT HERE%`）。
 
-例如，当使用了 Apache Web 服务器的 [mod_rewrite](http://httpd.apache.org/docs/current/mod/mod_rewrite.html)模块或其他类似的技术时，这特别有用。
+例如，当使用了 Apache Web 服务器的 [mod_rewrite](http://httpd.apache.org/docs/current/mod/mod_rewrite.html) 模块或其他类似的技术时，这特别有用。
 
 一个合法命令行例子如下：
 
@@ -32,7 +32,7 @@ $ python sqlmap.py -u "http://targeturl/param1/value1*/param2/value2/"
 
 #### 任意注入点
 
-与 URI 注入点类似，星号（`*`）（注意：同时支持 Havij 风格 `%INJECT HERE%`）也可以用于指向 GET，POST 或 HTTP 头部中的任意注入点。使用选项 `-u` 标注 GET 中的参数值，选项 `--data` 标注 POST 中的参数值，选项 `-H` 标注 HTTP 中头部值如 `--headers`，`--user-agent`，`--referer` 和/或 `--cookie`，或者标注从文件加载的 HTTP 请求中的通用位置，用于提供相应的注入点。
+与 URI 注入点类似，星号（`*`）（注意：同时支持 Havij 风格 `%INJECT HERE%`）也可以用于指向 GET，POST 或 HTTP 头部中的任意注入点。可以在选项 `-u` 中标注 GET 的参数值，在选项 `--data` 中标注 POST 的参数值，在选项 `-H` 中标注 HTTP 头部值如 `--headers`，`--user-agent`，`--referer` 和/或 `--cookie`，或者标注从文件加载的 HTTP 请求中的通用位置，用于指定相应的注入点。
 
 一个合法命令行例子如下：
 
@@ -44,7 +44,7 @@ $ python sqlmap.py -u "http://targeturl" --cookie="param1=value1*;param2=value2"
 
 选项：`--dbms`
 
-默认情况下 sqlmap 会自动检测 Web 应用程序的后端数据库管理系统。sqlmap 完全支持以下数据库管理系统：
+默认情况下 sqlmap 会自动检测 Web 应用程序的后端 DBMS。sqlmap 完全支持以下数据库管理系统：
 
 * MySQL
 * Oracle
@@ -59,11 +59,11 @@ $ python sqlmap.py -u "http://targeturl" --cookie="param1=value1*;param2=value2"
 * HSQLDB
 * Informix
 
-如果由于某些原因 sqlmap 已经识别出 SQL 注入却无法检测到后端 DBMS 类型，或者你想避免执行指纹信息收集，你可以自己提供后端 DBMS 的名称（例如：`postgresql`）。对于 MySQL 和 Microsoft SQL Server 分别以 `MySQL <version>` 和 `Microsoft SQL Server <version>` 的形式提供，其中 `<version>`是指 DBMS 的有效版本；例如 MySQL 为 5.0，Microsoft SQL Server 为 2005。
+如果由于某些原因 sqlmap 已经识别出 SQL 注入却无法检测到后端 DBMS 类型，或者你想避免执行指纹信息收集，可以自己提供后端 DBMS 的名称（例如：`postgresql`）。对于 MySQL 和 Microsoft SQL Server 分别以 `MySQL <version>` 和 `Microsoft SQL Server <version>` 的形式提供，其中 `<version>` 是指 DBMS 的有效版本；例如 MySQL 为 `5.0`，Microsoft SQL Server 为 `2005`。
 
-如果你同时使用 `--dbms` 和 `--fingerprint`，sqlmap 将只对指定的数据库管理系统执行详细的指纹收集，更详细的信息请阅读下文。
+如果你同时使用 `--dbms` 和 `--fingerprint`，sqlmap 将只对指定的 DBMS 执行详细的指纹收集，更详细的信息请阅读下文。
 
-注意，此选项不是强制性的，强烈建议**仅当你绝对确定**后端数据库管理系统时使用它。如果你不知道，就让 sqlmap 自动为你收集指纹信息。
+注意，此选项**不**是强制性的，强烈建议**仅当你绝对确定**后端 DBMS 时使用它。如果你不知道，就让 sqlmap 自动为你收集指纹信息。
 
 ### 指定 DBMS 操作系统名称
 
@@ -76,9 +76,9 @@ $ python sqlmap.py -u "http://targeturl" --cookie="param1=value1*;param2=value2"
 
 你可以强制指定已知的操作系统类型，这样 sqlmap 将避免对该信息进行检测。
 
-注意，此选项**不**是强制性的，强烈建议**仅当您绝对确定**后端 DBMS 底层操作系统时使用它。如果你不知道，就让 sqlmap 自动为你识别。
+注意，此选项**不**是强制性的，强烈建议**仅当你绝对确定**后端 DBMS 底层操作系统时使用它。如果你不知道，就让 sqlmap 自动为你识别。
 
-### 强制使用大数字来使参数值无效
+### 强制使用大数来使参数值无效
 
 开关：`--invalid-bignum`
 
@@ -106,17 +106,19 @@ $ python sqlmap.py -u "http://targeturl" --cookie="param1=value1*;param2=value2"
 
 开关：`--no-escape`
 
-在 sqlmap 需要使用（单引号分隔的）payloads 里的字符串（例如：`SELECT 'foobar'`）的情况下，这些值将被自动转义（例如：`SELECT CHAR(102)+CHAR(111)+CHAR(111)+CHAR(98)+CHAR(97)+CHAR(114)`（译者注：该例语法属于 Microsoft SQL Server））。这么做有两个原因：对 payload 内容进行模糊处理，还有防止后端服务器上潜在的查询转义机制（例如：`magic_quotes` 和/或 `mysql_real_escape_string`）。用户可以使用此开关将其关闭（例如：减少 payload 的大小）。
+在 sqlmap 需要使用（单引号分隔的）payloads 里的字符串（例如：`SELECT 'foobar'`）的情况下，这些值将被自动转义（例如：`SELECT CHAR(102)+CHAR(111)+CHAR(111)+CHAR(98)+CHAR(97)+CHAR(114)`（译者注：该例语法适用于 Microsoft SQL Server））。这么做有两个原因：对 payload 内容进行模糊处理，还有防止后端服务器上潜在的查询转义机制（例如：`magic_quotes` 和/或 `mysql_real_escape_string`）。用户可以使用此开关将其关闭（例如：需要减小 payload 的大小时）。
 
 ### 自定义注入 payload
 
 选项：`--prefix` 和 `--suffix`
 
-在某些情况下，仅当用户提供要附加到注入 payload 的特定后缀时，才能利用易受攻击的参数。另外，当用户已经知道查询语法并希望通过直接提供注入 payload 前缀和后缀来检测利用 SQL 注入时，这些选项对这种场景会很方便。
+在某些情况下，仅当用户提供附加到注入 payload 的特定后缀时，才能利用易受攻击的参数。另外，当用户已经知道查询语法并希望通过直接提供注入 payload 前缀和后缀来检测利用 SQL 注入时，这些选项对这种场景会很方便。
 
 漏洞源代码示例：
 
-    $query = "SELECT * FROM users WHERE id=('" . $_GET['id'] . "') LIMIT 0, 1";
+```
+$query = "SELECT * FROM users WHERE id=('" . $_GET['id'] . "') LIMIT 0, 1";
+```
 
 要检测并利用此 SQL 注入，您可以让 sqlmap 在检测阶段检测**边界**（与 SQL payload 前缀和后缀组合），或者自己提供。
 
@@ -130,7 +132,9 @@ $ python sqlmap.py -u "http://192.168.136.131/sqlmap/mysql/get_str_brackets.php\
 
 这将使所有 sqlmap 请求最终构成以下查询：
 
-    $query = "SELECT * FROM users WHERE id=('1') <PAYLOAD> AND ('abc'='abc') LIMIT 0, 1";
+```
+$query = "SELECT * FROM users WHERE id=('1') <PAYLOAD> AND ('abc'='abc') LIMIT 0, 1";
+```
 
 以使查询语法正确。
 
@@ -171,7 +175,7 @@ def tamper(payload):
 
 你可以在 `tamper/` 目录中查看有效和可用的修改脚本。
 
-针对 MySQL 目标，假定字符 `>`，空格和大写的 `SELECT` 字符串被禁止：
+针对 MySQL 目标，假定字符 `>`、空格和大写的 `SELECT` 字符串被禁止：
 
 ```
 $ python sqlmap.py -u "http://192.168.136.131/sqlmap/mysql/get_int.php?id=1" --\
