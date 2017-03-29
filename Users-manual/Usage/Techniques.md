@@ -55,7 +55,7 @@
 
 选项：`--dns-domain`
 
-DNS 渗出 SQL 注入攻击在文章[在 SQL 注入中使用 DNS 获取数据](http://arxiv.org/pdf/1303.3047.pdf)（译者注：乌云知识库有该文章的翻译，[在 SQL 注入中使用 DNS 获取数据](http://cb.drops.wiki/drops/tips-5283.html)）中进行了介绍，而 sqlmap 中的实现方式可以在幻灯片[使用 sqlmap 进行 DNS 渗出攻击](http://www.slideshare.net/stamparm/dns-exfiltration-using-sqlmap-13163281)中找到。
+DNS 渗出 SQL 注入攻击在文章 [Data Retrieval over DNS in SQL Injection Attacks](http://arxiv.org/pdf/1303.3047.pdf)（译者注：乌云知识库有该文章的翻译，[在 SQL 注入中使用 DNS 获取数据](http://cb.drops.wiki/drops/tips-5283.html)）中进行了介绍，而 sqlmap 中的实现方式可以在幻灯片[使用 sqlmap 进行 DNS 渗出攻击](http://www.slideshare.net/stamparm/dns-exfiltration-using-sqlmap-13163281)中找到。
 
 如果用户正控制着一台注册为 DNS 域名服务器的主机（例如：域名 `attacker.com`），则可以使用该选项（例如：`--dns-domain attacker.com`）来启用此攻击。它的前提条件是使用 `Administrator`（即管理员）权限（因为需要使用特权端口 `53`）运行 sqlmap，并且可以使用一种普通（盲注）技术来进行利用。这种攻击的目的仅仅是在已经识别了至少一种技术（最好是时间型盲注）时加速获取数据的过程。如果报错型注入或联合查询注入技术可用，则默认情况下将跳过 DNS 渗出攻击测试。
 
