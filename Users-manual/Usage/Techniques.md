@@ -1,68 +1,68 @@
-## Techniques
+## 技术
 
-These options can be used to tweak testing of specific SQL injection techniques.
+以下选项可用于调整测试的特定 SQL 注入技术。
 
-### SQL injection techniques to test for
+### 测试会用到的 SQL 注入技术
 
-Option: `--technique`
+选项：`--technique`
 
-This option can be used to specify which SQL injection type to test for. By default sqlmap tests for **all** types/techniques it supports.
+此选项用于指定需要测试的 SQL 注入类型。默认情况下 sqlmap 会测试它支持的**所有**类型/技术。
 
-In certain situations you may want to test only for one or few specific types of SQL injection thought and this is where this option comes into play. 
+在某些情况下，你可能只想测试一种或几种特定类型的 SQL 注入，这便是该选项的作用。
 
-This option requires an argument. Such argument is a string composed by any combination of `B`, `E`, `U`, `S`, `T` and `Q` characters where each letter stands for a different technique: 
+此选项需要一个参数。该参数是由 `B`，`E`，`U`，`S`，`T` 和 `Q` 这样的字符任意组合成的字符串，每个字母代表不同的技术：
 
-* `B`: Boolean-based blind
-* `E`: Error-based
-* `U`: Union query-based
-* `S`: Stacked queries
-* `T`: Time-based blind
-* `Q`: Inline queries
+* `B`：布尔型盲注
+* `E`：报错型注入
+* `U`：联合查询注入
+* `S`：堆查询注入
+* `T`：时间型盲注
+* `Q`：内联查询注入
 
-For instance, you can provide `ES` if you want to test for and exploit error-based and stacked queries SQL injection types only. The default value is `BEUSTQ`. 
+例如，如果仅测试利用报错型注入和堆查询注入，你可以提供 `ES`。默认值为 `BEUSTQ`。
 
-Note that the string must include stacked queries technique letter, `S`, when you want to access the file system, takeover the operating system or access Windows registry hives. 
+注意，当你需要访问文件系统，接管操作系统或访问 Windows 注册表配置单元时，提供的字符串必须包含代表堆查询技术的字母 `S`。
 
-### Seconds to delay the DBMS response for time-based blind SQL injection
+### 时间型盲注中需要 DBMS 延迟响应的秒数
 
-Option: `--time-sec`
+选项：`--time-sec`
 
-It is possible to set the seconds to delay the response when testing for time-based blind SQL injection, by providing the `--time-sec` option followed by an integer. By default it's value is set to **5 seconds**. 
+为 `--time-sec` 提供一个整数，可以设置时间型盲注响应的延迟时间。默认情况下，它的值为 **5 秒**。
 
-### Number of columns in UNION query SQL injection
+### 联合查询注入中的列数
 
-Option: `--union-cols`
+选项：`--union-cols`
 
-By default sqlmap tests for UNION query SQL injection technique using 1 to 10 columns. However, this range can be increased up to 50 columns by providing an higher `--level` value. See the relevant paragraph for more details. 
+默认情况下，sqlmap 进行联合查询注入时使用 1 到 10 列。当然，可以通过提供更高的`--level` 值将该范围增加到最多 50 列。有关详细信息，请参阅相关段落。
 
-You can manually tell sqlmap to test for this type of SQL injection with a specific range of columns by providing the tool with the option `--union-cols` followed by a range of integers. For instance, `12-16` means tests for UNION query SQL injection by using 12 up to 16 columns. 
+你可以手动提供选项 `--union-cols` 和一个相应的数字范围，以针对该类型的 SQL 注入测试特定范围的列。例如，`12-16` 代表进行 12 到 16 列的联合查询注入测试。
 
-### Character to use to test for UNION query SQL injection
+### 用于测试联合查询注入的字符
 
-Option: `--union-char`
+选项：`--union-char`
 
-By default sqlmap tests for UNION query SQL injection technique using `NULL` character. However, by providing a higher `--level` value sqlmap will performs tests also with a random number because there are some corner cases where UNION query tests with `NULL` fail, whereas with a random integer they succeed.
+默认情况下，sqlmap 测试联合查询注入会使用 `NULL` 字符。然而，通过提供更高的`--level` 值，sqlmap 将执行一个随机数字的测试，因为存在少数情况，使用 `NULL` 的联合查询注入会失败，而使用随机整数会成功。
 
-You can manually tell sqlmap to test for this type of SQL injection with a specific character by using option `--union-char` with desired character value (e.g. `--union-char 123`).
+你可以手动提供选项 `--union-char` 和所需的数字（例如：`--union-char 123`）来测试该类型的 SQL 注入。
 
-### Table to use in FROM part of UNION query SQL injection
+### 联合查询注入中 FROM 子句中使用的表
 
-Option: `--union-from`
+选项：`--union-from`
 
-In some UNION query SQL injection cases there is a need to enforce the usage of valid and accessible table name in `FROM` clause. For example, Microsoft Access requires usage of such table. Without providing one UNION query SQL injection won't be able to perform correctly (e.g. `--union-from=users`).
+在一些联合查询注入情形中，需要在 `FROM` 子句中强制指定使用有效且可访问的表名。例如，Microsoft Access 要求使用这样的表。如果不提供一个这样的表，联合查询注入将无法正常执行（例如：`--union-from=users`）。
 
-### DNS exfiltration attack
+### DNS 渗出攻击
 
-Option: `--dns-domain`
+选项：`--dns-domain`
 
-DNS exfiltration SQL injection attack is described in paper [Data Retrieval over DNS in SQL Injection Attacks](http://arxiv.org/pdf/1303.3047.pdf), while presentation of it's implementation inside sqlmap can be found in slides [DNS exfiltration using sqlmap](http://www.slideshare.net/stamparm/dns-exfiltration-using-sqlmap-13163281).
+DNS 渗出 SQL 注入攻击在文章[在 SQL 注入中使用 DNS 获取数据](http://arxiv.org/pdf/1303.3047.pdf)（译者注：乌云知识库有该文章的翻译，[在 SQL 注入中使用 DNS 获取数据](http://cb.drops.wiki/drops/tips-5283.html)）中进行了介绍，而 sqlmap 中的实现方式可以在幻灯片[使用 sqlmap 进行 DNS 渗出攻击](http://www.slideshare.net/stamparm/dns-exfiltration-using-sqlmap-13163281)中找到。
 
-If user is controlling a machine registered as a DNS domain server (e.g. domain `attacker.com`) he can turn on this attack by using this option (e.g. `--dns-domain attacker.com`). Prerequisites for it to work is to run a sqlmap with `Administrator` privileges (usage of privileged port `53`) and that one normal (blind) technique is available for exploitation. That's solely the purpose of this attack is to speed up the process of data retrieval in case that at least one technique has been identified (in best case time-based blind). In case that error-based blind or UNION query techniques are available it will be skipped as those are preferred ones by default. 
+如果用户正掌控着一台注册为 DNS 域服务器的主机（例如：域名 `attacker.com`），则他可以使用此选项（例如：`--dns-domain attacker.com`）来启用此攻击。它的前提条件是使用 `Administrator`（即管理员）权限（因为需要使用特权端口 `53`）运行 sqlmap，并且可以使用一种普通（盲注）技术来进行利用。这种攻击的目的仅仅是在已经识别了至少一种技术（最好是时间型盲注）时加速获取数据的过程。如果报错型盲注或联合查询注入技术可用，则默认情况下将跳过 DNS 渗出攻击。
 
-### Second-order attack
+### 二阶 SQL 注入攻击
 
-Option: `--second-order`
+选项：`--second-order`
 
-Second-order SQL injection attack is an attack where result(s) of an injected payload in one vulnerable page is shown (reflected) at the other (e.g. frame). Usually that's happening because of database storage of user provided input at the original vulnerable page.
+当攻击一个存在漏洞的页面，它的 payload 注入结果显示（反射）在另一个页面（例如：frame）中，这种攻击就叫二阶 SQL 注入攻击。通常情况是存储到数据库的用户输入页面存在该漏洞。
 
-You can manually tell sqlmap to test for this type of SQL injection by using option `--second-order` with the URL address of the web page where results are being shown.
+你可以手动提供选项 `--second-order` 和显示结果页面的 URL 地址来测试此类型的SQL 注入。
