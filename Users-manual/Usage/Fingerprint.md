@@ -1,11 +1,11 @@
-## Fingerprint
+## 采集指纹
 
-### Extensive database management system fingerprint
+### 广泛数据库管理系统指纹采集
 
-Switches: `-f` or `--fingerprint`
+开关: `-f` or `--fingerprint`
 
-By default the web application's back-end database management system fingerprint is handled automatically by sqlmap. Just after the detection phase finishes and the user is eventually prompted with a choice of which vulnerable parameter to use further on, sqlmap fingerprints the back-end database management system and continues on with the injection by knowing which SQL syntax, dialect and queries to use to proceed with the attack within the limits of the database architecture. 
+默认 sqlmap 会自动帮你采集 Web 应用后端数据库管理系统的相关信息。在检测阶段结束并提醒用户进一步选择检测可注入参数的时候， sqlmap 则会自动采集后端数据库管理系统信息并根据特定的数据库架构、采用合适的 SQL 语法，俚语、和相关查询，进行进一步的攻击测试。
 
-If for any instance you want to perform an extensive database management system fingerprint based on various techniques like specific SQL dialects and inband error messages, you can provide the switch `--fingerprint`. sqlmap will perform a lot more requests and fingerprint the exact DBMS version and, where possible, operating system, architecture and patch level. 
+如果你想采用特定 SQL 俚语或者内带特定错误信息等技术展开详细的数据库管理系统指纹采集，你可以提供 `--fingerprint` 开关。这样，sqlmap 则会发起更多的俄请求，并对数据库管理系统、操作系统、硬件架构、补丁等方面展开指纹收集。
 
-If you want the fingerprint to be even more accurate result, you can also provide the switch `-b` or `--banner`. 
+如果你想要指纹收集的结果更加精准，你可以通过提供开关 `-b` 或者 `--banner`.
