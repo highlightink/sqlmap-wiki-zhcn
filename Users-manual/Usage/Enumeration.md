@@ -1,20 +1,20 @@
-## Enumeration
+## 枚举
 
-These options can be used to enumerate the back-end database management system information, structure and data contained in the tables. Moreover you can run your own SQL statements. 
+以下选项用于枚举后端 DBMS 信息，结构和表中包含的数据。此外，你可以执行自定义的SQL 语句。
 
-### Retrieve all
+### 获取全部数据
 
-Switch: `--all`
+开关：`--all`
 
-This switch can be used in situations where user wants to retrieve everything remotely accessible by using a single switch. This is not recommended as it will generate large number of requests retrieving both useful and unuseful data.
+该开关用于用户想要通过使用单个开关获取远程可访问数据的情况。但不建议这么做，因为它会产生大量的请求去获取有用和无用的数据。
 
 ### Banner
 
-Switch: `-b` or `--banner`
+开关：`-b` 或 `--banner`
 
-Most of the modern database management systems have a function and/or  an environment variable which returns the database management system version and eventually details on its patch level, the underlying system. Usually the function is `version()` and the environment variable is `@@version`, but this vary depending on the target DBMS. 
+大多数现代 DBMS 具有一个函数和/或一个环境变量，它会返回 DBMS 版本，并最终在其补丁级别详细介绍底层系统。通常这个函数是 `version()` ，环境变量是 `@@version`，这取决于目标 DBMS。
 
-Example against an Oracle target:
+针对 Oracle 目标的示例：
 
 ```
 $ python sqlmap.py -u "http://192.168.136.131/sqlmap/oracle/get_int.php?id=1" -\
@@ -27,25 +27,25 @@ back-end DBMS: Oracle
 banner:    'Oracle Database 10g Enterprise Edition Release 10.2.0.1.0 - Prod'
 ```
 
-### Session user
+### 当前会话用户
 
-Switch: `--current-user`
+开关：`--current-user`
 
-With this switch it is possible to retrieve the database management system's user which is effectively performing the query against the back-end DBMS from the web application. 
+使用此开关可以从 Web 应用程序获取 DBMS 的用户，该用户可以有效地对后端 DBMS 执行查询。
 
-### Current database
+### 当前数据库
 
-Switch: `--current-db`
+开关：`--current-db`
 
-With this switch it is possible to retrieve the database management system's database name that the web application is connected to.
+使用此开关可以获取 Web 应用程序连接到的 DBMS 数据库名称。
 
-### Server hostname
+### 服务器主机名
 
-Switch: `--hostname`
+开关：`--hostname`
 
-With this switch it is possible to retrieve the database management system's hostname.
+使用此开关可以获取 DBMS 的主机名。
 
-Example against a MySQL target:
+针对 MySQL 目标的示例：
 
 ```
 $ python sqlmap.py -u "http://192.168.136.131/sqlmap/mysql/get_int.php?id=1" --\
@@ -57,25 +57,25 @@ hostname
 hostname:    'debian-5.0-i386'
 ```
 
-### Detect whether or not the session user is a database administrator
+### 检测当前会话用户是否为数据库管理员
 
-Switch: `--is-dba`
+开关：`--is-dba`
 
-It is possible to detect if the current database management system session user is a database administrator, also known as DBA. sqlmap will return `True` if it is, vice versa `False`. 
+可以检测当前 DBMS 会话用户是否为数据库管理员，也称为 DBA。如果是，sqlmap 将返回 `True`，否则返回 `False`。
 
-### List database management system users
+### 列出 DBMS 所有用户
 
-Switch: `--users`
+开关：`--users`
 
-When the session user has read access to the system table containing information about the DBMS users, it is possible to enumerate the list of users. 
+如果当前会话用户对包含 DBMS 用户信息的系统表有读取权限，可以枚举用户列表。
 
-### List and crack database management system users password hashes
+### 列出和破解 DBMS 用户的密码哈希
 
-Switch: `--passwords`
+开关：`--passwords`
 
-When the session user has read access to the system table containing information about the DBMS users' passwords, it is possible to enumerate the password hashes for each database management system user. sqlmap will first enumerate the users, then the different password hashes for each of them. 
+如果当权会话用户对包含 DBMS 用户密码信息的系统表有读取权限，可以枚举每个 DBMS 用户的密码哈希值。sqlmap 将首先枚举用户，之后是相应的用户密码哈希。
 
-Example against a PostgreSQL target:
+针对 PostgreSQL 目标的示例：
 
 ```
 $ python sqlmap.py -u "http://192.168.136.131/sqlmap/pgsql/get_int.php?id=1" --\
@@ -101,63 +101,59 @@ database management system users password hashes:
     clear-text password: testpass
 ```
 
-Not only sqlmap enumerated the DBMS users and their passwords, but it also recognized the hash format to be PostgreSQL, asked the user whether or not to test the hashes against a dictionary file and identified the clear-text password for the `postgres` user, which is usually a DBA along the other user, `testuser`, password. 
+以上例子中，sqlmap 不仅枚举了 DBMS 用户及其密码，而且识别出密码哈希格式属于PostgreSQL，并询问用户是否使用字典文件进行散列测试，并识别出了用户 `postgres` 的明文密码，它通常是 DBA，被识别出的还有用户 `testuser` 的密码。
 
-This feature has been implemented for all DBMS where it is possible to enumerate users' password hashes, including Oracle and Microsoft SQL Server pre and post 2005. 
+对于所有可以枚举用户密码哈希的 DBMS 已经实现了此功能，包括 Oracle 和 Microsoft SQL Server 2005 及后续版本。
 
-You can also provide the option `-U` to specify the specific user who you want to enumerate and eventually crack the password hash(es). If you provide `CU` as username it will consider it as an alias for current user and will retrieve the password hash(es) for this user. 
+你还可以使用 `-U` 选项来指定要枚举的特定用户，并最终破解其密码哈希。如果你提供 `CU` 作为用户名，它会将其视为当前用户的别名，并将获取此用户的密码哈希值。
 
-### List database management system users privileges
+### 列出 DBMS 所有用户权限
 
-Switch: `--privileges`
+开关：`--privileges`
 
-When the session user has read access to the system table containing information about the DBMS users, it is possible to enumerate the privileges for each database management system user. By the privileges, sqlmap will also show you which are database administrators.
+如果当前会话用户对包含 DBMS 用户信息的系统表有读取权限，可以枚举每个 DBMS 用户的权限。根据权限信息，sqlmap 还将显示出哪些是数据库管理员。
 
-You can also provide the option `-U` to specify the user who you want to enumerate the privileges.
+你还可以使用 `-U` 选项来指定要枚举出权限的用户。如果你提供 `CU` 作为用户名，它会将其视为当前用户的别名，并将获取此用户的权限信息。
 
-If you provide `CU` as username it will consider it as an alias for current user and will enumerate the privileges for this user. 
+在 Microsoft SQL Server 中，此功能将显示每个用户是否为数据库管理员，而不是所有用户的权限列表。
 
-On Microsoft SQL Server, this feature will display you whether or not each user is a database administrator rather than the list of privileges for all users.
+### 列出 DBMS 所有用户角色
 
-### List database management system users roles
+开关：`--roles`
 
-Switch: `--roles`
+如果当前会话用户对包含 DBMS 用户信息的系统表有读取权限，可以枚举出每个 DBMS 用户的角色。
 
-When the session user has read access to the system table containing information about the DBMS users, it is possible to enumerate the roles for each database management system user.
+你还可以使用 `-U` 选项来指定要枚举出角色的用户。如果你提供 `CU` 作为用户名，它会将其视为当前用户的别名，并将获取此用户的角色信息。
 
-You can also provide the option `-U` to specify the user who you want to enumerate the privileges.
+此功能仅在 DBMS 为 Oracle 时可用。
 
-If you provide `CU` as username it will consider it as an alias for current user and will enumerate the privileges for this user.
+### 列出 DBMS 所有数据库
 
-This feature is only available when the DBMS is Oracle.
+开关：`--dbs`
 
-### List database management system's databases
+如果当前会话用户对包含 DBMS 可用数据库信息的系统表有读取权限，可以枚举出数据库列表。
 
-Switch: `--dbs`
+### 枚举数据表
 
-When the session user has read access to the system table containing information about available databases, it is possible to enumerate the list of databases. 
+开关和选项：`--tables`，`--exclude-sysdbs` 和 `-D`
 
-### Enumerate database's tables
+如果当前会话用户对包含 DBMS 数据表信息的系统表有读取权限，可以枚举特定 DBMS 的数据表。
 
-Switches and option: `--tables`, `--exclude-sysdbs` and `-D`
+如果你不使用选项 `-D` 来指定数据库，则 sqlmap 将枚举所有 DBMS 数据库的表。
 
-When the session user has read access to the system table containing information about databases' tables, it is possible to enumerate the list of tables for a specific database management system's databases.
+你还可以提供开关 `--exclude-sysdbs` 以排除所有的系统数据库。
 
-If you do not provide a specific database with option `-D`, sqlmap will enumerate the tables for all DBMS databases.
+注意，对于 Oracle，你需要提供 `TABLESPACE_NAME` 而不是数据库名称。
 
-You can also provide the switch `--exclude-sysdbs` to exclude all system databases.
+### 枚举数据表的列名
 
-Note that on Oracle you have to provide the `TABLESPACE_NAME` instead of the database name.
+开关和选项：`--columns`，`-C`，`-T` 和 `-D`
 
-### Enumerate database table columns
+如果当前会话用户对包含 DBMS 数据表信息的系统表有读取权限，可以枚举特定数据表的列名。sqlmap 还将枚举所有列的数据类型。
 
-Switch and options: `--columns`, `-C`, `-T` and `-D`
+此功能使用选项 `-T` 来指定表名，还可以使用选项 `-D` 来指定数据库名称。如果未指定数据库名称，将使用当前的数据库名称。你还可以使用选项 `-C` 来指定要枚举的表列名。
 
-When the session user has read access to the system table containing information about database's tables, it is possible to enumerate the list of columns for a specific database table. sqlmap also enumerates the data-type for each column. 
-
-This feature depends on option `-T` to specify the table name and optionally on `-D` to specify the database name. When the database name is not specified, the current database name is used. You can also provide the `-C` option to specify the table columns name like the one you provided to be enumerated.
-
-Example against a SQLite target:
+针对 SQLite 目标的示例：
 
 ```
 $ python sqlmap.py -u "http://192.168.136.131/sqlmap/sqlite/get_int.php?id=1" -\
@@ -175,15 +171,15 @@ Table: users
 +---------+---------+
 ```
 
-Note that on PostgreSQL you have to provide `public` or the name of a system database. That's because it is not possible to enumerate  other databases tables, only the tables under the schema that the web application's user is connected to, which is always aliased by `public`. 
+注意，对于 PostgreSQL，你需要提供 `public` 或系统数据库的名称。这是因为不可能枚举其他数据库表，只能枚举 Web 应用程序用户连接到的数据库模式下的表，它们总是以 `public` 为别名。
 
-### Enumerate database management system schema
+### 枚举 DBMS 模式
 
-Switches: `--schema` and `--exclude-sysdbs`
+开关：`--schema` 和 `--exclude-sysdbs`
 
-User can retrieve a DBMS schema by using this switch. Schema listing will contain all databases, tables and columns, together with their respective types. In combination with `--exclude-sysdbs` only part of the schema containing non-system databases will be retrieved and shown.
+用户可以使用此开关获取 DBMS 模式。模式列表将包含所有数据库、表和列以及它们各自的类型。结合 `--exclude-sysdbs`，只有包含非系统数据库的模式才会被获取并显示出来。
 
-Example against a MySQL target:
+针对 MySQL 目标的示例：
 
 ```
 $ python sqlmap.py -u "http://192.168.48.130/sqlmap/mysql/get_int.php?id=1" --s\
@@ -241,13 +237,13 @@ Table: users
 [...]
 ```
 
-### Retrieve number of entries for table(s)
+### 获取数据表的条目数
 
-Switch: `--count`
+开关：`--count`
 
-In case that user wants just to know the number of entries in table(s) prior to dumping the desired one, he can use this switch.
+如果用户想要在导出所需的表数据之前知道表中的条目数，可以使用此开关。
 
-Example against a Microsoft SQL Server target:
+针对 Microsoft SQL Server 目标的示例：
 
 ```
 $ python sqlmap.py -u "http://192.168.21.129/sqlmap/mssql/iis/get_int.asp?id=1"\
@@ -262,15 +258,15 @@ Database: testdb
 +----------------+---------+
 ```
 
-### Dump database table entries
+### 导出数据表条目
 
-Switch and options: `--dump`, `-C`, `-T`, `-D`, `--start`, `--stop`, `--first`, `--last`, `--pivot-column` and `--where`
+开关和选项：`--dump`，`-C`，`-T`，`-D`，`--start`，`--stop`，`--first`，`--last`，`--pivot-column` 和 `--where`
 
-When the session user has read access to a specific database's table it is possible to dump the table entries.
+如果当前会话用户对特定的数据表有读取权限，可以导出数据表条目。
 
-This functionality depends on option `-T` to specify the table name and optionally on option `-D` to specify the database name. If the table name is provided, but the database name is not, the current database name is used.
+此功能依赖选项 `-T` 来指定表名，还可以用选项 `-D` 来指定数据库名称。如果提供了表名而不提供数据库名，则会使用当前的数据库。
 
-Example against a Firebird target:
+针对 Firebird 目标的示例：
 
 ```
 $ python sqlmap.py -u "http://192.168.136.131/sqlmap/firebird/get_int.php?id=1"\
@@ -289,55 +285,55 @@ Table: USERS
 +----+--------+------------+
 ```
 
-This switch can also be used to dump all tables' entries of a provided database. You simply have to provide sqlmap with the switch `--dump` along with only the option `-D` (no `-T` and no `-C`).
+此开关也可用于导出指定数据库数据表的所有条目。你只需要提供开关 `--dump` 和选项 `-D`（不提供 `-T` 和 `-C`）。
 
-You can also provide a comma-separated list of the specific columns to dump with the option `-C`.
+你还可以使用选项 `-C` 提供一个以逗号分隔的特定列列表来导出数据。
 
-sqlmap also generates for each table dumped the entries in a CSV format textual file. You can see the absolute path where sqlmap creates the file by providing a verbosity level greater than or equal to **1**.
+sqlmap 还为每个表生成相应的 CSV 格式文本文件用于存储导出的数据。你可以通过提供大于或等于 **1** 的详细程度级别来查看 sqlmap 所创建文件的绝对路径。
 
-If you want to dump only a range of entries, then you can provide options `--start` and/or `--stop` to respectively start to dump from a certain entry and stop the dump at a certain entry. For instance, if you want to dump only the first entry, provide `--stop 1` in your command line. Vice versa if, for instance, you want to dump only the second and third entry, provide `--start 1` `--stop 3`.
+如果仅导出特定范围的条目，可以提供选项 `--start` 和/或 `--stop`，以指定要从哪个条目开始导出和在哪个条目停止。例如，如果仅导出第一个条目，就在命令行中提供 `--stop 1`。或者如果你只想导出第二和第三个条目，就提供 `--start 1` `--stop 3`。
 
-It is also possible to specify which single character or range of characters to dump with options `--first` and `--last`. For instance, if you want to dump columns' entries from the third to the fifth character, provide `--first 3` `--last 5`. This feature only applies to the blind SQL injection techniques because for error-based and UNION query SQL injection techniques the number of requests is exactly the same, regardless of the length of the column's entry output to dump.
+还可以使用选项 `--first` 和 `--last` 指定要导出的单个字符或特定范围的字符。例如，如果要导出条目的第三到第五个字符，就提供 `--first 3` `--last 5`。此功能仅适用于盲注技术，因为报错型注入和联合查询注入技术不管列数据条目的长度如何，发起的请求数量是完全相同的。
 
-Sometimes (e.g. for Microsoft SQL Server, Sybase and SAP MaxDB) it is not possible to dump the table rows straightforward by using `OFFSET m, n` mechanism because of lack of similar. In such cases sqlmap dumps the content by determining the most suitable `pivot` column (the one with most unique values) whose values are used later on for retrieval of other column values. If it is necessary to enforce the usage of particular `pivot` column because the automatically chosen one is not suitable (e.g. because of lack of table dump results) you can use option `--pivot-column` (e.g. `--pivot-column=id`).
+有些情况下（例如：对于 Microsoft SQL Server，Sybase 和 SAP MaxDB），由于缺少类似的机制，无法使用 `OFFSET m, n` 直接导出表的数据。在这种情况下，sqlmap 通过确定最适合的 `pivot` 列（具有唯一值的列，一般是主键），并使用该列检索其他列值，以此来导出数据。如果因为自动选择的 `pivot` 列不适用（例如：由于缺少表导出结果）而需要强制使用特定列，你可以使用选项 `--pivot-column`（例如： `--pivot-column=id`）。
 
-In case that you want to constraint the dump to specific column values (or ranges) you can use option `--where`. Provided logical operation will be automatically used inside the `WHERE` clause. For example, if you use `--where="id>3"` only table rows having value of column `id` greater than 3 will be retrieved (by appending `WHERE id>3` to used dumping queries).
+如果要约束导出特定的列值（或范围），可以使用选项 `--where`。提供的逻辑运算将自动在 `WHERE` 子句内使用。例如，如果使用 `--where="id>3"`，那么只有 `id` 值大于 3 的行会被获取（通过将 `WHERE id>3` 附加到使用的查询语句中）。
 
-As you may have noticed by now, sqlmap is **flexible**: you can leave it to automatically dump the whole database table or you can be very precise in which characters to dump, from which columns and which range of entries.
+正如你可能已经注意到的，sqlmap 非常**灵活**：你可以将让其自动导出整个数据库表，或者非常精确地导出特定字符、列和范围的条目。
 
-### Dump all databases tables entries
+### 导出所有数据表条目
 
-Switches: `--dump-all` and `--exclude-sysdbs`
+开关：`--dump-all` 和 `--exclude-sysdbs`
 
-It is possible to dump all databases tables entries at once that the session user has read access on.
+如果当前会话用户的读取权限允许，可以一次导出所有数据库表条目。
 
-You can also provide the switch `--exclude-sysdbs` to exclude all system databases. In that case sqlmap will only dump entries of users' databases tables.
+你还可以提供开关 `--exclude-sysdbs` 以排除所有的系统数据库。在这种情况下，sqlmap 只会导出当前用户的数据库表条目。
 
-Note that on Microsoft SQL Server the `master` database is not considered a system database because some database administrators use it as a users' database.
+注意，对于 Microsoft SQL Server，`master` 数据库不被视为系统数据库，因为某些数据库管理员将其用作用户数据库。
 
-### Search for columns, tables or databases
+### 搜索列，表或数据库
 
-Switch and options: `--search`, `-C`, `-T`, `-D`
+开关和选项：`--search`，`-C`，`-T`，`-D`
 
-This switch allows you to **search for specific database names, specific tables across all databases or specific columns across all databases' tables**. 
+此开关允许你**在所有数据库中搜索特定的数据库名和表名，在特定的数据表中搜索特定的列名**。
 
-This is useful, for instance, to identify tables containing custom application credentials where relevant columns' names contain string like _name_ and _pass_.
+这非常有用，例如，要识别包含应用程序凭据的表，其中相关列的名称包含诸如 _name_ 和 _pass_ 这样的字符串。
 
-Switch `--search` needs to be used in conjunction with one of the following support options:
+开关 `--search` 需要与以下支持选项一起使用：
 
-* `-C` following a list of comma-separated column names to look for across the whole database management system.
-* `-T` following a list of comma-separated table names to look for across the whole database management system.
-* `-D` following a list of comma-separated database names to look for across the database management system.
+* `-C`，附带以逗号分隔的列名列表来搜索整个 DBMS。
+* `-T`，附带以逗号分隔的表名列表来搜索整个 DBMS。
+* `-D`，附带以逗号分隔的数据库名列表来搜索整个 DBMS。
 
-### Run custom SQL statement
+### 运行自定义 SQL 语句
 
-Option and switch: `--sql-query` and `--sql-shell`
+选项和开关：`--sql-query` 和 `--sql-shell`
 
-The SQL query and the SQL shell features allow to run arbitrary SQL statements on the database management system. sqlmap automatically dissects the provided statement, determines which technique is appropriate to use to inject it and how to pack the SQL payload accordingly. 
+SQL 查询和 SQL shell 功能允许在 DBMS 上运行任意 SQL 语句。sqlmap 会自动解析提供的语句，确定哪种技术适合用于注入它，以及如何打包相应的 SQL payload。
 
-If the query is a `SELECT` statement, sqlmap will retrieve its output. Otherwise it will execute the query through the stacked query SQL injection technique if the web application supports multiple statements on the back-end database management system. Beware that some web application technologies do not support stacked queries on specific database management systems. For instance, PHP does not support stacked queries when the back-end DBMS is MySQL, but it does support when the back-end DBMS is PostgreSQL.
+如果查询是 `SELECT` 语句，sqlmap 将获取其输出。否则，如果 Web 应用程序的后端 DBMS 支持多语句，它将通过堆查询注入技术执行查询。注意，某些 Web 应用程序技术不支持特定 DBMS 上的堆查询。例如，当后端 DBMS 是 MySQL 时，PHP 不支持堆查询，但是当后端 DBMS 是 PostgreSQL 时，它是支持的。
 
-Examples against a Microsoft SQL Server 2000 target:
+针对 Microsoft SQL Server 2000 目标的示例：
 
 ```
 $ python sqlmap.py -u "http://192.168.136.131/sqlmap/mssql/get_int.php?id=1" --\
@@ -349,7 +345,7 @@ sql-query "SELECT 'foo'" -v 1
 SELECT 'foo':    'foo'
 
 $ python sqlmap.py -u "http://192.168.136.131/sqlmap/mssql/get_int.php?id=1" --\
-sql-query "SELECT 'foo', 'bar'" -v 2
+sql-query "SELECT 'foo'，'bar'" -v 2
 
 [...]
 [hh:mm:50] [INFO] fetching SQL SELECT query output: 'SELECT 'foo', 'bar''
@@ -367,8 +363,8 @@ RCHAR(8000)), (CHAR(32)))
 SELECT 'foo', 'bar':    'foo, bar'
 ```
 
-As you can see, sqlmap splits the provided query into two different `SELECT` statements then retrieves the output for each separate query. 
+如你所见，sqlmap 将提供的查询分解为两个不同的 `SELECT` 语句，然后单独获取每个查询的输出。
 
-If the provided query is a `SELECT` statement and contains a `FROM` clause, sqlmap will ask you if such statement can return multiple entries. In that case the tool knows how to unpack the query correctly to count the number of possible entries and retrieve its output, entry per entry. 
+如果提供的查询是一个 `SELECT` 语句并包含一个 `FROM` 子句，sqlmap 会询问你是否可以返回多个条目。在这种情况下，它知道如何正确解包查询，针对每一个条目，以计算可能的条目数量并获取其输出。
 
-The SQL shell option allows you to run your own SQL statement interactively, like a SQL console connected to the database management system. This feature provides TAB completion and history support too. 
+SQL shell 选项允许你以交互方式运行自己的 SQL 语句，就像连接到 DBMS 的 SQL 控制台。此功能还提供 TAB 补全和输入历史支持。

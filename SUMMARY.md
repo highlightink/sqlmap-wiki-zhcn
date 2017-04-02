@@ -26,7 +26,7 @@
     - [访问文件系统](Users-manual/Usage/File-system-access.md)
     - [接管操作系统](Users-manual/Usage/Operating-system-takeover.md)
     - [访问 Windows 注册表](Users-manual/Usage/Windows-registry-access.md)
-    - [通用选项](Users-manual/Usage/General.md)
+    - [普通选项](Users-manual/Usage/General.md)
     - [其他选项](Users-manual/Usage/Miscellaneous.md)
     - [API (REST-JSON)](Users-manual/Usage/API.md)
 * [许可证](Users-manual/License.md)
