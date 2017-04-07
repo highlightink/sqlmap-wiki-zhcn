@@ -41,7 +41,7 @@ sqlmap 实现的功能特性包括：
 
 ## 接管功能
 
-以下的相关技术详细信息可在白皮书 [通过高级 SQL 注入完全控制操作系统](http://www.slideshare.net/inquis/advanced-sql-injection-to-operating-system-full-control-whitepaper-4633857) 和幻灯片[通过数据库权限进一步控制操作系统](http://www.slideshare.net/inquis/expanding-the-control-over-the-operating-system-from-the-database) 中找到。
+以下的相关技术详细信息可在白皮书[通过高级 SQL 注入完全控制操作系统](http://www.slideshare.net/inquis/advanced-sql-injection-to-operating-system-full-control-whitepaper-4633857)和幻灯片[通过数据库进一步控制操作系统](http://www.slideshare.net/inquis/expanding-the-control-over-the-operating-system-from-the-database)中找到。
 
 * 支持**用户自定义函数注入**：用户可以编译生成共享代码库并通过 sqlmap 在数据库中创建共享库中没有的用户自定义函数。可以通过 sqlmap 执行或者移除这些 UDFs。这些功能当前只支持 MySQL 和 PostgreSQL 数据库。
 * 支持从运行 MySQL，PostgreSQL 和 Microsoft SQL Server 的数据库服务器文件系统中**下载和上传文件**。

@@ -1,17 +1,17 @@
-## User-defined function injection
+## 用户自定义函数注入
 
-These options can be used to create custom user-defined functions.
+以下选项用于创建用户自定义函数。
 
-### Inject custom user-defined functions (UDF)
+### 注入用户自定义函数（UDF）
 
-Switch and option: `--udf-inject` and `--shared-lib`
+开关和选项：`--udf-inject` 和 `--shared-lib`
 
-You can inject your own user-defined functions (UDFs) by compiling a MySQL or PostgreSQL shared library, DLL for Windows and shared object for Linux/Unix, then provide sqlmap with the path where the shared library is stored locally on your machine. sqlmap will then ask you some questions, upload the shared library on the database server file system, create the user-defined function(s) from it and, depending on your options, execute them. When you are finished using the injected UDFs, sqlmap can also remove them from the database for you. 
+你可以通过编译 MySQL 或 PostgreSQL 共享库（在 Windows 上为 DLL，在 Linux/Unix 上为共享对象（shared object））来注入自己的用户自定义函数（UDFs），然后将本地存储共享库的目录路径提供给 sqlmap。sqlmap 会根据你的选择决定下一步是向数据库服务器文件系统上传共享库到还是创建用户自定义函数。当你完成注入 UDFs 的使用后，sqlmap 还可以将它们从数据库中删除。
 
-These techniques are detailed in the white paper [Advanced SQL injection to operating system full control](http://www.slideshare.net/inquis/advanced-sql-injection-to-operating-system-full-control-whitepaper-4633857).
+这些技术在白皮书[通过高级 SQL 注入完全控制操作系统](http://www.slideshare.net/inquis/advanced-sql-injection-to-operating-system-full-control-whitepaper-4633857)中有详细介绍。
 
-Use option `--udf-inject` and follow the instructions.
+使用选项 `--udf-inject` 并按照说明进行操作即可。
 
-If you want, you can specify the shared library local file system path via command line too by using `--shared-lib` option. Vice versa sqlmap will ask you for the path at runtime.
+如果需要，也可以使用 `--shared-lib` 选项通过命令行指定共享库的本地文件系统路径。否则 sqlmap 会在运行时向你询问路径。
 
-This feature is available only when the database management system is MySQL or PostgreSQL.
+此功能仅在 DBMS 为 MySQL 或 PostgreSQL 时可用。
