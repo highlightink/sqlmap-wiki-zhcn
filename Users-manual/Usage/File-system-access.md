@@ -4,12 +4,11 @@
 
 选项: `--file-read`
 
+当后端数据库为 MySQL，PostgreSQL 或者 Microsoft SQL Server，并且当前会话用户拥有对数据库特定功能和相关架构的特性利用的权限时，sqlmap 能够直接读取后端文件系统中文件的内容。文件可以是文本文件类型或者二进制文件类型，sqlmap 都能够正确地处理相关文件类型。
 
-It is possible to retrieve the content of files from the underlying file system when the back-end database management system is either MySQL, PostgreSQL or Microsoft SQL Server, and the session user has the needed privileges to abuse database specific functionalities and architectural weaknesses. The file specified can be either a textual or a binary file. sqlmap will handle it properly. 
+这些技术的相关详情可见白皮书 [通过高级 SQL 注入，对操作系统进行完全控制](http://www.slideshare.net/inquis/advanced-sql-injection-to-operating-system-full-control-whitepaper-4633857).
 
-These techniques are detailed in the white paper [Advanced SQL injection to operating system full control](http://www.slideshare.net/inquis/advanced-sql-injection-to-operating-system-full-control-whitepaper-4633857).
-
-Example against a Microsoft SQL Server 2005 target to retrieve a binary file:
+下面是以 Microsoft SQL Server 2005 为目标，获取二进制文件的例子：
 
 ```
 $ python sqlmap.py -u "http://192.168.136.129/sqlmap/mssql/iis/get_str2.asp?nam\
@@ -36,15 +35,16 @@ output/192.168.136.129/files/C__example.exe: PE32 executable for MS Windows (GUI
 ) Intel 80386 32-bit
 ```
 
-### Upload a file to the database server's file system
+### 向数据库服务器的文件系统上传文件
 
-Options: `--file-write` and `--file-dest`
+文件: `--file-write` and `--file-dest`
 
-It is possible to upload a local file to the database server's file system when the back-end database management system is either MySQL, PostgreSQL or Microsoft SQL Server, and the session user has the needed privileges to abuse database specific functionalities and architectural weaknesses. The file specified can be either a textual or a binary file. sqlmap will handle it properly. 
 
-These techniques are detailed in the white paper [Advanced SQL injection to operating system full control](http://www.slideshare.net/inquis/advanced-sql-injection-to-operating-system-full-control-whitepaper-4633857).
+当后端数据库为 MySQL，PostgreSQL 或者 Microsoft SQL Server，并且当前会话用户拥有对数据库特定功能和相关架构的特性利用的权限时，sqlmap 能够向后端文件系统上传一个本地文件。文件可以是文本文件类型或者二进制文件类型，sqlmap 都能够正确地处理相关文件类型。
 
-Example against a MySQL target to upload a binary UPX-compressed file:
+这些技术的相关详情可见白皮书 [通过高级 SQL 注入，对操作系统进行完全控制](http://www.slideshare.net/inquis/advanced-sql-injection-to-operating-system-full-control-whitepaper-4633857).
+
+下面是以 MySQL 为目标，向服务器提交一个二进制 UPX 制式压缩的文件：
 
 ```
 $ file /software/nc.exe.packed 
