@@ -1,8 +1,9 @@
-## File system access
+## 访问文件系统
 
-### Read a file from the database server's file system
+### 读取数据库服务器文件系统文件
 
-Option: `--file-read`
+选项: `--file-read`
+
 
 It is possible to retrieve the content of files from the underlying file system when the back-end database management system is either MySQL, PostgreSQL or Microsoft SQL Server, and the session user has the needed privileges to abuse database specific functionalities and architectural weaknesses. The file specified can be either a textual or a binary file. sqlmap will handle it properly. 
 
