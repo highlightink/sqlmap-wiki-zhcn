@@ -4,7 +4,7 @@
 
 选项: `--file-read`
 
-当后端数据库为 MySQL，PostgreSQL 或者 Microsoft SQL Server，并且当前会话用户拥有对数据库特定功能和相关架构的特性利用的权限时，sqlmap 能够直接读取后端文件系统中文件的内容。文件可以是文本文件类型或者二进制文件类型，sqlmap 都能够正确地处理相关文件类型。
+当后端数据库为 MySQL，PostgreSQL 或者 Microsoft SQL Server，并且当前会话用户拥有对数据库特定功能和相关架构特性利用的权限时，sqlmap 能够直接读取后端文件系统中文件的内容。文件可以是文本文件类型或者二进制文件类型，sqlmap 都能够正确地处理相关文件类型。
 
 这些技术的相关详情可见白皮书 [通过高级 SQL 注入，对操作系统进行完全控制](http://www.slideshare.net/inquis/advanced-sql-injection-to-operating-system-full-control-whitepaper-4633857).
 
@@ -40,7 +40,7 @@ output/192.168.136.129/files/C__example.exe: PE32 executable for MS Windows (GUI
 文件: `--file-write` and `--file-dest`
 
 
-当后端数据库为 MySQL，PostgreSQL 或者 Microsoft SQL Server，并且当前会话用户拥有对数据库特定功能和相关架构的特性利用的权限时，sqlmap 能够向后端文件系统上传一个本地文件。文件可以是文本文件类型或者二进制文件类型，sqlmap 都能够正确地处理相关文件类型。
+当后端数据库为 MySQL，PostgreSQL 或者 Microsoft SQL Server，并且当前会话用户拥有对数据库特定功能和相关架构的特性利用权限时，sqlmap 能够向后端文件系统上传一个本地文件。文件可以是文本文件类型或者二进制文件类型，sqlmap 都能够正确地处理相关文件类型。
 
 这些技术的相关详情可见白皮书 [通过高级 SQL 注入，对操作系统进行完全控制](http://www.slideshare.net/inquis/advanced-sql-injection-to-operating-system-full-control-whitepaper-4633857).
 
