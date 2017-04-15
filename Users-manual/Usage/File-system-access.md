@@ -2,11 +2,11 @@
 
 ### 读取数据库服务器文件系统文件
 
-选项: `--file-read`
+选项：`--file-read`
 
-当后端数据库为 MySQL，PostgreSQL 或者 Microsoft SQL Server，并且当前会话用户拥有对数据库特定功能和相关架构特性利用的权限时，sqlmap 能够直接读取后端文件系统中文件的内容。文件可以是文本文件类型或者二进制文件类型，sqlmap 都能够正确地处理相关文件类型。
+当后端 DBMS 为 MySQL，PostgreSQL 或者 Microsoft SQL Server，并且当前会话用户拥有利用数据库特定功能和相关架构弱点的权限时，sqlmap 能够直接读取底层文件系统中文件的内容。文件可以是文本文件或者二进制文件，sqlmap 都能够正确地处理相关文件。
 
-这些技术的相关详情可见白皮书 [通过高级 SQL 注入，对操作系统进行完全控制](http://www.slideshare.net/inquis/advanced-sql-injection-to-operating-system-full-control-whitepaper-4633857).
+这些技术的相关详情可见白皮书[通过高级 SQL 注入完全控制操作系统](http://www.slideshare.net/inquis/advanced-sql-injection-to-operating-system-full-control-whitepaper-4633857)。
 
 下面是以 Microsoft SQL Server 2005 为目标，获取二进制文件的例子：
 
@@ -37,14 +37,13 @@ output/192.168.136.129/files/C__example.exe: PE32 executable for MS Windows (GUI
 
 ### 向数据库服务器的文件系统上传文件
 
-文件: `--file-write` and `--file-dest`
+选项：`--file-write` 和 `--file-dest`
 
+当后端 DBMS 为 MySQL，PostgreSQL 或者 Microsoft SQL Server，并且当前会话用户拥有利用数据库特定功能和相关架构弱点的权限时，sqlmap 能够向数据库服务器文件系统上传一个本地文件。文件可以是文本文件或者二进制文件，sqlmap 都能够正确地处理相关文件。
 
-当后端数据库为 MySQL，PostgreSQL 或者 Microsoft SQL Server，并且当前会话用户拥有对数据库特定功能和相关架构的特性利用权限时，sqlmap 能够向后端文件系统上传一个本地文件。文件可以是文本文件类型或者二进制文件类型，sqlmap 都能够正确地处理相关文件类型。
+这些技术的相关详情可见白皮书[通过高级 SQL 注入完全控制操作系统](http://www.slideshare.net/inquis/advanced-sql-injection-to-operating-system-full-control-whitepaper-4633857)。
 
-这些技术的相关详情可见白皮书 [通过高级 SQL 注入，对操作系统进行完全控制](http://www.slideshare.net/inquis/advanced-sql-injection-to-operating-system-full-control-whitepaper-4633857).
-
-下面是以 MySQL 为目标，向服务器提交一个二进制 UPX 制式压缩的文件：
+下面是以 MySQL 为目标，向服务器提交一个经过 UPX 压缩的二进制文件的例子：
 
 ```
 $ file /software/nc.exe.packed 
