@@ -1,14 +1,14 @@
-## Miscellaneous
+## 杂项
 
-### Use short mnemonics
+### 使用短助记符
 
-Option: `-z`
+选项：`-z`
 
-It could become tedious to type all desired options and switches, especially for those that are used most often (e.g. `--batch --random-agent --ignore-proxy --technique=BEU`). There is a simpler and much shorter way how to deal with that problem. In sqlmap it's called "mnemonics".
+键入所有期望的选项和开关是很乏味的事情，特别是对于那些最常用的选项和开关（例如：`--batch --random-agent --ignore-proxy --technique=BEU`）。有一个更简短的方法来处理这个问题。在 sqlmap 中，它被称为“助记符”。
 
-Each option and switch can be written in a shorter mnemonic form using option `-z`, separated with a comma character (`,`), where mnemonics represent only the first arbitrarily chosen part of the original name. There is no strict mapping of options and switches to their respective shortened counterparts. Only required condition is that there is no other option nor switch that has a same prefix as the desired one.
+使用选项 `-z`，每个选项和开关可以用较短的助记符形式，并用逗号（`,`）分隔，其中助记符代表原始名称的第一个任意选择的部分。选项和开关没有严格映射到他们各自精简后的部分。唯一需要满足的条件是没有其他选项和开关使用了与之相同的前缀。
 
-Example:
+例如：
 
 ```
 $ python sqlmap.py --batch --random-agent --ignore-proxy --technique=BEU -u "ww\
@@ -38,11 +38,11 @@ com/vuln.php?id=1"
 
 ### Alerting on successful SQL injection detection
 
-Option: `--alert`
+选项：`--alert`
 
 ### Set answers for questions
 
-Option: `--answers`
+选项：`--answers`
 
 In case that user wants to automatically set up answers for questions, even if `--batch` is used, using this option he can do it by providing any part of question together with answer after an equal sign. Also, answers for different question can be split with delimiter character `,`.
 
@@ -62,19 +62,19 @@ d level (1) and risk (1)? [Y/n] N
 
 ### Make a beep sound when SQL injection is found
 
-Switch: `--beep`
+开关：`--beep`
 
 In case that user uses switch `--beep` he'll be warned with a beep sound immediately when SQL injection is found. This is especially useful when there is a large bulk list (option `-m`) of target URLs to be tested.
 
 ### Cleanup the DBMS from sqlmap specific UDF(s) and table(s)
 
-Switch: `--cleanup`
+开关：`--cleanup`
 
 It is recommended to clean up the back-end database management system from sqlmap temporary table(s) and created user-defined function(s) when you are done taking over the underlying operating system or file system. Switch `--cleanup` will attempt to clean up the DBMS and the file system wherever possible. 
 
 ### Check for dependencies
 
-Switch: `--dependencies`
+开关：`--dependencies`
 
 sqlmap in some special cases requires independent installation of extra 3rd party libraries (e.g. options `-d`, switch `--os-pwn` in case of `icmpsh` tunneling, option `--auth-type` in case of `NTLM` HTTP authentication type, etc.) and it will warn the user only in such special cases. But, if you want to independently check for all those extra 3rd party library dependencies you can use switch `--dependencies`.
 
@@ -118,25 +118,25 @@ python.org/pypi/websocket-client/
 
 ### Disable console output coloring
 
-Switch: `--disable-coloring`
+开关：`--disable-coloring`
 
 sqlmap by default uses coloring while writting to console. In case of undesired effects (e.g. console appearance of uninterpreted ANSI coloring codes like `\x01\x1b[0;32m\x02[INFO]`) you can disable console output coloring by using this switch.
 
 ### Use Google dork results from specified page number
 
-Option: `--gpage`
+选项：`--gpage`
 
 Default sqlmap behavior with option `-g` is to do a Google search and use the first 100 resulting URLs for further SQL injection testing. However, in combination with this option you can specify with this option (`--gpage`) a page other than the first one to retrieve target URLs from. 
 
 ### Use HTTP parameter pollution
 
-Switch: `--hpp`
+开关：`--hpp`
 
 HTTP parameter pollution (HPP) is a method for bypassing WAF/IPS/IDS protection mechanisms (explained [here](http://www.imperva.com/resources/glossary/http_parameter_pollution_hpp.html)) that is particularly effective against ASP/IIS and ASP.NET/IIS platforms. If you suspect that the target is behind such protection, you can try to bypass it by using this switch.
 
 ### Make a through testing for a WAF/IPS/IDS protection
 
-Switch: `--identify-waf`
+开关：`--identify-waf`
 
 sqlmap can try to identify backend WAF/IPS/IDS protection (if any) so user could do appropriate steps (e.g. use tamper scripts with `--tamper`). Currently around 30 different products are supported (Airlock, Barracuda WAF, etc.) and their respective WAF scripts can be found inside `waf` directory.
 
@@ -193,13 +193,13 @@ cation Firewall (Trustwave)'. Please consider usage of tamper scripts (option '-
 
 Skip heuristic detection of WAF/IPS/IDS protection
 
-Switch: `--skip-waf`
+开关：`--skip-waf`
 
 By default, sqlmap automatically sends inside one of starting requests a dummy parameter value containing a deliberately "suspicious" SQL injection payload (e.g. `...&foobar=AND 1=1 UNION ALL SELECT 1,2,3,table_name FROM information_schema.tables WHERE 2>1`). If target responds differently than for the original request, there is a high possibility that it's under some kind of protection. In case of any problems, user can disable this mechanism by providing switch `--skip-waf`.
 
 ### Imitate smartphone
 
-Switch: `--mobile`
+开关：`--mobile`
 
 Sometimes web servers expose different interfaces toward mobile phones than to desktop computers. In such cases you can enforce usage of one of predetermined smartphone HTTP User-Agent header values. By using this switch, sqlmap will ask you to pick one of popular smartphones which it will imitate in current run.
 
@@ -222,7 +222,7 @@ which smartphone do you want sqlmap to imitate through HTTP User-Agent header?
 
 ### Work in offline mode (only use session data)
 
-Switch: `--offline`
+开关：`--offline`
 
 By using switch `--offline` sqlmap will use only previous session data in data enumeration. This basically means that there will be zero connection attempts during such run.
 
@@ -351,7 +351,7 @@ In case that you want to skip tests by their payloads and/or titles you can use 
 
 ### Interactive sqlmap shell
 
-Switch: `--sqlmap-shell`
+开关：`--sqlmap-shell`
 
 By using switch `--sqlmap-shell` user will be presented with the interactive sqlmap shell which has the history of all previous runs with used options and/or switches:
 
@@ -496,7 +496,7 @@ sqlmap-shell> exit
 
 ### Simple wizard interface for beginner users
 
-Switch: `--wizard`
+开关：`--wizard`
 
 For beginner users there is a wizard interface which uses a simple workflow with as little questions as possible. If user just enters target URL and uses default answers (e.g. by pressing `Enter`) he should have a properly set sqlmap run environment by the end of the workflow.
 

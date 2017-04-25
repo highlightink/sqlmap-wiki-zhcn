@@ -27,13 +27,13 @@
     - [接管操作系统](Users-manual/Usage/Operating-system-takeover.md)
     - [访问 Windows 注册表](Users-manual/Usage/Windows-registry-access.md)
     - [普通选项](Users-manual/Usage/General.md)
-    - [其他选项](Users-manual/Usage/Miscellaneous.md)
-    - [API (REST-JSON)](Users-manual/Usage/API.md)
+    - [杂项](Users-manual/Usage/Miscellaneous.md)
+    - [API（REST-JSON）](Users-manual/Usage/API.md)
 * [许可证](Users-manual/License.md)
 
 ---
 
-* [其他项目](Miscellaneous/Miscellaneous.md)
+* [杂项](Miscellaneous/Miscellaneous.md)
 * [FAQ](Miscellaneous/FAQ.md)
 * [展示](Miscellaneous/Presentations.md)
 * [截图](Miscellaneous/Screenshots.md)
