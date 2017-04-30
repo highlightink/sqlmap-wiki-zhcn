@@ -15,38 +15,38 @@ $ python sqlmap.py --batch --random-agent --ignore-proxy --technique=BEU -u "ww\
 w.target.com/vuln.php?id=1"
 ```
 
-can be written (one of many ways) in shorter mnemonic form like:
+可以用短助记符形式（多种方法之一）写成：
 
 ```
 $ python sqlmap.py -z "bat,randoma,ign,tec=BEU" -u "www.target.com/vuln.php?id=\
 1"
 ```
 
-Another example:
+另一个例子：
 
 ```
 $ python sqlmap.py --ignore-proxy --flush-session --technique=U --dump -D testd\
 b -T users -u "www.target.com/vuln.php?id=1"
 ```
 
-can be written in shorter mnemonic form like:
+可以用短助记符形式写成：
 
 ```
 $ python sqlmap.py -z "ign,flu,bat,tec=U,dump,D=testdb,T=users" -u "www.target.\
 com/vuln.php?id=1"
 ```
 
-### Alerting on successful SQL injection detection
+### 警告成功的 SQL 注入检测
 
 选项：`--alert`
 
-### Set answers for questions
+### 为问题设置答案
 
 选项：`--answers`
 
-In case that user wants to automatically set up answers for questions, even if `--batch` is used, using this option he can do it by providing any part of question together with answer after an equal sign. Also, answers for different question can be split with delimiter character `,`.
+如果用户想要自动回答问题，即使使用了 `--batch` 选项，也可以通过在等号后提供一部分的问题和对应的回答来做到这一点。另外，不同问题的答案可以用分隔符 `,` 分割。
 
-Example against a MySQL target:
+针对 MySQL 目标的示例：
 
 ```
 $ python sqlmap.py -u "http://192.168.22.128/sqlmap/mysql/get_int.php?id=1"--te\
@@ -60,23 +60,23 @@ d level (1) and risk (1)? [Y/n] N
 [...]
 ```
 
-### Make a beep sound when SQL injection is found
+### 发现 SQL 注入时发出“哔”声
 
 开关：`--beep`
 
-In case that user uses switch `--beep` he'll be warned with a beep sound immediately when SQL injection is found. This is especially useful when there is a large bulk list (option `-m`) of target URLs to be tested.
+如果用户使用了开关 `--beep`，那么在发现 SQL 注入时，会立即发出“哔”的警告声。 当测试的目标 URLs 是大批量列表（选项 `-m`）时特别有用。
 
-### Cleanup the DBMS from sqlmap specific UDF(s) and table(s)
+### 清除 DBMS 中特定的 sqlmap UDF(s) 和表
 
 开关：`--cleanup`
 
-It is recommended to clean up the back-end database management system from sqlmap temporary table(s) and created user-defined function(s) when you are done taking over the underlying operating system or file system. Switch `--cleanup` will attempt to clean up the DBMS and the file system wherever possible. 
+建议在完成底层操作系统或文件系统的接管后，清理后端 DBMS 中的 sqlmap 临时表和用户定义函数。使用 `--cleanup` 开关将尽可能地清理 DBMS 和文件系统。
 
-### Check for dependencies
+### 检查依赖关系
 
 开关：`--dependencies`
 
-sqlmap in some special cases requires independent installation of extra 3rd party libraries (e.g. options `-d`, switch `--os-pwn` in case of `icmpsh` tunneling, option `--auth-type` in case of `NTLM` HTTP authentication type, etc.) and it will warn the user only in such special cases. But, if you want to independently check for all those extra 3rd party library dependencies you can use switch `--dependencies`.
+在某些特殊情况下，sqlmap 需要独立安装额外的第三方库（例如：选项 `-d`，开关 `--os-pwn` 之于 `icmpsh` 隧道，选项 `--auth-type` 之于 `NTLM` 类型的 HTTP 认证等。），只在这种特殊情况下会警告用户。不过，如果你想独立检查所有这些额外的第三方库依赖关系，可以使用开关 `--dependencies`。
 
 ```
 $ python sqlmap.py --dependencies
@@ -116,31 +116,31 @@ ou plan to attack a web application using WebSocket. Download from https://pypi.
 python.org/pypi/websocket-client/
 ```
 
-### Disable console output coloring
+### 禁用控制台输出着色
 
 开关：`--disable-coloring`
 
-sqlmap by default uses coloring while writting to console. In case of undesired effects (e.g. console appearance of uninterpreted ANSI coloring codes like `\x01\x1b[0;32m\x02[INFO]`) you can disable console output coloring by using this switch.
+默认情况下，sqlmap 写入控制台时使用着色。你可以使用此开关禁用控制台输出着色，以避免不期望的效果（例如：控制台中未解析的 ANSI 代码着色效果，像 `\x01\x1b[0;32m\x02[INFO]`）。
 
-### Use Google dork results from specified page number
+### 使用特定页码的 Google dork 结果
 
 选项：`--gpage`
 
-Default sqlmap behavior with option `-g` is to do a Google search and use the first 100 resulting URLs for further SQL injection testing. However, in combination with this option you can specify with this option (`--gpage`) a page other than the first one to retrieve target URLs from. 
+默认情况下，使用选项 `-g` 时，sqlmap 会使用 Google 搜索得到的前 100 个 URLs 进行进一步的 SQL 注入测试。结合此选项，你可以使用它（`--gpage`）指定除第一页以外的页面以检索目标 URLs。
 
-### Use HTTP parameter pollution
+### 使用 HTTP 参数污染
 
 开关：`--hpp`
 
-HTTP parameter pollution (HPP) is a method for bypassing WAF/IPS/IDS protection mechanisms (explained [here](http://www.imperva.com/resources/glossary/http_parameter_pollution_hpp.html)) that is particularly effective against ASP/IIS and ASP.NET/IIS platforms. If you suspect that the target is behind such protection, you can try to bypass it by using this switch.
+HTTP 参数污染（HPP）是一种绕过 WAF/IPS/IDS 保护机制（[这里](http://www.imperva.com/resources/glossary/http_parameter_pollution_hpp.html)有相关介绍）的方法，针对 ASP/IIS 和 ASP.NET/IIS 平台尤其有效。如果你怀疑目标使用了这种保护机制，可以尝试使用此开关以绕过它。
 
-### Make a through testing for a WAF/IPS/IDS protection
+### 进行针对 WAF/IPS/IDS 保护的通过测试
 
 开关：`--identify-waf`
 
-sqlmap can try to identify backend WAF/IPS/IDS protection (if any) so user could do appropriate steps (e.g. use tamper scripts with `--tamper`). Currently around 30 different products are supported (Airlock, Barracuda WAF, etc.) and their respective WAF scripts can be found inside `waf` directory.
+sqlmap 可以尝试识别后端 WAF/IPS/IDS 保护（如果有），以便用户可以执行适当的步骤（例如：通过选项 `--tamper` 使用篡改脚本）。目前，大约支持 30 种不同的产品（例如：Airlock，Barracuda WAF 等），可以在 `waf` 目录下找到它们对应的 WAF 脚本。
 
-Example against a MySQL target protected by the ModSecurity WAF:
+针对受 ModSecurity WAF 保护的 MySQL 目标示例：
 
 ```
 $ python sqlmap.py -u "http://192.168.21.128/sqlmap/mysql/get_int.php?id=1" --i\
@@ -191,19 +191,19 @@ cation Firewall (Trustwave)'. Please consider usage of tamper scripts (option '-
 [...]
 ```
 
-Skip heuristic detection of WAF/IPS/IDS protection
+### 跳过启发式检测 WAF/IPS/IDS 保护
 
 开关：`--skip-waf`
 
-By default, sqlmap automatically sends inside one of starting requests a dummy parameter value containing a deliberately "suspicious" SQL injection payload (e.g. `...&foobar=AND 1=1 UNION ALL SELECT 1,2,3,table_name FROM information_schema.tables WHERE 2>1`). If target responds differently than for the original request, there is a high possibility that it's under some kind of protection. In case of any problems, user can disable this mechanism by providing switch `--skip-waf`.
+默认情况下，sqlmap 自动在一个启动请求中发送一个虚假的参数值，其中包含一个有意“可疑”的 SQL 注入 payload（例如：`...&foobar=AND 1=1 UNION ALL SELECT 1,2,3,table_name FROM information_schema.tables WHERE 2>1`）。如果目标对原始请求的响应不同，那么它很有可能受到某种保护。如果有任何问题，用户可以使用开关 `--skip-waf` 来禁用此机制。
 
-### Imitate smartphone
+### 模仿智能手机
 
 开关：`--mobile`
 
-Sometimes web servers expose different interfaces toward mobile phones than to desktop computers. In such cases you can enforce usage of one of predetermined smartphone HTTP User-Agent header values. By using this switch, sqlmap will ask you to pick one of popular smartphones which it will imitate in current run.
+有时 Web 服务器向手机提供的是不同于电脑的接口。在这种情况下，你可以强制使用预定义好的智能手机 HTTP User-Agent 头部值。使用此开关，sqlmap 将要求你选择一种流行的智能手机，它将在当前运行中模仿。
 
-Example run:
+运行示例：
 
 ```
 $ python sqlmap.py -u "http://www.target.com/vuln.php?id=1" --mobile
@@ -220,11 +220,11 @@ which smartphone do you want sqlmap to imitate through HTTP User-Agent header?
 [...]
 ```
 
-### Work in offline mode (only use session data)
+### 离线工作模式（仅使用会话数据）
 
 开关：`--offline`
 
-By using switch `--offline` sqlmap will use only previous session data in data enumeration. This basically means that there will be zero connection attempts during such run.
+使用开关 `--offline`，sqlmap 在数据枚举中将仅使用上一个会话的数据。这基本意味着在这样的运行过程中是零连接尝试的。
 
 ### Safely remove all content from output directory
 

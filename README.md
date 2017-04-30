@@ -38,6 +38,11 @@ sqlmap 是一款自动化检测与利用 SQL 注入漏洞的免费开源工具�
 
 ### 格式约定
 
+原则上使用 [中文文案排版指北](https://github.com/mzlogin/chinese-copywriting-guidelines/blob/Simplified/README.md) 中建议格式。
+
+重点关注的几点：
+
 1. 标点符号：使用中文标点符号，代码则沿用英文原文。
 2. 中文和英文、数字之间用空格隔开。例如：这是 1 份 sqlmap 中文文档。
 3. 专有名词一般不翻译，如 Google。
+
