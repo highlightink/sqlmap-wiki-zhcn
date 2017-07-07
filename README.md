@@ -46,3 +46,11 @@ sqlmap 是一款自动化检测与利用 SQL 注入漏洞的免费开源工具�
 2. 中文和英文、数字之间用空格隔开。例如：这是 1 份 sqlmap 中文文档。
 3. 专有名词一般不翻译，如 Google。
 
+### 译者の话
+
+水平所限，加上目前只 review 过一次，所以难免出现一些错误，欢迎任何的指正、建议、意见和批评。
+
+译者：
+- Octobug：[GitHub](https://github.com/Octobug)、[微博](http://weibo.com/qq362499939)
+- Shady：[GitHub](https://github.com/Root-shady)、[微博](http://weibo.com/u/2873357002)
+
