@@ -252,7 +252,7 @@
     --mobile            使用 HTTP User-Agent 模仿智能手机
     --offline           在离线模式下工作（仅使用会话数据）
     --purge-output      安全地删除输出目录的所有内容
-    --smart             只有在正启发时才进行彻底的测试
+    --smart             只有在使用启发式检测时才进行彻底的测试
     --sqlmap-shell      调出交互式 sqlmap shell
     --wizard            适合初级用户的向导界面
 ```

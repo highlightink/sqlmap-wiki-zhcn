@@ -197,11 +197,11 @@ cation Firewall (Trustwave)'. Please consider usage of tamper scripts (option '-
 
 默认情况下，sqlmap 自动在一个启动请求中发送一个虚假的参数值，其中包含一个有意“可疑”的 SQL 注入 payload（例如：`...&foobar=AND 1=1 UNION ALL SELECT 1,2,3,table_name FROM information_schema.tables WHERE 2>1`）。如果目标对原始请求的响应不同，那么它很有可能受到某种保护。如果有任何问题，用户可以使用开关 `--skip-waf` 来禁用此机制。
 
-### 模仿智能手机
+### 伪装智能手机
 
 开关：`--mobile`
 
-有时 Web 服务器向手机提供的是不同于电脑的接口。在这种情况下，你可以强制使用预定义好的智能手机 HTTP User-Agent 头部值。使用此开关，sqlmap 将要求你选择一种流行的智能手机，它将在当前运行中模仿。
+有时 Web 服务器向手机提供的是不同于电脑的接口。在这种情况下，你可以强制使用预定义好的智能手机 HTTP User-Agent 头部值。使用此开关，sqlmap 将询问你选择一种流行的智能手机，它将在当前运行中进行伪装。
 
 运行示例：
 
@@ -224,15 +224,15 @@ which smartphone do you want sqlmap to imitate through HTTP User-Agent header?
 
 开关：`--offline`
 
-使用开关 `--offline`，sqlmap 在数据枚举中将仅使用上一个会话的数据。这基本意味着在这样的运行过程中是零连接尝试的。
+使用开关 `--offline`，sqlmap 在数据枚举中将仅使用上一个会话的数据。这基本上意味着在这样的运行过程中是零连接尝试的。
 
-### Safely remove all content from output directory
+### 安全地删除输出目录中所有内容
 
-Switch `--purge-output`
+开关：`--purge-output`
 
-In case that user decides to safely remove all content from `output` directory, containing all target details from previous sqlmap runs, he can use switch `--purge-output`. While purging, all files from (sub)directories in folder `output` will be overwritten with random data, truncated, renamed to random names, (sub)directories will be renamed to random names too, and finally the whole directory tree will be deleted.
+如果用户决定安全删除 `output` 目录中所有的内容，包括之前 sqlmap 运行过的所有目标详细信息，可以使用开关 `--purge-output`。在清除时，`output` 目录中的（子）目录中的所有文件将被随机数据覆盖、截断和被重命名为随机名，（子）目录也将被重命名为随机名，最后整个目录树将被删除。
 
-Example run:
+运行示例：
 
 ```
 $ python sqlmap.py --purge-output -v 3
@@ -247,13 +247,13 @@ $ python sqlmap.py --purge-output -v 3
 [...]
 ```
 
-### Conduct through tests only if positive heuristic(s)
+### 只有在使用启发式检测时才进行彻底的测试
 
-Switch `--smart`
+开关：`--smart`
 
-There are cases when user has a large list of potential target URLs (e.g. provided with option `-m`) and he wants to find a vulnerable target as fast as possible. If switch `--smart` is used, only parameters with which DBMS error(s) can be provoked, are being used further in scans. Otherwise they are skipped.
+某些情况下，用户拥有大量潜在目标 URL（例如：使用选项 `-m`）列表，同时他想要尽快找到易受攻击的目标。如果使用了开关 `--smart`，则只有能引发 DBMS 错误的参数会在进一步的扫描中被使用。否则会被跳过。
 
-Example against a MySQL target:
+针对 MySQL 目标的示例：
 
 ```
 $ python sqlmap.py -u "http://192.168.21.128/sqlmap/mysql/get_int.php?ca=17&use\
@@ -305,13 +305,13 @@ mns' injectable
 [...]
 ```
 
-### Select (or skip) tests by payloads and/or titles
+### 根据 payloads 和/或标题选择（或跳过）测试
 
-Option `--test-filter`
+选项：`--test-filter`
 
-In case that you want to filter tests by their payloads and/or titles you can use this option. For example, if you want to test all payloads which have `ROW` keyword inside, you can use `--test-filter=ROW`.
+如果你想根据 payloads 和/或标题过滤测试，可以使用此选项。例如，要测试所有包含 `ROW` 关键字的 payloads，可以使用 `--test-filter=ROW`。
 
-Example against a MySQL target:
+针对 MySQL 目标的示例：
 
 ```
 $ python sqlmap.py -u "http://192.168.21.128/sqlmap/mysql/get_int.php?id=1" --b\
@@ -345,15 +345,15 @@ x)
 [...]
 ```
 
-Option `--test-skip=TEST`
+选项：`--test-skip=TEST`
 
-In case that you want to skip tests by their payloads and/or titles you can use this option. For example, if you want to skip all payloads which have `BENCHMARK` keyword inside, you can use `--test-skip=BENCHMARK`.
+如果你想根据 payloads 和/或标题跳过测试，可以使用此选项。例如，想要跳过包含 `BENCHMARK` 关键字的 payloads，可以使用 `--test-skip=BENCHMARK`。
 
-### Interactive sqlmap shell
+### 交互式 sqlmap shell
 
 开关：`--sqlmap-shell`
 
-By using switch `--sqlmap-shell` user will be presented with the interactive sqlmap shell which has the history of all previous runs with used options and/or switches:
+使用开关 `--sqlmap-shell`，用户可以看到交互式的 sqlmap shell，它具有所有以前运行的历史记录，包括使用过的选项和/或开关：
 
 ```
 $ python sqlmap.py --sqlmap-shell
@@ -494,13 +494,13 @@ p/output/testphp.vulnweb.com'
 sqlmap-shell> exit
 ```
 
-### Simple wizard interface for beginner users
+### 适合初学者使用的向导界面
 
 开关：`--wizard`
 
-For beginner users there is a wizard interface which uses a simple workflow with as little questions as possible. If user just enters target URL and uses default answers (e.g. by pressing `Enter`) he should have a properly set sqlmap run environment by the end of the workflow.
+sqlmap 为初学者提供了一个向导界面，它使用包含尽可能少的问题的简单工作流。如果用户输入目标 URL 并使用了默认设置（例如：按 `Enter`），则应该在工作流结束时正确设置 sqlmap 运行环境。
 
-Example against a Microsoft SQL Server target:
+针对 Microsoft SQL Server 目标的示例：
 
 ```
 $ python sqlmap.py --wizard
