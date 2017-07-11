@@ -130,18 +130,19 @@ Both of the above mentioned instances, and many others, appear as ` <form>` and 
 Provide sqlmap with `--forms` as well as the page where the form can be found as the target URL (`-u`) and sqlmap will request the target URL for you, parse the forms it has and guide you through to test for SQL injection on those form input fields (parameters) rather than the target URL provided. 
 
 ### Ignore query results stored in session file
+### 忽略会话文件中的查询结果
 
-Switch: `--fresh-queries`
+开关: `--fresh-queries`
 
-As you are already familiar with the concept of a session file from the description above, it is good to know that you can ignore the content of that file using option `--fresh-queries`. This way you can keep the session file untouched and for a selected run, avoid the resuming/restoring of queries output. 
+通过上面的相关描述，相信你已经熟悉了会话文件的相关概念，值得注意的是，你可以使用`--fresh-queries` 这个开关忽略指定的会话文件。这样的话，你可以保持特定的会话文件内容不被修改，并且对于指定测试，避免了保存/回复查询结果。
 
-### Use DBMS hex function(s) for data retrieval
+### 使用 DBMS hex 函数进行数据检索
 
-Switch: `--hex`
+开关: `--hex`
 
-In lost of cases retrieval of non-ASCII data requires special needs. One solution for that problem is usage of DBMS hex function(s). Turned on by this switch, data is encoded to it's hexadecimal form before being retrieved and afterwards unencoded to it's original form.
+大多数情况下，检索 non-ASCII 数据都会有特殊要求。其中一个解决方案就是使用 DBMS hex 函数。开启这个开关，则数据在被获取之前，会被编码成十六进制格式，并在随后被解码成原先的格式。
 
-Example against a PostgreSQL target:
+针对 PostgreSQL 目标的例子:
 
 ```
 $ python sqlmap.py -u "http://192.168.48.130/sqlmap/pgsql/get_int.php?id=1" --b\
@@ -164,21 +165,22 @@ GCC gcc-4.3.real (Debian 4.3.2-1.1) 4.3.2
 [...]
 ```
 
-### Custom output directory path
+### 指定输出文件路径
 
-Option: `--output-dir`
+选项: `--output-dir`
 
-sqlmap by default stores session and result files inside a subdirectory `output`. In case you want to use a different location, you can use this option (e.g. `--output-dir=/tmp`).
+默认，sqlmap 会将会话和结果文件存储在命名为 `output`的子文件目录。如果你想要使用不同的存储位置，你可以使用这个选项。(例如：`--output-dir=/tmp`)
 
-### Parse DBMS error messages from response pages
+### 解析响应请求返回的 DBMS 错误信息
 
-Switch: `--parse-errors`
+开关: `--parse-errors`
 
-If the web application is configured in debug mode so that it displays in the HTTP responses the back-end database management system error messages, sqlmap can parse and display them for you.
+如果 web 应用配置了调试模式，相关后端数据库管理系统的错误信息会在 HTTP 响应请求中显示，则 sqlmap 会对其进行解析并展示。
 
-This is useful for debugging purposes like understanding why a certain enumeration or takeover switch does not work - it might be a matter of session user's privileges and in this case you would see a DBMS error message along the lines of `Access denied for user  <SESSION USER>`. 
+这个特性可用于相关调试，类似理解为什么特定枚举或者入侵开关失效，例如会话用户出现权限问题，你可以看到`拒绝<会话用户>访问` 的 DBMS 错误信息。
 
-Example against a Microsoft SQL Server target:
+针对 Microsoft SQL Server 目标的例子：
+
 
 ```
 $ python sqlmap.py -u "http://192.168.21.129/sqlmap/mssql/iis/get_int.asp?id=1"\
@@ -206,18 +208,18 @@ ers (0x80040E14)
 [...]
 ```
 
-### Save options in a configuration INI file
+### 保存相关选项到 INI 配置文件
 
-Option: `--save`
+选项: `--save`
 
-It is possible to save the command line options to a configuration INI file. The generated file can then be edited and passed to sqlmap with the `-c` option as explained above.
+我们可以将命令行上的相关参数保存到 sqlmap INI 配置文件中。 同时可以对生成的文件进行编辑，或者通过上面描述的 `-c` 选项进行使用。
 
-### Update sqlmap
+### 更新 sqlmap
 
-Switch: `--update`
+开关: `--update`
 
-Using this option you can update the tool to the latest development version directly from the [Git repository](https://github.com/sqlmapproject/sqlmap.git). You obviously need Internet access. 
+使用这个开关，你可以直接从 [Git repository](https://github.com/sqlmapproject/sqlmap.git) 上将该工具升级到最新的开发版本。当然，你需要网络连接。
 
-If, for any reason, this operation fails, run `git pull` from your sqlmap working copy. It will perform the exact same operation of switch `--update`. If you are running sqlmap on Windows, you can use the [SmartGit](http://www.syntevo.com/smartgit/index.html) client. 
+当然，如果上面的操作失败，你可以直接在 sqlmap 所在目录运行`git pull`。这样的执行效果和使用开关`--update`一样。如果你是在 Windows 上使用 sqlmap，你可以使用[SmartGit](http://www.syntevo.com/smartgit/index.html) 客户端。
 
-This is strongly recommended **before** reporting any bug to the [mailing lists](http://www.sqlmap.org/#ml).
+在向[mailing lists](http://www.sqlmap.org/#ml) 反馈任何潜在 bug 之前，强烈建议先行尝试上面描述的方法。
