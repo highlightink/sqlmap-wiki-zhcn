@@ -19,7 +19,7 @@
     - [注入](Users-manual/Usage/Injection.md)
     - [检测](Users-manual/Usage/Detection.md)
     - [技术](Users-manual/Usage/Techniques.md)
-    - [采集指纹](Users-manual/Usage/Fingerprint.md)
+    - [指纹识别](Users-manual/Usage/Fingerprint.md)
     - [枚举](Users-manual/Usage/Enumeration.md)
     - [暴力破解](Users-manual/Usage/Brute-force.md)
     - [用户自定义函数注入](Users-manual/Usage/User-defined-function-injection.md)

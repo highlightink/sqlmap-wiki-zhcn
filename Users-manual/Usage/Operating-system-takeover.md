@@ -1,18 +1,18 @@
 ## 接管操作系统
 
-### 运行任意系统命令
+### 运行任意操作系统命令
 
-选项和开关: `--os-cmd` and `--os-shell`
+选项和开关：`--os-cmd` 和 `--os-shell`
 
-当后端数据库为 MySQL，PostgreSQL 或者 Microsoft SQL Server，并且当前会话用户拥有对数据库特定功能和相关架构特性利用的权限时，sqlmap 能够在数据库所在的操作系统上运行任意的命令。
+当后端 DBMS 为 MySQL，PostgreSQL 或 Microsoft SQL Server，并且当前会话用户拥有对数据库特定功能和相关架构特性的利用权限时，sqlmap 能够在**数据库所在服务器的操作系统上运行任意的命令**。
 
-在 MySQL 和PostgreSQL 中，sqlmap 可以上传(通过前面描述的文件上传功能)一个包含两个用户自定义函数(分别为 `sys_exec()` 和 `sys_eval()`)的共享库(二进制制式文件)，然后在数据库中创建出两个对应函数，通过调用对应函数执行特定的命令。并允许用户选择是否打印出相关命令执行的结果。在 Microsoft SQL Server 中，sqlmap 会利用 `xp_cmdshell` 存储过程：如果该存储过程被关闭了(在 Microsoft SQL Server 版本 2005 及以上是默认关闭的)，sqlmap 则会将其重新打开。如果该存储过程不存在，sqlmap 则会重新创建它。
+在 MySQL 和 PostgreSQL 中，sqlmap 可以上传（通过前面描述的文件上传功能）一个包含两个用户自定义函数——分别为 `sys_exec()` 和 `sys_eval()` 的共享库（二进制文件），然后在数据库中创建出两个对应函数，并调用对应函数执行特定的命令，并允许用户选择是否打印出相关命令执行的结果。在 Microsoft SQL Server 中，sqlmap 会利用 `xp_cmdshell` 存储过程：如果该存储过程被关闭了（Microsoft SQL Server 的 2005 及以上版本默认关闭），sqlmap 则会将其重新打开；如果该存储过程不存在，sqlmap 则会重新创建它。
 
-当用户请求标准输出，sqlmap 将使用任何可用的 SQL 注入技术(盲注、带内注入、报错型注入)去获取对应结果。相反的，如果无需输出对应的结果，sqlmap 则会使用堆查询注入技术执行相关的命令。
+当用户请求标准输出，sqlmap 将使用任何可用的 SQL 注入技术（盲注、带内注入、报错型注入）去获取对应结果。相反，如果无需标准输出对应结果，sqlmap 则会使用堆查询注入技术执行相关的命令。
 
-这些技术的相关详情可见白皮书 [通过高级 SQL 注入，对操作系统进行完全控制](http://www.slideshare.net/inquis/advanced-sql-injection-to-operating-system-full-control-whitepaper-4633857).
+这些技术的相关详情可见白皮书[通过高级 SQL 注入，对操作系统进行完全控制](http://www.slideshare.net/inquis/advanced-sql-injection-to-operating-system-full-control-whitepaper-4633857)。
 
-下面是以 PostgreSQL 为目标的例子:
+针对 PostgreSQL 目标的示例：
 
 ```
 $ python sqlmap.py -u "http://192.168.136.131/sqlmap/pgsql/get_int.php?id=1" --\
@@ -41,18 +41,20 @@ do you want to remove UDF 'sys_exec'? [Y/n] y
 tem can only be deleted manually
 ```
 
-sqlmap 还支持模拟 shell 输入，你可以输入任意命令用于执行。对应的选项是 `--os-shell`，并且和 `--sql-shell` 一样，具备 TAB 补全和记录历史命令的功能。
+sqlmap 还支持模拟 shell 输入，你可以输入任意命令以执行。对应的选项是 `--os-shell`，并且和 `--sql-shell` 一样，具备 TAB 补全和记录历史命令的功能。
 
-如果堆查询没有被 web 应用(例如：PHP 或 ASP 及后端数据库管理系统为 MySQL)识别出来，并且后端数据库为 MySQL，假如后端数据库和 Web 服务器在同一台服务器上，则仍然可以通过利用 `SELECT`语句中的`INTO OUTPUT`，在 Web 服务器根目录中的可写文件夹中创建相应的 Web 后门，保证相关的命令执行。sqlmap 支持上述功能并允许用户提供一个逗号分隔、用于指定 web 服务器文件子目录的列表，用于上传相关的 stager 文件或者后续的 Web 后门。 sqlmap 对下列的语言有相关的stager 文件检测和后门：
+如果堆查询没有被 Web 应用（例如：PHP 或 ASP 且后端 DBMS 为 MySQL）识别出来，并且 DBMS 为 MySQL，假如后端 DBMS 和 Web 服务器在同一台服务器上，则仍可以通过利用 `SELECT` 语句中的 `INTO OUTFILE`，在 Web 服务器根目录中的可写目录中创建 Web 后门，从而执行命令。sqlmap 支持上述功能并允许用户提供一个逗号分隔、用于指定根目录子目录的列表，从而尝试上传 Web 文件传输器和后续的 Web 后门。sqlmap 有以下几种语言的 Web 文件传输器和后门：
 
 * ASP
 * ASP.NET
 * JSP
 * PHP
 
-###  带外状态连接: Meterpreter & friends
+###  带外状态连接：Meterpreter & friends
 
-选项和开关: `--os-pwn`, `--os-smbrelay`, `--os-bof`, `--priv-esc`, `--msf-path` and `--tmp-path`
+开关和选项：`--os-pwn`，`--os-smbrelay`，`--os-bof`，`--priv-esc`，`--msf-path` 和 `--tmp-path`
+
+---
 
 当后端数据库为 MySQL，PostgreSQL 或者 Microsoft SQL Server，并且当前会话用户拥有对数据库特定功能和相关架构特性利用的权限时，sqlmap 能够在攻击者机器与数据库所在的服务器之间建立起 ** 带外有状态的 TCP 连接**。根据用户的选择，该连接可以时交互式命令行形式、Meterpreter 会话、或者用户界面(VNC)会话。
 

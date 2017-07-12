@@ -1,8 +1,8 @@
-# Frequently Asked Questions
+# 常见问题
 
-## What is sqlmap?
+## 什么是 sqlmap？
 
-sqlmap is an open source penetration testing tool that automates the process of detecting and exploiting SQL injection flaws and taking over of database servers. It comes with a powerful detection engine, many niche features for the ultimate penetration tester and a broad range of switches lasting from database fingerprinting, over data fetching from the database, to accessing the underlying file system and executing commands on the operating system via out-of-band connections.
+sqlmap 是一款开放源码的渗透测试工具，它能自动检测并利用 SQL 注入漏洞和接管数据库服务器。它具有强大的检测引擎、许多适用于最终渗透测试阶段的特色功能以及范围广泛的开关，涵盖了数据库指纹识别、从数据库获取数据、访问底层文件系统以及通过带内连接在操作系统上执行命令。
 
 ## How do I execute sqlmap?
 

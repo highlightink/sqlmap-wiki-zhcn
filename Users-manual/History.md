@@ -64,7 +64,7 @@
 
 ## 2008
 
-* **十二月 18**，sqlmap **0.6.3** 版本发布，支持从 Burp 和 WebScarab 代理日志文件获取目标，支持对堆查询的测试和时间型盲注的 SQL 注入，更多业内使用的 Web 服务器和 Web 应用技术指纹信息采集技术，支持 HTTP 请求自定义及枚举数据库的相关信息功能。
+* **十二月 18**，sqlmap **0.6.3** 版本发布，支持从 Burp 和 WebScarab 代理日志文件获取目标，支持对堆查询的测试和时间型盲注的 SQL 注入，更多业内使用的 Web 服务器和 Web 应用技术指纹信息识别技术，支持 HTTP 请求自定义及枚举数据库的相关信息功能。
 * **十一月 2**，sqlmap **0.6.2** 版本只是“bug 修复”版本。
 * **十月 20**，sqlmap **0.6.1** 版本正式发布，这个版本包含部分 bug 修改，及添加了用于连接 [Metasploit](http://metasploit.com) 的工具：用于在 Metasploit 中打开 sqlmap 的辅助工具。[SVN 代码仓库](https://svn.sqlmap.org/sqlmap/trunk/sqlmap/)重新对大众开放。
 * **九月 1**，在上次版本发布后的一年后，sqlmap **0.6** 经历了完全的代码重构，支持执行任意的 SQL **SELECT** 语句，同时添加了支持枚举和导出特定数据的相关参数，更新了 Debian，Red Hat，Windows 下相关的软件安装包。
@@ -74,14 +74,14 @@
 ## 2007
 
 * **十一月 4**，版本 **0.5** 的发布标志着 OWASP Spring of Code 2007 比赛的结束。Bernardo [完成了](http://www.owasp.org/index.php/SpoC_007_-_SQLMap_-_Progress_Page)之前提出的所有目标，包括添加对 Oracle 的相关支持，UNION 查询 SQL 注入的功能增强，以及 HTTP Cookies 和 User-Agent 的注入分析测试。
-* **六月 15**，Bernardo 在 OWASP Spring of Code 2007 里程碑结束后发布了 sqlmap **0.4** 版本。相对之前的版本，该版本提升了数据库管理系统指纹信息采集功能，支持估算数据从目标数据库服务器返回时间和枚举特定数据的相关参数，同时配备了全新的日志系统。
+* **六月 15**，Bernardo 在 OWASP Spring of Code 2007 里程碑结束后发布了 sqlmap **0.4** 版本。相对之前的版本，该版本提升了数据库管理系统指纹信息识别功能，支持估算数据从目标数据库服务器返回时间和枚举特定数据的相关参数，同时配备了全新的日志系统。
 * **四月**，虽然 sqlmap 并**不是**一个 OWASP 项目，不过在众多 OWASP Spring of Code 2007 的开源项目的竞争下，sqlmap 仍然申请[成功](http://www.owasp.org/index.php/SpoC_007_-_SqlMap)。 
 * **三月 30**，Bernardo 申请了 OWASP [Spring of Code 2007](http://www.owasp.org/index.php/OWASP_Spring_Of_Code_2007_Applications#Bernardo_-_sqlmap) 比赛。
 * **一月 20**，sqlmap **0.3** 版本发布，开始支持 Microsoft SQL Server，支持 UNION 查询 SQL 注入和 POST 参数注入等相关测试和渗透功能。
 
 ## 2006
 
-* **十二月 13**，Bernardo 发布了 sqlmap **0.2** 版本，该版本增强了数据库管理系统指纹信息采集功能，同时将原先内部实现的推论算法换成了二分算法。
+* **十二月 13**，Bernardo 发布了 sqlmap **0.2** 版本，该版本增强了数据库管理系统指纹信息识别功能，同时将原先内部实现的推论算法换成了二分算法。
 * **九月**，Daniele 离开了项目，[Bernardo Damele A. G.](http://bernardodamele.blogspot.com) 接手了项目。
 * **八月**，Daniele 为 PostgreSQL 添加了相关的支持并发布了 **0.1** 版本。
 * **七月 25**，[Daniele Bellucci](http://dbellucci.blogspot.com) 在 SourceForge 上添加了 sqlmap 项目，并使用 [SourceForge SVN 仓库](http://sqlmap.svn.sourceforge.net/viewvc/sqlmap/)进行代码托管。基本的架构成型，只支持 MySQL 相关功能。

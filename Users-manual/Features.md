@@ -26,10 +26,10 @@ sqlmap 实现的功能特性包括：
 * 支持解析 HTTP(S) 请求响应并显示相关的 DBMS 错误信息。
 * 集成其他 IT 安全开源项目，[Metasploit](http://metasploit.com) 和 [w3af](http://w3af.sourceforge.net)。
 
-## 指纹采集和枚举功能
+## 指纹识别和枚举功能
 
 * 基于[错误信息](http://bernardodamele.blogspot.com/2007/06/database-management-system-fingerprint.html)，[banner 解析](http://bernardodamele.blogspot.com/2007/06/database-management-system-fingerprint.html)，[函数输出对比](http://bernardodamele.blogspot.com/2007/07/more-on-database-management-system.html)和[特定特征](http://bernardodamele.blogspot.com/2007/07/more-on-database-management-system.html)（如 MySQL 注释注入）等方式，收集**大量的数据库版本和底层操作系统指纹信息**。如果你已经知道数据库系统的版本，则可以手动指定它。
-* 支持基本 Web 服务器和 Web 应用技术的指纹信息采集技术。
+* 支持基本 Web 服务器和 Web 应用技术的指纹信息识别技术。
 * 支持获取 DBMS **banner**，**会话用户**和**当前数据库**等信息。sqlmap 还能检查当前会话用户是否为数据库管理员（DBA）帐号。
 * 支持枚举**用户，密码散列，权限，角色，数据库，数据表和数据列**。
 * 支持自动识别密码散列格式并使用**用字典攻击尝试破解**。

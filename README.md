@@ -2,7 +2,7 @@
 
 本书包含了 sqlmap 项目的完整 wiki。如无意外，将持续跟进官方英文 wiki。
 
-当前翻译总进度：`51%`
+当前翻译总进度：`55.41%`
 
 当前 Wiki Git 仓库版本：`2017.02.28`
 
@@ -32,9 +32,7 @@ sqlmap 是一款自动化检测与利用 SQL 注入漏洞的免费开源工具�
 
 ### 参与翻译
 
-本书发布在 GitBook：[https://www.gitbook.com/book/octobug/sqlmap-wiki-zhcn/details](https://www.gitbook.com/book/octobug/sqlmap-wiki-zhcn/details)
-
-并托管在 GitHub：[https://github.com/OctoBug/sqlmap-wiki-zhcn](https://github.com/OctoBug/sqlmap-wiki-zhcn)，你可以访问这个地址参与翻译，帮助我们修正翻译错误。 
+本书发布在 [GitBook](https://www.gitbook.com/book/octobug/sqlmap-wiki-zhcn/details)，并托管在 [GitHub](https://github.com/OctoBug/sqlmap-wiki-zhcn)，你可以访问这个地址参与翻译，帮助我们修正翻译错误。
 
 ### 格式约定
 
