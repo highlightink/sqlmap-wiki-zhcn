@@ -50,30 +50,22 @@ sqlmap 还支持模拟 shell 输入，你可以输入任意命令以执行。对
 * JSP
 * PHP
 
-###  带外状态连接：Meterpreter & friends
+###  有状态带外连接：Meterpreter & friends
 
 开关和选项：`--os-pwn`，`--os-smbrelay`，`--os-bof`，`--priv-esc`，`--msf-path` 和 `--tmp-path`
 
----
+当后端 DBMS 为 MySQL，PostgreSQL 或 Microsoft SQL Server 时，并且当前会话用户拥有对数据库特定功能和架构缺陷的利用权限时，sqlmap 能够在**攻击者机器与数据库服务器之间建立起有状态带外 TCP 连接**。根据用户的选择，该连接可以是交互式命令行、Meterpreter 会话、或者图形用户界面（VNC）会话。
 
-当后端数据库为 MySQL，PostgreSQL 或者 Microsoft SQL Server，并且当前会话用户拥有对数据库特定功能和相关架构特性利用的权限时，sqlmap 能够在攻击者机器与数据库所在的服务器之间建立起 ** 带外有状态的 TCP 连接**。根据用户的选择，该连接可以时交互式命令行形式、Meterpreter 会话、或者用户界面(VNC)会话。
+sqlmap 依赖 Metasploit 创建 shellcode，并实现了四种不同的技术在数据库服务器上执行它。这些技术分别是：
 
-sqlmap 依赖 Metasploit，用于创建相关的 shellcode，实现了在数据库服务器上执行的四种技术。相关技术详情如下：
+* 通过 sqlmap 的用户自定义函数 `sys_bineval()` 在数据库**内存中执行 Metasploit shellcode**。MySQL 和 PostgreSQL 支持该技术，通过开关 `--os-pwn` 启用。
+* 通过 sqlmap 的用户自定义函数 `sys_exec()` 向 MySQL 和 PostgreSQL 上传一个 Metasploit **独立 payload 传输器**并执行，对于 Microsoft SQL Server 则是使用 `xp_cmdshell()` 函数，通过开关 `--os-pwn` 启用。
+* 通过进行从数据库服务器到攻击者机器（由 Metasploit `smb_relay` 服务侦听）之间的 UNC 路径请求的 **SMB 反射攻击**（[MS08-068](http://www.microsoft.com/technet/security/Bulletin/MS08-068.mspx)）来执行 Metasploit shellcode。当 sqlmap 运行于具有高权限（`uid=0`）的 Linux/Unix 上，且目标 DBMS 以 Windows 管理员身份运行时支持该技术，通过开关 `--os-smbrelay` 启用。
+* 通过利用 **Microsoft SQL Server 2000 和 2005 的 `sp_replwritetovarbin` 存储过程堆缓冲区溢出**（[MS09-004](http://www.microsoft.com/technet/security/bulletin/ms09-004.mspx)）在数据库内存中执行 Metasploit shellcode。sqlmap 使用自己的 exploit，自动绕过 DEP 内存保护来触发漏洞，但它依赖 Metasploit 生成 shellcode，以便在成功利用时执行，通过开关 `--os-bof` 启用。
 
+相关的技术详情可见于白皮书[通过高级 SQL 注入完全控制操作系统](http://www.slideshare.net/inquis/advanced-sql-injection-to-operating-system-full-control-whitepaper-4633857)和幻灯片[将控制由数据库层面拓展到操作系统](http://www.slideshare.net/inquis/expanding-the-control-over-the-operating-system-from-the-database)。
 
-* 通过 sqlmap 的用户自定义函数 `sys_bineval()` 在数据库 **内存中执行 Metasploit's shellcode*。 在 MySQL 和 PostgreSQL 中，通过开关 `--os-pwn`实现。
-* 通过 MySQL 和 PostgreSQL 中的用户自定义函数`sys_exec()`，或者 Microsoft SQL Server 的`xp_cmdshell()`，上传并执行 Metasploit's **独立负载文件传输器**，通过开关`--os-pwn`实现。
-* Upload and execution of a Metasploit's **stand-alone payload stager** via sqlmap own user-defined function `sys_exec()` on MySQL and PostgreSQL or via `xp_cmdshell()` on Microsoft SQL Server - switch `--os-pwn`.
-* 
-* Execution of Metasploit's shellcode by performing a **SMB reflection attack** ([MS08-068](http://www.microsoft.com/technet/security/Bulletin/MS08-068.mspx)) with a UNC path request from the database server to
-the attacker's machine where the Metasploit `smb_relay` server exploit listens. Supported when running sqlmap with high privileges (`uid=0`) on Linux/Unix and the target DBMS runs as Administrator on Windows - switch `--os-smbrelay`.
-* Database in-memory execution of the Metasploit's shellcode by exploiting **Microsoft SQL Server 2000 and 2005
-`sp_replwritetovarbin` stored procedure heap-based buffer overflow** ([MS09-004](http://www.microsoft.com/technet/security/bulletin/ms09-004.mspx)). sqlmap has its own exploit to trigger the
-vulnerability with automatic DEP memory protection bypass, but it relies on Metasploit to generate the shellcode to get executed upon successful exploitation - switch `--os-bof`.
-
-相关的技术详情可见白皮书[通过高级 SQL 注入，进行操作系统的完全控制](http://www.slideshare.net/inquis/advanced-sql-injection-to-operating-system-full-control-whitepaper-4633857)和演讲幻灯片 [将控制由数据库层面拓展到操作系统层面](http://www.slideshare.net/inquis/expanding-the-control-over-the-operating-system-from-the-database).
-
-以 MySQL 为目标的一个例子:
+针对 MySQL 目标的示例：
 
 ```
 $ python sqlmap.py -u "http://192.168.136.129/sqlmap/mysql/iis/get_int_55.aspx?\
@@ -182,6 +174,6 @@ meterpreter > exit
 [*] Meterpreter session 1 closed.  Reason: User exit
 ```
 
-默认， 在 Windows 上 MySQL 以 `SYSTEM` 身份运行，然而 PostgreSQL 则在 Windows 和 Linux 上都是以低权限用户 `postgres` 运行。Microsoft SQL Server 2000 默认以 `SYSTEM` 身份运行，而对于 Microsoft SQL 2005 和 2008，则大部分以 `NETWORK SERVICE` 身份运行，有时候以 `LOCAL SERVICE` 身份运行。
+默认情况下，MySQL 在 Windows 上以 `SYSTEM` 身份运行，然而 PostgreSQL 在 Windows 和 Linux 上均以低权限用户 `postgres` 运行。Microsoft SQL Server 2000 默认以 `SYSTEM` 身份运行，而 Microsoft SQL 2005 和 2008 大部分情况下以 `NETWORK SERVICE` 身份运行，有时候以 `LOCAL SERVICE` 身份运行。
 
-同时，sqlmap 支持提供 `--priv-esc` 开关，用于数据库进程用户通过 Metasploit's `getsystem` 命令及相关的[kitrap0d](http://archives.neohapsis.com/archives/fulldisclosure/2010-01/0346.html) 技术 ([MS10-015](http://www.microsoft.com/technet/security/bulletin/ms10-015.mspx))，进行提权操作。
+使用 sqlmap 的 `--priv-esc` 开关，可以通过 Metasploit `getsystem` 命令进行**数据库进程用户提权，该命令使用了包括 [kitrap0d](http://archives.neohapsis.com/archives/fulldisclosure/2010-01/0346.html) 在内的各种技术（[MS10-015](http://www.microsoft.com/technet/security/bulletin/ms10-015.mspx)）。
