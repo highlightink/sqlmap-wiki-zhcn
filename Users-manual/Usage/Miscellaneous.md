@@ -4,7 +4,7 @@
 
 选项：`-z`
 
-键入所有期望的选项和开关是很乏味的事情，特别是对于那些最常用的选项和开关（例如：`--batch --random-agent --ignore-proxy --technique=BEU`）。有一个更简短的方法来处理这个问题。在 sqlmap 中，它被称为“助记符”。
+键入所有想要使用选项和开关是很乏味的事情，特别是对于那些常用的选项和开关（例如：`--batch --random-agent --ignore-proxy --technique=BEU`）。有一个更简短的方法来处理这个问题。在 sqlmap 中，它被称为“助记符”。
 
 使用选项 `-z`，每个选项和开关可以用较短的助记符形式，并用逗号（`,`）分隔，其中助记符代表原始名称的第一个任意选择的部分。选项和开关没有严格映射到他们各自精简后的部分。唯一需要满足的条件是没有其他选项和开关使用了与之相同的前缀。
 
@@ -64,7 +64,7 @@ d level (1) and risk (1)? [Y/n] N
 
 开关：`--beep`
 
-如果用户使用了开关 `--beep`，那么在发现 SQL 注入时，会立即发出“哔”的警告声。 当测试的目标 URLs 是大批量列表（选项 `-m`）时特别有用。
+如果用户使用了开关 `--beep`，那么在发现 SQL 注入时，sqlmap 会立即发出“哔”的警告声。 当测试的目标 URLs 是大批量列表（选项 `-m`）时特别有用。
 
 ### 清除 DBMS 中特定的 sqlmap UDF(s) 和表
 
@@ -120,7 +120,7 @@ python.org/pypi/websocket-client/
 
 开关：`--disable-coloring`
 
-默认情况下，sqlmap 写入控制台时使用着色。你可以使用此开关禁用控制台输出着色，以避免不期望的效果（例如：控制台中未解析的 ANSI 代码着色效果，像 `\x01\x1b[0;32m\x02[INFO]`）。
+默认情况下，sqlmap 输出控制台时使用着色。你可以使用此开关禁用控制台输出着色，以避免不期望的效果（例如：控制台中未解析的 ANSI 代码着色效果，像 `\x01\x1b[0;32m\x02[INFO]`）。
 
 ### 使用特定页码的 Google dork 结果
 
@@ -134,7 +134,7 @@ python.org/pypi/websocket-client/
 
 HTTP 参数污染（HPP）是一种绕过 WAF/IPS/IDS 保护机制（[这里](http://www.imperva.com/resources/glossary/http_parameter_pollution_hpp.html)有相关介绍）的方法，针对 ASP/IIS 和 ASP.NET/IIS 平台尤其有效。如果你怀疑目标使用了这种保护机制，可以尝试使用此开关以绕过它。
 
-### 进行针对 WAF/IPS/IDS 保护的通过测试
+### 针对 WAF/IPS/IDS 保护进行全面测试
 
 开关：`--identify-waf`
 
@@ -195,7 +195,7 @@ cation Firewall (Trustwave)'. Please consider usage of tamper scripts (option '-
 
 开关：`--skip-waf`
 
-默认情况下，sqlmap 自动在一个启动请求中发送一个虚假的参数值，其中包含一个有意“可疑”的 SQL 注入 payload（例如：`...&foobar=AND 1=1 UNION ALL SELECT 1,2,3,table_name FROM information_schema.tables WHERE 2>1`）。如果目标对原始请求的响应不同，那么它很有可能受到某种保护。如果有任何问题，用户可以使用开关 `--skip-waf` 来禁用此机制。
+默认情况下，sqlmap 自动在一个启动请求中发送一个虚假的参数值，其中包含一个有意“可疑”的 SQL 注入 payload（例如：`...&foobar=AND 1=1 UNION ALL SELECT 1,2,3,table_name FROM information_schema.tables WHERE 2>1`）。如果目标响应与原始请求响应不同，那么它很可能有保护机制。如果有任何问题，用户可以使用开关 `--skip-waf` 来禁用此机制。
 
 ### 伪装智能手机
 
