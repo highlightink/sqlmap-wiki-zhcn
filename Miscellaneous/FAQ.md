@@ -43,7 +43,7 @@ sqlmap 是一款开源渗透测试工具，它能自动检测并利用 SQL 注�
 
 ## 我能偶尔参与开发吗？
 
-非常感谢所有贡献代码的行为。
+非常感谢所有的代码贡献。
 All code contributions are greatly appreciated. First off, clone the [Git 仓库](https://github.com/sqlmapproject/sqlmap), read the [用户手册](https://github.com/sqlmapproject/sqlmap/wiki) carefully, go through the code yourself and [给我们发邮件](mailto:dev@sqlmap.org) if you are having a hard time grasping its structure and meaning.
 
 
