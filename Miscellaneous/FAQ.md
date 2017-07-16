@@ -2,48 +2,52 @@
 
 ## 什么是 sqlmap？
 
-sqlmap 是一款开放源码的渗透测试工具，它能自动检测并利用 SQL 注入漏洞和接管数据库服务器。它具有强大的检测引擎、许多适用于最终渗透测试阶段的特色功能以及范围广泛的开关，涵盖了数据库指纹识别、从数据库获取数据、访问底层文件系统以及通过带内连接在操作系统上执行命令。
+sqlmap 是一款开源渗透测试工具，它能自动检测并利用 SQL 注入漏洞和接管数据库服务器。它具有强大的检测引擎、许多适用于最终渗透测试阶段的特色功能以及范围广泛的开关，涵盖了数据库指纹识别、从数据库获取数据、访问底层文件系统以及通过带内连接在操作系统上执行命令。
 
-## How do I execute sqlmap?
+## 我要如何运行 sqlmap?
 
-If you are running on a UNIX/Linux system type the following command from a terminal:
+如果是在 UNIX/Linux 上请在终端中输入以下命令：
 
     python sqlmap.py -h
 
-You can also see the detailed help message typing:
+你还可以输入以下命令以查看详细的帮助信息：
 
     python sqlmap.py -hh
 
-If you are running on a Windows system type the following command from a terminal:
+如果是在 Windows 系统上请在终端中输入以下命令：
 
     C:\Python27\python.exe sqlmap.py -h
 
-Where `C:\Python27` is the path where you installed [Python](http://www.python.org) **>= 2.6** and **< 3.0**.
+`C:\Python27` 是 [Python](http://www.python.org) 的安装路径，Python 的版本应满足 **>= 2.6** 和 **< 3.0**。
 
-## Can I integrate sqlmap with a security tool I am developing?
+## 我可以将 sqlmap 集成到我正在开发的安全工具中吗？
 
-**Yes**. sqlmap is released under the terms of the [GPLv2](http://www.gnu.org/licenses/gpl-2.0.html), which means that any derivative work must be distributed without further restrictions on the rights granted by the General Public License itself.
+**可以**。sqlmap 遵照 [GPLv2](http://www.gnu.org/licenses/gpl-2.0.html) 发布，这意味着任何的衍生作品不能使用比通用公共许可证本身更严格的协议发布。
 
-## Can I embed sqlmap into a proprietary software?
+## 我可以将 sqlmap 嵌入到专有软件中吗？
 
-If you wish to embed sqlmap technology into proprietary software, we sell alternative licenses (contact [sales@sqlmap.org](sales@sqlmap.org))
+如果你希望在专有软件中嵌入 sqlmap 技术，请遵照我们使用的另一个许可证（联系 [sales@sqlmap.org](sales@sqlmap.org)）。
 
-## How can I report bugs or request new features?
+## 我如何报告 bugs 或请求新特性？
 
-**Bug reports are welcome**!
-Please report all bugs on the [issue tracker](https://github.com/sqlmapproject/sqlmap/issues) or, alternatively, to the [mailing list](https://lists.sourceforge.net/lists/listinfo/sqlmap-users).
+**欢迎报告 Bug**！
+请在 [issue tracker](https://github.com/sqlmapproject/sqlmap/issues) 报告所有 bugs，或者发送到[邮件列表mailing list](https://lists.sourceforge.net/lists/listinfo/sqlmap-users)。
 
-Guidelines:
+指引：
 
-* Before you submit a bug report, search both open and closed issues to make sure the issue has not come up before. Also, check the [user's manual](https://github.com/sqlmapproject/sqlmap/wiki) for anything relevant.
-* Make sure you can reproduce the bug with the latest development version of sqlmap.
-* Your report should give detailed instructions for how to reproduce the problem. If sqlmap raises an unhandled exception, the traceback is needed. Details of the unexpected behaviour are welcome too. A small test case (just a few lines) is ideal.
-* If you are making an enhancement request, lay out the rationale for the feature you are requesting. *Why would this feature be useful?*
-* If you are not sure whether something is a bug, or want to discuss a potential new feature before putting in an enhancement request, the [mailing list](https://lists.sourceforge.net/lists/listinfo/sqlmap-users) is a good place to bring it up.
+* 在提交错误报告之前，请先查找开放和已关闭的 issues，确保是未被报告过的问题。此外，请查看[用户手册](https://github.com/sqlmapproject/sqlmap/wiki)以获取任何相关内容。
+* 确保该错误可以在 sqlmap 的最新开发版本中重现。
+* 你的报告应提供如何重现问题的详细说明。如果 sqlmap 抛出未处理异常，则需要错误回溯信息。也欢迎报告非预期行为的细节。最好是提供一个简单的测试用例（几行）。
+* 如果你正提出功能增强请求，请列出你请求该功能的理由。*为什么这个功能会很有用？*
+* 如果你不确定某些情况是否为 bug，或者想在发出功能增强请求之前讨论某个潜在的新功能，那么[邮件列表](https://lists.sourceforge.net/lists/listinfo/sqlmap-users)会是一个很好的地方。
 
-## Can I contribute occasionally to the development?
+## 我能偶尔参与开发吗？
 
-All code contributions are greatly appreciated. First off, clone the [Git repository](https://github.com/sqlmapproject/sqlmap), read the [user's manual](https://github.com/sqlmapproject/sqlmap/wiki) carefully, go through the code yourself and [drop us an email](mailto:dev@sqlmap.org) if you are having a hard time grasping its structure and meaning. We apologize for not commenting the code enough - you could take a chance to read it through and [improve it](https://github.com/sqlmapproject/sqlmap/issues/37).
+非常感谢所有贡献代码的行为。
+All code contributions are greatly appreciated. First off, clone the [Git 仓库](https://github.com/sqlmapproject/sqlmap), read the [用户手册](https://github.com/sqlmapproject/sqlmap/wiki) carefully, go through the code yourself and [给我们发邮件](mailto:dev@sqlmap.org) if you are having a hard time grasping its structure and meaning.
+
+
+We apologize for not commenting the code enough - you could take a chance to read it through and [改进它](https://github.com/sqlmapproject/sqlmap/issues/37).
 
 Our preferred method of patch submission is via a Git [pull request](https://help.github.com/articles/using-pull-requests). Many [people](https://raw.github.com/sqlmapproject/sqlmap/master/doc/THANKS.md) have contributed in different ways to the sqlmap development. **You** can be the next!
 
@@ -57,6 +61,8 @@ In order to maintain consistency and readability throughout the code, we ask tha
 * Make changes on less than five files per single pull request - there is rarely a good reason to have more than five files changed on one pull request, as this dramatically increases the review time required to land (commit) any of those pull requests.
 * Style that is too different from main branch will be ''adapted'' by the developers side.
 * Do not touch anything inside `thirdparty/` and `extra/` folders.
+
+---
 
 By submitting code contributions to the sqlmap developers, to the mailing lists, or via Git pull request, checking them into the sqlmap source code repository, it is understood (unless you specify otherwise) that you are offering the sqlmap project the unlimited, non-exclusive right to reuse, modify, and relicense the code. sqlmap will always be available Open Source, but this is important because the inability to relicense code has caused devastating problems for other Free Software projects (such as KDE and NASM). If you wish to specify special license conditions of your contributions, just say so when you send them.
 

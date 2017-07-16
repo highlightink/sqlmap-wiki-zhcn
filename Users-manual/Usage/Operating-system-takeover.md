@@ -60,7 +60,7 @@ sqlmap 依赖 Metasploit 创建 shellcode，并实现了四种不同的技术在
 
 * 通过 sqlmap 的用户自定义函数 `sys_bineval()` 在数据库**内存中执行 Metasploit shellcode**。MySQL 和 PostgreSQL 支持该技术，通过开关 `--os-pwn` 启用。
 * 通过 sqlmap 的用户自定义函数 `sys_exec()` 向 MySQL 和 PostgreSQL 上传一个 Metasploit **独立 payload 传输器**并执行，对于 Microsoft SQL Server 则是使用 `xp_cmdshell()` 函数，通过开关 `--os-pwn` 启用。
-* 通过进行从数据库服务器到攻击者机器（由 Metasploit `smb_relay` 服务侦听）之间的 UNC 路径请求的 **SMB 反射攻击**（[MS08-068](http://www.microsoft.com/technet/security/Bulletin/MS08-068.mspx)）来执行 Metasploit shellcode。当 sqlmap 运行于具有高权限（`uid=0`）的 Linux/Unix 上，且目标 DBMS 以 Windows 管理员身份运行时支持该技术，通过开关 `--os-smbrelay` 启用。
+* 通过进行从数据库服务器到攻击者机器（由 Metasploit `smb_relay` 服务监听）之间的 UNC 路径请求的 **SMB 反射攻击**（[MS08-068](http://www.microsoft.com/technet/security/Bulletin/MS08-068.mspx)）来执行 Metasploit shellcode。当 sqlmap 运行于具有高权限（`uid=0`）的 Linux/Unix 上，且目标 DBMS 以 Windows 管理员身份运行时支持该技术，通过开关 `--os-smbrelay` 启用。
 * 通过利用 **Microsoft SQL Server 2000 和 2005 的 `sp_replwritetovarbin` 存储过程堆缓冲区溢出**（[MS09-004](http://www.microsoft.com/technet/security/bulletin/ms09-004.mspx)）在数据库内存中执行 Metasploit shellcode。sqlmap 使用自己的 exploit，自动绕过 DEP 内存保护来触发漏洞，但它依赖 Metasploit 生成 shellcode，以便在成功利用时执行，通过开关 `--os-bof` 启用。
 
 相关的技术详情可见于白皮书[通过高级 SQL 注入完全控制操作系统](http://www.slideshare.net/inquis/advanced-sql-injection-to-operating-system-full-control-whitepaper-4633857)和幻灯片[将控制由数据库层面拓展到操作系统](http://www.slideshare.net/inquis/expanding-the-control-over-the-operating-system-from-the-database)。
