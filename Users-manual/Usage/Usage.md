@@ -226,7 +226,7 @@
     --csv-del=CSVDEL    指定输出到 CVS 文件时使用的分隔符（默认为“,”）
     --dump-format=DU..  导出数据的格式（CSV（默认），HTML 或 SQLITE）
     --eta               显示每个结果输出的预计到达时间
-    --flush-session     刷新当前目标的会话文件
+    --flush-session     清空当前目标的会话文件
     --forms             解析并测试目标 URL 的表单
     --fresh-queries     忽略存储在会话文件中的查询结果
     --hex               获取数据时调用 DBMS 的 hex 函数
