@@ -41,65 +41,58 @@ sqlmap 是一款开源渗透测试工具，它能自动检测并利用 SQL 注�
 * 如果你正提出功能增强请求，请列出你请求该功能的理由。*为什么这个功能会很有用？*
 * 如果你不确定某些情况是否为 bug，或者想在发出功能增强请求之前讨论某个潜在的新功能，那么[邮件列表](https://lists.sourceforge.net/lists/listinfo/sqlmap-users)会是一个很好的地方。
 
-## 我能偶尔参与开发吗？
+## 我能时常参与开发吗？
 
-非常感谢所有的代码贡献。
-All code contributions are greatly appreciated. First off, clone the [Git 仓库](https://github.com/sqlmapproject/sqlmap), read the [用户手册](https://github.com/sqlmapproject/sqlmap/wiki) carefully, go through the code yourself and [给我们发邮件](mailto:dev@sqlmap.org) if you are having a hard time grasping its structure and meaning.
+非常感谢所有的代码贡献。首先，克隆 [Git 仓库](https://github.com/sqlmapproject/sqlmap)，并仔细地阅读[用户手册](https://github.com/sqlmapproject/sqlmap/wiki)，尝试自己阅读源码，如果你在把握 sqlmap 的架构和意义时出现困难，请[给我们发邮件](mailto:dev@sqlmap.org)。我们为不充分的代码注释感到抱歉——你可以通读它并[改进它](https://github.com/sqlmapproject/sqlmap/issues/37)。
 
+我们首选的提交补丁方法是通过 Git [pull request](https://help.github.com/articles/using-pull-requests)。许多[人](https://raw.github.com/sqlmapproject/sqlmap/master/doc/THANKS.md)以不同的方式为 sqlmap 开发做出了贡献。**你**可以是下一个！
 
-We apologize for not commenting the code enough - you could take a chance to read it through and [改进它](https://github.com/sqlmapproject/sqlmap/issues/37).
+为了保持所有代码的一致性和可读性，我们希望你遵守以下说明：
 
-Our preferred method of patch submission is via a Git [pull request](https://help.github.com/articles/using-pull-requests). Many [people](https://raw.github.com/sqlmapproject/sqlmap/master/doc/THANKS.md) have contributed in different ways to the sqlmap development. **You** can be the next!
+* 每个补丁有一个逻辑修改。
+* 尽可能使代码保持每行不超过 76 列。
+* 避免使用制表符，使用四个空格代替。
+* 在你花时间在一个重大补丁之前，值得在[邮件列表](https://lists.sourceforge.net/lists/listinfo/sqlmap-users)中或者私下发送[邮件](mailto:dev@sqlmap.org)讨论它。
+* 不要在一次 pull request 中改变多个文件的代码风格，我们可以在进行任何重大修改之前[讨论](mailto:dev@sqlmap.org)，但请注意，不被 [PEP 8](http://www.python.org/dev/peps/pep-0008/) 强烈建议的个人偏好很可能会被拒绝。
+* 在每次 pull request 中对少于五个文件进行更改——很少有好的理由在一次 pull request 中修改五个以上的文件，因为这大大增加了落实（提交）这些 pull requests 所需的审阅时间。
+* 与 master 分支相差太多的风格将被开发者进行适当“调整”。
+* 不要对 `thirdparty/` 和 `extra/` 目录中的任何内容进行修改。
 
-In order to maintain consistency and readability throughout the code, we ask that you adhere to the following instructions:
+通过向 sqlmap 开发人员、邮件列表或通过 Git pull request 贡献代码，将它们收入sqlmap 源代码仓库，你需要了解（除非另有说明）的是这代表你提供给了 sqlmap 项目无限制、非独占的权利来对它进行重用、修改和再次授权。虽然 sqlmap 会一直保持开源，但这很重要，因为无法重新授权代码已经为其他自由软件项目（如 KDE 和 NASM）带来了毁灭性的问题。如果你想为你的贡献指定特殊的许可条件，请在发送时说明。
 
-* Each patch should make one logical change.
-* Wrap code to 76 columns when possible.
-* Avoid tabbing, use four blank spaces instead.
-* Before you put time into a non-trivial patch, it is worth discussing it on the [mailing list](https://lists.sourceforge.net/lists/listinfo/sqlmap-users) or privately by [email](mailto:dev@sqlmap.org).
-* Do not change style on numerous files in one single pull request, we can [discuss](mailto:dev@sqlmap.org) about those before doing any major restyling, but be sure that personal preferences not having a strong support in [PEP 8](http://www.python.org/dev/peps/pep-0008/) will likely to be rejected.
-* Make changes on less than five files per single pull request - there is rarely a good reason to have more than five files changed on one pull request, as this dramatically increases the review time required to land (commit) any of those pull requests.
-* Style that is too different from main branch will be ''adapted'' by the developers side.
-* Do not touch anything inside `thirdparty/` and `extra/` folders.
+## 我可以参与到长期的开发活动中吗？
 
----
+我们一直在寻求能够编写高质量 Python 代码、想要做安全研究，懂 Web 应用安全、数据库访问和接管、软件重构并且积极想加入开发团队的人。
 
-By submitting code contributions to the sqlmap developers, to the mailing lists, or via Git pull request, checking them into the sqlmap source code repository, it is understood (unless you specify otherwise) that you are offering the sqlmap project the unlimited, non-exclusive right to reuse, modify, and relicense the code. sqlmap will always be available Open Source, but this is important because the inability to relicense code has caused devastating problems for other Free Software projects (such as KDE and NASM). If you wish to specify special license conditions of your contributions, just say so when you send them.
+如果你对此感兴趣，请向我们发起 [pull requests](https://help.github.com/articles/using-pull-requests)——我们对主仓库的推送权限保持开放[讨论](mailto:dev@sqlmap.org)，如果你能证明自己的专业性、积极性和编写合格 Python 代码的能力。
 
-## Can I actively contribute in the long-term development?
+## 我该如何支持、感谢项目的开发活动？
 
-We are constantly seeking for people who can write some clean Python code, are up to do security research, know about web application security, database assessment and takeover, software refactoring and are motivated to join the development team.
+sqlmap 是由一个计算机安全爱好者组成的小团队投入大量时间与热情凝结而成的。如果你欣赏我们的工作，并且希望 sqlmap 能够持续改进，可以考虑通过 [PayPal](https://www.paypal.com) 向 `donations@sqlmap.org` 发起一次捐赠。
 
-If this sounds interesting to you, send us your [pull requests](https://help.github.com/articles/using-pull-requests) - we are open to [discuss](mailto:dev@sqlmap.org) granting of push access to the main repository if you prove professionalism, motivation and ability to write proper Python code.
+## 我该如何跟进开发活动？
 
-## How can I support the development and show my appreciation?
+随着开发时间的推移，我们倾向于维护我们的 Twitter 主页，[@sqlmap](https://twitter.com/sqlmap)。我们会比[邮件列表](http://news.gmane.org/gmane.comp.security.sqlmap)更频繁地更新它。因此，如果你希望近距离了解开发活动，你可以：
 
-sqlmap is the result of numerous hours of passionated work from a small team of computer security enthusiasts. If you appreciated our work and you want to see sqlmap kept being developed, please consider making a [donation](https://www.paypal.com/uk/cgi-bin/webscr?cmd=_send-money&nav=1) to our efforts via [PayPal](https://www.paypal.com) to `donations@sqlmap.org`.
+* 在 GitHub [查看](https://github.com/sqlmapproject/sqlmap/toggle_watch)（译者注：链接已失效）本项目。
+* 使用你的 Feed 阅读器订阅 [Atom feed](https://github.com/sqlmapproject/sqlmap/commits/master.atom)。
+* 在 Twitter 关注我们，[@sqlmap](https://twitter.com/sqlmap)。
+* 在 YouTube 观看演示：[#1](http://www.youtube.com/user/inquisb/videos) 和 [#2](http://www.youtube.com/user/stamparm/videos)。
+* 订阅[邮件列表](http://news.gmane.org/gmane.comp.security.sqlmap)。
+ * 你也可以订阅 [RSS feed](http://rss.gmane.org/messages/complete/gmane.comp.security.sqlmap)。
+ * 还可以浏览[文章归档](http://news.gmane.org/gmane.comp.security.sqlmap) online。
 
-## How can I follow closely the development?
+## 你们会支持其他数据库管理系统吗？
 
-We tend to keep our Twitter page, [@sqlmap](https://twitter.com/sqlmap), up to date with the development. We certainly update it more often than the [mailing list](http://news.gmane.org/gmane.comp.security.sqlmap).
-Hence, if you are keen on keeping a closer look at the development you can:
+我们已经支持所有主流和一些较小众的数据库。我们已经有计划扩大对其中一些数据库的支持，并且会某个时间点支持 Informix 和 Ingres。
 
-* [Watch](https://github.com/sqlmapproject/sqlmap/toggle_watch) the project on GitHub given you have a GitHub account.
-* Subscribe to the [Atom feed](https://github.com/sqlmapproject/sqlmap/commits/master.atom) in your feed reader of choice.
-* Follow us on Twitter, [@sqlmap](https://twitter.com/sqlmap).
-* Watch demos on YouTube: [#1](http://www.youtube.com/user/inquisb/videos) and [#2](http://www.youtube.com/user/stamparm/videos).
-* Subscribe to the [mailing list](http://news.gmane.org/gmane.comp.security.sqlmap).
- * Alternatively, you can subscribe to the [RSS feed](http://rss.gmane.org/messages/complete/gmane.comp.security.sqlmap).
- * You can also browse the [posts' archive](http://news.gmane.org/gmane.comp.security.sqlmap) online.
+## 你能帮我黑掉一个网站吗？
 
-## Will you support other database management systems?
+**不能**。
 
-We already support the major and some minor databases. We do have plans to extend support for some of them and support also new ones: Informix and Ingres at some point in time.
+## 工具 `xyz` 对目标有用而 sqlmap 不行！
 
-## Can you hack a site for me?
-
-**No**.
-
-## Tool `xyz` works against the target, while sqlmap doesn't!
-
-Please use that other tool.
+请使用其他工具。
 
 ## Which tamper script to use to bypass a (WAF/IDS/IPS) protection?
 
