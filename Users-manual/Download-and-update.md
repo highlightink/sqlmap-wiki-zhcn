@@ -1,6 +1,6 @@
 # 下载更新
 
-下载最新版本的 tar 源码包点击[这里](https://github.com/sqlmapproject/sqlmap/tarball/master)或者最新版本的 zip 源码包点击[这里](https://github.com/sqlmapproject/sqlmap/zipball/master)。
+点击[这里](https://github.com/sqlmapproject/sqlmap/tarball/master)下载最新版本的 tar 源码包，或者点击[这里](https://github.com/sqlmapproject/sqlmap/zipball/master)下载最新版本的 zip 源码包。
 
 更好的方式是，直接使用 Git 克隆 sqlmap 仓库。[Git](https://github.com/sqlmapproject/sqlmap)：
 

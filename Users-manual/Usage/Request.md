@@ -259,11 +259,11 @@ $ python sqlmap.py -l burp.log --scope="(www)?\.target\.(com|net|org)"
 
 根据参数的位置（例如：GET），其值可能会被默认进行 URL 编码。在某些情况下，后端 Web 服务器不遵循 RFC 标准，并要求以原始非编码形式发送参数值。在这种情况下可以使用 `--skip-urlencode`。
 
-### 绕过反-CSRF 防护
+### 绕过反 CSRF 防护
 
 选项：`--csrf-token` 和 `--csrf-url`
 
-许多站点有使用 token 的反-CSRF 防护，在每个页面的响应随机设置隐藏字段值。sqlmap 将自动尝试识别并绕过这种防护，同时支持 `--csrf-token` 和 `--csrf-url` 等选项用来做进一步调整。选项 `--csrf-token` 用于设置包含随机 token 的隐藏字段的名称。这在网站对这些字段使用非标准名称的情况下是非常有用的。选项 `--csrf-url` 用于从任意有效的 URL 地址获取 token 值。这在目标网址在初始地不包含必需的 token 值，而需要从其他地方提取时是非常有用的。
+许多站点有使用 token 的反 CSRF 防护，在每个页面的响应随机设置隐藏字段值。sqlmap 将自动尝试识别并绕过这种防护，同时支持 `--csrf-token` 和 `--csrf-url` 等选项用来做进一步调整。选项 `--csrf-token` 用于设置包含随机 token 的隐藏字段的名称。这在网站对这些字段使用非标准名称的情况下是非常有用的。选项 `--csrf-url` 用于从任意有效的 URL 地址获取 token 值。这在目标网址在初始地不包含必需的 token 值，而需要从其他地方提取时是非常有用的。
 
 ### 强制使用 SSL/HTTPS
 

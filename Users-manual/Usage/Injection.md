@@ -63,7 +63,7 @@ $ python sqlmap.py -u "http://targeturl" --cookie="param1=value1*;param2=value2"
 
 如果你同时使用 `--dbms` 和 `--fingerprint`，sqlmap 将只对指定的 DBMS 执行详细的指纹收集，更详细的信息请阅读下文。
 
-注意，此选项**不**是强制性的，强烈建议**仅当你绝对确定**后端 DBMS 时使用它。如果你不知道，就让 sqlmap 自动为你收集指纹信息。
+注意，此选项**不**是强制性的，强烈建议**仅当你绝对确定**后端 DBMS 时使用它。如果你不知道，就让 sqlmap 自动为你识别指纹信息。
 
 ### 指定 DBMS 操作系统名称
 

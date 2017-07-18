@@ -8,8 +8,8 @@
 
 针对单一数据库实例运行 sqlmap 工具。这个选项可设置为下面格式的连接字符串：
 
-* `DBMS://USER:PASSWORD@DBMS_IP:DBMS_PORT/DATABASE_NAME` (MySQL, Oracle, Microsoft SQL Server, PostgreSQL, etc.)
-* `DBMS://DATABASE_FILEPATH` (SQLite, Microsoft Access, Firebird, etc.)
+* `DBMS://USER:PASSWORD@DBMS_IP:DBMS_PORT/DATABASE_NAME`（MySQL，Oracle，Microsoft SQL Server，PostgreSQL 等。)
+* `DBMS://DATABASE_FILEPATH`（SQLite，Microsoft Access，Firebird 等。）
 
 例如：
 

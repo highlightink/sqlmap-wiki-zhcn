@@ -79,8 +79,8 @@ sqlmap 是由一个计算机安全爱好者组成的小团队投入大量时间�
 * 在 Twitter 关注我们，[@sqlmap](https://twitter.com/sqlmap)。
 * 在 YouTube 观看演示：[#1](http://www.youtube.com/user/inquisb/videos) 和 [#2](http://www.youtube.com/user/stamparm/videos)。
 * 订阅[邮件列表](http://news.gmane.org/gmane.comp.security.sqlmap)。
- * 你也可以订阅 [RSS feed](http://rss.gmane.org/messages/complete/gmane.comp.security.sqlmap)。
- * 还可以浏览[文章归档](http://news.gmane.org/gmane.comp.security.sqlmap) online。
+ * 也可以订阅 [RSS feed](http://rss.gmane.org/messages/complete/gmane.comp.security.sqlmap)。
+ * 还可以在线浏览[文章归档](http://news.gmane.org/gmane.comp.security.sqlmap)。
 
 ## 你们会支持其他数据库管理系统吗？
 
@@ -94,50 +94,54 @@ sqlmap 是由一个计算机安全爱好者组成的小团队投入大量时间�
 
 请使用其他工具。
 
-## Which tamper script to use to bypass a (WAF/IDS/IPS) protection?
+## 哪个篡改脚本可以用来绕过（WAF/IDS/IPS）保护？
 
-Don't use tamper scripts if you are not able to manually assess the target. Tamper scripts are used only in cases when the penetration tester knows how to bypass the protection in the first place (most probably after hours of request/response inspection). Blind usage and combination of numerous tamper scripts without the comprehension is always a bad idea.
+如果你无法手动评估目标，请勿使用篡改脚本。篡改脚本仅在渗透测试人员首先（最可能是在几个小时的请求/响应检查之后）了解如何绕过防护的情况下使用。在不充分理解的情况下盲目使用和组合多种篡改脚本总是一个坏主意。
 
-## My site was attacked with sqlmap. Stop developing it you *dumb f.cks*!?
+## 我的网站被 sqlmap 攻击了。别再开发它了*王八蛋*！？
 
-We get occasional rage bursts from unknown people. It should be emphasized that **with each sqlmap run end users are obligated** with the following prelude message:
+我们偶尔会收到不明人士的愤怒。应该强调的是，以下提示消息，**每次运行 sqlmap 的终端用户都负有义务：
 
     [!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent
     is illegal. It is the end user's responsibility to obey all applicable local, state and
     federal laws. Developers assume no liability and are not responsible for any misuse or
     damage caused by this program
 
-## When sqlmap will switch to Python 3?
+## sqlmap 什么时候会切换到 Python 3？
 
-Currently there is no pressure on Python projects to switch to the new version of Python interpreter, as the process of switching, especially on larger projects can be cumbersome (due to the few backward incompatibilities). The switch will take place eventually, but currently it is a very [low priority task](https://github.com/sqlmapproject/sqlmap/issues/93).
+目前，sqlmap 项目没有任何切换到新版本 Python 解释器的压力，因为转换过程尤其是较大的项目可能很麻烦（由于向后的不兼容性）。Python 版本的切换是早晚的事情，但目前它是一个[优先级非常低](https://github.com/sqlmapproject/sqlmap/issues/93)的任务。
 
-## How can I shorten the payloads injected by sqlmap?
+## 如何缩短 sqlmap 注入的 payloads？
 
-You can provide sqlmap with the following switch:
+你可以使用 sqlmap 的以下开关：
 
-    --no-cast           Turn off payload casting mechanism
+    --no-cast           关闭 payload 构造机制
 
-However, on the other hand you might lose the benefits provided by this switch in the default configuration.
+然而另一方面，你可能会失去此开关在默认配置中提供的好处。
 
-## What does `WARNING unknown charset '...'` mean?
+## `WARNING unknown charset '...'` 是什么意思？
 
-sqlmap needs to properly decode page content to be able to properly detect and deal with internationalized characters. In some cases web developers are doing mistakes when declaring used web page charset (e.g. `iso_8859` instead of standardized name `iso-8859`), which can cause problems. As a failsafe mechanism we have incorporated heuristic detection engine [chardet](http://chardet.feedparser.org/), so in most cases sqlmap will deal with this kind of problems automatically.
-Nevertheless, you are strongly advised to report us back those typographic *mistakes* so we could handle them manually inside the code.
+sqlmap 需要正确解码页面内容才能正确检测和处理国际化字符。在某些情况下，Web 开发人员在声明网页字符编码时犯错（例如：使用了 `iso_8859` 而不是标准化名称 `iso-8859`），这会导致问题的出现。作为一个故障安全机制，我们已经引入了启发式检测引擎 [chardet](http://chardet.feedparser.org/)，所以在大多数情况下，sqlmap 会自动处理这种问题。
 
-Question(s):
+不过，强烈建议你向我们报告这些打印*错误*，以便我们可以在代码中手动处理这些错误。
+
+问题：
 [#1](http://thread.gmane.org/gmane.comp.security.sqlmap/737)
 [#2](http://thread.gmane.org/gmane.comp.security.sqlmap/1232)
 [#3](http://thread.gmane.org/gmane.comp.security.sqlmap/1239)
 
-## How to use sqlmap with `mod_rewrite` enabled?
+## 如何使用 sqlmap 并开启 `mod_rewrite` ？
 
-Append an asterisk, `*`, to the place where sqlmap should check for injections in URI itself. For example, `./sqlmap.py -u "http://target.tld/id1/1*/id2/2"`, sqlmap will inject its payloads at that place marked with `*` character.
-This feature also applies to POST data. Multiple injection points are supported and will be assessed sequentially.
+在 sqlmap 应该检查有无注入点的 URI 的对应位置加入星号，即 `*`。例如，对于 `./sqlmap.py -u "http://target.tld/id1/1*/id2/2"`，sqlmap 会在标注了 `*` 号的地方尝试注入 payloads。
 
-Question(s):
+此功能也适用于 POST 数据。支持多个注入点，并会依次对这些注入点进行评估。
+
+选项：
 [#1](http://thread.gmane.org/gmane.comp.security.sqlmap/731)
 [#2](http://thread.gmane.org/gmane.comp.security.sqlmap/728)
 [#3](http://thread.gmane.org/gmane.comp.security.sqlmap/1258)
+
+---
 
 ## Why is sqlmap not able to get password hashes in some cases?
 
