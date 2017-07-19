@@ -1,6 +1,6 @@
 # thirdparty/ 目录中的第三方库
 
-| Library | License | Notes | Switch |
+| 库 | 许可证 | 备注 | 开关 |
 | ------------ | ----------- | ----------- | ----------- |
 | [thirdparty/ansistrm/](http://plumberjack.blogspot.co.uk/2010/12/colorizing-logging-output-in-terminals.html) | BSD | 用于着色日志消息 | - |
 | [thirdparty/beautifulsoup/](http://www.crummy.com/software/BeautifulSoup/) | BSD | 用于爬取目标站点 | --crawl |
@@ -26,13 +26,13 @@
 
 这些列出的为不是完全由 sqlmap 开发人员开发的库和工具。
 
-| Library / tool | License | Notes | Switch |
+| 库 / 工具 | 许可证 | 备注 | 开关 |
 | ------------ | ----------- | ----------- | ----------- |
 | [extra/icmpsh/](https://github.com/inquisb/icmpsh) | LGPL | 用于通过 ICMP 接管操作系统的功能 | --os-pwn |
 
 # 未打包的依赖
 
-| Library / tool | License | Notes | Switch |
+| 库 / 工具 | 许可证 | 备注 | 开关 |
 | ------------ | ----------- | ----------- | ----------- |
 | [Metasploit Framework](http://www.metasploit.com) | BSD | 用于操作系统接管功能 | --os-pwn, --os-bof, --os-smbshell |
 | [PyReadline](http://ipython.scipy.org/moin/PyReadline/Intro) | BSD | 用于 TAB 自动补全和历史记录 | --os-shell and --sql-shell |
