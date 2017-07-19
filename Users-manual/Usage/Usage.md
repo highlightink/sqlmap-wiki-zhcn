@@ -167,7 +167,7 @@
     --stop=LIMITSTOP    指定获取返回查询结果的结束行数
     --first=FIRSTCHAR   指定获取返回查询结果的开始字符位
     --last=LASTCHAR     指定获取返回查询结果的结束字符位
-    --sql-query=QUERY   设置要执行的 SQL 语句
+    --sql-query=QUERY   指定要执行的 SQL 语句
     --sql-shell         调出交互式 SQL shell
     --sql-file=SQLFILE  执行文件中的 SQL 语句
 

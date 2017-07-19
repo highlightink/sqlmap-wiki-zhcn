@@ -4,9 +4,9 @@
 
 sqlmap 是一款开源渗透测试工具，它能自动检测并利用 SQL 注入漏洞和接管数据库服务器。它具有强大的检测引擎、许多适用于最终渗透测试阶段的特色功能以及范围广泛的开关，涵盖了数据库指纹识别、从数据库获取数据、访问底层文件系统以及通过带内连接在操作系统上执行命令。
 
-## 我要如何运行 sqlmap?
+## 如何运行 sqlmap?
 
-如果是在 UNIX/Linux 上请在终端中输入以下命令：
+如果是在 UNIX/Linux 上，请在终端中输入以下命令：
 
     python sqlmap.py -h
 
@@ -14,7 +14,7 @@ sqlmap 是一款开源渗透测试工具，它能自动检测并利用 SQL 注�
 
     python sqlmap.py -hh
 
-如果是在 Windows 系统上请在终端中输入以下命令：
+如果是在 Windows 系统上，请在终端中输入以下命令：
 
     C:\Python27\python.exe sqlmap.py -h
 
@@ -28,7 +28,7 @@ sqlmap 是一款开源渗透测试工具，它能自动检测并利用 SQL 注�
 
 如果你希望在专有软件中嵌入 sqlmap 技术，请遵照我们使用的另一个许可证（联系 [sales@sqlmap.org](sales@sqlmap.org)）。
 
-## 我如何报告 bugs 或请求新特性？
+## 如何报告 bugs 或请求新特性？
 
 **欢迎报告 Bug**！
 请在 [issue tracker](https://github.com/sqlmapproject/sqlmap/issues) 报告所有 bugs，或者发送到[邮件列表mailing list](https://lists.sourceforge.net/lists/listinfo/sqlmap-users)。
@@ -141,77 +141,72 @@ sqlmap 需要正确解码页面内容才能正确检测和处理国际化字符�
 [#2](http://thread.gmane.org/gmane.comp.security.sqlmap/728)
 [#3](http://thread.gmane.org/gmane.comp.security.sqlmap/1258)
 
----
+## 为什么 sqlmap 有时无法获取密码哈希？
 
-## Why is sqlmap not able to get password hashes in some cases?
+会话用户很有可能没有足够的权限来对包含密码哈希的系统表进行查询。
 
-The session user most probably does not have enough permissions for querying on a system table containing password hashes.
-
-Question(s):
+问题：
 [#1](http://thread.gmane.org/gmane.comp.security.sqlmap/714)
 
-## What does switch `--text-only` do?
+## 开关 `--text-only` 是干嘛用的？
 
-Switch `--text-only` is used for removing non-textual data (tags, javascripts, styles, etc.) from the retrieved page content to further improve SQL injection detection capabilities.
+开关 `--text-only` 用来移除所获取页面中的非文本数据（标签、JavaScript 代码，样式等），以进一步提高 SQL 注入检测功能。
 
-Question(s):
+问题：
 [#1](http://thread.gmane.org/gmane.comp.security.sqlmap/699)
 
-## I am getting `[CRITICAL] connection timed` while I am able to browse the site normally?
+## 我收到了 `[CRITICAL] connection timed` 的提示，但是我能正常地浏览那个网站？
 
-There are few IDSes that filter out all sqlmap requests based on its default `User-Agent` HTTP header (e.g. `User-agent: sqlmap/1.0-dev`). To prevent this
-kind of situations you are advised to use switch `--random-agent`.
-If you are getting those kind of messages for all targets then you most probably need to properly set up your proxy settings (switches `--proxy`
-and/or `--ignore-proxy`).
+有些 IDSes 根据 sqlmap 的默认 `User-Agent` HTTP 头部（例如：`User-agent: sqlmap/1.0-dev`）将 sqlmap 发出的所有请求过滤掉。为了避免这种情况，建议你使用开关 `--random-agent`。
 
-Question(s):
+如果你对所有目标都收到了这类提示消息，那你很可能需要重新设置下你的代理（开关：`--proxy` 和/或 `--ignore-proxy`）。
+
+问题：
 [#1](http://thread.gmane.org/gmane.comp.security.sqlmap/1241)
 
-## Is it possible to use `INSERT/UPDATE` SQL commands via `--sql-query`, `--sql-shell` and `--sql-file`?
+## 可以通过 `--sql-query`，`--sql-shell` 和 `--sql-file` 使用 SQL 的 `INSERT/UPDATE` 命令吗？
 
-It is possible to run those statements as well as any other statement on the target database given that stacked queries SQL injection is supported by the vulnerable application or you are connecting directly to the database with `-d` switch and the session user has such privileges (or a privilege escalation vector has been injected upfront).
+当目标应用程序存在堆查询 SQL 注入漏洞，或者使用 `-d` 开关直接连接到数据库，并且会话用户具有相应的权限（或提权工具已经被预先注入），便可以在目标数据库上运行这些语句以及任何其他语句。
 
-Question(s):
+问题：
 [#1](http://thread.gmane.org/gmane.comp.security.sqlmap/1237)
 
-## sqlmap is not able to detect/exploit injection while other commercial tools are?
+## 为什么 sqlmap 不能检测/利用注入而其他商业工具能？
 
-In most of those kind of cases blatant error message detection is used by commercial tools leading to *false positive* claims. You have to be aware that a
-DBMS error message does not mean that the affected web application is vulnerable to SQL injection attacks. sqlmap goes several steps further and never claims
-an injection point without making through tests if it can be exploited on the first place.
+在大多数这些情况中，商业工具检测使用公然的错误信息导致*假阳性*结果。你必须注意的是，DBMS 错误消息并不意味着受影响的 Web 应用程序容易受到 SQL 注入攻击。sqlmap 会进一步执行几个步骤，并且从来不会在没有通过测试时通报一个注入点，如果它在一开始就可以被利用。
 
-Question(s):
+问题：
 [#1](http://thread.gmane.org/gmane.comp.security.sqlmap/970)
 
-## How can I dump only certain entries of a table based on my condition?
+## 如何基于我的条件导出数据表的特定条目？
 
-sqlmap is very granular in terms of dumping entries from a table. The relevant switches are:
+sqlmap 在从表中导出数据条目方面非常细致。相关开关为：
 
-    --dump              Dump DBMS database table entries
-    -D DB               DBMS database to enumerate
-    -T TBL              DBMS database table to enumerate
-    -C COL              DBMS database table column to enumerate
-    --start=LIMITSTART  First query output entry to retrieve
-    --stop=LIMITSTOP    Last query output entry to retrieve
-    --first=FIRSTCHAR   First query output word character to retrieve
-    --last=LASTCHAR     Last query output word character to retrieve
+    --dump              导出 DBMS 数据库表项
+    -D DB               指定要枚举的 DBMS 数据库
+    -T TBL              指定要枚举的 DBMS 数据表
+    -C COL              指定要枚举的 DBMS 数据列
+    --start=LIMITSTART  指定获取返回查询结果的开始行数
+    --stop=LIMITSTOP    指定获取返回查询结果的结束行数
+    --first=FIRSTCHAR   指定获取返回查询结果的开始字符位
+    --last=LASTCHAR     指定获取返回查询结果的结束字符位
 
-However, in some cases you might want to dump all entries given a custom `WHERE` condition. For such cases, we recommend using one of the following switches:
+但是，在某些情况下，你可能需要使用自定义的 `WHERE` 条件语句来导出所有数据条目。对于这种情况，我们建议你使用以下的开关：
 
-    --sql-query=QUERY   SQL statement to be executed
-    --sql-shell         Prompt for an interactive SQL shell
-    --sql-file=SQLFILE  Execute SQL statements from given file(s)
+    --sql-query=QUERY   指定要执行的 SQL 语句
+    --sql-shell         调出交互式 SQL shell
+    --sql-file=SQLFILE  执行文件中的 SQL 语句
 
-For example:
+例如：
 
     --sql-query "SELECT user, password FROM users WHERE privilege='admin'"
 
-Question(s):
+问题：
 [#1](http://thread.gmane.org/gmane.comp.security.sqlmap/2309)
 
-## Where can I find old versions of sqlmap?
+## 哪里可以找到旧版本的 sqlmap？
 
-From the [Tags](https://github.com/sqlmapproject/sqlmap/tags) page on GitHub.
+在 GitHub 的[标签](https://github.com/sqlmapproject/sqlmap/tags)页面中。
 
-Question(s):
+问题：
 [#1](http://thread.gmane.org/gmane.comp.security.sqlmap/2290)
