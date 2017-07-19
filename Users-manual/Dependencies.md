@@ -6,15 +6,15 @@ sqlmap 的部分漏洞利用功能依赖于 [Metasploit 框架](http://metasploi
 
 如果你想要绕过 Web 应用，直接连接到数据库服务器（开启 `-d` 选项），你需要根据攻击目标中不同数据库管理系统安装不同的 Python 连接依赖包：
 
-* DB2: [python ibm-db](https://code.google.com/p/ibm-db/)
-* Firebird: [python-kinterbasdb](http://kinterbasdb.sourceforge.net/)
-* Microsoft Access: [python-pyodbc](https://code.google.com/p/pyodbc/)
-* Microsoft SQL Server: [python-pymssql](http://code.google.com/p/pymssql/)
-* MySQL: [python pymysql](https://github.com/PyMySQL/PyMySQL/)
-* Oracle: [python cx_Oracle](http://cx-oracle.sourceforge.net/)
-* PostgreSQL: [python-psycopg2](http://initd.org/psycopg/)
-* SQLite: [python-pysqlite2](https://code.google.com/p/pysqlite/)
-* Sybase: [python-pymssql](http://code.google.com/p/pymssql/)
+* DB2：[python ibm-db](https://code.google.com/p/ibm-db/)
+* Firebird：[python-kinterbasdb](http://kinterbasdb.sourceforge.net/)
+* Microsoft Access：[python-pyodbc](https://code.google.com/p/pyodbc/)
+* Microsoft SQL Server：[python-pymssql](http://code.google.com/p/pymssql/)
+* MySQL：[python pymysql](https://github.com/PyMySQL/PyMySQL/)
+* Oracle：[python cx_Oracle](http://cx-oracle.sourceforge.net/)
+* PostgreSQL：[python-psycopg2](http://initd.org/psycopg/)
+* SQLite：[python-pysqlite2](https://code.google.com/p/pysqlite/)
+* Sybase：[python-pymssql](http://code.google.com/p/pymssql/)
 
 如果你想要攻击部署了 NTLM 验证的 Web 应用，那么你需要安装 [python-ntlm](http://code.google.com/p/python-ntlm/) 依赖包。
  

@@ -1,4 +1,4 @@
-## API (REST-JSON)
+## API（REST-JSON）
 
 sqlmap 可以通过 REST-JSON API 运行，即使用 JSON 格式的 REST（REpresentational State Transfer 的缩写）风格的 API 来进行服务器和客户端实例之间的通信。直白地讲，服务器使用 sqlmap 进行扫描，而客户端设置 sqlmap 选项/开关并将结果拉取回来。用于运行 API 的主程序文件是 `sqlmapapi.py`，而客户端可以在任意用户程序中进行实现。
 
@@ -19,17 +19,17 @@ Options:
 
 客户端命令行界面可用的命令有：
 
-* `help` - 显示可用命令列表以及基本的帮助信息
-* `new ARGS` - 使用提供的参数开始一次新的扫描任务（例如：`new -u "http://testphp.vulnweb.com/artists.php?artist=1"`）
-* `use TASKID` - 切换当前上下文到不同任务（例如：`use c04d8c5c7582efb4`）
-* `data` - 获取并显示当前任务的数据
+* `help`——显示可用命令列表以及基本的帮助信息
+* `new ARGS`——使用提供的参数开始一次新的扫描任务（例如：`new -u "http://testphp.vulnweb.com/artists.php?artist=1"`）
+* `use TASKID`——切换当前上下文到不同任务（例如：`use c04d8c5c7582efb4`）
+* `data`——获取并显示当前任务的数据
 * `log`- 获取并显示当前任务日志
-* `status` - 获取并显示当前任务状态
-* `stop` - 停止当前任务
-* `kill` - 杀死当前任务
-* `list` - 显示所有任务（当前会话）
-* `flush` - 清空所有任务（例如：deletes）
-* `exit` - 退出客户端界面
+* `status`——获取并显示当前任务状态
+* `stop`——停止当前任务
+* `kill`——杀死当前任务
+* `list`——显示所有任务（当前会话）
+* `flush`——清空所有任务（例如：deletes）
+* `exit`——退出客户端界面
 
 运行服务器的示例：
 
