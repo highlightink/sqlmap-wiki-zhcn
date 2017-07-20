@@ -35,7 +35,7 @@
 
 ## 2010
 
-* **十二月**, [Bernardo and Miroslav](http://www.sqlmap.org/#developers) 为了在 2011 年第一季度 发布 sqlmap **0.9** 版本，为 sqlmap 增强了很多新的特性。
+* **十二月**，[Bernardo and Miroslav](http://www.sqlmap.org/#developers) 为了在 2011 年第一季度 发布 sqlmap **0.9** 版本，为 sqlmap 增强了很多新的特性。
 * **六月 3**，在 Athens（Greece）举行的 AthCon 2010 大会上，Bernardo [带来](http://www.slideshare.net/inquis/ath-con-2010bernardodamelegotdbownnet)标题为**入侵数据库？掌控整个网络！**的演讲。
 * **三月 14**，[Bernardo 和 Miroslav](http://www.sqlmap.org/#developers) 发布 sqlmap **0.8** 稳定版本，增加了很多新特性。众多新特性中，包括了枚举数据库数据表，导出用户指定的数据表等功能，同时版本更加稳定并增强了其渗透功能。同时更新了对 Metasploit 3.3.3 的支持，及其他的功能添加和 bug 修复。 
 * **三月**，[发布](http://www.youtube.com/inquisb)了 sqlmap 的示例视频。

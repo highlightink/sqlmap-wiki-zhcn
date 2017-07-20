@@ -31,7 +31,7 @@ banner:    'Oracle Database 10g Enterprise Edition Release 10.2.0.1.0 - Prod'
 
 开关：`--current-user`
 
-使用此开关, 可以从 Web 应用程序中获取到当前正在执行相关数据库查询操作的 DBMS 用户。
+使用此开关，可以从 Web 应用程序中获取到当前正在执行相关数据库查询操作的 DBMS 用户。
 
 ### 当前数据库
 

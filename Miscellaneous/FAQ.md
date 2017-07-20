@@ -31,7 +31,7 @@ sqlmap 是一款开源渗透测试工具，它能自动检测并利用 SQL 注�
 ## 如何报告 bugs 或请求新特性？
 
 **欢迎报告 Bug**！
-请在 [issue tracker](https://github.com/sqlmapproject/sqlmap/issues) 报告所有 bugs，或者发送到[邮件列表mailing list](https://lists.sourceforge.net/lists/listinfo/sqlmap-users)。
+请在 [issue tracker](https://github.com/sqlmapproject/sqlmap/issues) 报告所有 bugs，或者发送到[邮件列表](https://lists.sourceforge.net/lists/listinfo/sqlmap-users)。
 
 指引：
 
@@ -100,7 +100,7 @@ sqlmap 是由一个计算机安全爱好者组成的小团队投入大量时间�
 
 ## 我的网站被 sqlmap 攻击了。别再开发它了*王八蛋*！？
 
-我们偶尔会收到不明人士的愤怒。应该强调的是，以下提示消息，**每次运行 sqlmap 的终端用户都负有义务：
+我们偶尔会收到不明人士的愤怒。应该强调的是，以下提示消息，**每次运行 sqlmap 的终端用户都负有义务**：
 
     [!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent
     is illegal. It is the end user's responsibility to obey all applicable local, state and
