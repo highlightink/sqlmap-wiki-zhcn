@@ -2,11 +2,11 @@
 
 ## 2017
 
-* **一月 2**，[Bernardo 和 Miroslav](http://www.sqlmap.org/#developers) 发布了 sqlmap **1.1** 稳定版本。
+* **一月 2**，发布稳定版本 [1.1](https://github.com/sqlmapproject/sqlmap/releases/tag/1.1)。
 
 ## 2016
-
-* **二月 27**，[Bernardo 和 Miroslav](http://www.sqlmap.org/#developers) 发布了 sqlmap **1.0** 稳定版本。
+* 前 **2000** 个 [Issue](https://github.com/sqlmapproject/sqlmap/issues?q=is%3Aissue+is%3Aclosed) 被解决。
+* **二月 27**，发布稳定版本 [1.0](https://github.com/sqlmapproject/sqlmap/releases/tag/1.0)。
 
 ## 2015
 
@@ -14,7 +14,7 @@
 
 ## 2014
 
-* 前 1000 个 [Issues](https://github.com/sqlmapproject/sqlmap/issues?q=is%3Aissue+is%3Aclosed) 被解决。
+* 前 **1000** 个 [Issue](https://github.com/sqlmapproject/sqlmap/issues?q=is%3Aissue+is%3Aclosed) 被解决。
 
 ## 2013
 

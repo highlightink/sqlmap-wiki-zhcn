@@ -4,7 +4,7 @@
 
 当前翻译总进度：`100%`
 
-当前 Wiki Git 仓库版本：`2017.02.28`
+当前 Wiki Git 仓库版本：`2017-04-13 16:14:33`，commit ID：`5ec8394dbf7ad3b5cb27a5f0b1f1bece2b0a650b`
 
 ## 什么是 sqlmap？
 

@@ -46,7 +46,7 @@ sqlmap 能自动识别和利用这类型漏洞。将源链接添加到 sqlmap，
 * 识别后端 DBMS 的相关指纹信息
 * 根据用户使用的选项，它还能尽可能采集多的信息，枚举相关数据或是实现整库数据的拉取
 
-网上还有很多深入讲解如何检测、利用和防止 SQL 注入漏洞的[资源](http://delicious.com/inquis/sqlinjection)。推荐你在学习使用 sqlmap 之前阅读这些材料。
+网上还有很多深入讲解如何检测、利用和防止 SQL 注入漏洞的[资源](https://del.icio.us/inquis/sqlinjection)。推荐你在学习使用 sqlmap 之前阅读这些材料。
 
 ## 直接连接数据库系统
 
