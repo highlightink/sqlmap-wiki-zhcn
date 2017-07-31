@@ -176,4 +176,4 @@ meterpreter > exit
 
 默认情况下，MySQL 在 Windows 上以 `SYSTEM` 身份运行，然而 PostgreSQL 在 Windows 和 Linux 上均以低权限用户 `postgres` 运行。Microsoft SQL Server 2000 默认以 `SYSTEM` 身份运行，而 Microsoft SQL 2005 和 2008 大部分情况下以 `NETWORK SERVICE` 身份运行，有时候以 `LOCAL SERVICE` 身份运行。
 
-使用 sqlmap 的 `--priv-esc` 开关，可以通过 Metasploit `getsystem` 命令进行**数据库进程用户提权，该命令使用了包括 [kitrap0d](http://archives.neohapsis.com/archives/fulldisclosure/2010-01/0346.html) 在内的各种技术（[MS10-015](http://www.microsoft.com/technet/security/bulletin/ms10-015.mspx)）。
+使用 sqlmap 的 `--priv-esc` 开关，可以通过 Metasploit `getsystem` 命令进行**数据库进程用户提权**，该命令使用了包括 [kitrap0d](http://archives.neohapsis.com/archives/fulldisclosure/2010-01/0346.html) 在内的各种技术（[MS10-015](http://www.microsoft.com/technet/security/bulletin/ms10-015.mspx)）。
