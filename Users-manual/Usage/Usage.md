@@ -40,14 +40,16 @@
     --auth-type=AUTH..  HTTP 认证方式（Basic，Digest，NTLM 或 PKI）
     --auth-cred=AUTH..  HTTP 认证凭证（username:password）
     --auth-file=AUTH..  HTTP 认证 PEM 证书/私钥文件
-    --ignore-401        忽略 HTTP 401（未授权）错误
+    --ignore-code=IG..  忽略 HTTP 错误码（例如：401）
+	--ignore-proxy      忽略系统默认代理设置
+	--ignore-redirects  忽略重定向尝试
+	--ignore-timeouts   忽略连接超时
     --proxy=PROXY       使用代理连接目标 URL
     --proxy-cred=PRO..  使用代理进行认证（username:password）
     --proxy-file=PRO..  从文件中加载代理列表
-    --ignore-proxy      忽略系统默认代理设置
     --tor               使用 Tor 匿名网络
     --tor-port=TORPORT  设置 Tor 代理端口代替默认端口
-    --tor-type=TORTYPE  设置 Tor 代理方式（HTTP（默认），SOCKS4 或 SOCKS5）
+    --tor-type=TORTYPE  设置 Tor 代理方式（HTTP，SOCKS4 或 SOCKS5（默认））
     --check-tor         检查是否正确使用了 Tor
     --delay=DELAY       设置每个 HTTP 请求的延迟秒数
     --timeout=TIMEOUT   设置连接响应的有效秒数（默认为 30）
@@ -163,8 +165,8 @@
     --exclude-sysdbs    枚举所有数据表时，指定排除特定系统数据库
     --pivot-column=P..  指定主列
     --where=DUMPWHERE   在转储表时使用 WHERE 条件语句
-    --start=LIMITSTART  指定获取返回查询结果的开始行数
-    --stop=LIMITSTOP    指定获取返回查询结果的结束行数
+    --start=LIMITSTART  指定要导出的数据表条目开始行数
+    --stop=LIMITSTOP    指定要导出的数据表条目结束行数
     --first=FIRSTCHAR   指定获取返回查询结果的开始字符位
     --last=LASTCHAR     指定获取返回查询结果的结束字符位
     --sql-query=QUERY   指定要执行的 SQL 语句
@@ -220,15 +222,18 @@
     -t TRAFFICFILE      保存所有 HTTP 流量记录到指定文本文件
     --batch             从不询问用户输入，使用默认配置
     --binary-fields=..  具有二进制值的结果字段（例如："digest"）
-    --charset=CHARSET   强制对获取数据进行字符编码
+    --check-internet    在访问目标之前检查是否正常连接互联网
     --crawl=CRAWLDEPTH  从目标 URL 开始爬取网站
     --crawl-exclude=..  用正则表达式筛选爬取的页面（例如："logout"）
     --csv-del=CSVDEL    指定输出到 CVS 文件时使用的分隔符（默认为“,”）
+    --charset=CHARSET   指定 SQL 盲注字符集（例如："0123456789abcdef"）
     --dump-format=DU..  导出数据的格式（CSV（默认），HTML 或 SQLITE）
+    --encoding=ENCOD..  指定获取数据时使用的字符编码（例如：GBK）
     --eta               显示每个结果输出的预计到达时间
     --flush-session     清空当前目标的会话文件
     --forms             解析并测试目标 URL 的表单
     --fresh-queries     忽略存储在会话文件中的查询结果
+    --har=HARFILE       将所有 HTTP 流量记录到一个 HAR 文件中
     --hex               获取数据时调用 DBMS 的 hex 函数
     --output-dir=OUT..  自定义输出目录路径
     --parse-errors      从响应中解析并显示 DBMS 错误信息
@@ -248,11 +253,13 @@
     --disable-coloring  关闭彩色控制台输出
     --gpage=GOOGLEPAGE  指定页码使用 Google dork 结果
     --identify-waf      针对 WAF/IPS/IDS 保护进行彻底的测试
-    --skip-waf          跳过启发式检测 WAF/IPS/IDS 保护
     --mobile            使用 HTTP User-Agent 模仿智能手机
     --offline           在离线模式下工作（仅使用会话数据）
     --purge-output      安全地删除输出目录的所有内容
+    --skip-waf          跳过启发式检测 WAF/IPS/IDS 保护
     --smart             只有在使用启发式检测时才进行彻底的测试
     --sqlmap-shell      调出交互式 sqlmap shell
+    --tmp-dir=TMPDIR    指定用于存储临时文件的本地目录
+	--web-root=WEBROOT  指定 Web 服务器根目录（例如："/var/www"）
     --wizard            适合初级用户的向导界面
 ```

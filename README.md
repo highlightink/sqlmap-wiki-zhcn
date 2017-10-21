@@ -1,4 +1,4 @@
-# sqlmap-wiki-zhcn（sqlmap wiki 中文版）
+# sqlmap 用户手册中文版
 
 本书包含了 sqlmap 项目的完整 wiki。如无意外，将持续跟进官方英文 wiki。
 
@@ -10,7 +10,7 @@
 git clone https://github.com/sqlmapproject/sqlmap.wiki.git
 ```
 
-当前翻译对应版本：`2017-04-13 16:14:33`，commit ID：`5ec8394dbf7ad3b5cb27a5f0b1f1bece2b0a650b`
+当前翻译对应版本：`2017-09-25 19:58:21`，commit ID：`c274fec524c5f332b3afa3cdf20fa48d26f4d2a3`
 
 ## 什么是 sqlmap？
 
@@ -57,4 +57,3 @@ sqlmap 是一款自动化检测与利用 SQL 注入漏洞的免费开源工具�
 译者：
 - Octobug：[GitHub](https://github.com/Octobug)、[微博](http://weibo.com/qq362499939)
 - Shady：[GitHub](https://github.com/Root-shady)、[微博](http://weibo.com/u/2873357002)
-
