@@ -5,11 +5,11 @@ sqlmap 实现的功能特性包括：
 ## 通用特性
 
 * 完全支持 **MySQL**，**Oracle**，**PostgresSQL**，**Microsoft SQL Server**，**Microsoft Access**，**IBM DB2**，**SQLite**，**Firebird**，**Sybase**，**SAP MaxDB** 和 **HSQLDB** 数据库管理系统。
-* 完全支持五种 SQL 注入技术：**布尔型盲注**，**时间型盲注**，**报错型注入**，**联合查询注入**和**堆查询注入**。
+* 完全支持五种 SQL 注入技术：**布尔型盲注**，**时间型盲注**，**报错型注入**，**UNION 查询注入**和**堆叠查询注入**。
 * 支持通过提供 DBMS 凭证，IP 地址，端口和数据库名而非 SQL 注入**直接连接数据库**。
 * 支持用户提供单个目标 URL，通过 [Burp proxy](http://portswigger.net/suite/) 或 [WebScarab proxy](http://www.owasp.org/index.php/Category:OWASP_WebScarab_Project) 的请求日志文件批量获取目标地址列表，从文本文件获得完整的 HTTP 请求报文或使用 Google dork——使用 [Google](http://www.google.com) 查询并解析结果页面获取批量目标。也可以自定义正则表达式进行验证解析。
 * 可以测试并利用 **GET** 和 **POST** 参数，HTTP 头中的 **Cookie**，**User-Agent** 和 **Referer** 这些地方出现的 SQL 注入漏洞。也可以指定一个用英文逗号隔开的参数列表进行测试。
-* 支持自定义**最大 HTTP(S) 并发请求数（多线程）**以提高盲注的速度。反之亦然，还可以设置每个 HTTP(S) 请求的间隔时间（秒）。当然，还有其他用来提高测试速度的相关优化选项。
+* 支持自定义**最大 HTTP(S) 并发请求数（多线程）**以提高盲注的速度。同时，还可以设置每个 HTTP(S) 请求的间隔时间（秒）。当然，还有其他用来提高测试速度的相关优化选项。
 * 支持设置 **HTTP 头中的** `Cookie`，当你需要为基于 cookies 身份验证的目标 Web 应用提供验证凭证，或者是你想要对 cookies 这个头部参数进行测试和利用 SQL 注入时，这个功能是非常有用的。你还可以指定对 Cookie 进行 URL 编码。
 * 自动处理来自 Web 应用的 **HTTP** `Set-Cookie` 消息，并重建超时过期会话。这个参数也可以被测试和利用。反之亦然，你可以强制忽略任何 `Set-Cookie` 消息头信息。
 * 支持 HTTP **Basic，Digest，NTLM 和 Certificate authentications** 协议。
@@ -49,14 +49,13 @@ sqlmap 实现的功能特性包括：
 * 支持在运行 MySQL 和 PostgreSQL 数据库服务器上定义用户自定义函数注入并执行。
 * 支持在运行 Microsoft SQL Server 数据库服务器上使用 `xp_cmdshell()` 存储过程。同时，如果注入的存储过程被 DBA 禁用则会被自动启用，在被移除时，则会自动创建。
 * 支持在操作系统中**建立攻击者机器和数据库服务器之间的有状态的带外数据 TCP 连接**。根据用户选择这个通信通道可以是交互式命令行，Meterpreter 会话或图形用户界面（VNC）会话。sqlmap 依赖 Metasploit 生成 shellcode ，支持通过四种技术在数据库服务器执行。这些技术分别是：
-* 通过 sqlmap 中用户自定义 `sys_bineval()` 函数，**在内存中执行 Metasploit shellcode**。当前支持 MySQL 和 PostgreSQL。
-* 对于 MySQL 和 PostgreSQL，通过 sqlmap 使用用户自定义的 `sys_exec()` 函数上传并执行一个 Metasploit 的**独立运行的 payload**，对于 Microsoft SQL Server 则使用 `xp_cmdshell()`。
-* 通过 **SMB 反射攻击**（[MS08-068](http://www.microsoft.com/technet/security/Bulletin/MS08-068.mspx)）执行 Metasploit shellcode，这需要目标数据库服务器向已被 Metasploit `smb_relay` 监听的攻击者机器发出一个 UNC 路径请求。当 sqlmap 以 Linux/Unix 高权限（`uid=0`）运行，并且当目标 DMBS 在 Windows 中以管理员身份运行时支持该功能。
-* 通过利用 **Microsoft SQL Server 2000 和 2005 中存在的 **`sp_replwritetovarbin`** 存储过程堆缓冲区溢出**（[MS09-004](http://www.microsoft.com/technet/security/bulletin/ms09-004.mspx)）在内存中执行 Metasploit shellcode。sqlmap 有内置脚本可以自动绕过 DEP 内存保护去触发目标系统漏洞，该脚本依赖 Metasploit ，用于生成 shellcode 以执行攻击。
-* 支持通过 Metasploit 的 `getsystem` 命令进行**数据库进程用户提权**，这个命令使用了 [kitrap0d](http://archives.neohapsis.com/archives/fulldisclosure/2010-01/0346.html) 技术（[MS10-015](http://www.microsoft.com/technet/security/bulletin/ms10-015.mspx)）。
+	* 通过 sqlmap 自带的用户自定义 `sys_bineval()` 函数，**在内存中执行 Metasploit shellcode**。当前支持 MySQL 和 PostgreSQL。
+	* 对于 MySQL 和 PostgreSQL，通过 sqlmap 自带的用户自定义 `sys_exec()` 函数上传并执行一个 Metasploit **独立运行的 payload**，对于 Microsoft SQL Server 则使用 `xp_cmdshell()`。
+	* 通过 **SMB 反射攻击**（[MS08-068](http://www.microsoft.com/technet/security/Bulletin/MS08-068.mspx)）执行 Metasploit shellcode，这需要目标数据库服务器向已被 Metasploit `smb_relay` 监听的攻击者机器发出一个 UNC 路径请求。当 sqlmap 以 Linux/Unix 高权限（`uid=0`）运行，并且目标 DMBS 在 Windows 中以管理员身份运行时支持该功能。
+	* 通过利用 **Microsoft SQL Server 2000 和 2005 中存在的 **`sp_replwritetovarbin`** 存储过程堆缓冲区溢出**（[MS09-004](http://www.microsoft.com/technet/security/bulletin/ms09-004.mspx)）在内存中执行 Metasploit shellcode。sqlmap 有内置脚本可以自动绕过 DEP 内存保护去触发目标系统漏洞，该脚本依赖 Metasploit ，用于生成 shellcode 以执行攻击。
+* 支持通过 Metasploit 的 `getsystem` 命令进行**数据库进程用户提权**，这个命令使用了包括 [kitrap0d](http://archives.neohapsis.com/archives/fulldisclosure/2010-01/0346.html) 在内等技术（[MS10-015](http://www.microsoft.com/technet/security/bulletin/ms10-015.mspx)）。
 * 支持访问（读取/添加/删除）Windows 注册表配置单元。
 
 ## 演示
 
-你可以在 [Bernardo](http://www.youtube.com/user/inquisb/videos) 和 [Miroslav](http://www.youtube.com/user/stamparm/videos) 的 YouTube 主页中观看演示。你还可以在[这里](http://unconciousmind.blogspot.com/search/label/sqlmap)找到大量公开带有应用漏洞的 Web 应用，可用于合法的 Web 应用安全评估。
-
+你可以在 [Bernardo](http://www.youtube.com/user/inquisb/videos) 和 [Miroslav](http://www.youtube.com/user/stamparm/videos) 的 YouTube 主页中观看演示。还可以在[这里](http://unconciousmind.blogspot.com/search/label/sqlmap)找到大量公开可用漏洞的 Web 应用，用于合法的 Web 应用安全评估。
