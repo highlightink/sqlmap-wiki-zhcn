@@ -1,16 +1,19 @@
 # sqlmap 用户手册中文版
 
-本书包含了 sqlmap 项目的完整 wiki。如无意外，将持续跟进官方英文 wiki。
+本书包含了 sqlmap 项目的完整 Wiki。如无意外，将持续跟进官方 Wiki。
 
 当前翻译总进度：`100%`
 
-获取官方英文 wiki Git 仓库：
+获取官方 Wiki Git 仓库：
 
 ```
 git clone https://github.com/sqlmapproject/sqlmap.wiki.git
 ```
 
-当前翻译对应版本：`2017-09-25 19:58:21`，commit ID：`c274fec524c5f332b3afa3cdf20fa48d26f4d2a3`
+当前翻译对应版本：
+
+- 日期：`2018-08-22 15:55`
+- Commit ID：`b2be45599bff460da7c8e621c76f80a475aa5331`
 
 ## 什么是 sqlmap？
 
