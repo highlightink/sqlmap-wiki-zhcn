@@ -9,7 +9,7 @@
 * **一月 2**，发布稳定版本 [1.1](https://github.com/sqlmapproject/sqlmap/releases/tag/1.1)（[变更集](https://github.com/sqlmapproject/sqlmap/compare/1.0...1.1)）。
 
 ## 2016
-* 前 **2000** 个 [Issue](https://github.com/sqlmapproject/sqlmap/issues?q=is%3Aissue+is%3Aclosed) 被解决。
+* 解决前 **2000** 个 [Issue](https://github.com/sqlmapproject/sqlmap/issues?q=is%3Aissue+is%3Aclosed)。
 * **二月 27**，发布稳定版本 [1.0](https://github.com/sqlmapproject/sqlmap/releases/tag/1.0)（[变更集](https://github.com/sqlmapproject/sqlmap/compare/0.9...1.0)）。
 
 ## 2015
@@ -18,16 +18,16 @@
 
 ## 2014
 
-* 前 **1000** 个 [Issue](https://github.com/sqlmapproject/sqlmap/issues?q=is%3Aissue+is%3Aclosed) 被解决。
+* 解决前 **1000** 个 [Issue](https://github.com/sqlmapproject/sqlmap/issues?q=is%3Aissue+is%3Aclosed)。
 
 ## 2013
 
-* **九月 19**，Miroslav 在 Varazdin，Croatia FSEC 2013 上演讲了 **sqlmap 中的启发式方法**（[幻灯片](http://www.slideshare.net/stamparm/f-sec-2013miroslavstamparheuristicmethodsusedinsqlmap)）。
+* **九月 19**，Miroslav 在 Varazdin，Croatia 举行的 FSEC 2013 上分享了 **sqlmap 中的启发式方法**（[幻灯片](http://www.slideshare.net/stamparm/f-sec-2013miroslavstamparheuristicmethodsusedinsqlmap)）。
 * **五月 23**，Miroslav 在 Moscow，Russia PHDays 2013 上为我们带来了 [presents](http://phdays.com/program/workshops/) **sqlmap - 内部实现**（[幻灯片](http://www.slideshare.net/stamparm/ph-days-2013miroslavstamparsqlmapunderthehood)）。
 
 ## 2012
 
-* **六月 26**，sqlmap 代码库[迁移](http://article.gmane.org/gmane.comp.security.sqlmap/2247)到 [GitHub](https://github.com/sqlmapproject/sqlmap)，并且更新了新的[主页](http://sqlmap.org)。代码问题追踪也进行了[公开](https://github.com/sqlmapproject/sqlmap/issues)。同时移除了原先在 SourceForge 上的 SVN 代码仓库。
+* **六月 26**，sqlmap 代码库[迁移](http://article.gmane.org/gmane.comp.security.sqlmap/2247)到 [GitHub](https://github.com/sqlmapproject/sqlmap)，并更新[主页](http://sqlmap.org)。也[公开](https://github.com/sqlmapproject/sqlmap/issues)了代码问题追踪。同时移除了原先在 SourceForge 上的 SVN 代码仓库。
 * **五月 31**，在 Moscow，Russia 举行的 PHDays 2012 大会上，Miroslav [带来](http://phdays.com/program/conference/)**基于 sqlmap 的 DNS 渗透**研究报告（[幻灯片](http://www.slideshare.net/stamparm/dns-exfiltration-using-sqlmap-13163281)），同时还有**基于 SQL 注入攻击的数据获取**[白皮书](http://www.slideshare.net/stamparm/ph-days-2012miroslavstampardataretrievaloverdnsinsqlinjectionattackspaper)。
 
 ## 2011
@@ -85,7 +85,7 @@
 
 ## 2006
 
-* **十二月 13**，Bernardo 发布了 sqlmap **0.2** 版本，该版本增强了数据库管理系统指纹信息识别功能，同时将原先内部实现的推论算法换成了二分算法。
-* **九月**，Daniele 离开了项目，[Bernardo Damele A. G.](http://bernardodamele.blogspot.com) 接手了项目。
+* **十二月 13**，Bernardo 发布了 sqlmap **0.2** 版本，该版本增强了 DBMS 的指纹信息识别功能，同时将原先内部实现的推导算法换成了二分算法。
+* **九月**，Daniele 离开项目，[Bernardo Damele A. G.](http://bernardodamele.blogspot.com) 接手了项目。
 * **八月**，Daniele 为 PostgreSQL 添加了相关的支持并发布了 **0.1** 版本。
-* **七月 25**，[Daniele Bellucci](http://dbellucci.blogspot.com) 在 SourceForge 上添加了 sqlmap 项目，并使用 [SourceForge SVN 仓库](http://sqlmap.svn.sourceforge.net/viewvc/sqlmap/)进行代码托管。基本的架构成型，只支持 MySQL 相关功能。
+* **七月 25**，[Daniele Bellucci](http://dbellucci.blogspot.com) 在 SourceForge 上添加了 sqlmap 项目，并使用 [SourceForge SVN 仓库](http://sqlmap.svn.sourceforge.net/viewvc/sqlmap/) 进行代码托管。基本的架构成型，只支持 MySQL 相关功能。
