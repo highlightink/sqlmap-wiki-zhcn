@@ -70,7 +70,7 @@ d level (1) and risk (1)? [Y/n] N
 
 开关：`--cleanup`
 
-建议在完成底层操作系统或文件系统的接管后，清理后端 DBMS 中的 sqlmap 临时表和用户定义函数。使用 `--cleanup` 开关将尽可能地清理 DBMS 和文件系统。
+建议在完成底层操作系统或文件系统的接管后，清理后端 DBMS 中的 sqlmap 临时表（如 `sqlmapoutput`）和用户定义函数。使用 `--cleanup` 开关将尽可能地清理 DBMS 和文件系统。
 
 ### 检查依赖关系
 

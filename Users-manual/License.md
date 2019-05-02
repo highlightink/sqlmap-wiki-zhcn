@@ -1,6 +1,6 @@
 # 许可证
 
-sqlmap 版权所有 (C) 2006-2016 [Bernardo Damele Assumpcao Guimaraes](mailto:bernardo@sqlmap.org)，[Miroslav Stampar](mailto:miroslav@sqlmap.org)。
+sqlmap 版权所有 (C) 2006-2019 [Bernardo Damele Assumpcao Guimaraes](mailto:bernardo@sqlmap.org)，[Miroslav Stampar](mailto:miroslav@sqlmap.org)。
 
 本程序是自由软件；你可以遵照[自由软件基金会](http://www.fsf.org)出版的 [GNU 通用公共许可证条款](http://www.gnu.org/licenses/old-licenses/gpl-2.0.html)来修改和重新发布这一程序；包含声明与例外的第二版（或更高版本）描述于[许可证文件](https://raw.github.com/sqlmapproject/sqlmap/master/doc/COPYING)。这保证了你在特定条件下使用、修改和重新发布本软件的权利。如果你希望将 sqlmap 技术嵌入到专有软件中，我们将使用另一套许可证（联系 [sales@sqlmap.org](sales@sqlmap.org)）。
 

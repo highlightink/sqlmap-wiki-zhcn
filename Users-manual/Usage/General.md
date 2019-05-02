@@ -211,17 +211,30 @@ ers (0x80040E14)
 [...]
 ```
 
+### 预处理响应数据
+
+选项：`--preprocess`
+
+使用此选项可在 sqlmap 检测引擎工作之前对（HTTP）响应数据使用预处理脚本（例如，解码数据或删除无用数据）。例如，将所有小写字符转换为大写的预处理脚本可以是：
+
+```
+#!/usr/bin/env
+
+def preprocess(page, headers=None, code=None):
+    return page.upper() if page else page, headers, code
+```
+
 ### 保存相关选项到 INI 配置文件
 
 选项：`--save`
 
-可以将命令行上的相关选项保存到 INI 配置文件中。同时可以通过以上描述的 `-c` 选项对生成的文件进行编辑。
+使用此开关可以将命令行上的相关选项保存到 INI 配置文件中。同时可以通过以上描述的 `-c` 选项对生成的文件进行编辑。
 
 ### 更新 sqlmap
 
 开关：`--update`
 
-使用这个开关，你可以直接从 [Git 仓库](https://github.com/sqlmapproject/sqlmap.git)将该工具升级到最新的开发版本。当然，你需要网络连接。
+使用此开关，你可以直接从 [Git 仓库](https://github.com/sqlmapproject/sqlmap.git) 将该工具升级到最新的开发版本。当然，网络连接必不可少。
 
 当然，如果上面的操作失败，你可以直接在 sqlmap 所在目录运行 `git pull`。这样的执行效果和使用开关 `--update` 一样。如果你是在 Windows 上使用 sqlmap，可以使用 [SmartGit](http://www.syntevo.com/smartgit/index.html) 客户端。
 
