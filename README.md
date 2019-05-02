@@ -11,8 +11,8 @@ git clone https://github.com/sqlmapproject/sqlmap.wiki.git
 ```
 
 当前翻译对应版本：
-- 日期：`2019-03-04 11:06`
-- Commit ID：`27c63393a2bdf5f9fc5f43ca6c34b3427988239a`
+- 日期：`2019-03-11 21:56`
+- Commit ID：`eb8e7b006f9c15c127413a71b85b85c341978823`
 
 ## 什么是 sqlmap？
 
