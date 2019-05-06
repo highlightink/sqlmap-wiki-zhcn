@@ -40,7 +40,7 @@ sqlmap 是一款自动化检测与利用 SQL 注入漏洞的免费开源工具�
 
 ### 参与翻译
 
-本书发布在 [GitBook](https://www.gitbook.com/book/octobug/sqlmap-wiki-zhcn/details)，并托管在 [GitHub](https://github.com/OctoBug/sqlmap-wiki-zhcn)，你可以访问 GitHub 仓库地址参与翻译，帮助我们修正翻译错误。
+本书发布在 [GitBook](https://itechub.gitbook.io/sqlmap-wiki-zhcn/)，并托管在 [GitHub](https://github.com/OctoBug/sqlmap-wiki-zhcn)，你可以访问 GitHub 仓库地址参与翻译，帮助我们修正翻译错误。
 
 ### 格式约定
 
