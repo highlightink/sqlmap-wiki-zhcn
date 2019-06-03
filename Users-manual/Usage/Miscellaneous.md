@@ -132,15 +132,15 @@ python.org/pypi/websocket-client/
 
 开关：`--hpp`
 
-HTTP 参数污染（HPP）是一种绕过 WAF/IPS/IDS 保护机制（[这里](https://www.imperva.com/resources/glossary/http-parameter-pollution) 有相关介绍）的方法，针对 ASP/IIS 和 ASP.NET/IIS 平台尤其有效。如果你怀疑目标使用了这种保护机制，可以尝试使用此开关以绕过它。
+HTTP 参数污染（HPP）是一种绕过 WAF/IPS 防护机制（[这里](https://www.imperva.com/resources/glossary/http-parameter-pollution) 有相关介绍）的方法，对 ASP/IIS 和 ASP.NET/IIS 平台尤其有效。如果你怀疑目标使用了这种防护机制，可以尝试使用此开关以绕过它。
 
-### 针对 WAF/IPS/IDS 保护进行通过测试
+### 针对 WAF/IPS 防护进行彻底的测试
 
 开关：`--identify-waf`
 
-sqlmap 可以尝试识别后端 WAF/IPS/IDS 保护（如果有），以便用户可以执行适当的步骤（例如：通过选项 `--tamper` 使用篡改脚本）。目前，大约支持 30 种不同的产品（例如：Airlock，Barracuda WAF 等），可以在 `waf` 目录下找到它们对应的 WAF 脚本。
+sqlmap 可以尝试识别后端 WAF/IPS 防护（如果有），以便用户可以执行恰当的步骤（例如：通过选项 `--tamper` 使用篡改脚本）。目前，大约支持 30 种不同的产品（例如：Airlock，Barracuda WAF 等），可以在 `waf` 目录下找到它们对应的 WAF 脚本。
 
-针对受 ModSecurity WAF 保护的 MySQL 目标示例：
+针对受 ModSecurity WAF 防护的 MySQL 目标示例：
 
 ```
 $ python sqlmap.py -u "http://192.168.21.128/sqlmap/mysql/get_int.php?id=1" --i\
@@ -148,54 +148,54 @@ dentify-waf -v 3
 [...]
 [xx:xx:23] [INFO] testing connection to the target URL
 [xx:xx:23] [INFO] heuristics detected web page charset 'ascii'
-[xx:xx:23] [INFO] using WAF scripts to detect backend WAF/IPS/IDS protection
-[xx:xx:23] [DEBUG] checking for WAF/IDS/IPS product 'USP Secure Entry Server (Un
+[xx:xx:23] [INFO] using WAF scripts to detect backend WAF/IPS protection
+[xx:xx:23] [DEBUG] checking for WAF/IPS product 'USP Secure Entry Server (Un
 ited Security Providers)'
-[xx:xx:23] [DEBUG] checking for WAF/IDS/IPS product 'BinarySEC Web Application F
+[xx:xx:23] [DEBUG] checking for WAF/IPS product 'BinarySEC Web Application F
 irewall (BinarySEC)'
-[xx:xx:23] [DEBUG] checking for WAF/IDS/IPS product 'NetContinuum Web Applicatio
+[xx:xx:23] [DEBUG] checking for WAF/IPS product 'NetContinuum Web Applicatio
 n Firewall (NetContinuum/Barracuda Networks)'
-[xx:xx:23] [DEBUG] checking for WAF/IDS/IPS product 'Hyperguard Web Application 
+[xx:xx:23] [DEBUG] checking for WAF/IPS product 'Hyperguard Web Application 
 Firewall (art of defence Inc.)'
-[xx:xx:23] [DEBUG] checking for WAF/IDS/IPS product 'Cisco ACE XML Gateway (Cisc
+[xx:xx:23] [DEBUG] checking for WAF/IPS product 'Cisco ACE XML Gateway (Cisc
 o Systems)'
-[xx:xx:23] [DEBUG] checking for WAF/IDS/IPS product 'TrafficShield (F5 Networks)
+[xx:xx:23] [DEBUG] checking for WAF/IPS product 'TrafficShield (F5 Networks)
 '
-[xx:xx:23] [DEBUG] checking for WAF/IDS/IPS product 'Teros/Citrix Application Fi
+[xx:xx:23] [DEBUG] checking for WAF/IPS product 'Teros/Citrix Application Fi
 rewall Enterprise (Teros/Citrix Systems)'
-[xx:xx:23] [DEBUG] checking for WAF/IDS/IPS product 'KONA Security Solutions (Ak
+[xx:xx:23] [DEBUG] checking for WAF/IPS product 'KONA Security Solutions (Ak
 amai Technologies)'
-[xx:xx:23] [DEBUG] checking for WAF/IDS/IPS product 'Incapsula Web Application F
+[xx:xx:23] [DEBUG] checking for WAF/IPS product 'Incapsula Web Application F
 irewall (Incapsula/Imperva)'
-[xx:xx:23] [DEBUG] checking for WAF/IDS/IPS product 'CloudFlare Web Application 
+[xx:xx:23] [DEBUG] checking for WAF/IPS product 'CloudFlare Web Application 
 Firewall (CloudFlare)'
-[xx:xx:23] [DEBUG] checking for WAF/IDS/IPS product 'Barracuda Web Application F
+[xx:xx:23] [DEBUG] checking for WAF/IPS product 'Barracuda Web Application F
 irewall (Barracuda Networks)'
-[xx:xx:23] [DEBUG] checking for WAF/IDS/IPS product 'webApp.secure (webScurity)'
-[xx:xx:23] [DEBUG] checking for WAF/IDS/IPS product 'Proventia Web Application S
+[xx:xx:23] [DEBUG] checking for WAF/IPS product 'webApp.secure (webScurity)'
+[xx:xx:23] [DEBUG] checking for WAF/IPS product 'Proventia Web Application S
 ecurity (IBM)'
 [xx:xx:23] [DEBUG] declared web page charset 'iso-8859-1'
 [xx:xx:23] [DEBUG] page not found (404)
-[xx:xx:23] [DEBUG] checking for WAF/IDS/IPS product 'KS-WAF (Knownsec)'
-[xx:xx:23] [DEBUG] checking for WAF/IDS/IPS product 'NetScaler (Citrix Systems)'
-[xx:xx:23] [DEBUG] checking for WAF/IDS/IPS product 'Jiasule Web Application Fir
+[xx:xx:23] [DEBUG] checking for WAF/IPS product 'KS-WAF (Knownsec)'
+[xx:xx:23] [DEBUG] checking for WAF/IPS product 'NetScaler (Citrix Systems)'
+[xx:xx:23] [DEBUG] checking for WAF/IPS product 'Jiasule Web Application Fir
 ewall (Jiasule)'
-[xx:xx:23] [DEBUG] checking for WAF/IDS/IPS product 'WebKnight Application Firew
+[xx:xx:23] [DEBUG] checking for WAF/IPS product 'WebKnight Application Firew
 all (AQTRONIX)'
-[xx:xx:23] [DEBUG] checking for WAF/IDS/IPS product 'AppWall (Radware)'
-[xx:xx:23] [DEBUG] checking for WAF/IDS/IPS product 'ModSecurity: Open Source We
+[xx:xx:23] [DEBUG] checking for WAF/IPS product 'AppWall (Radware)'
+[xx:xx:23] [DEBUG] checking for WAF/IPS product 'ModSecurity: Open Source We
 b Application Firewall (Trustwave)'
-[xx:xx:23] [CRITICAL] WAF/IDS/IPS identified 'ModSecurity: Open Source Web Appli
+[xx:xx:23] [CRITICAL] WAF/IPS identified 'ModSecurity: Open Source Web Appli
 cation Firewall (Trustwave)'. Please consider usage of tamper scripts (option '-
 -tamper')
 [...]
 ```
 
-### 跳过启发式检测 WAF/IPS/IDS 保护
+### 跳过启发式检测 WAF/IPS 防护
 
 开关：`--skip-waf`
 
-默认情况下，sqlmap 自动在一个启动请求中发送一个虚假的参数值，其中包含一个有意“可疑”的 SQL 注入 payload（例如：`...&foobar=AND 1=1 UNION ALL SELECT 1,2,3,table_name FROM information_schema.tables WHERE 2>1`）。如果目标响应与原始请求响应不同，那么它很可能存在保护机制。如果有任何问题，用户可以使用开关 `--skip-waf` 来禁用此机制。
+默认情况下，sqlmap 自动在一个启动请求中发送一个虚假的参数值，其中包含一个有意“可疑”的 SQL 注入 payload（例如：`...&foobar=AND 1=1 UNION ALL SELECT 1,2,3,table_name FROM information_schema.tables WHERE 2>1`）。如果目标响应与原始请求响应不同，那么它很可能存在防护机制。如果有任何问题，用户可以使用开关 `--skip-waf` 来禁用此机制。
 
 ### 伪装智能手机
 

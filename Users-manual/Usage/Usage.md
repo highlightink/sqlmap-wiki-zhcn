@@ -25,10 +25,10 @@
   	以下选项可以指定连接目标地址的方式
 
     --method=METHOD     强制使用提供的 HTTP 方法（例如：PUT）
-    --data=DATA         使用 POST 发送数据串
-    --param-del=PARA..  设置参数值分隔符
-    --cookie=COOKIE     指定 HTTP Cookie 
-    --cookie-del=COO..  设置 cookie 分隔符
+    --data=DATA         使用 POST 发送数据串（例如："id=1"）
+    --param-del=PARA..  设置参数值分隔符（例如：&）
+    --cookie=COOKIE     指定 HTTP Cookie（例如："PHPSESSID=a8d127e.."）
+    --cookie-del=COO..  设置 cookie 分隔符（例如：;）
     --load-cookies=L..  指定以 Netscape/wget 格式存放 cookies 的文件
     --drop-set-cookie   忽略 HTTP 响应中的 Set-Cookie 参数
     --user-agent=AGENT  指定 HTTP User-Agent
@@ -40,10 +40,10 @@
     --auth-type=AUTH..  HTTP 认证方式（Basic，Digest，NTLM 或 PKI）
     --auth-cred=AUTH..  HTTP 认证凭证（username:password）
     --auth-file=AUTH..  HTTP 认证 PEM 证书/私钥文件
-    --ignore-code=IG..  忽略 HTTP 错误码（例如：401）
-	--ignore-proxy      忽略系统默认代理设置
-	--ignore-redirects  忽略重定向尝试
-	--ignore-timeouts   忽略连接超时
+    --ignore-code=IG..  忽略（有问题的）HTTP 错误码（例如：401）
+    --ignore-proxy      忽略系统默认代理设置
+    --ignore-redirects  忽略重定向尝试
+    --ignore-timeouts   忽略连接超时
     --proxy=PROXY       使用代理连接目标 URL
     --proxy-cred=PRO..  使用代理进行认证（username:password）
     --proxy-file=PRO..  从文件中加载代理列表
@@ -63,7 +63,7 @@
     --safe-freq=SAFE..  每访问两次给定的合法 URL 才发送一次测试请求
     --skip-urlencode    不对 payload 数据进行 URL 编码
     --csrf-token=CSR..  设置网站用来反 CSRF 攻击的 token
-    --csrf-url=CSRFURL  指定可提取反 CSRF 攻击 token 的 URL
+    --csrf-url=CSRFURL  指定可提取防 CSRF 攻击 token 的 URL
     --force-ssl         强制使用 SSL/HTTPS
     --hpp               使用 HTTP 参数污染攻击
     --eval=EVALCODE     在发起请求前执行给定的 Python 代码（例如：
@@ -86,9 +86,9 @@
     --skip=SKIP         指定要跳过的参数
     --skip-static       指定跳过非动态参数
     --param-exclude=..  用正则表达式排除参数（例如："ses"）
-    --dbms=DBMS         指定 DBMS 类型（例如：MySQL）
+    --dbms=DBMS         指定后端 DBMS 类型（例如：MySQL）
     --dbms-cred=DBMS..  DBMS 认证凭据（username:password）
-    --os=OS             指定 DBMS 服务器的操作系统类型
+    --os=OS             指定后端 DBMS 的操作系统类型
     --invalid-bignum    将无效值设置为大数
     --invalid-logical   对无效值使用逻辑运算
     --invalid-string    对无效值使用随机字符串
@@ -128,8 +128,9 @@
                         推荐阅读《在SQL注入中使用DNS获取数据》
                         http://cb.drops.wiki/drops/tips-5283.html，
                         在后面的“技术”小节中也有相应解释）
-    --second-order=S..  设置二阶响应的结果显示页面的 URL（译者注：
-                        该选项用于二阶 SQL 注入）
+    --second-url=SEC..  设置二阶响应的结果显示页面的 URL（译者注：
+                        该选项用于 SQL 二阶注入）
+    --second-req=SEC..  从文件读取 HTTP 二阶请求
 
   指纹识别：
     -f, --fingerprint   执行广泛的 DBMS 版本指纹识别
@@ -156,11 +157,11 @@
     --dump              导出 DBMS 数据库表项
     --dump-all          导出所有 DBMS 数据库表项
     --search            搜索列，表和/或数据库名
-    --comments          获取 DBMS 注释
+    --comments          枚举数据时检查 DBMS 注释
     -D DB               指定要枚举的 DBMS 数据库
     -T TBL              指定要枚举的 DBMS 数据表
     -C COL              指定要枚举的 DBMS 数据列
-    -X EXCLUDECOL       指定要排除的 DBMS 数据列
+    -X EXCLUDE          指定不枚举的 DBMS 标识符
     -U USER             指定枚举的 DBMS 用户
     --exclude-sysdbs    枚举所有数据表时，指定排除特定系统数据库
     --pivot-column=P..  指定主列
@@ -188,9 +189,9 @@
   访问文件系统：
     以下选项用于访问后端数据库管理系统的底层文件系统
     
-    --file-read=RFILE   读取后端 DBMS 文件系统中的文件
-    --file-write=WFILE  写入后端 DBMS 文件系统中的文件
-    --file-dest=DFILE   使用文件绝对路径写入到后端 DBMS
+    --file-read=FILE..  读取后端 DBMS 文件系统中的文件
+    --file-write=FIL..  写入到后端 DBMS 文件系统中的文件
+    --file-dest=FILE..  使用绝对路径写入到后端 DBMS 中的文件
 
   访问操作系统：
     以下选项用于访问后端数据库管理系统的底层操作系统
@@ -234,29 +235,31 @@
     --forms             解析并测试目标 URL 的表单
     --fresh-queries     忽略存储在会话文件中的查询结果
     --har=HARFILE       将所有 HTTP 流量记录到一个 HAR 文件中
-    --hex               获取数据时调用 DBMS 的 hex 函数
+    --hex               获取数据时使用 hex 转换
     --output-dir=OUT..  自定义输出目录路径
     --parse-errors      从响应中解析并显示 DBMS 错误信息
+    --preprocess=PRE..  使用给定脚本预处理响应数据
+    --repair            重新导出具有未知字符的数据（?）
     --save=SAVECONFIG   将选项设置保存到一个 INI 配置文件
     --scope=SCOPE       用正则表达式从提供的代理日志中过滤目标
     --test-filter=TE..  根据 payloads 和/或标题（例如：ROW）选择测试
     --test-skip=TEST..  根据 payloads 和/或标题（例如：BENCHMARK）跳过部分测试
     --update            更新 sqlmap
 
-  其他选项：
+  杂项：
     -z MNEMONICS        使用短助记符（例如：“flu,bat,ban,tec=EU”）
     --alert=ALERT       在找到 SQL 注入时运行 OS 命令
-    --answers=ANSWERS   设置问题答案（例如：“quit=N,follow=N”）
+    --answers=ANSWERS   设置预定义回答（例如：“quit=N,follow=N”）
     --beep              出现问题提醒或在发现 SQL 注入时发出提示音
     --cleanup           指定移除 DBMS 中的特定的 UDF 或者数据表
-    --dependencies      检查 sqlmap 缺少什么（非核心）依赖
+    --dependencies      检查 sqlmap 缺少（可选）的依赖
     --disable-coloring  关闭彩色控制台输出
     --gpage=GOOGLEPAGE  指定页码使用 Google dork 结果
-    --identify-waf      针对 WAF/IPS/IDS 保护进行彻底的测试
+    --identify-waf      针对 WAF/IPS 防护进行彻底的测试
     --mobile            使用 HTTP User-Agent 模仿智能手机
     --offline           在离线模式下工作（仅使用会话数据）
     --purge             安全删除 sqlmap data 目录所有内容
-    --skip-waf          跳过启发式检测 WAF/IPS/IDS 保护
+    --skip-waf          跳过启发式检测 WAF/IPS 防护
     --smart             只有在使用启发式检测时才进行彻底的测试
     --sqlmap-shell      调出交互式 sqlmap shell
     --tmp-dir=TMPDIR    指定用于存储临时文件的本地目录

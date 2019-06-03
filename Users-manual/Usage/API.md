@@ -116,7 +116,7 @@ api (a42ddaef02e976f0)> log
         },
         {
             "message": "checking if the target is protected by some kind of WAF/
-IPS/IDS",
+IPS",
             "level": "INFO",
             "time": "12:48:10"
         },
