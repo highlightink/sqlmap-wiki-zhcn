@@ -94,7 +94,7 @@ sqlmap 是由一个计算机安全爱好者组成的小团队投入大量时间�
 
 请使用其他工具。
 
-## 哪个篡改脚本可以用来绕过（WAF/IDS/IPS）保护？
+## 哪个篡改脚本可以用来绕过（WAF/IPS）保护？
 
 如果你无法手动评估目标，请勿使用篡改脚本。篡改脚本仅在渗透测试人员首先（最可能是在几个小时的请求/响应检查之后）了解如何绕过防护的情况下使用。在不充分理解的情况下盲目使用和组合多种篡改脚本总是一个坏主意。
 
@@ -109,7 +109,9 @@ sqlmap 是由一个计算机安全爱好者组成的小团队投入大量时间�
 
 ## sqlmap 什么时候会切换到 Python 3？
 
-目前，sqlmap 项目没有任何切换到新版本 Python 解释器的压力，因为转换过程尤其是较大的项目可能很麻烦（由于向后的不兼容性）。Python 版本的切换是早晚的事情，但目前它是一个[优先级非常低](https://github.com/sqlmapproject/sqlmap/issues/93)的任务。
+~~目前，sqlmap 项目没有切换到新版本 Python 解释器的需要，因为转换过程对于较大的项目可能很麻烦（由于向后的不兼容性）。Python 版本的切换是早晚的事情，但目前它是一个[优先级非常低的任务](https://github.com/sqlmapproject/sqlmap/issues/93)。~~
+
+已于 2019 年五月同时支持 Python 2 与 3。
 
 ## 如何缩短 sqlmap 注入的 payloads？
 
@@ -157,7 +159,7 @@ sqlmap 需要正确解码页面内容才能正确检测和处理国际化字符�
 
 ## 我收到了 `[CRITICAL] connection timed` 的提示，但是我能正常地浏览那个网站？
 
-有些 IDSes 根据 sqlmap 的默认 `User-Agent` HTTP 头部（例如：`User-agent: sqlmap/1.0-dev`）将 sqlmap 发出的所有请求过滤掉。为了避免这种情况，建议你使用开关 `--random-agent`。
+有些 WAF/IPS 根据 sqlmap 的默认 `User-Agent` HTTP 头部（例如：`User-agent: sqlmap/1.0-dev`）将 sqlmap 发出的所有请求过滤掉。为了避免这种情况，建议你使用 `--random-agent` 开关。
 
 如果你对所有目标都收到了这类提示消息，那你很可能需要重新设置下你的代理（开关：`--proxy` 和/或 `--ignore-proxy`）。
 
