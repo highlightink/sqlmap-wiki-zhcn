@@ -40,11 +40,11 @@ sqlmap 是一款自动化检测与利用 SQL 注入漏洞的免费开源工具�
 
 ### 参与翻译
 
-本书发布在 [GitBook](https://itechub.gitbook.io/sqlmap-wiki-zhcn/)，你可以访问 [sqlmap-wiki-zhcn(GitHub)](https://github.com/OctoBug/sqlmap-wiki-zhcn) 参与翻译，帮助我们修正翻译错误。
+本书发布在 [GitBook](https://sqlmap.campfire.ga/)，你可以访问 [sqlmap-wiki-zhcn(GitHub)](https://github.com/itechub/sqlmap-wiki-zhcn) 参与翻译，帮助我们修正翻译错误。
 
 ### 格式约定
 
-原则上使用[中文文案排版指北](https://github.com/mzlogin/chinese-copywriting-guidelines/blob/Simplified/README.md)中建议的格式。
+原则上使用[中文文案排版指北](https://github.com/mzlogin/chinese-copywriting-guidelines)中建议的格式。
 
 重点关注的几点：
 
@@ -58,4 +58,4 @@ sqlmap 是一款自动化检测与利用 SQL 注入漏洞的免费开源工具�
 
 译者：
 - Octobug: [GitHub](https://github.com/Octobug)
-- Shady: [GitHub](https://github.com/Root-shady)、[微博](http://weibo.com/u/2873357002)
+- Shady: [GitHub](https://github.com/shady-robot)、[微博](http://weibo.com/u/2873357002)
