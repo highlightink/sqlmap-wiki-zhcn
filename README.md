@@ -1,12 +1,13 @@
-## sqlmap 用户手册中文版
+# sqlmap 用户手册中文版
+[![progress 100%](https://img.shields.io/github/stars/itechub/sqlmap-wiki-zhcn.svg)](https://github.com/itechub/sqlmap-wiki-zhcn)
+[![progress 100%](https://img.shields.io/github/last-commit/itechub/sqlmap-wiki-zhcn/master.svg?color=%23c16927&label=updated)](https://github.com/itechub/sqlmap-wiki-zhcn/commits/master)
+<img src="https://img.shields.io/badge/progress-100%25-green.svg" alt="progress 100%">
 
-本书包含了 sqlmap 项目的完整 Wiki。如无意外，将持续跟进官方 Wiki。
+本书包含了 sqlmap 项目 wiki 的完整翻译。如无意外，将持续跟进官方 wiki。
 
-当前翻译总进度：`100%`
+获取官方 wiki 仓库：
 
-获取官方 Wiki Git 仓库：
-
-```
+```shell
 git clone https://github.com/sqlmapproject/sqlmap.wiki.git
 ```
 
@@ -14,35 +15,25 @@ git clone https://github.com/sqlmapproject/sqlmap.wiki.git
 - 日期：`2019-06-03 15:41`
 - Commit ID：`c0de36df400d563ca364498dc72704e6e6434915`
 
-### 什么是 sqlmap？
+### sqlmap 官方站点
+
+- 官方网站：[sqlmap.org](http://sqlmap.org/)
+- GitHub 项目：[github.com/sqlmapproject/sqlmap](https://github.com/sqlmapproject/sqlmap)
+- 用户手册：[sqlmap wiki](https://github.com/sqlmapproject/sqlmap/wiki)
+
+#### 什么是 sqlmap？
 
 sqlmap 是一款自动化检测与利用 SQL 注入漏洞的免费开源工具。
 
-### 如何学习使用 sqlmap？
+#### 如何学习使用 sqlmap？
 
 除了阅读本书，你还可以结合 [sqli-labs](https://github.com/Audi-1/sqli-labs)（一个 SQL 注入实验系统）来进行 sqlmap 的实践。
 
----
-
-### sqlmap 官方网站
-
-[http://sqlmap.org/](http://sqlmap.org/)
-
-### sqlmap 项目地址
-
-[https://github.com/sqlmapproject/sqlmap](https://github.com/sqlmapproject/sqlmap)
-
-### sqlmap wiki 首页
-
-[https://github.com/sqlmapproject/sqlmap/wiki](https://github.com/sqlmapproject/sqlmap/wiki)
-
----
-
 ### 参与翻译
 
-本书发布在 [GitBook](https://sqlmap.campfire.ga/)，你可以访问 [sqlmap-wiki-zhcn(GitHub)](https://github.com/itechub/sqlmap-wiki-zhcn) 参与翻译，帮助我们修正翻译错误。
+本书发布在 [GitBook](https://itechub.gitbook.io/sqlmap-wiki-zhcn/)，你可以访问 [sqlmap-wiki-zhcn (GitHub)](https://github.com/itechub/sqlmap-wiki-zhcn) 参与翻译，帮助我们修正翻译错误。
 
-### 格式约定
+#### 格式约定
 
 原则上使用[中文文案排版指北](https://github.com/mzlogin/chinese-copywriting-guidelines)中建议的格式。
 
@@ -52,10 +43,8 @@ sqlmap 是一款自动化检测与利用 SQL 注入漏洞的免费开源工具�
 2. 中文和英文、数字之间用空格隔开。例如：这是 1 份 sqlmap 中文文档。
 3. 专有名词一般不翻译，如 Google。
 
-### 译者の话
+水平所限，难免出现纰漏，欢迎任何指正、建议、意见和批评。
 
-水平所限，难免出现纰漏，欢迎任何的指正、建议、意见和批评。
-
-译者：
-- Octobug: [GitHub](https://github.com/Octobug)
-- Shady: [GitHub](https://github.com/shady-robot)、[微博](http://weibo.com/u/2873357002)
+#### 译者
+- [Octobug](https://github.com/Octobug)
+- [Shady](https://github.com/shady-robot)
