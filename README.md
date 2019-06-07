@@ -1,7 +1,9 @@
 # sqlmap 用户手册中文版
-[![progress 100%](https://img.shields.io/github/stars/itechub/sqlmap-wiki-zhcn.svg)](https://github.com/itechub/sqlmap-wiki-zhcn)
-[![progress 100%](https://img.shields.io/github/last-commit/itechub/sqlmap-wiki-zhcn/master.svg?color=%23c16927&label=updated)](https://github.com/itechub/sqlmap-wiki-zhcn/commits/master)
-<img src="https://img.shields.io/badge/progress-100%25-green.svg" alt="progress 100%">
+[![stars](https://img.shields.io/github/stars/itechub/sqlmap-wiki-zhcn.svg)](https://github.com/itechub/sqlmap-wiki-zhcn)
+[![updated](https://img.shields.io/github/last-commit/itechub/sqlmap-wiki-zhcn/master.svg?color=%23c16927&label=updated)](https://github.com/itechub/sqlmap-wiki-zhcn/commits/master)
+<img src="https://img.shields.io/badge/progress-100%25-green.svg" alt="progress">
+
+![](cover_readme.jpg)
 
 本书包含了 sqlmap 项目 wiki 的完整翻译。如无意外，将持续跟进官方 wiki。
 
