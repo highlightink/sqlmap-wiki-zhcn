@@ -7,7 +7,7 @@
 
 [>> GitHub 用户点此进入 GitBook 开始阅读 <<](https://itechub.gitbook.io/sqlmap-wiki-zhcn/)
 
-本书包含了 sqlmap 项目 wiki 的完整翻译。如无意外，将持续跟进官方 wiki。
+本文档包含了 sqlmap 项目 wiki 的完整翻译，并将持续跟进官方 wiki。
 
 获取官方 wiki 仓库：
 
@@ -31,11 +31,11 @@ sqlmap 是一款自动化检测与利用 SQL 注入漏洞的免费开源工具�
 
 #### 如何学习使用 sqlmap？
 
-除了阅读本书，你还可以结合 [sqli-labs](https://github.com/Audi-1/sqli-labs)（一个 SQL 注入实验系统）来进行 sqlmap 的实践。
+除了阅读本文档，你还可以结合 [sqli-labs](https://github.com/Audi-1/sqli-labs)（一个 SQL 注入实验系统）来进行 sqlmap 的实践。
 
 ### 参与翻译
 
-本书发布在 [GitBook](https://itechub.gitbook.io/sqlmap-wiki-zhcn/)，你可以访问 [sqlmap-wiki-zhcn (GitHub)](https://github.com/itechub/sqlmap-wiki-zhcn) 参与翻译，帮助我们修正翻译错误。
+本文档发布在 [GitBook](https://itechub.gitbook.io/sqlmap-wiki-zhcn/)，你可以访问 [sqlmap-wiki-zhcn (GitHub)](https://github.com/itechub/sqlmap-wiki-zhcn) 参与翻译，修正翻译错误，提升翻译质量。
 
 #### 格式约定
 

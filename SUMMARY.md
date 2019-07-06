@@ -1,6 +1,6 @@
 # Summary
 
-* [本书介绍](README.md)
+* [文档介绍](README.md)
 
 ---
 

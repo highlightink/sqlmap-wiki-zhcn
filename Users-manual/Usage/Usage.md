@@ -117,7 +117,7 @@
                         B: Boolean-based blind SQL injection（布尔型盲注）
                         E: Error-based SQL injection（报错型注入）
                         U: UNION query SQL injection（联合查询注入）
-                        S: Stacked queries SQL injection（堆查询注入）
+                        S: Stacked queries SQL injection（堆叠查询注入）
                         T: Time-based blind SQL injection（时间型盲注）
                         Q: inline Query injection（内联查询注入）
     --time-sec=TIMESEC  延迟 DBMS 的响应秒数（默认为 5）
