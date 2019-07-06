@@ -335,7 +335,7 @@ sqlmap 还能会为每个表生成相应的 CSV 格式文本文件用于存储�
 
 SQL 查询和 SQL shell 功能允许在 DBMS 上运行任意 SQL 语句。sqlmap 会自动解析提供的语句，确定哪种技术适合用于注入它，以及如何打包相应的 SQL payload。
 
-如果查询是 `SELECT` 语句，sqlmap 将获取其输出。否则，如果 Web 应用程序的后端 DBMS 支持多语句，它将通过堆查询注入技术执行查询。注意，某些 Web 应用程序技术不支持特定 DBMS 上的堆查询。例如，当后端 DBMS 是 MySQL 时，PHP 不支持堆查询，但是当后端 DBMS 是 PostgreSQL 时，它是支持的。
+如果查询是 `SELECT` 语句，sqlmap 将获取其输出。否则，如果 Web 应用程序的后端 DBMS 支持多语句，它将通过堆叠查询注入技术执行查询。注意，某些 Web 应用程序技术不支持特定 DBMS 上的堆叠查询。例如，当后端 DBMS 是 MySQL 时，PHP 不支持堆叠查询，但是当后端 DBMS 是 PostgreSQL 时，它是支持的。
 
 针对 Microsoft SQL Server 2000 目标的示例：
 
