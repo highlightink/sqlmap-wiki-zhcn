@@ -14,4 +14,4 @@
 
 如果需要，也可以使用 `--shared-lib` 选项通过命令行指定共享库的本地文件系统路径。否则 sqlmap 会在运行时向你询问路径。
 
-此功能仅在 DBMS 为 MySQL 或 PostgreSQL 时有用。
+此功能仅在 DBMS（Database Management System，数据库管理系统）为 MySQL 或 PostgreSQL 时有用。

@@ -40,11 +40,11 @@ $ python sqlmap.py -u "http://targeturl/param1/value1*/param2/value2/"
 $ python sqlmap.py -u "http://targeturl" --cookie="param1=value1*;param2=value2"
 ```
 
-### 指定 DBMS 类型
+### 指定 DBMS（Database Management System，数据库管理系统）类型
 
 选项：`--dbms`
 
-默认情况下 sqlmap 会自动检测 Web 应用程序的后端 DBMS。sqlmap 完全支持以下数据库管理系统：
+默认情况下 sqlmap 会自动检测 Web 应用程序的后端 DBMS。sqlmap 完全支持以下 DBMS：
 
 * MySQL
 * Oracle

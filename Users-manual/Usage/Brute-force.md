@@ -8,7 +8,7 @@
 
 在某些场景下，开关 `--tables` 并不能用于获取数据库中表的名称。这样的场景通常会在如下情况下发生：
 
-* DBMS 是 **< 5.0** 版本的 MySQL，它们不具备 `information_schema`。
+* DBMS（Database Management System，数据库管理系统）是 **< 5.0** 版本的 MySQL，它们不具备 `information_schema`。
 * DBMS 是微软的 Access 数据库，并且其中的系统表 `MSysObjects` 默认设置不可读。
 * 当前会话用户对 DBMS 中存储数据表定义的系统表没有读权限。
 

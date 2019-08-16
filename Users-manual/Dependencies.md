@@ -4,7 +4,7 @@ sqlmap 使用 [Python](http://www.python.org) 开发，Python 是一门动态的
 
 sqlmap 的部分漏洞利用功能依赖于 [Metasploit 框架](http://metasploit.com)。你可以从[这里](http://metasploit.com/download/)获取 Metasploit 框架，版本要求是 **3.5** 或者更高版本。对于 ICMP 隧道入侵技术，sqlmap 需要 [Impacket](https://code.google.com/p/impacket/) 依赖包。
 
-如果你想要绕过 Web 应用，直接连接到数据库服务器（开启 `-d` 选项），你需要根据攻击目标中不同数据库管理系统安装不同的 Python 连接依赖包：
+如果你想要绕过 Web 应用，直接连接到数据库服务器（开启 `-d` 选项），你需要根据攻击目标中不同 DBMS（Database Management System，数据库管理系统）安装不同的 Python 连接依赖包：
 
 * DB2: [python ibm-db](https://code.google.com/p/ibm-db/)
 * Firebird: [python-kinterbasdb](http://kinterbasdb.sourceforge.net/)

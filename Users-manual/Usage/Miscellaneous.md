@@ -66,7 +66,7 @@ d level (1) and risk (1)? [Y/n] N
 
 如果用户使用了开关 `--beep`，那么在发现 SQL 注入时，sqlmap 会立即发出“哔”的警告声。当测试的目标 URLs 是大批量列表（选项 `-m`）时特别有用。
 
-### 清除 DBMS 中特定的 sqlmap UDF(s) 和表
+### 清除 DBMS（Database Management System，数据库管理系统）中特定的 sqlmap UDF(s) 和表
 
 开关：`--cleanup`
 
