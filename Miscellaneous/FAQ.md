@@ -82,7 +82,7 @@ sqlmap 是由一个计算机安全爱好者组成的小团队投入大量时间�
  * 也可以订阅 [RSS feed](http://rss.gmane.org/messages/complete/gmane.comp.security.sqlmap)。
  * 还可以在线浏览[文章归档](http://news.gmane.org/gmane.comp.security.sqlmap)。
 
-## 你们会支持其他数据库管理系统吗？
+## 你们会支持其他 DBMS（Database Management System，数据库管理系统）吗？
 
 我们已经支持所有主流和一些较小众的数据库。我们已经有计划扩大对其中一些数据库的支持，并且会某个时间点支持 Informix 和 Ingres。
 
@@ -168,7 +168,7 @@ sqlmap 需要正确解码页面内容才能正确检测和处理国际化字符�
 
 ## 可以通过 `--sql-query`，`--sql-shell` 和 `--sql-file` 使用 SQL 的 `INSERT/UPDATE` 命令吗？
 
-当目标应用程序存在堆叠查询 SQL 注入漏洞，或者使用 `-d` 开关直接连接到数据库，并且会话用户具有相应的权限（或提权工具已经被预先注入），便可以在目标数据库上运行这些语句以及任何其他语句。
+当目标应用程序存在堆叠查询（Stacked queries） SQL 注入漏洞，或者使用 `-d` 开关直接连接到数据库，并且会话用户具有相应的权限（或提权工具已经被预先注入），便可以在目标数据库上运行这些语句以及任何其他语句。
 
 问题：
 [#1](http://thread.gmane.org/gmane.comp.security.sqlmap/1237)

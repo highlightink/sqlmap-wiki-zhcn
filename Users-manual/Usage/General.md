@@ -64,7 +64,7 @@ $ python sqlmap.py -u "http://192.168.21.128/sqlmap/mysql/" --batch --crawl=3
 
 当导出数据到 CSV 格式文件（`--dump-format=CSV`），数据条目需要使用“分隔符”（默认为 `,`）进行划分。如果用户想要覆盖默认分隔符，可以使用这个选项（例如：`--csv-del=";"`)。
 
-### DBMS 认证凭证
+### DBMS（Database Management System，数据库管理系统）认证凭证
 
 选项：`--dbms-cred`
 

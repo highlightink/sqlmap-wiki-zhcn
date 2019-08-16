@@ -4,7 +4,7 @@
 
 选项和开关：`--os-cmd` 和 `--os-shell`
 
-当后端 DBMS 为 MySQL，PostgreSQL 或 Microsoft SQL Server，并且当前会话用户拥有对数据库特定功能和相关架构特性的利用权限时，sqlmap 能够在**数据库所在服务器的操作系统上运行任意的命令**。
+当后端 DBMS（Database Management System，数据库管理系统）为 MySQL，PostgreSQL 或 Microsoft SQL Server，并且当前会话用户拥有对数据库特定功能和相关架构特性的利用权限时，sqlmap 能够在**数据库所在服务器的操作系统上运行任意的命令**。
 
 在 MySQL 和 PostgreSQL 中，sqlmap 可以上传（通过前面描述的文件上传功能）一个包含两个用户自定义函数——分别为 `sys_exec()` 和 `sys_eval()` 的共享库（二进制文件），然后在数据库中创建出两个对应函数，并调用对应函数执行特定的命令，并允许用户选择是否打印出相关命令执行的结果。在 Microsoft SQL Server 中，sqlmap 会利用 `xp_cmdshell` 存储过程：如果该存储过程被关闭了（Microsoft SQL Server 的 2005 及以上版本默认关闭），sqlmap 则会将其重新打开；如果该存储过程不存在，sqlmap 则会重新创建它。
 

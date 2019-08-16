@@ -4,7 +4,7 @@
 
 选项：`--file-read`
 
-当后端 DBMS 为 MySQL，PostgreSQL 或者 Microsoft SQL Server，并且当前会话用户拥有利用数据库特定功能和相关架构弱点的权限时，sqlmap 能够直接读取底层文件系统中文件的内容。文件可以是文本文件或者二进制文件，sqlmap 都能够正确地处理相关文件。
+当后端 DBMS（Database Management System，数据库管理系统）为 MySQL，PostgreSQL 或者 Microsoft SQL Server，并且当前会话用户拥有利用数据库特定功能和相关架构弱点的权限时，sqlmap 能够直接读取底层文件系统中文件的内容。文件可以是文本文件或者二进制文件，sqlmap 都能够正确地处理相关文件。
 
 这些技术的相关详情可见白皮书[通过高级 SQL 注入完全控制操作系统](http://www.slideshare.net/inquis/advanced-sql-injection-to-operating-system-full-control-whitepaper-4633857)。
 

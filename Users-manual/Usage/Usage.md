@@ -86,7 +86,8 @@
     --skip=SKIP         指定要跳过的参数
     --skip-static       指定跳过非动态参数
     --param-exclude=..  用正则表达式排除参数（例如："ses"）
-    --dbms=DBMS         指定后端 DBMS 类型（例如：MySQL）
+    --dbms=DBMS         指定后端 DBMS（Database Management System，
+                        数据库管理系统）类型（例如：MySQL）
     --dbms-cred=DBMS..  DBMS 认证凭据（username:password）
     --os=OS             指定后端 DBMS 的操作系统类型
     --invalid-bignum    将无效值设置为大数
@@ -136,7 +137,7 @@
     -f, --fingerprint   执行广泛的 DBMS 版本指纹识别
 
   枚举：
-  	以下选项用于获取后端数据库管理系统的信息，结构和数据表中的数据。
+  	以下选项用于获取后端 DBMS 的信息，结构和数据表中的数据。
   	此外，还可以运行你输入的 SQL 语句
 
     -a, --all           获取所有信息、数据
@@ -187,14 +188,14 @@
     --shared-lib=SHLIB  共享库的本地路径
 
   访问文件系统：
-    以下选项用于访问后端数据库管理系统的底层文件系统
+    以下选项用于访问后端 DBMS 的底层文件系统
     
     --file-read=FILE..  读取后端 DBMS 文件系统中的文件
     --file-write=FIL..  写入到后端 DBMS 文件系统中的文件
     --file-dest=FILE..  使用绝对路径写入到后端 DBMS 中的文件
 
   访问操作系统：
-    以下选项用于访问后端数据库管理系统的底层操作系统
+    以下选项用于访问后端 DBMS 的底层操作系统
 
     --os-cmd=OSCMD      执行操作系统命令
     --os-shell          调出交互式操作系统 shell
@@ -206,7 +207,7 @@
     --tmp-path=TMPPATH  远程临时文件目录的绝对路径
 
   访问 Windows 注册表：
-    以下选项用于访问后端数据库管理系统的 Windows 注册表
+    以下选项用于访问后端 DBMS 的 Windows 注册表
 
     --reg-read          读取一个 Windows 注册表键值
     --reg-add           写入一个 Windows 注册表键值数据
