@@ -22,7 +22,7 @@ git clone https://github.com/sqlmapproject/sqlmap.wiki.git
 ### sqlmap 官方站点
 
 - 官方网站：[sqlmap.org](http://sqlmap.org/)
-- GitHub 项目：[github.com/sqlmapproject/sqlmap](https://github.com/sqlmapproject/sqlmap)
+- GitHub 仓库：[github.com/sqlmapproject/sqlmap](https://github.com/sqlmapproject/sqlmap)
 - 用户手册：[sqlmap wiki](https://github.com/sqlmapproject/sqlmap/wiki)
 
 #### 什么是 sqlmap？
@@ -37,9 +37,11 @@ sqlmap 是一款自动化检测与利用 SQL 注入漏洞的免费开源工具�
 
 本文档发布在 [GitBook](https://itechub.gitbook.io/sqlmap-wiki-zhcn/)，你可以访问 [sqlmap-wiki-zhcn (GitHub)](https://github.com/itechub/sqlmap-wiki-zhcn) 参与翻译，修正翻译错误，提升翻译质量。
 
+当你发现任何可改进之处，请 fork 本项目并向我们发起 pull request，流程参见：[分叉他人项目](https://itechub.gitbook.io/github-guides-zhcn/forking-projects/intro)。
+
 #### 格式约定
 
-原则上使用[中文文案排版指北](https://github.com/mzlogin/chinese-copywriting-guidelines)中建议的格式。
+原则上使用 [中文文案排版指北](https://github.com/mzlogin/chinese-copywriting-guidelines) 中建议的格式。
 
 重点关注的几点：
 
