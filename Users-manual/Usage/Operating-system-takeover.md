@@ -8,7 +8,7 @@
 
 在 MySQL 和 PostgreSQL 中，sqlmap 可以上传（通过前面描述的文件上传功能）一个包含两个用户自定义函数——分别为 `sys_exec()` 和 `sys_eval()` 的共享库（二进制文件），然后在数据库中创建出两个对应函数，并调用对应函数执行特定的命令，并允许用户选择是否打印出相关命令执行的结果。在 Microsoft SQL Server 中，sqlmap 会利用 `xp_cmdshell` 存储过程：如果该存储过程被关闭了（Microsoft SQL Server 的 2005 及以上版本默认关闭），sqlmap 则会将其重新打开；如果该存储过程不存在，sqlmap 则会重新创建它。
 
-当用户请求标准输出，sqlmap 将使用任何可用的 SQL 注入技术（盲注、带内注入、报错型注入）去获取对应结果。相反，如果无需标准输出对应结果，sqlmap 则会使用堆叠查询注入技术执行相关的命令。
+当用户请求标准输出，sqlmap 将使用任何可用的 SQL 注入技术（盲注、带内注入、报错型注入）去获取对应结果。相反，如果无需标准输出对应结果，sqlmap 则会使用堆叠查询注入（Stacked queries）技术执行相关的命令。
 
 这些技术的相关详情可见白皮书[通过高级 SQL 注入，对操作系统进行完全控制](http://www.slideshare.net/inquis/advanced-sql-injection-to-operating-system-full-control-whitepaper-4633857)。
 
