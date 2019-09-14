@@ -4,8 +4,8 @@ sqlmap 实现的功能特性包括：
 
 ## 通用特性
 
-* 完全支持 **MySQL**，**Oracle**，**PostgresSQL**，**Microsoft SQL Server**，**Microsoft Access**，**IBM DB2**，**SQLite**，**Firebird**，**Sybase**，**SAP MaxDB** 和 **HSQLDB** 等 DBMS（Database Management System，数据库管理系统）。
-* 完全支持五种 SQL 注入技术：**布尔型盲注**，**时间型盲注**，**报错型注入**，**联合查询注入**和**堆叠查询（Stacked queries）注入**。
+* 完全支持 **MySQL**，**Oracle**，**PostgreSQL**，**Microsoft SQL Server**，**Microsoft Access**，**IBM DB2**，**SQLite**，**Firebird**，**Sybase**，**SAP MaxDB** 和 **HSQLDB** 等 DBMS（Database Management System，数据库管理系统）。
+* 完全支持五种 SQL 注入技术：**布尔型盲注（Boolean-based blind）**，**时间型盲注（Time-based blind）**，**报错型注入（Error-based）**，**联合查询注入（UNION query-based）**和**堆叠查询（Stacked queries）注入**。
 * 支持通过提供 DBMS 凭证，IP 地址，端口和数据库名而非 SQL 注入**直接连接数据库**。
 * 支持用户提供单个目标 URL，通过 [Burp proxy](http://portswigger.net/suite/) 或 [WebScarab proxy](http://www.owasp.org/index.php/Category:OWASP_WebScarab_Project) 的请求日志文件批量获取目标地址列表，从文本文件获得完整的 HTTP 请求报文或使用 Google dork——使用 [Google](http://www.google.com) 查询并解析结果页面获取批量目标。也可以自定义正则表达式进行验证解析。
 * 可以测试并利用 **GET** 和 **POST** 参数，HTTP 头中的 **Cookie**，**User-Agent** 和 **Referer** 这些地方出现的 SQL 注入漏洞。也可以指定一个用英文逗号隔开的参数列表进行测试。
@@ -58,4 +58,4 @@ sqlmap 实现的功能特性包括：
 
 ## 演示
 
-你可以在 [Bernardo](http://www.youtube.com/user/inquisb/videos) 和 [Miroslav](http://www.youtube.com/user/stamparm/videos) 的 YouTube 主页中观看演示。还可以在[这里](http://unconciousmind.blogspot.com/search/label/sqlmap)找到大量公开可用漏洞的 Web 应用，用于合法的 Web 应用安全评估。
+你可以在 [Bernardo](http://www.youtube.com/user/inquisb/videos) 和 [Miroslav](http://www.youtube.com/user/stamparm/videos) 的 YouTube 主页中观看演示。还可以在 [这里](http://unconciousmind.blogspot.com/search/label/sqlmap) 找到大量含有公开可用漏洞的 Web 应用，用于合法的 Web 应用安全评估。

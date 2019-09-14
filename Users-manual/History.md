@@ -39,7 +39,7 @@
 * **十二月**，在这一年中，sqlmap 新增了很多新的功能特性，同时修复了数百个 bugs。
 * **九月 23 日**，在 Varazdin，Croatia 举行的 FSec - FOI Security Symposium 大会上，Miroslav [带来](http://fsec.foi.hr/index.php/Miroslav_Stampar_-_It_all_starts_with_the_%27_-_SQL_injection_from_attackers_point_of_view)基于 **从'（攻击者眼中的 SQL 注入）说起**主题演讲（[幻灯片](http://www.slideshare.net/stamparm/f-sec-2011miroslavstamparitallstartswiththesinglequote-9311238)），讲解了常见 SQL 注入攻击中使用的攻击方法。
 * **六月 23 日**，在 Firenze, Italy 的 EuroPython 2011 大会上，Miroslav [带来](https://ep2012.europython.eu/conference/talks/sqlmap-security-developing-in-python) **sqlmap - Python 安全领域的发展**（[幻灯片](http://www.slideshare.net/stamparm/euro-python-2011miroslavstamparsqlmapsecuritydevelopmentinpython)），讲解了 sqlmap 的内部实现。
-* **四月 10 日**，[Bernardo 和 Miroslav](http://www.sqlmap.org/#developers) 发布了 sqlmap **0.9** 版本，重写了整个 SQL 注入检测引擎，能够直连数据库服务器，同时支持了时间型盲注和报错型注入，并支持了四种新的 DBMS（Database Management System，数据库管理系统）。
+* **四月 10 日**，[Bernardo 和 Miroslav](http://www.sqlmap.org/#developers) 发布了 sqlmap **0.9** 版本，重写了整个 SQL 注入检测引擎，能够直连数据库服务器，同时支持了时间型盲注（Time-based blind）和报错型注入（Error-based），并支持了四种新的 DBMS（Database Management System，数据库管理系统）。
 
 ## 2010
 

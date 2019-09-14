@@ -1,6 +1,6 @@
 # 相关依赖
 
-sqlmap 使用 [Python](http://www.python.org) 开发，Python 是一门动态的、面向对象的解释型语言，你可以从 [http://python.org/download/](http://python.org/download/) 上面免费下载安装。因而 sqlmap 独立于操作系统，是一款跨平台的工具。使用 sqlmap 需要 Python **2.6**，**2.7** 或 **3.x** 的相关环境。通常 GNU/Linux 的发行版都会预安装好相关的 Python 版本。其他的 Unix 和 Mac OSX 通常也会有相关的 Python 依赖包，并且可以很容易地进行安装。Windows 用户可以针对 x86，AMD64 和 Itanium 选择不同的安装程序。
+sqlmap 使用 [Python](http://www.python.org) 开发，Python 是一门动态的、面向对象的解释型语言，你可以从 [http://python.org/download/](http://python.org/download/) 免费下载安装。因而 sqlmap 独立于操作系统，是一款跨平台的工具。使用 sqlmap 需要 Python **2.6**，**2.7** 或 **3.x** 的相关环境。通常 GNU/Linux 的发行版都会预安装好相关的 Python 版本。其他的 Unix 和 Mac OSX 通常也会有相关的 Python 依赖包，并且可以很容易地进行安装。Windows 用户可以针对 x86，AMD64 和 Itanium 选择不同的安装程序。
 
 sqlmap 的部分漏洞利用功能依赖于 [Metasploit 框架](http://metasploit.com)。你可以从[这里](http://metasploit.com/download/)获取 Metasploit 框架，版本要求是 **3.5** 或者更高版本。对于 ICMP 隧道入侵技术，sqlmap 需要 [Impacket](https://code.google.com/p/impacket/) 依赖包。
 
