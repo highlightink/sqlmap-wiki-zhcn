@@ -58,4 +58,4 @@ sqlmap 实现的功能特性包括：
 
 ## 演示
 
-你可以在 [Bernardo](http://www.youtube.com/user/inquisb/videos) 和 [Miroslav](http://www.youtube.com/user/stamparm/videos) 的 YouTube 主页中观看演示。还可以在[这里](http://unconciousmind.blogspot.com/search/label/sqlmap)找到大量公开可用漏洞的 Web 应用，用于合法的 Web 应用安全评估。
+你可以在 [Bernardo](http://www.youtube.com/user/inquisb/videos) 和 [Miroslav](http://www.youtube.com/user/stamparm/videos) 的 YouTube 主页中观看演示。还可以在 [这里](http://unconciousmind.blogspot.com/search/label/sqlmap) 找到大量含有公开可用漏洞的 Web 应用，用于合法的 Web 应用安全评估。
