@@ -1,16 +1,16 @@
 ## 注入
 
-以下选项用于指定要测试的参数，提供自定义注入 payloads 和可选篡改脚本。
+以下选项用于指定需要测试的参数，提供自定义注入 payloads 和可选篡改脚本。
 
 ### 可测试参数
 
 选项：`-p`，`--skip` 和 `--param-exclude`
 
-默认情况下 sqlmap 会测试所有 GET 参数和 POST 参数。当 `--level` 的值 >= **2**，它还会测试 HTTP `Cookie` 头部值。当这个值 >= **3** 时，它还会测试 HTTP `User-Agent` 和 HTTP `Referer` 头部值。而且还可以手动指定一个需要 sqlmap 进行测试的，使用逗号分隔的参数列表。这使得 sqlmap 忽略 `--level` 的设置。
+默认情况下 sqlmap 会测试所有 GET 参数和 POST 参数。当 `--level` 的值 >= **2**，它还会测试 HTTP `Cookie` 头部值。当这个值 >= **3** 时，它还会测试 HTTP `User-Agent` 和 HTTP `Referer` 头部值。而且还可以手动指定一个需要 sqlmap 进行测试的、使用逗号分隔的参数列表。这会使 sqlmap 忽略 `--level` 的设置。
 
-例如，只需要测试 GET 参数 `id` 和 HTTP `User-Agent`，则提供 `-p "id,user-agent"`。
+例如，只需要测试 GET 参数 `id` 和 HTTP `User-Agent` 时，则提供 `-p "id,user-agent"`。
 
-如果用户想要排除测试某些参数，他可以使用选项 `--skip`。当你想使用高级别 `--level` 值，并指定部分可用参数（排除通常被测试的 HTTP 头）时，这个选项非常有用。
+如果用户想要排除测试某些参数，他可以使用选项 `--skip`。如果需要使用高级别 `--level` 值，并指定部分可用参数（排除通常被测试的 HTTP 头）时，这个选项非常有用。
 
 例如，要在 `--level=5` 跳过测试 HTTP `User-Agent` 和 HTTP `Referer`，可以提供 `--skip="user-agent,referer"`。
 
@@ -24,7 +24,7 @@
 
 例如，当使用了 Apache Web 服务器的 [mod_rewrite](http://httpd.apache.org/docs/current/mod/mod_rewrite.html) 模块或其他类似的技术时，这特别有用。
 
-一个合法命令行例子如下：
+一个有效的命令行例子如下：
 
 ```
 $ python sqlmap.py -u "http://targeturl/param1/value1*/param2/value2/"
@@ -32,9 +32,9 @@ $ python sqlmap.py -u "http://targeturl/param1/value1*/param2/value2/"
 
 #### 任意注入点
 
-与 URI 注入点类似，星号（`*`）（注意：同时支持 Havij 风格 `%INJECT HERE%`）也可以用于指向 GET，POST 或 HTTP 头部中的任意注入点。可以在选项 `-u` 中标注 GET 的参数值，在选项 `--data` 中标注 POST 的参数值，在选项 `-H` 中标注 HTTP 头部值如 `--headers`，`--user-agent`，`--referer` 和/或 `--cookie`，或者标注从文件加载的 HTTP 请求中的通用位置，用于指定相应的注入点。
+与 URI 注入点类似，星号（`*`）（注意：同时支持 Havij 风格 `%INJECT HERE%`）也可以用于指向 GET，POST 或 HTTP 头部中的任意注入点。可以在选项 `-u` 中标注 GET 的参数值，在选项 `--data` 中标注 POST 的参数值，在选项 `-H` 中标注 HTTP 头部值如 `--headers`，`--user-agent`，`--referer` 和 `--cookie`，或者标注从文件加载的 HTTP 请求中的通用位置，用于指定相应的注入点。
 
-一个合法命令行例子如下：
+一个有效的命令行例子如下：
 
 ```
 $ python sqlmap.py -u "http://targeturl" --cookie="param1=value1*;param2=value2"
@@ -63,7 +63,7 @@ $ python sqlmap.py -u "http://targeturl" --cookie="param1=value1*;param2=value2"
 
 如果你同时使用 `--dbms` 和 `--fingerprint`，sqlmap 将只对指定的 DBMS 执行详细的指纹收集，更详细的信息请阅读下文。
 
-注意，此选项**不**是强制性的，强烈建议**仅当你绝对确定**后端 DBMS 时使用它。如果你不知道，就让 sqlmap 自动为你识别指纹信息。
+注意，此选项**不是**强制性的，强烈建议**仅当你绝对确定**后端 DBMS 时使用它。如果你不知道，就让 sqlmap 自动为你识别指纹信息。
 
 ### 指定 DBMS 操作系统名称
 
@@ -76,7 +76,7 @@ $ python sqlmap.py -u "http://targeturl" --cookie="param1=value1*;param2=value2"
 
 你可以强制指定已知的操作系统类型，这样 sqlmap 将避免对该信息进行检测。
 
-注意，此选项**不**是强制性的，强烈建议**仅当你绝对确定**后端 DBMS 底层操作系统时使用它。如果你不知道，就让 sqlmap 自动为你识别。
+注意，此选项**不是**强制性的，强烈建议**仅当你绝对确定**后端 DBMS 底层操作系统时使用它。如果你不知道，就让 sqlmap 自动为你识别。
 
 ### 强制使用大数来使参数值无效
 
