@@ -1,9 +1,10 @@
 # sqlmap 用户手册中文版
+
 [![stars](https://img.shields.io/github/stars/itechub/sqlmap-wiki-zhcn.svg)](https://github.com/itechub/sqlmap-wiki-zhcn)
 [![updated](https://img.shields.io/github/last-commit/itechub/sqlmap-wiki-zhcn/master.svg?color=%23c16927&label=updated)](https://github.com/itechub/sqlmap-wiki-zhcn/commits/master)
 <img src="https://img.shields.io/badge/progress-100%25-green.svg" alt="progress">
 
-![](cover_readme.jpg)
+![cover](cover_readme.jpg)
 
 [>> GitHub 用户点此进入 GitBook 开始阅读 <<](https://itechub.gitbook.io/sqlmap-wiki-zhcn/)
 
@@ -16,30 +17,31 @@ git clone https://github.com/sqlmapproject/sqlmap.wiki.git
 ```
 
 当前翻译对应版本：
-- 日期：`2019-06-03 15:41`
-- Commit ID：`c0de36df400d563ca364498dc72704e6e6434915`
 
-### sqlmap 官方站点
+- 日期：`2020-01-28 06:53`
+- Commit ID：`5dc89b2b0fd7f8820bb9b697c1645c020823f843`
+
+## sqlmap 官方站点
 
 - 官方网站：[sqlmap.org](http://sqlmap.org/)
 - GitHub 仓库：[github.com/sqlmapproject/sqlmap](https://github.com/sqlmapproject/sqlmap)
 - 用户手册：[sqlmap wiki](https://github.com/sqlmapproject/sqlmap/wiki)
 
-#### 什么是 sqlmap？
+## 什么是 sqlmap？
 
 sqlmap 是一款自动化检测与利用 SQL 注入漏洞的免费开源工具。
 
-#### 如何学习使用 sqlmap？
+### 如何学习使用 sqlmap？
 
 除了阅读本文档，你还可以结合 [sqli-labs](https://github.com/Audi-1/sqli-labs)（一个 SQL 注入实验系统）来进行 sqlmap 的实践。
 
-### 参与翻译
+## 参与翻译
 
 本文档发布在 [GitBook](https://itechub.gitbook.io/sqlmap-wiki-zhcn/)，你可以访问 [sqlmap-wiki-zhcn (GitHub)](https://github.com/itechub/sqlmap-wiki-zhcn) 参与翻译，修正翻译错误，提升翻译质量。
 
-当你发现任何可改进之处，请 fork 本项目并向我们发起 pull request，流程参见：[分叉他人项目](https://itechub.gitbook.io/github-guides-zhcn/forking-projects/intro)。
+当你发现任何可改进之处，请 Fork 本项目并向我们发起 Pull Request，流程参见：[复刻他人项目](https://itechub.gitbook.io/github-guides-zhcn/forking-projects/intro)。
 
-#### 格式约定
+### 格式约定
 
 原则上使用 [中文文案排版指北](https://github.com/mzlogin/chinese-copywriting-guidelines) 中建议的格式。
 
@@ -51,6 +53,7 @@ sqlmap 是一款自动化检测与利用 SQL 注入漏洞的免费开源工具�
 
 水平所限，难免出现纰漏，欢迎任何指正、建议、意见和批评。
 
-#### 译者
+### 译者
+
 - [Octobug](https://github.com/Octobug)
 - [Shady](https://github.com/shady-robot)
