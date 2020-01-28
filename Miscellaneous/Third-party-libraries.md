@@ -22,7 +22,7 @@
 | [thirdparty/termcolor/](http://pypi.python.org/pypi/termcolor) | MIT | 用于着色输出 | - |
 | [thirdparty/xdot/](http://code.google.com/p/jrfonseca/wiki/XDot) | LGPL | 用于内部调试目的 | --profile |
 
-# extra/ 目录中的第三方库与工具
+## extra/ 目录中的第三方库与工具
 
 这些列出的为不是完全由 sqlmap 开发人员开发的库和工具。
 
@@ -30,7 +30,7 @@
 | ------------ | ----------- | ----------- | ----------- |
 | [extra/icmpsh/](https://github.com/inquisb/icmpsh) | LGPL | 用于通过 ICMP 接管操作系统的功能 | --os-pwn |
 
-# 未打包的依赖
+## 未打包的依赖
 
 | 库 / 工具 | 许可证 | 备注 | 开关 |
 | ------------ | ----------- | ----------- | ----------- |

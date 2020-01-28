@@ -1,8 +1,8 @@
-## 暴力破解
+# 暴力破解
 
 以下开关可用于暴力破解检查。
 
-### 暴力破解表名
+## 暴力破解表名
 
 开关：`--common-tables`
 
@@ -18,7 +18,7 @@
 
 针对 MySQL 4.1 目标的例子：
 
-```
+```shell
 $ python sqlmap.py -u "http://192.168.136.129/mysql/get_int_4.php?id=1" --commo\
 n-tables -D testdb --banner
 
@@ -46,7 +46,7 @@ Database: testdb
 +-------+
 ```
 
-### 暴力破解列名
+## 暴力破解列名
 
 开关：`--common-columns`
 

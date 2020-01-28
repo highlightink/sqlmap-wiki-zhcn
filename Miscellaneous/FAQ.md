@@ -79,12 +79,8 @@ sqlmap 是由一个计算机安全爱好者组成的小团队投入大量时间�
 * 在 Twitter 关注我们，[@sqlmap](https://twitter.com/sqlmap)。
 * 在 YouTube 观看演示：[#1](http://www.youtube.com/user/inquisb/videos) 和 [#2](http://www.youtube.com/user/stamparm/videos)。
 * 订阅[邮件列表](http://news.gmane.org/gmane.comp.security.sqlmap)。
- * 也可以订阅 [RSS feed](http://rss.gmane.org/messages/complete/gmane.comp.security.sqlmap)。
- * 还可以在线浏览[文章归档](http://news.gmane.org/gmane.comp.security.sqlmap)。
-
-## 你们会支持其他 DBMS（Database Management System，数据库管理系统）吗？
-
-我们已经支持所有主流和一些较小众的数据库。我们已经有计划扩大对其中一些数据库的支持，并且会某个时间点支持 Informix 和 Ingres。
+  * 也可以订阅 [RSS feed](http://rss.gmane.org/messages/complete/gmane.comp.security.sqlmap)。
+  * 还可以在线浏览[文章归档](http://news.gmane.org/gmane.comp.security.sqlmap)。
 
 ## 你能帮我黑掉一个网站吗？
 

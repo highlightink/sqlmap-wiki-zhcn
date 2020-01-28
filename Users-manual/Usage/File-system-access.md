@@ -1,6 +1,6 @@
-## 访问文件系统
+# 访问文件系统
 
-### 读取数据库服务器文件系统文件
+## 读取数据库服务器文件系统文件
 
 选项：`--file-read`
 
@@ -10,7 +10,7 @@
 
 下面是以 Microsoft SQL Server 2005 为目标，获取二进制文件的例子：
 
-```
+```shell
 $ python sqlmap.py -u "http://192.168.136.129/sqlmap/mssql/iis/get_str2.asp?nam\
 e=luther" --file-read "C:/example.exe" -v 1
 
@@ -35,7 +35,7 @@ output/192.168.136.129/files/C__example.exe: PE32 executable for MS Windows (GUI
 ) Intel 80386 32-bit
 ```
 
-### 向数据库服务器的文件系统上传文件
+## 向数据库服务器的文件系统上传文件
 
 选项：`--file-write` 和 `--file-dest`
 
@@ -45,8 +45,8 @@ output/192.168.136.129/files/C__example.exe: PE32 executable for MS Windows (GUI
 
 下面是以 MySQL 为目标，向服务器提交一个经过 UPX 压缩的二进制文件的例子：
 
-```
-$ file /software/nc.exe.packed 
+```shell
+$ file /software/nc.exe.packed
 /software/nc.exe.packed: PE32 executable for MS Windows (console) Intel 80386 32
 -bit
 
