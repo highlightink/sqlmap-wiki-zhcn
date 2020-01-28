@@ -216,7 +216,7 @@ ers (0x80040E14)
 使用此选项可在 sqlmap 检测引擎工作之前对（HTTP）响应数据使用预处理脚本（例如，解码数据或删除无用数据）。例如，将所有小写字符转换为大写的预处理脚本可以是：
 
 ```python
-#!/usr/bin/env
+#!/usr/bin/env python#!/usr/bin/env
 
 def preprocess(page, headers=None, code=None):
     return page.upper() if page else page, headers, code

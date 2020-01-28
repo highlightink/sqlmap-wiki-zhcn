@@ -1,8 +1,8 @@
-## 注入
+# 注入
 
 以下选项用于指定需要测试的参数、提供自定义注入 payloads 和可选篡改脚本。
 
-### 可测试参数
+## 可测试参数
 
 选项：`-p`，`--skip` 和 `--param-exclude`
 
@@ -18,7 +18,7 @@
 
 例如，要跳过对名称中包含 `token` 或 `session` 的参数测试，可以提供 `--param-exclude="token|session"`。
 
-#### URI 注入点
+### URI 注入点
 
 有一些特殊情况是注入点处于 URI 本身内。除非手动指定，sqlmap 不会对 URI 路径执行任何自动测试。你需要在命令行中标明这些注入点，通过在每个需要 sqlmap 测试和利用 SQL 注入的 URI 点后面附加一个星号（`*`）（注意：也支持 Havij 风格 `%INJECT HERE%`）。
 
@@ -26,17 +26,17 @@
 
 一个有效的命令行例子如下：
 
-```
+```shell
 $ python sqlmap.py -u "http://targeturl/param1/value1*/param2/value2/"
 ```
 
-#### 任意注入点
+### 任意注入点
 
 与 URI 注入点类似，星号（`*`）（注意：同时支持 Havij 风格 `%INJECT HERE%`）也可以用于指向 GET，POST 或 HTTP 头部中的任意注入点。可以在选项 `-u` 中标注 GET 的参数值，在选项 `--data` 中标注 POST 的参数值，在选项 `-H` 中标注 HTTP 头部值如 `--headers`，`--user-agent`，`--referer` 和 `--cookie`，或者标注从文件加载的 HTTP 请求中的通用位置，用于指定相应的注入点。
 
 一个有效的命令行例子如下：
 
-```
+```shell
 $ python sqlmap.py -u "http://targeturl" --cookie="param1=value1*;param2=value2"
 ```
 
@@ -56,8 +56,20 @@ $ python sqlmap.py -u "http://targeturl" --cookie="param1=value1*;param2=value2"
 * Firebird
 * Sybase
 * SAP MaxDB
-* HSQLDB
 * Informix
+* MariaDB
+* Percona
+* MemSQL
+* TiDB
+* CockroachDB
+* HSQLDB
+* H2
+* MonetDB
+* Apache Derby
+* Vertica
+* Mckoi
+* Presto
+* Altibase
 
 如果由于某些原因 sqlmap 已经识别出 SQL 注入却无法检测到后端 DBMS 类型，或者你想避免执行指纹信息收集，可以自己提供后端 DBMS 的名称（例如：`postgresql`）。对于 MySQL 和 Microsoft SQL Server 分别以 `MySQL <version>` 和 `Microsoft SQL Server <version>` 的形式提供，其中 `<version>` 是指 DBMS 的有效版本；例如 MySQL 为 `5.0`，Microsoft SQL Server 为 `2005`。
 
@@ -116,7 +128,7 @@ $ python sqlmap.py -u "http://targeturl" --cookie="param1=value1*;param2=value2"
 
 漏洞源代码示例：
 
-```
+```shell
 $query = "SELECT * FROM users WHERE id=('" . $_GET['id'] . "') LIMIT 0, 1";
 ```
 
@@ -124,7 +136,7 @@ $query = "SELECT * FROM users WHERE id=('" . $_GET['id'] . "') LIMIT 0, 1";
 
 例如：
 
-```
+```shell
 $ python sqlmap.py -u "http://192.168.136.131/sqlmap/mysql/get_str_brackets.php\
 ?id=1" -p id --prefix "')" --suffix "AND ('abc'='abc"
 [...]
@@ -132,7 +144,7 @@ $ python sqlmap.py -u "http://192.168.136.131/sqlmap/mysql/get_str_brackets.php\
 
 这将使所有 sqlmap 请求最终构成以下查询：
 
-```
+```shell
 $query = "SELECT * FROM users WHERE id=('1') <PAYLOAD> AND ('abc'='abc') LIMIT 0, 1";
 ```
 
@@ -152,7 +164,7 @@ sqlmap 本身不会混淆发送的 payload，除了将单引号之间的字符�
 
 合法的修改脚本格式如下：
 
-```
+```python
 # Needed imports
 from lib.core.enums import PRIORITY
 
@@ -177,7 +189,7 @@ def tamper(payload):
 
 针对 MySQL 目标，假定字符 `>`、空格和大写的 `SELECT` 字符串被禁止：
 
-```
+```shell
 $ python sqlmap.py -u "http://192.168.136.131/sqlmap/mysql/get_int.php?id=1" --\
 tamper tamper/between.py,tamper/randomcase.py,tamper/space2comment.py -v 3
 
@@ -198,6 +210,6 @@ AT(cHar(58,117,113,107,58),(SELeCt/**/(case/**/whEN/**/(9921=9921)/**/THeN/**/1/
 **/elsE/**/0/**/ENd)),cHar(58,106,104,104,58),FLOOR(RanD(0)*2))x/**/fROm/**/info
 rmation_schema.tables/**/group/**/bY/**/x)a)
 [hh:mm:04] [INFO] GET parameter 'id' is 'MySQL >= 5.0 AND error-based - WHERE or
- HAVING clause' injectable 
+ HAVING clause' injectable
 [...]
 ```

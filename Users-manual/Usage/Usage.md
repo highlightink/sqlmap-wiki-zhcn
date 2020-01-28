@@ -1,6 +1,6 @@
 # 用法
 
-```
+```text
 用法：python sqlmap.py [选项]
 
 选项：
@@ -10,19 +10,18 @@
   -v VERBOSE            输出信息详细程度级别：0-6（默认为 1）
 
   目标：
-  	至少提供一个以下选项以指定目标
+    至少提供一个以下选项以指定目标
 
     -d DIRECT           直接连接数据库
     -u URL, --url=URL   目标 URL（例如："http://www.site.com/vuln.php?id=1"）
     -l LOGFILE          从 Burp 或 WebScarab 代理的日志文件中解析目标地址
-    -x SITEMAPURL       从远程网站地图（.xml）文件中解析目标
     -m BULKFILE         从文本文件中获取批量目标
     -r REQUESTFILE      从文件中读取 HTTP 请求
     -g GOOGLEDORK       使用 Google dork 结果作为目标
     -c CONFIGFILE       从 INI 配置文件中加载选项
 
   请求：
-  	以下选项可以指定连接目标地址的方式
+    以下选项可以指定连接目标地址的方式
 
     --method=METHOD     强制使用提供的 HTTP 方法（例如：PUT）
     --data=DATA         使用 POST 发送数据串（例如："id=1"）
@@ -98,7 +97,7 @@
     --prefix=PREFIX     注入 payload 的前缀字符串
     --suffix=SUFFIX     注入 payload 的后缀字符串
     --tamper=TAMPER     用给定脚本修改注入数据
-    
+
   检测：
     以下选项用于自定义检测方式
 
@@ -137,8 +136,8 @@
     -f, --fingerprint   执行广泛的 DBMS 版本指纹识别
 
   枚举：
-  	以下选项用于获取后端 DBMS 的信息，结构和数据表中的数据。
-  	此外，还可以运行你输入的 SQL 语句
+    以下选项用于获取后端 DBMS 的信息，结构和数据表中的数据。
+    此外，还可以运行你输入的 SQL 语句
 
     -a, --all           获取所有信息、数据
     -b, --banner        获取 DBMS banner
@@ -189,7 +188,7 @@
 
   访问文件系统：
     以下选项用于访问后端 DBMS 的底层文件系统
-    
+
     --file-read=FILE..  读取后端 DBMS 文件系统中的文件
     --file-write=FIL..  写入到后端 DBMS 文件系统中的文件
     --file-dest=FILE..  使用绝对路径写入到后端 DBMS 中的文件

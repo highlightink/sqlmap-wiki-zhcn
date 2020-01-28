@@ -1,5 +1,9 @@
 # 历史
 
+## 2020
+
+* **一月 1 日**，发布稳定版本 [1.4](https://github.com/sqlmapproject/sqlmap/releases/tag/1.4)（[变更集](https://github.com/sqlmapproject/sqlmap/compare/1.3...1.4)，[问题列表](https://github.com/sqlmapproject/sqlmap/milestone/5?closed=1)）。
+
 ## 2019
 
 * **一月 5 日**，发布稳定版本 [1.3](https://github.com/sqlmapproject/sqlmap/releases/tag/1.3)（[变更集](https://github.com/sqlmapproject/sqlmap/compare/1.2...1.3)）。
@@ -13,6 +17,7 @@
 * **一月 2 日**，发布稳定版本 [1.1](https://github.com/sqlmapproject/sqlmap/releases/tag/1.1)（[变更集](https://github.com/sqlmapproject/sqlmap/compare/1.0...1.1)）。
 
 ## 2016
+
 * 解决前 **2000** 个 [Issue](https://github.com/sqlmapproject/sqlmap/issues?q=is%3Aissue+is%3Aclosed)。
 * **二月 27 日**，发布稳定版本 [1.0](https://github.com/sqlmapproject/sqlmap/releases/tag/1.0)（[变更集](https://github.com/sqlmapproject/sqlmap/compare/0.9...1.0)）。
 
@@ -45,7 +50,7 @@
 
 * **十二月**，[Bernardo and Miroslav](http://www.sqlmap.org/#developers) 为了在 2011 年第一季度 发布 sqlmap **0.9** 版本，为 sqlmap 增强了很多新的特性。
 * **六月 3**，在 Athens（Greece）举行的 AthCon 2010 大会上，Bernardo [带来](http://www.slideshare.net/inquis/ath-con-2010bernardodamelegotdbownnet)标题为**入侵数据库？掌控整个网络！**的演讲。
-* **三月 14 日**，[Bernardo 和 Miroslav](http://www.sqlmap.org/#developers) 发布 sqlmap **0.8** 稳定版本，增加了很多新特性。众多新特性中，包括了枚举数据库数据表，导出用户指定的数据表等功能，同时版本更加稳定并增强了其渗透功能。同时更新了对 Metasploit 3.3.3 的支持，及其他的功能添加和 bug 修复。 
+* **三月 14 日**，[Bernardo 和 Miroslav](http://www.sqlmap.org/#developers) 发布 sqlmap **0.8** 稳定版本，增加了很多新特性。众多新特性中，包括了枚举数据库数据表，导出用户指定的数据表等功能，同时版本更加稳定并增强了其渗透功能。同时更新了对 Metasploit 3.3.3 的支持，及其他的功能添加和 bug 修复。
 * **三月**，[发布](http://www.youtube.com/inquisb)了 sqlmap 的示例视频。
 * **一月**，Bernardo 被将于 Greece，2010 年六月举行的 [AthCon](https://www.gitbook.com/book/octobug/sqlmap-wiki-zhcn/edit#)大会[邀请](http://www.athcon.org/speakers/)进行演讲。
 
@@ -65,10 +70,10 @@
 * **五月 8 日**，sqlmap **0.6.4** 版本被添加到 Debian 官方仓库中。详情看[这篇博客](http://bernardodamele.blogspot.com/2009/05/sqlmap-in-debian-package-repository.html)。
 * **四月 22 日**，在 Black Hat Europe 2009 大会上，sqlmap **0.7 第 1 候选** 版本发布，公布了很多攻击工具。这些工具支持在目标系统执行任意的命令，通过集成 Metasploit 支持与目标数据库服务器建立起 TCP 带外连接，首次公布针对 Microsoft SQL Server 2000 和 2005 的 Microsoft Security Bulletin [MS09-004](http://www.microsoft.com/technet/security/Bulletin/MS09-004.mspx) 的利用，并且支持数据库服务器的入侵控制，而不仅仅是获取数据库中的数据。
 * **四月 16 日**，Bernardo 在 Amsterdam，Netherlands 举行的 Black Hat Europe 2009 大会上[发表](http://www.blackhat.com/html/bh-europe-09/bh-eu-09-archives.html#Damele")了他的研究（[幻灯片](http://www.slideshare.net/inquis/advanced-sql-injection-to-operating-system-full-control-slides)，[白皮书](http://www.slideshare.net/inquis/advanced-sql-injection-to-operating-system-full-control-whitepaper-4633857)）。听众的反馈十分不错，同时还有相关的[媒体报导](http://bernardodamele.blogspot.com/2009/03/black-hat-europe-2009.html)。
-* **三月 5 日**，2009 年在 Amsterdam 举行的 Black Hat Europe 以及在 Denver，USA 举行的 [Front Range OWASP ](http://www.owasp.org/index.php/Front_Range_OWASP_Conference_2009)大会上，Bernardo 首次[展示](http://www.slideshare.net/inquis/sql-injection-not-only-and-11)了 sqlmap 的新特性和近期会支持的新功能。分享的主题为 **SQL 注入：不只是 AND 1=1**。
-* **二月 24 日**，Bernardo 被邀请到 [Black Hat Europe 2009](http://www.blackhat.com/html/bh-europe-09/bh-eu-09-main.html) 做相关的[演讲](http://www.blackhat.com/html/bh-europe-09/bh-eu-09-speakers.html#Damele)，主题是**利用高级 SQL 注入完全控制操作系统**。
+* **三月 5 日**，2009 年在 Amsterdam 举行的 Black Hat Europe 以及在 Denver，USA 举行的 [Front Range OWASP](http://www.owasp.org/index.php/Front_Range_OWASP_Conference_2009) 大会上，Bernardo 首次 [展示](http://www.slideshare.net/inquis/sql-injection-not-only-and-11) 了 sqlmap 的新特性和近期会支持的新功能。分享的主题为 **SQL 注入：不只是 AND 1=1**。
+* **二月 24 日**，Bernardo 被邀请到 [Black Hat Europe 2009](http://www.blackhat.com/html/bh-europe-09/bh-eu-09-main.html) 做相关的 [演讲](http://www.blackhat.com/html/bh-europe-09/bh-eu-09-speakers.html#Damele)，主题是**利用高级 SQL 注入完全控制操作系统**。
 * **二月 3 日**，sqlmap **0.6.4** 版本是 0.6 系列的最后一个版本：通过利用 0.6.3 版本实现的堆叠查询（Stacked queries）功能，sqlmap 能够执行任意的 SQL 语句，不再局限于 **SELECT** 语句。同时，在这次版本发布中，许多新的功能特性变得更加稳定，执行效率有了很大的提升。
-* **一月 9 日**，Bernardo 在 London，UK 的分享会上[演讲了](http://www.slideshare.net/inquis/sql-injection-exploitation-internals-presentation) **SQL 注入利用内部实现**。
+* **一月 9 日**，Bernardo 在 London，UK 的分享会上 [演讲了](http://www.slideshare.net/inquis/sql-injection-exploitation-internals-presentation) **SQL 注入利用内部实现**。
 
 ## 2008
 
@@ -81,9 +86,9 @@
 
 ## 2007
 
-* **十一月 4 日**，版本 **0.5** 的发布标志着 OWASP Spring of Code 2007 比赛的结束。Bernardo [完成了](http://www.owasp.org/index.php/SpoC_007_-_SQLMap_-_Progress_Page)之前提出的所有目标，包括添加对 Oracle 的相关支持，联合查询 SQL 注入的功能增强，以及 HTTP Cookies 和 User-Agent 的注入分析测试。
+* **十一月 4 日**，版本 **0.5** 的发布标志着 OWASP Spring of Code 2007 比赛的结束。Bernardo [完成了](http://www.owasp.org/index.php/SpoC_007_-_SQLMap_-_Progress_Page) 之前提出的所有目标，包括添加对 Oracle 的相关支持，联合查询 SQL 注入的功能增强，以及 HTTP Cookies 和 User-Agent 的注入分析测试。
 * **六月 15 日**，Bernardo 在 OWASP Spring of Code 2007 里程碑结束后发布了 sqlmap **0.4** 版本。相对之前的版本，该版本提升了 DBMS 指纹信息识别功能，支持估算数据从目标数据库服务器返回时间和枚举特定数据的相关参数，同时配备了全新的日志系统。
-* **四月**，虽然 sqlmap 并**不是**一个 OWASP 项目，不过在众多 OWASP Spring of Code 2007 的开源项目的竞争下，sqlmap 仍然申请[成功](http://www.owasp.org/index.php/SpoC_007_-_SqlMap)。 
+* **四月**，虽然 sqlmap 并**不是**一个 OWASP 项目，不过在众多 OWASP Spring of Code 2007 的开源项目的竞争下，sqlmap 仍然申请 [成功](http://www.owasp.org/index.php/SpoC_007_-_SqlMap)。
 * **三月 30 日**，Bernardo 申请了 OWASP [Spring of Code 2007](http://www.owasp.org/index.php/OWASP_Spring_Of_Code_2007_Applications#Bernardo_-_sqlmap) 比赛。
 * **一月 20 日**，sqlmap **0.3** 版本发布，开始支持 Microsoft SQL Server，支持 联合查询 SQL 注入和 POST 参数注入等相关测试和渗透功能。
 
