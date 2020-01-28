@@ -1,14 +1,14 @@
-## 常规选项
+# 常规选项
 
 下面的选项用于设置 sqlmap 的常规参数。
 
-### 从已存储（.sqlite）文件读取会话
+## 从已存储（.sqlite）文件读取会话
 
 选项：`-s`
 
 sqlmap 会在专用的输出目录中自动为每一个目标分别建立持久会话 SQLite 文件，该文件会存储用于恢复会话的所有数据。如果用户需要指定会话文件的具体存储位置（例如：将所有目标的会话数据存储在同一个位置），则可以使用这个选项。
 
-### 记录 HTTP(s) 访问信息到文本文件
+## 记录 HTTP(s) 访问信息到文本文件
 
 选项：`-t`
 
@@ -16,25 +16,25 @@ sqlmap 会在专用的输出目录中自动为每一个目标分别建立持久�
 
 这个选项主要用于调试——当你向开发人员提供潜在 bug 报告时，可把这个文件一并带上。
 
-### 以非交互式模式运行
+## 以非交互式模式运行
 
 开关：`--batch`
 
 当你需要以批处理模式运行 sqlmap，避免任何用户干预 sqlmap 的运行，可以强制使用 `--batch` 这个开关。这样，当 sqlmap 需要用户输入信息时，都将会以默认参数运行。
 
-### 二进制内容检索
+## 二进制内容检索
 
 选项：`--binary-fields`
 
 为了便于检索存储二进制数值（例如：数据列 `password` 存储了密码哈希值二进制数据）的数据表字段的内容，可使用 `--binary-fields` 选项对该数据列进行（额外）适当处理。所有的这些数据域（例如：数据表的列）都将被取出并以十六进制格式展示，便于后续被其他工具（例如：`john`）处理。
 
-### 自定义 SQL（盲）注入字符集
+## 自定义 SQL（盲）注入字符集
 
 选项：`--charset`
 
 在布尔型盲注（Boolean-based blind）和时间型盲注（Time-based blind）中，用户可以强制使用自定义字符集来加快数据检索过程。例如，在导出消息摘要值（例如：SHA1）时，通过使用（例如）`--charset="0123456789abcdef"`，预期的请求数比常规运行大约少 30%。
 
-### 从目标 URL 开始爬取站点
+## 从目标 URL 开始爬取站点
 
 选项：`--crawl`
 
@@ -42,7 +42,7 @@ sqlmap 可以从给定的目标站点开始收集（抓取）存在潜在漏洞�
 
 针对 MySQL 目标的运行示例：
 
-```
+```shell
 $ python sqlmap.py -u "http://192.168.21.128/sqlmap/mysql/" --batch --crawl=3
 [...]
 [xx:xx:53] [INFO] starting crawler
@@ -58,25 +58,25 @@ $ python sqlmap.py -u "http://192.168.21.128/sqlmap/mysql/" --batch --crawl=3
 
 使用这个选项可以通过正则表达式来排除不想抓取的页面。例如，如果你想要跳过所有包含 `logout` 关键字的链接，你可以使用 `--crawl-exclude=logout`。
 
-### 指定 CSV 输出的分隔符
+## 指定 CSV 输出的分隔符
 
 选项：`--csv-del`
 
 当导出数据到 CSV 格式文件（`--dump-format=CSV`），数据条目需要使用“分隔符”（默认为 `,`）进行划分。如果用户想要覆盖默认分隔符，可以使用这个选项（例如：`--csv-del=";"`)。
 
-### DBMS（Database Management System，数据库管理系统）认证凭证
+## DBMS（Database Management System，数据库管理系统）认证凭证
 
 选项：`--dbms-cred`
 
 某些情况下，用户可能会因为当前 DBMS 用户的权限问题而导致操作失败，这时就可以使用这个选项。在这种情景下，如果用户使用这个选项来 `admin` 用户凭证，sqlmap 会尝试使用相应的认证信息与“以其他身份运行”机制（例如：Microsoft SQL Server 的 `OPENROWSET`）来重新运行。
 
-### 导出数据的格式
+## 导出数据的格式
 
 选项：`--dump-format`
 
 当导出数据表数据到输出目录的相应文件时，sqlmap 支持三种不同的数据导出格式：`CSV`，`HTML` 和 `SQLITE`。默认的输出格式是 `CSV`，每一条数据以 `,`（或者使用 `--csv-del` 指定其他符号）为分隔符逐行存储到文本文件中。如果是使用 `HTML` 格式，则输出会被存储为 HTML 文件，每行数据会被存储为表格的一行到 HTML 文件中。如果是使用 `SQLITE`，数据则会被存储到 SQLITE 数据库，原先的数据表会被转换成具有相同名字的 SQLITE 数据表。
 
-### 强制指定检索数据编码
+## 强制指定检索数据编码
 
 选项：`--encoding`
 
@@ -84,7 +84,7 @@ $ python sqlmap.py -u "http://192.168.21.128/sqlmap/mysql/" --batch --crawl=3
 
 尽管如此，有时候还是需要对编码进行指定，特别是当获取的数据包含国际化的非 ASCII 字符时（例如：`encoding=GBK`）。同时，需要注意的是，如果目标机器数据库存储的数据内容与数据库连接器编码不兼容，则会不可逆转地出现编码信息丢失的情况。
 
-### 预估完成时间
+## 预估完成时间
 
 开关：`--eta`
 
@@ -92,7 +92,7 @@ sqlmap 支持实时计算并显示获取查询结果的预估时间。如果使�
 
 针对 Oracle 目标进行布尔型盲注的例子：
 
-```
+```shell
 $ python sqlmap.py -u "http://192.168.136.131/sqlmap/oracle/get_int_bool.php?id\
 =1" -b --eta
 
@@ -106,7 +106,7 @@ $ python sqlmap.py -u "http://192.168.136.131/sqlmap/oracle/get_int_bool.php?id\
 
 接着：
 
-```
+```shell
 100% [===================================================] 64/64
 [hh:mm:53] [INFO] retrieved: Oracle Database 10g Enterprise Edition Release 10.2
 .0.1.0 - Prod
@@ -118,13 +118,13 @@ banner:    'Oracle Database 10g Enterprise Edition Release 10.2.0.1.0 - Prod'
 
 从上面可以看出，sqlmap 会先计算出查询结果的长度，然后预估完成的时间，并显示出完成的百分比及接收到的字符数。
 
-### 清空会话文件
+## 清空会话文件
 
 选项：`--flush-session`
 
 经过上面的相关描述，相信你已经熟悉了会话文件的相关概念，值得注意的是，你可以通过选项 `--flush-session` 来清空会话文件内容。这样你可以避免 sqlmap 默认的缓存机制。也可以手动移除相关的会话文件。
 
-### 解析并测试表单输入域
+## 解析并测试表单输入域
 
 开关：`--forms`
 
@@ -134,13 +134,13 @@ banner:    'Oracle Database 10g Enterprise Edition Release 10.2.0.1.0 - Prod'
 
 配合存在表单的目标 URL（`-u`）使用 sqlmap 的 `--forms` 开关，sqlmap 会自动为你请求对应目标 URL，解析相关的表单，并引导你基于表单输入域（参数）而非提供的目标 URL 进行 SQL 注入测试。
 
-### 忽略会话文件中的查询结果
+## 忽略会话文件中的查询结果
 
 开关：`--fresh-queries`
 
 经过上面的描述，相信你已经熟悉了会话文件的概念，值得注意的是，你可以使用`--fresh-queries` 这个开关忽略指定的会话文件。这样你就可以保持某次运行的特定会话文件内容不被修改，从而避免查询结果的重复尝试/恢复。
 
-### 使用 DBMS hex 函数获取数据
+## 使用 DBMS hex 函数获取数据
 
 开关：`--hex`
 
@@ -148,7 +148,7 @@ banner:    'Oracle Database 10g Enterprise Edition Release 10.2.0.1.0 - Prod'
 
 针对 PostgreSQL 目标的例子：
 
-```
+```shell
 $ python sqlmap.py -u "http://192.168.48.130/sqlmap/pgsql/get_int.php?id=1" --b\
 anner --hex -v 3 --parse-errors
 
@@ -164,18 +164,17 @@ eric: ":vtj:506f737467726553514c20382e332e39206f6e20693438362d70632d6c696e75782d
 676e752c20636f6d70696c656420627920474343206763632d342e332e7265616c20284465626961
 6e2032e332e322d312e312920342e332e32:nxb:" in <b>/var/www/sqlmap/libs/pgsql.inc.p
 hp</b> on line <b>35</b>'
-[xx:xx:15] [INFO] retrieved: PostgreSQL 8.3.9 on i486-pc-linux-gnu, compiled by 
-GCC gcc-4.3.real (Debian 4.3.2-1.1) 4.3.2
+[xx:xx:15] [INFO] retrieved: PostgreSQL 8.3.9 on i486-pc-linux-gnu, compiled by GCC gcc-4.3.real (Debian 4.3.2-1.1) 4.3.2
 [...]
 ```
 
-### 指定输出目录路径
+## 指定输出目录路径
 
 选项：`--output-dir`
 
 默认情况下，sqlmap 会将会话和结果文件存储在命名为 `output` 的子目录中。如果你想要使用不同的存储位置，可以用这个选项（例如：`--output-dir=/tmp`）。
 
-### 从响应页面中解析 DBMS 错误信息
+## 从响应页面中解析 DBMS 错误信息
 
 开关：`--parse-errors`
 
@@ -185,12 +184,11 @@ GCC gcc-4.3.real (Debian 4.3.2-1.1) 4.3.2
 
 针对 Microsoft SQL Server 目标的例子：
 
-```
+```shell
 $ python sqlmap.py -u "http://192.168.21.129/sqlmap/mssql/iis/get_int.asp?id=1"\
  --parse-errors
 [...]
-[xx:xx:17] [INFO] ORDER BY technique seems to be usable. This should reduce the 
-timeneeded to find the right number of query columns. Automatically extending th
+[xx:xx:17] [INFO] ORDER BY technique seems to be usable. This should reduce the timeneeded to find the right number of query columns. Automatically extending th
 e rangefor current UNION query injection technique test
 [xx:xx:17] [INFO] parsed error message: 'Microsoft OLE DB Provider for ODBC Driv
 ers (0x80040E14)
@@ -211,26 +209,26 @@ ers (0x80040E14)
 [...]
 ```
 
-### 预处理响应数据
+## 预处理响应数据
 
 选项：`--preprocess`
 
 使用此选项可在 sqlmap 检测引擎工作之前对（HTTP）响应数据使用预处理脚本（例如，解码数据或删除无用数据）。例如，将所有小写字符转换为大写的预处理脚本可以是：
 
-```
+```python
 #!/usr/bin/env
 
 def preprocess(page, headers=None, code=None):
     return page.upper() if page else page, headers, code
 ```
 
-### 保存相关选项到 INI 配置文件
+## 保存相关选项到 INI 配置文件
 
 选项：`--save`
 
 使用此开关可以将命令行上的相关选项保存到 INI 配置文件中。同时可以通过以上描述的 `-c` 选项对生成的文件进行编辑。
 
-### 更新 sqlmap
+## 更新 sqlmap
 
 开关：`--update`
 

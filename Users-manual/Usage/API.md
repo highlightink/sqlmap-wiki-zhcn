@@ -1,8 +1,8 @@
-## API（REST-JSON）
+# API（REST-JSON）
 
 sqlmap 可以通过 REST-JSON API 运行，即使用 JSON 格式的 REST（REpresentational State Transfer 的缩写）风格的 API 来进行服务器和客户端实例之间的通信。直白地讲，服务器使用 sqlmap 进行扫描，而客户端设置 sqlmap 选项/开关并将结果拉取回来。用于运行 API 的主程序文件是 `sqlmapapi.py`，而客户端可以在任意用户程序中进行实现。
 
-```
+```shell
 $ python sqlmapapi.py -hh
 Usage: sqlmapapi.py [options]
 
@@ -33,7 +33,7 @@ Options:
 
 运行服务器的示例：
 
-```
+```shell
 $ python sqlmapapi.py -s -H "0.0.0.0"
 [12:47:51] [INFO] Running REST-JSON API server at '0.0.0.0:8775'..
 [12:47:51] [INFO] Admin ID: 89fd118997840a9bd7fc329ab535b881
@@ -50,7 +50,7 @@ $ python sqlmapapi.py -s -H "0.0.0.0"
 
 运行客户端的示例：
 
-```
+```shell
 $ python sqlmapapi.py -c -H "192.168.110.1"
 [12:47:53] [DEBUG] Example client access from command line:
     $ taskid=$(curl http://192.168.110.1:8775/task/new 2>1 | grep -o -I '[a-f0-9

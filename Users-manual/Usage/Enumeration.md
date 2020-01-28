@@ -1,14 +1,14 @@
-## 枚举
+# 枚举
 
 以下选项可用于枚举后端 DBMS（Database Management System，数据库管理系统）信息、表结构和表中包含的数据。此外，你还可以运行自定义的SQL 语句。
 
-### 获取全部数据
+## 获取全部数据
 
 开关：`--all`
 
 当用户想要通过使用单个开关远程获取所有可访问数据信息，可以使用该开关。通常不建议这么做，因为它会产生大量的请求同时获取有用无用的数据。
 
-### Banner
+## 标语（Banner）
 
 开关：`-b` 或 `--banner`
 
@@ -16,7 +16,7 @@
 
 针对 Oracle 目标的示例：
 
-```
+```shell
 $ python sqlmap.py -u "http://192.168.136.131/sqlmap/oracle/get_int.php?id=1" -\
 -banner
 
@@ -27,19 +27,19 @@ back-end DBMS: Oracle
 banner:    'Oracle Database 10g Enterprise Edition Release 10.2.0.1.0 - Prod'
 ```
 
-### 当前会话用户
+## 当前会话用户
 
 开关：`--current-user`
 
 使用此开关，可以从 Web 应用程序中获取到当前正在执行相关数据库查询操作的 DBMS 用户。
 
-### 当前数据库
+## 当前数据库
 
 开关：`--current-db`
 
 使用此开关可以获取 Web 应用程序连接到的 DBMS 数据库名称。
 
-### 服务器主机名
+## 服务器主机名
 
 开关：`--hostname`
 
@@ -47,7 +47,7 @@ banner:    'Oracle Database 10g Enterprise Edition Release 10.2.0.1.0 - Prod'
 
 针对 MySQL 目标的示例：
 
-```
+```shell
 $ python sqlmap.py -u "http://192.168.136.131/sqlmap/mysql/get_int.php?id=1" --\
 hostname
 
@@ -57,19 +57,19 @@ hostname
 hostname:    'debian-5.0-i386'
 ```
 
-### 检测当前会话用户是否为数据库管理员
+## 检测当前会话用户是否为数据库管理员
 
 开关：`--is-dba`
 
 可以检测当前 DBMS 会话用户是否为数据库管理员，也称为 DBA。如果是，sqlmap 将返回 `True`，否则返回 `False`。
 
-### 列出 DBMS 所有用户
+## 列出 DBMS 所有用户
 
 开关：`--users`
 
 如果当前会话用户对包含 DBMS 用户信息的系统表有读取权限，可以枚举用户列表。
 
-### 列出和破解 DBMS 用户的密码哈希
+## 列出和破解 DBMS 用户的密码哈希
 
 开关：`--passwords`
 
@@ -77,7 +77,7 @@ hostname:    'debian-5.0-i386'
 
 针对 PostgreSQL 目标的示例：
 
-```
+```shell
 $ python sqlmap.py -u "http://192.168.136.131/sqlmap/pgsql/get_int.php?id=1" --\
 passwords -v 1
 
@@ -86,7 +86,7 @@ back-end DBMS: PostgreSQL
 [hh:mm:38] [INFO] fetching database users password hashes
 do you want to use dictionary attack on retrieved password hashes? [Y/n/q] y
 [hh:mm:42] [INFO] using hash method: 'postgres_passwd'
-what's the dictionary's location? [/software/sqlmap/txt/wordlist.txt] 
+what's the dictionary's location? [/software/sqlmap/txt/wordlist.txt]
 [hh:mm:46] [INFO] loading dictionary from: '/software/sqlmap/txt/wordlist.txt'
 do you want to use common password suffixes? (slow!) [y/N] n
 [hh:mm:48] [INFO] starting dictionary attack (postgres_passwd)
@@ -107,7 +107,7 @@ database management system users password hashes:
 
 你还可以使用 `-U` 选项来指定要枚举的特定用户，并破解其对应密码哈希。如果你提供 `CU` 作为用户名，它会将其视为当前用户的别名，并将获取此用户的密码哈希值。
 
-### 列出 DBMS 所有用户权限
+## 列出 DBMS 所有用户权限
 
 开关：`--privileges`
 
@@ -119,7 +119,7 @@ database management system users password hashes:
 
 在 Microsoft SQL Server 中，此功能将显示每个用户是否为数据库管理员，而不是所有用户的权限列表。
 
-### 列出 DBMS 所有用户角色
+## 列出 DBMS 所有用户角色
 
 开关：`--roles`
 
@@ -131,13 +131,13 @@ database management system users password hashes:
 
 此功能仅在 DBMS 为 Oracle 时可用。
 
-### 列出 DBMS 所有数据库
+## 列出 DBMS 所有数据库
 
 开关：`--dbs`
 
 如果当前会话用户对包含 DBMS 可用数据库信息的系统表有读取权限，则可以枚举出当前数据库列表。
 
-### 枚举数据表
+## 枚举数据表
 
 开关和选项：`--tables`，`--exclude-sysdbs` 和 `-D`
 
@@ -149,7 +149,7 @@ database management system users password hashes:
 
 注意，对于 Oracle，你需要提供 `TABLESPACE_NAME` 而不是数据库名称。
 
-### 枚举数据表的列名
+## 枚举数据表的列名
 
 开关和选项：`--columns`，`-C`，`-T` 和 `-D`
 
@@ -159,7 +159,7 @@ database management system users password hashes:
 
 针对 SQLite 目标的示例：
 
-```
+```shell
 $ python sqlmap.py -u "http://192.168.136.131/sqlmap/sqlite/get_int.php?id=1" -\
 -columns -D testdb -T users -C name
 [...]
@@ -177,7 +177,7 @@ Table: users
 
 注意，对于 PostgreSQL，你需要提供 `public` 或系统数据库的名称。这是因为不可能枚举其他数据库表，只能枚举出 Web 应用程序用户连接到的数据库模式下的表，它们总是以 `public` 为别名。
 
-### 枚举 DBMS 模式
+## 枚举 DBMS 模式
 
 开关：`--schema` 和 `--exclude-sysdbs`
 
@@ -185,7 +185,7 @@ Table: users
 
 针对 MySQL 目标的示例：
 
-```
+```shell
 $ python sqlmap.py -u "http://192.168.48.130/sqlmap/mysql/get_int.php?id=1" --s\
 chema--batch --exclude-sysdbs
 
@@ -241,7 +241,7 @@ Table: users
 [...]
 ```
 
-### 获取数据表的数据条目数
+## 获取数据表的数据条目数
 
 开关：`--count`
 
@@ -249,7 +249,7 @@ Table: users
 
 针对 Microsoft SQL Server 目标的示例：
 
-```
+```shell
 $ python sqlmap.py -u "http://192.168.21.129/sqlmap/mssql/iis/get_int.asp?id=1"\
  --count -D testdb
 [...]
@@ -262,7 +262,7 @@ Database: testdb
 +----------------+---------+
 ```
 
-### 导出数据表条目
+## 导出数据表条目
 
 开关和选项：`--dump`，`-C`，`-T`，`-D`，`--start`，`--stop`，`--first`，`--last`，`--pivot-column` 和 `--where`
 
@@ -272,7 +272,7 @@ Database: testdb
 
 针对 Firebird 目标的示例：
 
-```
+```shell
 $ python sqlmap.py -u "http://192.168.136.131/sqlmap/firebird/get_int.php?id=1"\
  --dump -T users
 [...]
@@ -305,7 +305,7 @@ sqlmap 还能会为每个表生成相应的 CSV 格式文本文件用于存储�
 
 正如你可能已经注意到的，sqlmap 非常**灵活**：你可以将让其自动导出整个数据库表，或者非常精确地导出特定字符、列和范围的条目。
 
-### 导出所有数据表条目
+## 导出所有数据表条目
 
 开关：`--dump-all` 和 `--exclude-sysdbs`
 
@@ -315,7 +315,7 @@ sqlmap 还能会为每个表生成相应的 CSV 格式文本文件用于存储�
 
 注意，对于 Microsoft SQL Server，`master` 数据库不被视为系统数据库，因为某些数据库管理员将其用作用户数据库。
 
-### 搜索列，表或数据库
+## 搜索列，表或数据库
 
 开关和选项：`--search`，`-C`，`-T`，`-D`
 
@@ -329,7 +329,7 @@ sqlmap 还能会为每个表生成相应的 CSV 格式文本文件用于存储�
 * `-T`，附带以逗号分隔的表名列表来搜索整个 DBMS。
 * `-D`，附带以逗号分隔的数据库名列表来搜索整个 DBMS。
 
-### 运行自定义 SQL 语句
+## 运行自定义 SQL 语句
 
 选项和开关：`--sql-query` 和 `--sql-shell`
 
@@ -339,7 +339,7 @@ SQL 查询和 SQL shell 功能允许在 DBMS 上运行任意 SQL 语句。sqlmap
 
 针对 Microsoft SQL Server 2000 目标的示例：
 
-```
+```shell
 $ python sqlmap.py -u "http://192.168.136.131/sqlmap/mssql/get_int.php?id=1" --\
 sql-query "SELECT 'foo'" -v 1
 
