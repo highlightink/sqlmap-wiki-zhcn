@@ -1,5 +1,7 @@
 # 注入
 
+> *译自：[Injection](https://github.com/sqlmapproject/sqlmap/wiki/Usage#injection)*
+
 以下选项用于指定需要测试的参数、提供自定义注入 payloads 和可选篡改脚本。
 
 ## 可测试参数

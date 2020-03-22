@@ -1,5 +1,7 @@
 # 访问 Windows 注册表
 
+> *译自：[Windows registry access](https://github.com/sqlmapproject/sqlmap/wiki/Usage#windows-registry-access)*
+
 当后端 DBMS（Database Management System，数据库管理系统）是 MySQL，PostgreSQL 或 Microsoft SQL Server 并且 Web 应用程序支持堆叠查询时，sqlmap 可以访问 Windows 注册表。此外，会话用户必须具备相应的访问权限。
 
 ## 读取 Windows 注册表键值

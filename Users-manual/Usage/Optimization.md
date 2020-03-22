@@ -1,8 +1,10 @@
-## 优化
+# 优化
+
+> *译自：[Optimization](https://github.com/sqlmapproject/sqlmap/wiki/Usage#optimization)*
 
 下面的开关可以用于优化 sqlmap 的性能表现。
 
-### 批量优化
+## 批量优化
 
 开关：`-o`
 
@@ -14,7 +16,7 @@
 
 查看下面内容获取更多关于开关设置的详情。
 
-### 输出预测
+## 输出预测
 
 开关：`--predict-output`
 
@@ -22,7 +24,7 @@
 
 值得注意的是，这个开关不能够和 `--threads` 一起使用。
 
-### HTTP Keep-Alive
+## HTTP Keep-Alive
 
 开关：`--keep-alive`
 
@@ -30,7 +32,7 @@
 
 值得注意的是，这个开关不能够和 `--proxy` 一起使用。
 
-### HTTP NULL 连接
+## HTTP NULL 连接
 
 开关：`--null-connection`
 
@@ -40,7 +42,7 @@
 
 值得注意的是，这个开关不能和 `--text-only` 一起使用。
 
-### 并发 HTTP(S) 请求
+## 并发 HTTP(S) 请求
 
 选项：`--threads`
 

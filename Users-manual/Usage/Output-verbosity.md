@@ -1,4 +1,6 @@
-## 输出详细等级
+# 输出详细等级
+
+> *译自：[Output verbosity](https://github.com/sqlmapproject/sqlmap/wiki/Usage#output-verbosity)*
 
 选项：`-v`
 

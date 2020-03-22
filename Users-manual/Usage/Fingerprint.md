@@ -1,5 +1,7 @@
 # 指纹识别
 
+> *译自：[Fingerprint](https://github.com/sqlmapproject/sqlmap/wiki/Usage#fingerprint)*
+
 ## 进行广泛的 DBMS（Database Management System，数据库管理系统）指纹识别
 
 开关: `-f` 或 `--fingerprint`

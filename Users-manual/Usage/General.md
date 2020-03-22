@@ -1,5 +1,7 @@
 # 常规选项
 
+> *译自：[General](https://github.com/sqlmapproject/sqlmap/wiki/Usage#general)*
+
 下面的选项用于设置 sqlmap 的常规参数。
 
 ## 从已存储（.sqlite）文件读取会话

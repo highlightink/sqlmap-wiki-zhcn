@@ -1,5 +1,7 @@
 # 特性
 
+> *译自：[Features](https://github.com/sqlmapproject/sqlmap/wiki/Features)*
+
 sqlmap 实现的功能特性包括：
 
 ## 通用特性

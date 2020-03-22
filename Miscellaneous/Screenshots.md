@@ -1,5 +1,7 @@
 # 截图
 
+> *译自：[Screenshots](https://github.com/sqlmapproject/sqlmap/wiki/Screenshots)*
+
 详细输出（选项 `-v` 设置为 `3`）：
 
 ![Verbose output set to 3](images/sqlmap_verbose_3.png)

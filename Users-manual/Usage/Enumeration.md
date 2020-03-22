@@ -1,5 +1,7 @@
 # 枚举
 
+> *译自：[Enumeration](https://github.com/sqlmapproject/sqlmap/wiki/Usage#enumeration)*
+
 以下选项可用于枚举后端 DBMS（Database Management System，数据库管理系统）信息、表结构和表中包含的数据。此外，你还可以运行自定义的SQL 语句。
 
 ## 获取全部数据
@@ -353,10 +355,10 @@ sql-query "SELECT 'foo'，'bar'" -v 2
 
 [...]
 [hh:mm:50] [INFO] fetching SQL SELECT query output: 'SELECT 'foo', 'bar''
-[hh:mm:50] [INFO] the SQL query provided has more than a field. sqlmap will now 
+[hh:mm:50] [INFO] the SQL query provided has more than a field. sqlmap will now
 unpack it into distinct queries to be able to retrieve the output even if we are
  going blind
-[hh:mm:50] [DEBUG] query: SELECT ISNULL(CAST((CHAR(102)+CHAR(111)+CHAR(111)) AS 
+[hh:mm:50] [DEBUG] query: SELECT ISNULL(CAST((CHAR(102)+CHAR(111)+CHAR(111)) AS
 VARCHAR(8000)), (CHAR(32)))
 [hh:mm:50] [INFO] retrieved: foo
 [hh:mm:50] [DEBUG] performed 27 queries in 0 seconds

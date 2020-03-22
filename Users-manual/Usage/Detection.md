@@ -1,5 +1,7 @@
 # 检测
 
+> *译自：[Detection](https://github.com/sqlmapproject/sqlmap/wiki/Usage#detection)*
+
 下面的相关选项可用于自定义检测环节。
 
 ## 级别

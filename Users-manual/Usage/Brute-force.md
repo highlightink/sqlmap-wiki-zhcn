@@ -1,5 +1,7 @@
 # 暴力破解
 
+> *译自：[Brute force](https://github.com/sqlmapproject/sqlmap/wiki/Usage#brute-force)*
+
 以下开关可用于暴力破解检查。
 
 ## 暴力破解表名

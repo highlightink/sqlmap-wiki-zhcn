@@ -1,5 +1,7 @@
 # 技术
 
+> *译自：[Techniques](https://github.com/sqlmapproject/sqlmap/wiki/Techniques)*
+
 sqlmap 可用于检测利用五种不同**类型**的 SQL 注入。
 
 * **布尔型盲注（Boolean-based blind）**：sqlmap 会替换或添加 SQL 语句到 HTTP 请求的查询参数里面，相关的 SQL 语句可能是合法的 `SELECT` 子查询，也可以是任意用于获取输出数据的 SQL 语句。针对每个注入检测的 HTTP 响应，sqlmap 通过对比原始请求响应的 headers/body，从而逐个字符地推导出注入语句的输出。或者，用户可以预先提供一个字符串或正则表达式，用于对正确页面结果进行匹配。sqlmap 内部实现了二分算法，使得输出中的每一个字符可在最多 7 个 HTTP 请求内被获取。如果请求响应结果不是简单的明文字符集，sqlmap 会采取更大范围的算法来检测输出。

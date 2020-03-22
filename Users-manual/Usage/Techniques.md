@@ -1,5 +1,7 @@
 # 技术
 
+> *译自：[Techniques](https://github.com/sqlmapproject/sqlmap/wiki/Usage#techniques)*
+
 以下选项可用于调整对特定 SQL 注入技术的测试。
 
 ## 测试会用到的 SQL 注入技术

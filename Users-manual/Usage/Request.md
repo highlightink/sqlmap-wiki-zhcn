@@ -1,14 +1,16 @@
-## 请求
+# 请求
+
+> *译自：[Request](https://github.com/sqlmapproject/sqlmap/wiki/Usage#request)*
 
 以下选项用于指定如何连接目标 URL。
 
-### HTTP 方法
+## HTTP 方法
 
 选项：`--method`
 
 sqlmap 能自动检测 HTTP 请求中使用的 HTTP 方法。然而在某些情况下，可能需要强制指定使用 sqlmap 自动化不会使用的 HTTP 方法（例如：`PUT`）。因而该选项是可能被用到的（例如：`--method=PUT`）。
 
-### HTTP 数据
+## HTTP 数据
 
 选项：`--data`
 
@@ -16,12 +18,12 @@ HTTP 请求默认使用的方法是 GET，你可以通过在请求中提供对�
 
 例如：
 
-```
+```shell
 $ python sqlmap.py -u "http://www.target.com/vuln.php" --data="id=1" -f --banne\
 r --dbs --users
 ```
 
-### 参数分隔符
+## 参数分隔符
 
 选项：`--param-del`
 
@@ -29,12 +31,12 @@ r --dbs --users
 
 例如：
 
-```
+```shell
 $ python sqlmap.py -u "http://www.target.com/vuln.php" --data="query=foobar;id=\
 1" --param-del=";" -f --banner --dbs --users
 ```
 
-### HTTP `Cookie` 请求头
+## HTTP `Cookie` 请求头
 
 选项和开关：`--cookie`，`--cookie-del`，`--load-cookies` 和 `--drop-set-cookie`
 
@@ -59,13 +61,13 @@ $ python sqlmap.py -u "http://www.target.com/vuln.php" --data="query=foobar;id=\
 
 注意，如果 `--level` 设置为 **2** 或更高，则 sqlmap 会对 HTTP `Cookie` 请求头进行 SQL 注入测试。详情请看下文。
 
-### HTTP `User-Agent` 请求头
+## HTTP `User-Agent` 请求头
 
 选项和开关：`--user-agent` 和 `--random-agent`
 
 默认情况下，sqlmap 使用以下 `User-Agent` 请求头值执行 HTTP 请求：
 
-```
+```text
 sqlmap/1.0-dev-xxxxxxx (http://sqlmap.org)
 ```
 
@@ -75,17 +77,17 @@ sqlmap/1.0-dev-xxxxxxx (http://sqlmap.org)
 
 一些站点会对 HTTP `User-Agent` 请求头值进行服务端检查，如果没有提供有效的 `User-Agent`，它的值不是常规值或被 Web 应用程序防火墙或类似防御系统列入黑名单，则服务端会拒绝 HTTP 响应。在这种情况下，sqlmap 将显示如下信息：
 
-```
-[hh:mm:20] [ERROR] the target URL responded with an unknown HTTP status code, try to 
+```log
+[hh:mm:20] [ERROR] the target URL responded with an unknown HTTP status code, try to
 force the HTTP User-Agent header with option --user-agent or --random-agent
 译：
-[hh:mm:20] [错误] 目标网址回复了未知的 HTTP 状态码，请尝试使用选项 --user-agent 或 
+[hh:mm:20] [错误] 目标网址回复了未知的 HTTP 状态码，请尝试使用选项 --user-agent 或
 --random-agent 强制指定 HTTP User-Agent 请求头
 ```
 
 注意，如果 `--level` 设置为 **3** 或以上，sqlmap 会对 HTTP `User-Agent` 请求头进行 SQL 注入测试。详情请看下文。
 
-### HTTP `Host` 请求头
+## HTTP `Host` 请求头
 
 选项：`--host`
 
@@ -93,7 +95,7 @@ force the HTTP User-Agent header with option --user-agent or --random-agent
 
 注意，如果 `--level` 设置为 **5** 或以上，sqlmap 会对 HTTP `User-Agent` 请求头进行 SQL 注入测试。详情请看下文。
 
-### HTTP `Referer` 请求头
+## HTTP `Referer` 请求头
 
 选项：`--referer`
 
@@ -101,7 +103,7 @@ force the HTTP User-Agent header with option --user-agent or --random-agent
 
 注意，如果 `--level` 设置为 **3** 或更高，sqlmap 会对 HTTP `Referer` 请求头进行 SQL 注入测试。详情请看下文。
 
-### 额外的 HTTP 请求头
+## 额外的 HTTP 请求头
 
 选项：`--headers`
 
@@ -109,7 +111,7 @@ force the HTTP User-Agent header with option --user-agent or --random-agent
 
 针对 MySQL 目标的示例：
 
-```
+```shell
 $ python sqlmap.py -u "http://192.168.21.128/sqlmap/mysql/get_int.php?id=1" -z \
 "ign,flu,bat,tec=E" --headers="Host:www.target.com\nUser-agent:Firefox 1.0" -v 5
 [...]
@@ -147,7 +149,7 @@ Connection: close
 [...]
 ```
 
-### HTTP 协议认证
+## HTTP 协议认证
 
 选项：`--auth-type` 和 `--auth-cred`
 
@@ -163,12 +165,12 @@ Connection: close
 
 一个符合语法的例子：
 
-```
+```shell
 $ python sqlmap.py -u "http://192.168.136.131/sqlmap/mysql/basic/get_int.php?id\
 =1" --auth-type Basic --auth-cred "testuser:testpass"
 ```
 
-### HTTP 协议私钥认证
+## HTTP 协议私钥认证
 
 选项：`--auth-file`
 
@@ -176,7 +178,7 @@ $ python sqlmap.py -u "http://192.168.136.131/sqlmap/mysql/basic/get_int.php?id\
 
 生成适用于 `--auth-file` 选项的 `key_file.txt` 文件示例：
 
-```
+```shell
 $ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout auth_file.key -out auth_file.pem &&\
 cat auth_file.key auth_file.pem > auth_file.txt && cat auth_file.txt
 Generating a 2048 bit RSA private key
@@ -249,13 +251,13 @@ VA==
 -----END CERTIFICATE-----
 ```
 
-### 忽略（有问题的）HTTP 错误码
+## 忽略（有问题的）HTTP 错误码
 
 选项 `--ignore-code`
 
 如果你测试的目标站点会偶尔返回 HTTP 错误码，这将影响 sqlmap 的正常运行（例如：401（未授权）），如果你想忽略它并继续测试，可以使用 `--ignore-code` 选项
 
-### HTTP(S) 代理
+## HTTP(S) 代理
 
 选项和开关：`--proxy`，`--proxy-cred`，`--proxy-file` 和 `--ignore-proxy`
 
@@ -267,7 +269,7 @@ VA==
 
 当你想要使用 sqlmap 对本地局域网目标进行测试时应该使用开关 `--ignore-proxy` 来绕过系统级的 HTTP(S) 代理服务。
 
-### Tor 匿名网络
+## Tor 匿名网络
 
 开关和选项：`--tor`，`--tor-port`，`--tor-type` 和 `--check-tor`
 
@@ -277,31 +279,31 @@ VA==
 
 强烈建议偶尔使用 `--check-tor` 来确保一切设置正确。有些情况下 Tor 包（例如：Vidalia（译者注：Vidalia 是 Tor 的图形界面管理工具，官方已经移除对它的支持））配置错误（或重置了以前的配置）会使你以为已经成功匿名。使用这个开关，sqlmap 将在对任何目标发起请求之前发送一个请求到[你正在使用 Tor？](https://check.torproject.org/)这个官方页面检查一切配置是否正常。如果检查失败，sqlmap 将警告你并直接退出。
 
-### 每个 HTTP 请求之间的延迟
+## 每个 HTTP 请求之间的延迟
 
 选项：`--delay`
 
 可以指定每个 HTTP(S) 请求之间等待的秒数。有效值是一个浮点数，例如 `0.5` 表示半秒。默认情况下，没有设置延迟。
 
-### 超时连接等待秒数
+## 超时连接等待秒数
 
 选项：`--timeout`
 
 可以指定 HTTP(S) 请求超时的等待秒数。有效值是一个浮点数，例如 10.5 表示十秒半。默认设置是 **30 秒**。
 
-### HTTP 连接超时最大重试次数
+## HTTP 连接超时最大重试次数
 
 选项：`--retries`
 
 可以指定 HTTP(S) 连接超时的最大重试次数。默认情况下，它最多重试**三次**。
 
-### 随机更改给定参数的值
+## 随机更改给定参数的值
 
 选项：`--randomize`
 
 可以指定在每个请求期间需要随机更改其值的参数名称。长度和类型由提供的原始值决定。
 
-### 使用正则表达式从指定的代理日志中提取目标
+## 使用正则表达式从指定的代理日志中提取目标
 
 选项：`--scope`
 
@@ -309,11 +311,11 @@ VA==
 
 有效语法示例：
 
-```
+```shell
 $ python sqlmap.py -l burp.log --scope="(www)?\.target\.(com|net|org)"
 ```
 
-### 避免因太多失败请求引发会话销毁
+## 避免因太多失败请求引发会话销毁
 
 选项：`--safe-url`，`--safe-post`，`--safe-req` 和 `--safe-freq`
 
@@ -328,25 +330,25 @@ $ python sqlmap.py -l burp.log --scope="(www)?\.target\.(com|net|org)"
 
 这样，sqlmap 将访问每个定义好数量请求的某个_安全_ URL，而不对其执行任何类型的注入。
 
-### 关闭对参数值的 URL 编码
+## 关闭对参数值的 URL 编码
 
 开关：`--skip-urlencode`
 
 根据参数的位置（例如：GET），其值可能会被默认进行 URL 编码。在某些情况下，后端 Web 服务器不遵循 RFC 标准，并要求以原始非编码形式发送参数值。在这种情况下可以使用 `--skip-urlencode`。
 
-### 绕过反 CSRF 防护
+## 绕过反 CSRF 防护
 
 选项：`--csrf-token` 和 `--csrf-url`
 
 许多站点有使用 token 的反 CSRF 防护，在每个页面的响应随机设置隐藏字段值。sqlmap 将自动尝试识别并绕过这种防护，同时支持 `--csrf-token` 和 `--csrf-url` 等选项用来做进一步调整。选项 `--csrf-token` 用于设置包含随机 token 的隐藏字段的名称。这在网站对这些字段使用非标准名称的情况下是非常有用的。选项 `--csrf-url` 用于从任意有效的 URL 地址获取 token 值。这在目标网址在初始地不包含必需的 token 值，而需要从其他地方提取时是非常有用的。
 
-### 强制使用 SSL/HTTPS
+## 强制使用 SSL/HTTPS
 
 开关：`--force-ssl`
 
 如果想要对目标强制使用 SSL/HTTPS 请求，可以使用此开关。在使用选项 `--crawl` 收集 URLs 或者使用选项 `-l` 提供 Burp 日志时，该开关是很有用的。
 
-### 在每个请求期间运行自定义的 Python 代码
+## 在每个请求期间运行自定义的 Python 代码
 
 选项：`--eval`
 
@@ -354,7 +356,7 @@ $ python sqlmap.py -l burp.log --scope="(www)?\.target\.(com|net|org)"
 
 例如：
 
-```
+```shell
 $ python sqlmap.py -u "http://www.target.com/vuln.php?id=1&hash=c4ca4238a0b9238\
 20dcc509a6f75849b" --eval="import hashlib;hash=hashlib.md5(id).hexdigest()"
 ```

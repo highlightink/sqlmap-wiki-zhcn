@@ -1,5 +1,7 @@
 # 杂项
 
+> *译自：[Miscellaneous](https://github.com/sqlmapproject/sqlmap/wiki/Usage#miscellaneous)*
+
 ## 使用短助记符
 
 选项：`-z`

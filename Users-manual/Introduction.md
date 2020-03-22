@@ -1,5 +1,7 @@
 # 介绍
 
+> *译自：[Introduction](https://github.com/sqlmapproject/sqlmap/wiki/Introduction)*
+
 ## 检测和利用 SQL 注入漏洞
 
 假设你正在进行 Web 应用审计，发现有某个 Web 页面接受来自用户端提供的动态数据，这些数据通过 `GET`，`POST` 或 `Cookie` 参数或 HTTP `User-Agent` 请求头发送。  
@@ -7,19 +9,19 @@
 
 简而言之，考虑下面的 url：
 
-```
+```shell
 http://192.168.136.131/sqlmap/mysql/get_int.php?id=1
 ```
 
 假设：
 
-```
+```shell
 http://192.168.136.131/sqlmap/mysql/get_int.php?id=1+AND+1=1
 ```
-    
+
 页面显示跟原来的一样（AND+1=1 条件取值为 **True**（译者注：url 编码中 `+` 会被转成空格）），而：
 
-```
+```shell
 http://192.168.136.131/sqlmap/mysql/get_int.php?id=1+AND+1=2
 ```  
 
@@ -31,7 +33,7 @@ http://192.168.136.131/sqlmap/mysql/get_int.php?id=1+AND+1=2
 
 重回上面的情景，根据以往经验，我们可以对 `get_ini.php` 页面中如何使用用户提交的参数值构建出相应的 `SELECT` 语句做一个大致的猜测。参考下面的 PHP 伪代码：
 
-```
+```shell
 $query = "SELECT [column name(s)] FROM [table name] WHERE id=" . $_REQUEST['id'];
 ```
 

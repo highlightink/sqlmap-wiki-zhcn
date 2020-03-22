@@ -1,5 +1,7 @@
 # 访问文件系统
 
+> *译自：[File system access](https://github.com/sqlmapproject/sqlmap/wiki/Usage#file-system-access)*
+
 ## 读取数据库服务器文件系统文件
 
 选项：`--file-read`
@@ -26,11 +28,11 @@ C:/example.exe file saved to:    '/software/sqlmap/output/192.168.136.129/files/
 C__example.exe'
 [...]
 
-$ ls -l output/192.168.136.129/files/C__example.exe 
+$ ls -l output/192.168.136.129/files/C__example.exe
 -rw-r--r-- 1 inquis inquis 2560 2011-MM-DD hh:mm output/192.168.136.129/files/C_
 _example.exe
 
-$ file output/192.168.136.129/files/C__example.exe 
+$ file output/192.168.136.129/files/C__example.exe
 output/192.168.136.129/files/C__example.exe: PE32 executable for MS Windows (GUI
 ) Intel 80386 32-bit
 ```

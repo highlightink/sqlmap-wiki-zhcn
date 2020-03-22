@@ -1,5 +1,7 @@
 # 相关会议的展示材料
 
+> *译自：[Presentations](https://github.com/sqlmapproject/sqlmap/wiki/Presentations)*
+
 * *sqlmap 的内部细节*，Miroslav 在 2017 年十月 14，举办于塞维利亚（西班牙）的 [Sec/Admin](https://www.secadmin.es/) 大会上展示的（[幻灯片](https://www.slideshare.net/stamparm/sqlmap-internals)）。
 * *sqlmap——为什么（不是如何）有用？* Miroslav 在 2015 年十月 14 日，举办于阿尔巴塞特（西班牙）的 [Navaja Negra & ConectaCon](http://navajanegra.com/) 大会上展示的（[幻灯片](http://www.slideshare.net/stamparm/sqlmap-why-not-how-it-works-53947145)）。
 * *sqlmap 中使用的启发式方法*，Miroslav 在 2013 年九月 19 日，举办于瓦拉日丁（克罗地亚）的 [FSec - FOI Security Symposium](http://fsec.foi.hr/) 大会上展示的[幻灯片](http://www.slideshare.net/stamparm/f-sec-2013miroslavstamparheuristicmethodsusedinsqlmap)。

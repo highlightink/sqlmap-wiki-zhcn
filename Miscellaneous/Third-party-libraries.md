@@ -1,4 +1,8 @@
-# thirdparty/ 目录中的第三方库
+# 第三方库
+
+> *译自：[Third party libraries](https://github.com/sqlmapproject/sqlmap/wiki/Third-party-libraries)*
+
+## `thirdparty/` 目录中的第三方库
 
 | 库 | 许可证 | 备注 | 开关 |
 | ------------ | ----------- | ----------- | ----------- |

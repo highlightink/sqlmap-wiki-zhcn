@@ -1,5 +1,7 @@
 # API（REST-JSON）
 
+> *译自：[API (REST-JSON)](https://github.com/sqlmapproject/sqlmap/wiki/Usage#api-rest-json)*
+
 sqlmap 可以通过 REST-JSON API 运行，即使用 JSON 格式的 REST（REpresentational State Transfer 的缩写）风格的 API 来进行服务器和客户端实例之间的通信。直白地讲，服务器使用 sqlmap 进行扫描，而客户端设置 sqlmap 选项/开关并将结果拉取回来。用于运行 API 的主程序文件是 `sqlmapapi.py`，而客户端可以在任意用户程序中进行实现。
 
 ```shell

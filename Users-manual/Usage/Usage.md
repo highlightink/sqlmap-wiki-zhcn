@@ -1,5 +1,7 @@
 # 用法
 
+> *译自：[Usage](https://github.com/sqlmapproject/sqlmap/wiki/Usage#usage)*
+
 ```text
 用法：python sqlmap.py [选项]
 

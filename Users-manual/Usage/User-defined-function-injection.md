@@ -1,5 +1,7 @@
 # 用户自定义函数注入
 
+> *译自：[User-defined function injection](https://github.com/sqlmapproject/sqlmap/wiki/Usage#user-defined-function-injection)*
+
 以下选项用于创建用户自定义函数。
 
 ## 注入用户自定义函数（UDF）

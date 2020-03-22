@@ -1,5 +1,7 @@
 # 目标
 
+> *译自：[Target](https://github.com/sqlmapproject/sqlmap/wiki/Usage#target)*
+
 至少提供以下其中一个选项，用于指定目标。
 
 ## 直连数据库

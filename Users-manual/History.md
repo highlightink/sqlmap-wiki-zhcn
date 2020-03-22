@@ -1,5 +1,7 @@
 # 历史
 
+> *译自：[History](https://github.com/sqlmapproject/sqlmap/wiki/History)*
+
 ## 2020
 
 * **一月 1 日**，发布稳定版本 [1.4](https://github.com/sqlmapproject/sqlmap/releases/tag/1.4)（[变更集](https://github.com/sqlmapproject/sqlmap/compare/1.3...1.4)，[问题列表](https://github.com/sqlmapproject/sqlmap/milestone/5?closed=1)）。

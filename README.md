@@ -2,7 +2,7 @@
 
 [![stars](https://img.shields.io/github/stars/itechub/sqlmap-wiki-zhcn.svg)](https://github.com/itechub/sqlmap-wiki-zhcn)
 [![updated](https://img.shields.io/github/last-commit/itechub/sqlmap-wiki-zhcn/master.svg?color=%23c16927&label=updated)](https://github.com/itechub/sqlmap-wiki-zhcn/commits/master)
-<img src="https://img.shields.io/badge/progress-100%25-green.svg" alt="progress">
+[![progress](https://img.shields.io/badge/progress-100%25-green.svg)](https://github.com/itechub/sqlmap-wiki-zhcn/commits/master)
 
 ![cover](cover_readme.jpg)
 
@@ -16,10 +16,11 @@
 git clone https://github.com/sqlmapproject/sqlmap.wiki.git
 ```
 
-当前翻译对应版本：
+当前译版
 
-- 日期：`2020-01-28 06:53`
-- Commit ID：`5dc89b2b0fd7f8820bb9b697c1645c020823f843`
+| 日期 | Commit ID |
+| --- | --- |
+| `2020-01-28 06:53` | `5dc89b2b0fd7f8820bb9b697c1645c020823f843` |
 
 ## sqlmap 官方站点
 
