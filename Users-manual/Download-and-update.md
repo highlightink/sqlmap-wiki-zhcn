@@ -8,6 +8,10 @@
 
     git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git sqlmap-dev
 
+或者，你可以从 [PyPI](https://pypi.org/project/sqlmap/) 仓库获取最新的（按月更新）软件包：
+
+    pip install --upgrade sqlmap
+
 在任意时刻，你可以通过下面的方式获取最新版本：
 
     python sqlmap.py --update

@@ -18,6 +18,53 @@ sqlmap 会在专用的输出目录中自动为每一个目标分别建立持久�
 
 这个选项主要用于调试——当你向开发人员提供潜在 bug 报告时，可把这个文件一并带上。
 
+## 为问题预设答案
+
+选项：`--answers`
+
+如果用户想要自动回答问题，即使使用了 `--batch` 选项，也可以通过在等号后提供一部分的问题和对应的回答来做到这一点。另外，不同问题的答案可以用分隔符 `,` 分割。
+
+针对 MySQL 目标的示例：
+
+```sh
+$ python sqlmap.py -u "http://192.168.22.128/sqlmap/mysql/get_int.php?id=1"--te\
+chnique=E --answers="extending=N" --batch
+[...]
+[xx:xx:56] [INFO] testing for SQL injection on GET parameter 'id'
+heuristic (parsing) test showed that the back-end DBMS could be 'MySQL'. Do you want to skip test payloads specific for other DBMSes? [Y/n] Y
+[xx:xx:56] [INFO] do you want to include all tests for 'MySQL' extending provide
+d level (1) and risk (1)? [Y/n] N
+[...]
+```
+
+### 声明（表明）参数中包含了 Base64 编码的数据
+
+选项：`--base64`
+
+在目标 Web 应用使用 Base64 编码来存储特定参数数据时（例如：用 Base64 来编码 JSON 字典），用户可以使用选项 `--base64` 声明，使 sqlmap 能正确地使用参数值进行测试。
+
+使用例子：（注意：`Base64('{"id": 1}') == 'eyJpZCI6IDF9'`）：
+
+```sh
+$ python sqlmap.py -u http://192.168.22.128/sqlmap/mysql/get_base64?value=eyJpZC\
+I6IDF9 -v 5 --base64=value
+[...]
+[23:43:35] [INFO] testing 'Boolean-based blind - Parameter replace (original valu
+e)'
+[23:43:35] [PAYLOAD] KFNFTEVDVCAoQ0FTRSBXSEVOICgzODY1PTUzMTQpIFRIRU4gJ3siaWQiOiAx
+fScgRUxTRSAoU0VMRUNUIDUzMTQgVU5JT04gU0VMRUNUIDE5MzIpIEVORCkp
+[23:43:35] [TRAFFIC OUT] HTTP request [#11]:
+GET /?value=KFNFTEVDVCAoQ0FTRSBXSEVOICgzODY1PTUzMTQpIFRIRU4gJ3siaWQiOiAxfScgRUxTR
+SAoU0VMRUNUIDUzMTQgVU5JT04gU0VMRUNUIDE5MzIpIEVORCkp HTTP/1.1
+Host: localhost
+Cache-control: no-cache
+Accept-encoding: gzip,deflate
+Accept: */*
+User-agent: sqlmap/1.4.4.3#dev (http://sqlmap.org)
+Connection: close
+[...]
+```
+
 ## 以非交互式模式运行
 
 开关：`--batch`

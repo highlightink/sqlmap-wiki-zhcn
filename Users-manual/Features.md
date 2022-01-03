@@ -6,7 +6,7 @@ sqlmap 实现的功能特性包括：
 
 ## 通用特性
 
-* 完全支持 **MySQL**，**Oracle**，**PostgreSQL**，**Microsoft SQL Server**，**Microsoft Access**，**IBM DB2**，**SQLite**，**Firebird**，**Sybase**，**SAP MaxDB**， **Informix**，**MariaDB**，**Percona**，**MemSQL**，**TiDB**，**CockroachDB**，**HSQLDB**，**H2**，**MonetDB**，**Apache Derby**，**Vertica**，**Mckoi**，**Presto** 和 **Altibase** 等 DBMS（Database Management System，数据库管理系统）。
+* 完全支持 **MySQL**，**Oracle**，**PostgreSQL**，**Microsoft SQL Server**，**Microsoft Access**，**IBM DB2**，**SQLite**，**Firebird**，**Sybase**，**SAP MaxDB**， **Informix**，**MariaDB**，**Percona**，**MemSQL**，**TiDB**，**CockroachDB**，**HSQLDB**，**H2**，**MonetDB**，**Apache Derby**，**Amazon Redshift**, **Vertica**，**Mckoi**，**Presto**，**Altibase**，**MimerSQL**，**CrateDB**，**Greenplum**，**Drizzle**，**Apache Ignite**，**Cubrid**，**InterSystems Cache**，**IRIS**，**eXtremeDB** 和 **FrontBase** 等 DBMS（Database Management System，数据库管理系统）。
 * 完全支持五种 SQL 注入技术：**布尔型盲注（Boolean-based blind）**，**时间型盲注（Time-based blind）**，**报错型注入（Error-based）**，**联合查询注入（UNION query-based）**和**堆叠查询（Stacked queries）注入**。
 * 支持通过提供 DBMS 凭证，IP 地址，端口和数据库名而非 SQL 注入**直接连接数据库**。
 * 支持用户提供单个目标 URL，通过 [Burp proxy](http://portswigger.net/suite/) 或 [WebScarab proxy](http://www.owasp.org/index.php/Category:OWASP_WebScarab_Project) 的请求日志文件批量获取目标地址列表，从文本文件获得完整的 HTTP 请求报文或使用 Google dork——使用 [Google](http://www.google.com) 查询并解析结果页面获取批量目标。也可以自定义正则表达式进行验证解析。

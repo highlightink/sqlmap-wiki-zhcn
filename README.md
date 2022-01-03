@@ -23,13 +23,13 @@ git clone https://github.com/sqlmapproject/sqlmap.wiki.git
 
 | 日期               | Commit ID                                  |
 | ------------------ | ------------------------------------------ |
-| `2020-01-28 06:53` | `5dc89b2b0fd7f8820bb9b697c1645c020823f843` |
+| `2020-04-16 05:49` | `706befb56d0fdc155f9f02ea6d796878141b2412` |
 
 ## sqlmap 官方站点
 
-- 官方网站：[sqlmap.org](http://sqlmap.org/)
-- GitHub 仓库：[github.com/sqlmapproject/sqlmap](https://github.com/sqlmapproject/sqlmap)
-- 用户手册：[sqlmap wiki](https://github.com/sqlmapproject/sqlmap/wiki)
+* 官方网站：[sqlmap.org](http://sqlmap.org/)
+* GitHub 仓库：[github.com/sqlmapproject/sqlmap](https://github.com/sqlmapproject/sqlmap)
+* 用户手册：[sqlmap wiki](https://github.com/sqlmapproject/sqlmap/wiki)
 
 ## 什么是 sqlmap？
 
@@ -61,5 +61,5 @@ sqlmap 是一款自动化检测与利用 SQL 注入漏洞的免费开源工具�
 
 ### 译者
 
-- [Octobug](https://github.com/Octobug)
-- [Shady](https://github.com/shady-robot)
+* [Octobug](https://github.com/Octobug)
+* [Shady](https://github.com/shady-robot)

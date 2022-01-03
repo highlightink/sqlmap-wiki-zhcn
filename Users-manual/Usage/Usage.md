@@ -223,6 +223,8 @@
 
     -s SESSIONFILE      从文件（.sqlite）中读入会话信息
     -t TRAFFICFILE      保存所有 HTTP 流量记录到指定文本文件
+    --answers=ANSWERS   预设回答（例如："quit=N,follow=N"）
+    --base64=BASE64P..  表明参数包含 Base64 编码的数据
     --batch             从不询问用户输入，使用默认配置
     --binary-fields=..  具有二进制值的结果字段（例如："digest"）
     --check-internet    在访问目标之前检查是否正常连接互联网
@@ -251,7 +253,6 @@
   杂项：
     -z MNEMONICS        使用短助记符（例如：“flu,bat,ban,tec=EU”）
     --alert=ALERT       在找到 SQL 注入时运行 OS 命令
-    --answers=ANSWERS   设置预定义回答（例如：“quit=N,follow=N”）
     --beep              出现问题提醒或在发现 SQL 注入时发出提示音
     --cleanup           指定移除 DBMS 中的特定的 UDF 或者数据表
     --dependencies      检查 sqlmap 缺少（可选）的依赖

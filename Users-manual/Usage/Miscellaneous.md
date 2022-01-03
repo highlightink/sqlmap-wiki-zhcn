@@ -42,25 +42,6 @@ com/vuln.php?id=1"
 
 选项：`--alert`
 
-## 为问题设置答案
-
-选项：`--answers`
-
-如果用户想要自动回答问题，即使使用了 `--batch` 选项，也可以通过在等号后提供一部分的问题和对应的回答来做到这一点。另外，不同问题的答案可以用分隔符 `,` 分割。
-
-针对 MySQL 目标的示例：
-
-```shell
-$ python sqlmap.py -u "http://192.168.22.128/sqlmap/mysql/get_int.php?id=1"--te\
-chnique=E --answers="extending=N" --batch
-[...]
-[xx:xx:56] [INFO] testing for SQL injection on GET parameter 'id'
-heuristic (parsing) test showed that the back-end DBMS could be 'MySQL'. Do you want to skip test payloads specific for other DBMSes? [Y/n] Y
-[xx:xx:56] [INFO] do you want to include all tests for 'MySQL' extending provide
-d level (1) and risk (1)? [Y/n] N
-[...]
-```
-
 ## 发现 SQL 注入时发出“哔”声
 
 开关：`--beep`
@@ -139,7 +120,7 @@ HTTP 参数污染（HPP）是一种绕过 WAF/IPS 防护机制（[这里](https:
 
 开关：`--identify-waf`
 
-sqlmap 可以尝试识别后端 WAF/IPS 防护（如果有），以便用户可以执行恰当的步骤（例如：通过选项 `--tamper` 使用篡改脚本）。目前，大约支持 30 种不同的产品（例如：Airlock，Barracuda WAF 等），可以在 `waf` 目录下找到它们对应的 WAF 脚本。
+sqlmap 可以尝试识别后端 WAF/IPS 防护（如果有），以便用户可以执行恰当的步骤（例如：通过选项 `--tamper` 使用篡改脚本）。目前大约支持 30 种不同的产品（例如：Airlock，Barracuda WAF 等），可以在 `waf` 目录下找到它们对应的 WAF 脚本。
 
 针对受 ModSecurity WAF 防护的 MySQL 目标示例：
 
@@ -248,11 +229,11 @@ $ python sqlmap.py --purge -v 3
 [...]
 ```
 
-## 只有在使用启发式检测时才进行彻底的测试
+## 只在使用启发式检测时才进行彻底的测试
 
 开关：`--smart`
 
-某些情况下，用户拥有大量潜在目标 URL（例如：使用选项 `-m`）列表，同时他想要尽快找到易受攻击的目标。如果使用了开关 `--smart`，则只有能引发 DBMS 错误的参数会在进一步的扫描中被使用。否则会被跳过。
+某些情况下，用户拥有大量潜在目标 URL（例如：使用选项 `-m`）列表，同时想要尽快找到易受攻击的目标。如果使用了开关 `--smart`，则只有能引发 DBMS 错误的参数会在进一步的扫描中被使用。否则会被跳过。
 
 针对 MySQL 目标的示例：
 

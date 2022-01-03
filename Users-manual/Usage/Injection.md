@@ -68,10 +68,21 @@ $ python sqlmap.py -u "http://targeturl" --cookie="param1=value1*;param2=value2"
 * H2
 * MonetDB
 * Apache Derby
+* Amazon Redshift
 * Vertica
 * Mckoi
 * Presto
 * Altibase
+* MimerSQL
+* CrateDB
+* Greenplum
+* Drizzle
+* Apache Ignite
+* Cubrid
+* InterSystems Cache
+* IRIS
+* eXtremeDB
+* FrontBase
 
 如果由于某些原因 sqlmap 已经识别出 SQL 注入却无法检测到后端 DBMS 类型，或者你想避免执行指纹信息收集，可以自己提供后端 DBMS 的名称（例如：`postgresql`）。对于 MySQL 和 Microsoft SQL Server 分别以 `MySQL <version>` 和 `Microsoft SQL Server <version>` 的形式提供，其中 `<version>` 是指 DBMS 的有效版本；例如 MySQL 为 `5.0`，Microsoft SQL Server 为 `2005`。
 
