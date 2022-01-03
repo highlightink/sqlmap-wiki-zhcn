@@ -1,0 +1,15 @@
+{
+  "readme": {
+    "cli": "https://github.com/igorshubovych/markdownlint-cli",
+    "rules": "https://github.com/DavidAnson/markdownlint",
+    "vscode": "https://github.com/DavidAnson/vscode-markdownlint"
+  },
+  "MD004": {
+    "style": "dash"
+  },
+  "MD013": {
+    "headings": false
+  },
+  "MD026": false,
+  "MD033": false
+}
