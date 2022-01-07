@@ -210,16 +210,14 @@ which smartphone do you want sqlmap to imitate through HTTP User-Agent header?
 
 开关：`--purge`
 
-While purging, all files from (sub)directories in data folder will be overwritten with random data, truncated, renamed to random names, (sub)directories will be renamed to random names too, and finally the whole directory tree will be deleted.
-
-如果用户决定安全删除 sqlmap data 目录（例如 `$HOME/.sqlmap`）中的所有内容，包括之前 sqlmap 运行过的所有目标详细信息，可以使用开关 `--purge`。在清除时，data 目录中的（子）目录中的所有文件将被随机数据覆盖、截断和被重命名为随意名，（子）目录也将被重命名为随意名，最后整个目录树将被删除。
+如果用户决定要安全地删除 sqlmap data 目录（例如 `$HOME/.local/share/sqlmap`）中的所有内容，包括之前 sqlmap 运行过的所有目标详细信息，可以使用开关 `--purge`。在清除时，data 目录中的（子）目录中的所有文件将被随机数据覆盖、截断和被重命名为随意名，（子）目录也将被重命名为随意名，最后整个目录树将被删除。
 
 运行示例：
 
 ```shell
 $ python sqlmap.py --purge -v 3
 [...]
-[xx:xx:55] [INFO] purging content of directory '/home/user/sqlmap'...
+[xx:xx:55] [INFO] purging content of directory '/home/testuser/.local/share/sqlmap'...
 [xx:xx:55] [DEBUG] changing file attributes
 [xx:xx:55] [DEBUG] writing random data to files
 [xx:xx:55] [DEBUG] truncating files

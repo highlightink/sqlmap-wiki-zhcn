@@ -23,7 +23,7 @@ git clone https://github.com/sqlmapproject/sqlmap.wiki.git
 
 | 日期               | Commit ID                                  |
 | ------------------ | ------------------------------------------ |
-| `2020-04-16 05:49` | `706befb56d0fdc155f9f02ea6d796878141b2412` |
+| `2020-09-10 22:38` | `03bb4e464e4051f59cef2f17e4c7c5bd4291a13b` |
 
 ## sqlmap 官方站点
 

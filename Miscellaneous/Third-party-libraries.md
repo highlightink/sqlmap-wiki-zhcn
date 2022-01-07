@@ -14,6 +14,7 @@
 | [thirdparty/colorama/](http://pypi.python.org/pypi/colorama) | BSD | 用于跨平台着色输出 | - |
 | [thirdparty/fcrypt/](http://carey.geek.nz/code/python-fcrypt/) | BSD | 用于破解通用密码哈希 | --passwords |
 | [thirdparty/gprof2dot/](http://code.google.com/p/jrfonseca/wiki/Gprof2Dot) | LGPL | 用于内部调试目的 | --profile |
+| [thirdparty/identywaf/](https://github.com/stamparm/identYwaf) | MIT | 用于识别 WAF/IPS 解决方案 | - |
 | [thirdparty/keepalive/](http://urlgrabber.baseurl.org/) | LGPL | 用于持久的 HTTP(s) 请求 | --keep-alive and -o |
 | [thirdparty/magic/](http://pypi.python.org/pypi/python-magic/) | PSF | 用于识别和显示日志消息中的文件类型 | --file-write |
 | [thirdparty/multipartpost/](http://pipe.scs.fsu.edu/PostHandler/MultipartPostHandler.py) | LGPL | 用于通过 Web 文件传输器上传文件 | --os-cmd, --os-shell, --os-pwn |
