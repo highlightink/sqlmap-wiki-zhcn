@@ -73,6 +73,16 @@ HTTP 请求文件数据样本如下：
 
 如果相关的请求是 HTTPS，你可以结合 `--force-ssl` 开关强制使用 SSL 进行 443/tcp 连接。或者，你可以在 `Host` 头部信息后面直接加上 `:443`。  
 
+## 从管道输入（如 `stdin`）中解析目标地址
+
+尽管 sqlmap 已经能自动爬取目标，为满足用户的其他偏好，用户可以将从其他工具（例如，[waybackurls](https://github.com/tomnomnom/waybackurls)）获取的目标地址作为管道输入提供给 sqlmap。值得注意的是，这类内容中的链接会被自动解析，因此输入格式不受限制。
+
+例如：
+
+```sh
+waybackurls www.target.com | python sqlmap.py
+```
+
 ## 使用 Google dork 结果作为目标地址
 
 选项：`-g`

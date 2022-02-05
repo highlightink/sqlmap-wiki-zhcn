@@ -2,12 +2,19 @@
 
 > *译自：[History](https://github.com/sqlmapproject/sqlmap/wiki/History)*
 
+## 2021
+
+* **一月 3 日**, 发布稳定版本 [1.5](https://github.com/sqlmapproject/sqlmap/releases/tag/1.5)（[变更集](https://github.com/sqlmapproject/sqlmap/compare/1.4...1.5)，[问题列表](https://github.com/sqlmapproject/sqlmap/milestone/6?closed=1)）。
+
 ## 2020
+
+* **十一月 7 日**，Miroslav 在 Bsides Chile 2020（在线）上做了题为 **sqlmap - “每次一小步”** 的分享（[幻灯片](https://www.slideshare.net/stamparm/sqlmap-one-tinystepatatime/stamparm/sqlmap-one-tinystepatatime)）。
 
 * **一月 1 日**，发布稳定版本 [1.4](https://github.com/sqlmapproject/sqlmap/releases/tag/1.4)（[变更集](https://github.com/sqlmapproject/sqlmap/compare/1.3...1.4)，[问题列表](https://github.com/sqlmapproject/sqlmap/milestone/5?closed=1)）。
 
 ## 2019
 
+* **三月 8 日**，[完成](https://github.com/sqlmapproject/sqlmap/issues/93#issuecomment-490458365)对 Python 3 的支持。
 * **一月 5 日**，发布稳定版本 [1.3](https://github.com/sqlmapproject/sqlmap/releases/tag/1.3)（[变更集](https://github.com/sqlmapproject/sqlmap/compare/1.2...1.3)）。
 
 ## 2018

@@ -30,6 +30,7 @@
     --param-del=PARA..  设置参数值分隔符（例如：&）
     --cookie=COOKIE     指定 HTTP Cookie（例如："PHPSESSID=a8d127e.."）
     --cookie-del=COO..  设置 cookie 分隔符（例如：;）
+    --live-cookies=L..  指定 Live cookies 文件以便加载最新的 Cookies 值
     --load-cookies=L..  指定以 Netscape/wget 格式存放 cookies 的文件
     --drop-set-cookie   忽略 HTTP 响应中的 Set-Cookie 参数
     --user-agent=AGENT  指定 HTTP User-Agent
@@ -242,7 +243,8 @@
     --hex               获取数据时使用 hex 转换
     --output-dir=OUT..  自定义输出目录路径
     --parse-errors      从响应中解析并显示 DBMS 错误信息
-    --preprocess=PRE..  使用给定脚本预处理响应数据
+    --preprocess=PRE..  使用给定脚本做前处理（请求）
+    --postprocess=PO..  使用给定脚本做后处理（响应）
     --repair            重新导出具有未知字符的数据（?）
     --save=SAVECONFIG   将选项设置保存到一个 INI 配置文件
     --scope=SCOPE       用正则表达式从提供的代理日志中过滤目标

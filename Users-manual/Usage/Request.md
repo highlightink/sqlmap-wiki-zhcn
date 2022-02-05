@@ -36,9 +36,9 @@ $ python sqlmap.py -u "http://www.target.com/vuln.php" --data="query=foobar;id=\
 1" --param-del=";" -f --banner --dbs --users
 ```
 
-## HTTP `Cookie` 请求头
+## HTTP `Cookie` 头部
 
-选项和开关：`--cookie`，`--cookie-del`，`--load-cookies` 和 `--drop-set-cookie`
+选项和开关：`--cookie`，`--cookie-del`，`--live-cookies`，`--load-cookies` 和 `--drop-set-cookie`
 
 这些选项和开关可用于以下两种情况：
 
@@ -56,6 +56,8 @@ $ python sqlmap.py -u "http://www.target.com/vuln.php" --data="query=foobar;id=\
 在通信期间的任何时刻，如果 Web 应用程序的响应包含 `Set-Cookie` 响应头，sqlmap 将在所有其他 HTTP 请求中自动使用它的值作为 `Cookie` 的值。sqlmap 也将自动测试这些值是否存在 SQL 注入漏洞。这个特性可以通过提供开关 `--drop-set-cookie` 来关闭——sqlmap 则会忽略任何 `Set-Cookie` 响应头。
 
 反之亦然，如果你提供一个带有选项 `--cookie` 的 HTTP `Cookie` 请求头，并且目标 URL 在任何时候都发送一个 HTTP `Set-Cookie` 响应头，sqlmap 会询问你使用哪一组 cookies 来用于接下来的 HTTP 请求。
+
+选项 `--live-cookies` 可用于提供一个 cookies 文件，该文件可用于加载最新的 cookies 值。这意味着它会在每个请求发起之前被读取，以获取最新的 HTTP `Cookie` 头部。
 
 还有一个选项 `--load-cookies`，可以从包含 Netscape/wget 格式 cookies 的特殊文件中读取 cookies。
 

@@ -21,10 +21,11 @@
 | [thirdparty/odict/](http://www.voidspace.org.uk/python/odict.html) | BSD | 内部使用 | - |
 | [thirdparty/pagerank/](http://code.google.com/p/corey-projects/) | MIT | 用于显示 Google dork 结果的页面排名 | -g |
 | [thirdparty/prettyprint/](http://code.google.com/p/python-httpclient-gui/) | MIT | 用于生成 XML 输出 | --xml, to be replaced by --report (#14) |
-| [thirdparty/pydes/](http://twhiteman.netfirms.com/des.html) | Free, public domain | 用于破解 Oracle 旧密码格式 | --passwords |
-| [thirdparty/six/](https://github.com/benjaminp/six) | MIT | 用于 Python 2 与 3 的兼容 | - |
+| [thirdparty/pydes/](http://twhiteman.netfirms.com/des.html) | Public domain | 用于破解 Oracle 旧密码格式 | --passwords |
+| [thirdparty/six/](https://github.com/benjaminp/six) | MIT | 用于兼容 Python 2/3 | - |
 | [thirdparty/socks/](http://socksipy.sourceforge.net/) | BSD | 用于通过 Tor SOCKS 代理隧道传输请求 | --tor-type and --proxy |
 | [thirdparty/termcolor/](http://pypi.python.org/pypi/termcolor) | MIT | 用于着色输出 | - |
+| [thirdparty/wininetpton/](https://github.com/hickeroar/win_inet_pton) | Public domain | 用于为 Windows OS 的 `inet_pton` 打补丁 | - |
 | [thirdparty/xdot/](http://code.google.com/p/jrfonseca/wiki/XDot) | LGPL | 用于内部调试目的 | --profile |
 
 ## extra/ 目录中的第三方库与工具

@@ -177,7 +177,7 @@ banner:    'Oracle Database 10g Enterprise Edition Release 10.2.0.1.0 - Prod'
 
 开关：`--forms`
 
-例如你需要针对_搜索框_进行 SQL 注入测试，或者你想绕过登录验证（通常是 _username_ 和 _password_ 两个输入框），你可以通过给 sqlmap 传入请求文件（`-r`），并设置好（`--data`）相关的提交数据，或者直接让 sqlmap 自动为你完成相关操作。
+例如你需要针对_搜索框_进行 SQL 注入测试，或者你想绕过登录验证（通常是 *username* 和 *password* 两个输入框），你可以通过给 sqlmap 传入请求文件（`-r`），并设置好（`--data`）相关的提交数据，或者直接让 sqlmap 自动为你完成相关操作。
 
 上面提及的两个实例，及其他 HTML 响应体中出现的 `<form>` 和 `<input>` 标签，都可以使用这个开关。
 
@@ -258,16 +258,30 @@ ers (0x80040E14)
 [...]
 ```
 
-## 预处理响应数据
+## 前处理（请求）
 
 选项：`--preprocess`
 
-使用此选项可在 sqlmap 检测引擎工作之前对（HTTP）响应数据使用预处理脚本（例如，解码数据或删除无用数据）。例如，将所有小写字符转换为大写的预处理脚本可以是：
+使用此选项，可在（HTTP）请求数据被发送之前先由给定的前处理脚本处理（如微调请求内容）。例如，追加 query 参数到 POST 请求体的前处理脚本如下：
 
-```python
-#!/usr/bin/env python#!/usr/bin/env
+```py
+#!/usr/bin/env python
 
-def preprocess(page, headers=None, code=None):
+def preprocess(req):
+    if req.data:
+        req.data += b'&foo=bar'
+```
+
+### 后处理（响应）
+
+响应：`--postprocess`
+
+使用此选项，可在 sqlmap 检测引擎之前先由后处理脚本处理（HTTP）响应数据（如解码数据或删除无用数据）。例如，将所有小写字符转换为大写的后处理脚本如下：
+
+```py
+#!/usr/bin/env python
+
+def postprocess(page, headers=None, code=None):
     return page.upper() if page else page, headers, code
 ```
 
