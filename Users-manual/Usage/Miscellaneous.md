@@ -321,13 +321,13 @@ M (S
 
 ## 交互式 sqlmap shell
 
-开关：`--sqlmap-shell`
+开关：`--shell`
 
-使用开关 `--sqlmap-shell`，用户可以看到交互式的 sqlmap shell，它具有所有以前运行的历史记录，包括使用过的选项和/或开关：
+使用开关 `--shell`，用户可以获取交互式 sqlmap shell，它包含所有先前运行的历史记录，包括使用过的选项和/或开关：
 
 ```shell
-$ python sqlmap.py --sqlmap-shell
-sqlmap-shell> -u "http://testphp.vulnweb.com/artists.php?artist=1" --technique=\
+$ python sqlmap.py --shell
+sqlmap > -u "http://testphp.vulnweb.com/artists.php?artist=1" --technique=\
 BEU --batch
          _
  ___ ___| |_____ ___ ___  {1.0-dev-2188502}

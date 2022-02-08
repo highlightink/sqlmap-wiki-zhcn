@@ -13,7 +13,6 @@
 | [thirdparty/clientform/](http://wwwsearch.sourceforge.net/old/ClientForm/) | BSD | 用于解析 HTML 表单 | --forms |
 | [thirdparty/colorama/](http://pypi.python.org/pypi/colorama) | BSD | 用于跨平台着色输出 | - |
 | [thirdparty/fcrypt/](http://carey.geek.nz/code/python-fcrypt/) | BSD | 用于破解通用密码哈希 | --passwords |
-| [thirdparty/gprof2dot/](http://code.google.com/p/jrfonseca/wiki/Gprof2Dot) | LGPL | 用于内部调试目的 | --profile |
 | [thirdparty/identywaf/](https://github.com/stamparm/identYwaf) | MIT | 用于识别 WAF/IPS 解决方案 | - |
 | [thirdparty/keepalive/](http://urlgrabber.baseurl.org/) | LGPL | 用于持久的 HTTP(s) 请求 | --keep-alive and -o |
 | [thirdparty/magic/](http://pypi.python.org/pypi/python-magic/) | PSF | 用于识别和显示日志消息中的文件类型 | --file-write |
@@ -26,7 +25,6 @@
 | [thirdparty/socks/](http://socksipy.sourceforge.net/) | BSD | 用于通过 Tor SOCKS 代理隧道传输请求 | --tor-type and --proxy |
 | [thirdparty/termcolor/](http://pypi.python.org/pypi/termcolor) | MIT | 用于着色输出 | - |
 | [thirdparty/wininetpton/](https://github.com/hickeroar/win_inet_pton) | Public domain | 用于为 Windows OS 的 `inet_pton` 打补丁 | - |
-| [thirdparty/xdot/](http://code.google.com/p/jrfonseca/wiki/XDot) | LGPL | 用于内部调试目的 | --profile |
 
 ## extra/ 目录中的第三方库与工具
 
