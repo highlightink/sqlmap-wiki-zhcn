@@ -13,7 +13,7 @@ sqlmap 实现的功能特性包括：
   **Amazon Redshift**, **Vertica**, **Mckoi**, **Presto**, **Altibase**,
   **MimerSQL**, **CrateDB**, **Greenplum**, **Drizzle**, **Apache Ignite**,
   **Cubrid**, **InterSystems Cache**, **IRIS**, **eXtremeDB**, **FrontBase**,
-  **Raima Database Manager** 和 **YugabyteDB**
+  **Raima Database Manager**, **YugabyteDB** 与 **Virtuoso**
   等 DBMS（Database Management System，数据库管理系统）。
 * 完全支持五种 SQL 注入技术：**布尔型盲注（Boolean-based blind）**，**时间型盲注（Time-based blind）**，**报错型注入（Error-based）**，**联合查询注入（UNION query-based）**和**堆叠查询（Stacked queries）注入**。
 * 支持通过提供 DBMS 凭证，IP 地址，端口和数据库名而非 SQL 注入**直接连接数据库**。

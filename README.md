@@ -19,11 +19,11 @@ GitBook 页面: [sqlmap.kvko.live][host]
 git clone https://github.com/sqlmapproject/sqlmap.wiki.git
 ```
 
-当前译版
+当前译版：
 
 | 日期               | Commit ID                                  |
 | ------------------ | ------------------------------------------ |
-| `2021-02-11 20:03` | `96be6f91dd0172bf0a1cb708b3fd9957bf9b4968` |
+| `2021-02-15 21:12` | `8ae684c2f338d0a986f220817fd8ef4862edca09` |
 
 ## sqlmap 官方站点
 
