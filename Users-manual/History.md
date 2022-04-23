@@ -2,6 +2,10 @@
 
 > *译自：[History](https://github.com/sqlmapproject/sqlmap/wiki/History)*
 
+## 2022
+
+* **一月 3 日**, 发布稳定版本 [1.6](https://github.com/sqlmapproject/sqlmap/releases/tag/1.6)（[变更集](https://github.com/sqlmapproject/sqlmap/compare/1.5...1.6)，[问题列表](https://github.com/sqlmapproject/sqlmap/milestone/7?closed=1)）。
+
 ## 2021
 
 * **一月 3 日**, 发布稳定版本 [1.5](https://github.com/sqlmapproject/sqlmap/releases/tag/1.5)（[变更集](https://github.com/sqlmapproject/sqlmap/compare/1.4...1.5)，[问题列表](https://github.com/sqlmapproject/sqlmap/milestone/6?closed=1)）。
