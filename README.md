@@ -2,18 +2,17 @@
 
 [![stars](https://img.shields.io/github/stars/kvko/sqlmap-wiki-zhcn.svg)](https://github.com/kvko/sqlmap-wiki-zhcn)
 [![updated](https://img.shields.io/github/last-commit/kvko/sqlmap-wiki-zhcn/master.svg?color=%23c16927&label=updated)](https://github.com/kvko/sqlmap-wiki-zhcn/commits/master)
-[![progress](https://img.shields.io/badge/progress-100%25-green.svg)](https://github.com/kvko/sqlmap-wiki-zhcn/commits/master)
 
-![cover](cover_readme.jpg)
+![封面](cover_readme.jpg)
 
 [repo]: https://github.com/kvko/sqlmap-wiki-zhcn
-[host]: https://sqlmap.kvko.live
+[host]: https://sqlmap.highlight.ink/
 
-GitBook 页面: [sqlmap.kvko.live][host]
+GitBook 页面: [sqlmap.highlight.ink][host]
 
-本文档包含 sqlmap 项目 wiki 的完整翻译，并将持续跟进。
+本文档包含 sqlmap 项目 Wiki 的完整翻译，并将持续跟进。
 
-获取官方 wiki 仓库：
+获取官方 Wiki 仓库：
 
 ```shell
 git clone https://github.com/sqlmapproject/sqlmap.wiki.git
@@ -29,7 +28,7 @@ git clone https://github.com/sqlmapproject/sqlmap.wiki.git
 
 * 官方网站：[sqlmap.org](http://sqlmap.org/)
 * GitHub 仓库：[github.com/sqlmapproject/sqlmap](https://github.com/sqlmapproject/sqlmap)
-* 用户手册：[sqlmap wiki](https://github.com/sqlmapproject/sqlmap/wiki)
+* 用户手册：[sqlmap Wiki](https://github.com/sqlmapproject/sqlmap/wiki)
 
 ## 什么是 sqlmap？
 
