@@ -13,13 +13,14 @@ sqlmap 实现的功能特性包括：
   **Amazon Redshift**, **Vertica**, **Mckoi**, **Presto**, **Altibase**,
   **MimerSQL**, **CrateDB**, **Greenplum**, **Drizzle**, **Apache Ignite**,
   **Cubrid**, **InterSystems Cache**, **IRIS**, **eXtremeDB**, **FrontBase**,
-  **Raima Database Manager**, **YugabyteDB**, **ClickHouse** 与 **Virtuoso**
+  **Raima Database Manager**, **YugabyteDB**, **Aurora**, **OpenGauss**,
+  **ClickHouse** 与 **Virtuoso**
   等 DBMS（Database Management System，数据库管理系统）。
 * 完全支持五种 SQL 注入技术：**布尔型盲注（Boolean-based blind）**，**时间型盲注（Time-based blind）**，**报错型注入（Error-based）**，**联合查询注入（UNION query-based）**和**堆叠查询（Stacked queries）注入**。
 * 支持通过提供 DBMS 凭证，IP 地址，端口和数据库名而非 SQL 注入**直接连接数据库**。
 * 支持用户提供单个目标 URL，通过 [Burp proxy](http://portswigger.net/suite/) 或 [WebScarab proxy](http://www.owasp.org/index.php/Category:OWASP_WebScarab_Project) 的请求日志文件批量获取目标地址列表，从文本文件获得完整的 HTTP 请求报文或使用 Google dork——使用 [Google](http://www.google.com) 查询并解析结果页面获取批量目标。也可以自定义正则表达式进行验证解析。
 * 可以测试并利用 **GET** 和 **POST** 参数，HTTP 头中的 **Cookie**，**User-Agent** 和 **Referer** 这些地方出现的 SQL 注入漏洞。也可以指定一个用英文逗号隔开的参数列表进行测试。
-* 支持自定义**最大 HTTP(S) 并发请求数（多线程）**以提高盲注的速度。同时，还可以设置每个 HTTP(S) 请求的间隔时间（秒）。当然，还有其他用来提高测试速度的相关优化选项。
+* 支持自定义**最大 HTTP(S) 并发请求数（多线程）**，以提高盲注的速度。同时，还可以设置每个 HTTP(S) 请求的间隔时间（秒）。当然，还有其他用来提高测试速度的相关优化选项。
 * 支持设置 **HTTP 头中的** `Cookie`，当你需要为基于 cookies 身份验证的目标 Web 应用提供验证凭证，或者是你想要对 cookies 这个头部参数进行测试和利用 SQL 注入时，这个功能是非常有用的。你还可以指定对 Cookie 进行 URL 编码。
 * 自动处理来自 Web 应用的 **HTTP** `Set-Cookie` 消息，并重建超时过期会话。这个参数也可以被测试和利用。反之亦然，你可以强制忽略任何 `Set-Cookie` 消息头信息。
 * 支持 HTTP **Basic，Digest，NTLM 和 Certificate authentications** 协议。
