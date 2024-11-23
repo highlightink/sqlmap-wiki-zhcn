@@ -1,11 +1,11 @@
 # sqlmap 用户手册中文版
 
-[![stars](https://img.shields.io/github/stars/kvko/sqlmap-wiki-zhcn.svg)](https://github.com/kvko/sqlmap-wiki-zhcn)
-[![updated](https://img.shields.io/github/last-commit/kvko/sqlmap-wiki-zhcn/master.svg?color=%23c16927&label=updated)](https://github.com/kvko/sqlmap-wiki-zhcn/commits/master)
+[![stars](https://img.shields.io/github/stars/highlightink/sqlmap-wiki-zhcn.svg)](https://github.com/highlightink/sqlmap-wiki-zhcn)
+[![updated](https://img.shields.io/github/last-commit/highlightink/sqlmap-wiki-zhcn/master.svg?color=%23c16927&label=updated)](https://github.com/highlightink/sqlmap-wiki-zhcn/commits/master)
 
 ![封面](cover_readme.jpg)
 
-[repo]: https://github.com/kvko/sqlmap-wiki-zhcn
+[repo]: https://github.com/highlightink/sqlmap-wiki-zhcn
 [host]: https://sqlmap.highlight.ink/
 
 GitBook 页面: [sqlmap.highlight.ink][host]
@@ -22,7 +22,7 @@ git clone https://github.com/sqlmapproject/sqlmap.wiki.git
 
 | 日期               | Commit ID                                  |
 | ------------------ | ------------------------------------------ |
-| `2024-01-04 06:29` | `8f43f666c02342554abbc02fc5b69d95082a1871` |
+| `2024-06-05 17:13` | `8c88828c1e21db570f4d27d41cedfc1f2894a06e` |
 
 ## sqlmap 官方站点
 

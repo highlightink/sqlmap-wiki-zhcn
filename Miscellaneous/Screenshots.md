@@ -30,10 +30,6 @@ DNS 渗出技术（选项 `--dns-domain`）：
 
 ![DNS exfiltration technique](images/sqlmap_dns_exfiltration.png)
 
-识别 WAF/IDS/IPS 防护（开关 `--identify-waf`）：
-
-![Identify WAF/IDS/IPS protection](images/sqlmap_identify_waf.png)
-
 HTTP 参数污染（开关 `--hpp`）：
 
 ![HTTP parameter pollution](images/sqlmap_hpp.png)
