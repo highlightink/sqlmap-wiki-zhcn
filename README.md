@@ -60,5 +60,4 @@ sqlmap 是一款自动化检测与利用 SQL 注入漏洞的免费开源工具�
 
 ### 译者
 
-* [Octobug](https://github.com/Octobug)
-* [Shady](https://github.com/shady-robot)
+[![Contributors](https://contrib.rocks/image?repo=highlightink/sqlmap-wiki-zhcn)](https://github.com/highlightink/sqlmap-wiki-zhcn/graphs/contributors)
